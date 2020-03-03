@@ -1,0 +1,154 @@
+@startuml
+
+title Transition firing
+
+participant Alice order 10
+participant transition order 20
+collections "transition observers" order 25
+collections arcs order 30
+participant "output place" order 33
+participant "input place" order 35
+collections observers order 40
+collections PresenceObservers order 38
+participant Token order 45
+collections "token observers" order 50
+collections "place observers" order 60
+
+Alice -> transition: fire()
+activate transition
+
+transition -> transition : isEnabled()
+
+alt true
+
+transition -> "transition observers": beforeFiring()
+activate "transition observers"
+return
+
+transition -> arcs: flow()
+activate arcs
+
+alt constructor arc
+arcs -> Token**: token = new()
+
+arcs -> observers++: observe(token)
+
+observers -> "token observers"**
+
+observers -> "token observers"++: reportConstruction()
+
+"token observers" -> Token++: attachObserver()
+return
+
+return
+
+return
+
+|||
+ref over arcs, "output place", Token, "token observers"
+push token to output place
+end ref
+|||
+
+else transfer arc
+|||
+ref over arcs, "output place", Token, "token observers"
+pop token from input place
+end ref
+|||
+ref over arcs, "output place", Token, "token observers"
+push token to output place
+end ref
+|||
+
+else destructor arc
+|||
+ref over arcs, "output place", Token, "token observers"
+pop token from input place
+end ref
+|||
+arcs -> Token: delete(token)
+activate Token
+Token -> "token observers"++: reportDestruction()
+"token observers" -> Token++: removeObserver(TokenObserver o)
+return
+return
+
+destroy Token
+return
+else test arc
+note over arcs: Nothing to do
+end
+
+return
+
+transition -> "transition observers": afterFiring()
+activate "transition observers"
+return
+
+transition --> Alice: normal return
+
+else false
+
+transition --> Alice: exception
+
+end
+
+deactivate
+
+newpage Push token to output place
+
+arcs -> "output place"++: push(token)
+
+"output place" -> Token++: moveTo(place)
+
+Token -> "token observers"++: reportArrivalAt(place)
+return
+
+return
+
+"output place" -> "place observers"++: reportArrivalOf(token)
+return
+
+alt Place was previously empty
+"output place" -> PresenceObservers++ : reportSomeToken()
+
+PresenceObservers -> transition++: decrementDisabledArcCount()
+alt after decrementing disabledArcCount == 0
+transition -> "transition observers"++: gotEnabled()
+return
+end
+return
+return
+end
+
+return
+
+newpage Pop token from input place
+
+arcs -> "input place"++: token = pop()
+
+"input place" -> Token++: removeFrom(place)
+
+Token -> "token observers"++: reportDepartureFrom(place)
+return
+
+return
+
+"input place" -> "place observers"++: reportDepartureOf(token)
+return
+
+alt Place has become empty
+"input place" -> PresenceObservers++ : reportNoToken()
+
+PresenceObservers -> transition++: incrementDisabledArcCount()
+alt before incrementing disabledArcCount == 0
+transition -> "transition observers"++: gotDisabled()
+return
+end
+return
+return
+end
+
+return
+@enduml

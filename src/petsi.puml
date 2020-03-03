@@ -1,0 +1,123 @@
+@startuml
+hide empty members
+
+namespace Structure {
+
+interface Place {
+    type
+    attachObserver(PlaceObserver o)
+    attachObserver(PresenceObserver o)
+    push(Token t)
+    Token pop()
+    Token peek()
+}
+
+class Transition{
+    name
+    priority
+    weight
+    deadline
+    disabledArcCount
+    attachObserver(TransitionObserver o)
+    bool isEnabled()
+    fire()
+    incrementDisabledArcCount()
+    decrementDisabledArcCount()
+}
+note left
+isEnabled() == True iff
+disabledArcCount == 0
+end note
+
+interface Condition{
+    isTrue()
+}
+
+class UpdateOp {
+    key
+    newValue
+    apply(Token t)
+}
+
+interface Arc {
+    name
+    isEnabled()
+    flow()
+}
+
+interface Token {
+    attachObserver(TokenObserver o)
+    removeObserver(TokenObserver o)
+    moveTo(Place p)
+    removeFrom(Place p)
+}
+interface TokenPlacer
+
+interface PresenceObserver {
+    reportNoToken()
+    reportSomeToken()
+}
+
+Place -l- "*" Token
+TestArc .u.|> Arc
+ConstructorArc  .u.|> Arc
+DestructorArc  .u.|> Arc
+Transfer  .u.|> Arc
+Transition *-- "*" Arc
+PresenceObserver "*" <-- Place : input
+TestArc .d.|> PresenceObserver
+ConstructorArc .d.|> TokenPlacer
+DestructorArc .d.|> PresenceObserver
+TokenPlacer "*" --> Place : output
+Transfer  .d.|> TokenPlacer
+Transfer  .d.|> PresenceObserver
+FIFO .u.|> Place
+LIFO .u.|> Place
+TokenPlacer *--> "*" Updater : updates
+Updater *--> Condition
+Updater *--> UpdateOp
+
+}
+
+namespace Simulation {
+class ESPNToken {
+    type
+    creationTime
+    arrivalTime
+}
+
+class Tag{
+    key
+    value
+}
+
+ESPNToken *-- "*" Tag : tags
+ESPNToken  ..|> Structure.Token
+
+}
+
+namespace Plugins {
+interface Observer {
+    PlaceObserver observe(Structure.Place p)
+    TokenObserver observe(Simulation.Token t)
+    TransitionObserver observe(Structure.Transition t)
+}
+interface PlaceObserver{
+    reportArrivalOf(token)
+    reportDepartureOf(token)
+}
+interface TokenObserver{
+    reportConstruction()
+    reportDestruction()
+    reportArrivalAt(Structure.Place p)
+    reportDepartureFrom(Structure.Place p)
+}
+interface TransitionObserver{
+    beforeFiring()
+    afterFiring()
+    gotEnabled()
+    gotDisabled()
+}
+
+}
+@enduml
