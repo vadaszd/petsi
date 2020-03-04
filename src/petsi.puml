@@ -3,7 +3,20 @@ hide empty members
 
 namespace Structure {
 
-interface Place {
+class Net {
+    addType(typeName)
+    addLIFOPlace(name, type)
+    addFIFOPlace(name, type)
+    addImmediateTransition(name, priority, weight)
+    addTimedTransition(name, firingDistribution)
+    addConstructor(name, transitionName, outputPlaceName)
+    addDestructor(name, transitionName, inputPlaceName)
+    addTransfer(name, transitionName, inputPlaceName, outputPlaceName)
+    addTestArc(name, transitionName, placeName)
+}
+
+abstract class Place {
+    name
     type
     attachObserver(PlaceObserver o)
     attachObserver(PresenceObserver o)
@@ -24,7 +37,7 @@ class Transition{
     incrementDisabledArcCount()
     decrementDisabledArcCount()
 }
-note left
+note right
 isEnabled() == True iff
 disabledArcCount == 0
 end note
@@ -39,18 +52,24 @@ class UpdateOp {
     apply(Token t)
 }
 
-interface Arc {
+abstract class Arc {
     name
     isEnabled()
     flow()
 }
 
-interface Token {
+class Token {
+    type
     attachObserver(TokenObserver o)
     removeObserver(TokenObserver o)
     moveTo(Place p)
     removeFrom(Place p)
 }
+class Tag{
+    key
+    value
+}
+
 interface TokenPlacer
 
 interface PresenceObserver {
@@ -58,12 +77,19 @@ interface PresenceObserver {
     reportSomeToken()
 }
 
+Net *-- "*" Place
+Net *-- "*" Transition
+Net *-- "*" Plugins.Observer: observers
 Place -l- "*" Token
+Token *-- "*" Plugins.TokenObserver
+Token *-- "*" Tag : tags
+Place *-- "*" Plugins.PlaceObserver
 TestArc .u.|> Arc
 ConstructorArc  .u.|> Arc
 DestructorArc  .u.|> Arc
 Transfer  .u.|> Arc
 Transition *-- "*" Arc
+Transition *-- "*" Plugins.TransitionObserver
 PresenceObserver "*" <-- Place : input
 TestArc .d.|> PresenceObserver
 ConstructorArc .d.|> TokenPlacer
@@ -77,23 +103,28 @@ TokenPlacer *--> "*" Updater : updates
 Updater *--> Condition
 Updater *--> UpdateOp
 
+
 }
 
 namespace Simulation {
-class ESPNToken {
-    type
+class ESPNObserver{
+    currentTime
+}
+
+class TransitionObserver
+
+class TokenObserver {
     creationTime
     arrivalTime
 }
 
-class Tag{
-    key
-    value
-}
-
-ESPNToken *-- "*" Tag : tags
-ESPNToken  ..|> Structure.Token
-
+ESPNObserver *-- "*" TransitionObserver
+ESPNObserver *-- "*" TokenObserver
+ESPNObserver *-- "*" PlaceObserver
+ESPNObserver ..|> Plugins.Observer
+TransitionObserver ..|> Plugins.TransitionObserver
+TokenObserver ..|> Plugins.TokenObserver
+PlaceObserver ..|> Plugins.PlaceObserver
 }
 
 namespace Plugins {
