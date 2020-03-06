@@ -4,26 +4,32 @@ hide empty members
 namespace Structure {
 
 class Net {
+    name
     addType(typeName)
-    addLIFOPlace(name, type)
-    addFIFOPlace(name, type)
+    addPlace(name, type, policy)
     addImmediateTransition(name, priority, weight)
     addTimedTransition(name, firingDistribution)
     addConstructor(name, transitionName, outputPlaceName)
     addDestructor(name, transitionName, inputPlaceName)
     addTransfer(name, transitionName, inputPlaceName, outputPlaceName)
-    addTestArc(name, transitionName, placeName)
+    addTest(name, transitionName, placeName)
 }
 
 abstract class Place {
     name
-    type
     attachObserver(PlaceObserver o)
     attachObserver(PresenceObserver o)
     push(Token t)
     Token pop()
     Token peek()
 }
+
+note as placeNote
+All arcs connected
+to a place must have
+the type of the place
+end note
+placeNote .. Place
 
 class Transition{
     name
@@ -59,7 +65,6 @@ abstract class Arc {
 }
 
 class Token {
-    type
     attachObserver(TokenObserver o)
     removeObserver(TokenObserver o)
     moveTo(Place p)
@@ -77,9 +82,12 @@ interface PresenceObserver {
     reportSomeToken()
 }
 
-Net *-- "*" Place
-Net *-- "*" Transition
-Net *-- "*" Plugins.Observer: observers
+Net *-- "*" Type: types
+Net *--> "*" Place: places
+Net *--> "*" Transition: transitions
+Net *--> "*" Plugins.Observer: observers
+Type <-- "*" Arc
+Type <-- "*" Place
 Place -l- "*" Token
 Token *-- "*" Plugins.TokenObserver
 Token *-- "*" Tag : tags
@@ -129,6 +137,7 @@ PlaceObserver ..|> Plugins.PlaceObserver
 
 namespace Plugins {
 interface Observer {
+    name
     PlaceObserver observe(Structure.Place p)
     TokenObserver observe(Simulation.Token t)
     TransitionObserver observe(Structure.Transition t)
