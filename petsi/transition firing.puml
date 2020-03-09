@@ -29,19 +29,15 @@ transition -> arcs: flow()
 activate arcs
 
 alt constructor arc
-arcs -> Token**: token = new()
+arcs -> Token**++: token = new(type)
 
-arcs -> observers++: observe(token)
-
+Token -> observers++: observe(token)
 observers -> "token observers"**
-
-observers -> "token observers"++: reportConstruction()
-
-"token observers" -> Token++: attachObserver()
 return
 
-return
+Token -> Token: attachObserver()
 
+Token -> "token observers"++: reportConstruction()
 return
 
 |||
@@ -67,12 +63,12 @@ ref over arcs, "output place", Token, "token observers"
 pop token from input place
 end ref
 |||
-arcs -> Token: delete(token)
+arcs -> Token: delete()
 activate Token
 Token -> "token observers"++: reportDestruction()
-"token observers" -> Token++: removeObserver(TokenObserver o)
+destroy "token observers"
 return
-return
+Token -> Token: removeObserver(TokenObserver o)
 
 destroy Token
 return

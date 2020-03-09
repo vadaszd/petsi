@@ -65,10 +65,11 @@ abstract class Arc {
 }
 
 class Token {
-    attachObserver(TokenObserver o)
-    removeObserver(TokenObserver o)
+    -attachObserver(TokenObserver o)
+    -removeObserver(TokenObserver o)
     moveTo(Place p)
     removeFrom(Place p)
+    delete()
 }
 class Tag{
     key
@@ -92,13 +93,11 @@ Place -l- "*" Token
 Token *-- "*" Plugins.TokenObserver
 Token *-- "*" Tag : tags
 Place *-- "*" Plugins.PlaceObserver
-TestArc .u.|> Arc
-ConstructorArc  .u.|> Arc
-DestructorArc  .u.|> Arc
-Transfer  .u.|> Arc
+TokenPlacer .u.|> Arc
+PresenceObserver .u.|> Arc
 Transition *-- "*" Arc
 Transition *-- "*" Plugins.TransitionObserver
-PresenceObserver "*" <-- Place : input
+PresenceObserver "*" -- Place : input
 TestArc .d.|> PresenceObserver
 ConstructorArc .d.|> TokenPlacer
 DestructorArc .d.|> PresenceObserver
