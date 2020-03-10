@@ -1,17 +1,18 @@
+from . import Plugins
+
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING, Set, Dict
 
-from typing import TYPE_CHECKING
 if TYPE_CHECKING:
-    from typing import TYPE_CHECKING, Set, Dict
-    from petsi import Structure, Plugins
+    from . import Structure
 
 
-@dataclass
+@dataclass(eq=False)
 class ESPNObserver(Plugins.Observer):
     currentTime: float = field(default=0.0)
-    _place_observers: Dict[str, PlaceObserver] = field(init=False)
-    _transition_observers: Dict[str, TransitionObserver] = field(init=False)
-    _token_observers: Set[TokenObserver] = field(init=False)
+    _place_observers: Dict[str, Plugins.PlaceObserver] = field(init=False)
+    _transition_observers: Dict[str, "TransitionObserver"] = field(init=False)
+    _token_observers: Set["TokenObserver"] = field(init=False)
 
     def observe_place(self, p: "Structure.Place") -> Plugins.PlaceObserver:
         self._place_observers[p.name] = o = PlaceObserver(p)
@@ -27,7 +28,7 @@ class ESPNObserver(Plugins.Observer):
         return o
 
 
-@dataclass
+@dataclass(eq=False)
 class PlaceObserver(Plugins.PlaceObserver):
     place: "Structure.Place"
 
@@ -36,7 +37,7 @@ class PlaceObserver(Plugins.PlaceObserver):
     def report_departure_of(self, token): pass
 
 
-@dataclass
+@dataclass(eq=False)
 class TransitionObserver(Plugins.TransitionObserver):
     transition: "Structure.Transition"
 
@@ -49,7 +50,7 @@ class TransitionObserver(Plugins.TransitionObserver):
     def got_disabled(self, ): pass
 
 
-@dataclass
+@dataclass(eq=False)
 class TokenObserver(Plugins.TokenObserver):
     token: "Structure.Token"
     creationTime: float = field(init=False)

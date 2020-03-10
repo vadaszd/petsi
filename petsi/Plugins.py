@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     # noinspection PyUnresolvedReferences
-    from petsi import Structure
+    from . import Structure
 
 
 class PlaceObserver(ABC):
@@ -46,7 +46,7 @@ class TransitionObserver(ABC):
     def got_disabled(self, ): pass
 
 
-@dataclass
+@dataclass(eq=False)
 class Observer(ABC):
     name: str
 
