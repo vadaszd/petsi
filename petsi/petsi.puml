@@ -86,7 +86,7 @@ interface PresenceObserver {
 Net *-- "*" Type: types
 Net *--> "*" Place: places
 Net *--> "*" Transition: transitions
-Net *--> "*" Plugins.Observer: observers
+Net *--> "*" Plugins.AbstractPlugin: observers
 Type <-- "*" Arc
 Type <-- "*" Place
 Place -l- "*" Token
@@ -114,7 +114,7 @@ Updater *--> UpdateOp
 }
 
 namespace Simulation {
-class ESPNObserver{
+class ESPNPlugin{
     currentTime
 }
 
@@ -125,17 +125,17 @@ class TokenObserver {
     arrivalTime
 }
 
-ESPNObserver *-- "*" TransitionObserver
-ESPNObserver *-- "*" TokenObserver
-ESPNObserver *-- "*" PlaceObserver
-ESPNObserver ..|> Plugins.Observer
+ESPNPlugin *-- "*" TransitionObserver
+ESPNPlugin *-- "*" TokenObserver
+ESPNPlugin *-- "*" PlaceObserver
+ESPNPlugin ..|> Plugins.AbstractPlugin
 TransitionObserver ..|> Plugins.TransitionObserver
 TokenObserver ..|> Plugins.TokenObserver
 PlaceObserver ..|> Plugins.PlaceObserver
 }
 
 namespace Plugins {
-interface Observer {
+interface AbstractPlugin {
     name
     PlaceObserver observe(Structure.Place p)
     TokenObserver observe(Simulation.Token t)

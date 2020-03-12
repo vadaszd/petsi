@@ -1,9 +1,10 @@
 from petsi import Net
 
-import unittest
+from unittest import TestCase, main
+from unittest.mock import Mock
 
 
-class StructureTest(unittest.TestCase):
+class StructureTest(TestCase):
     def test_net_building(self):
         net = Net("test net")
         self.assertEqual(net.name, "test net")
@@ -58,6 +59,38 @@ class StructureTest(unittest.TestCase):
 
         net.add_transfer("transfers", "t1", "place 1", "place 2")
 
+    def test_net_building_attaches_observers(self):
+        net = Net("test net")
+        net.add_type("my type")
+
+        observer = Mock()
+        observer.configure_mock(name='observer #1')
+        observer.observe_place = Mock(return_value="place observer")
+        observer.observe_transition = Mock(return_value="transition observer")
+
+        net.register_observer(observer)
+        with self.assertRaisesRegex(ValueError, "An observer with name 'observer #1' is already registered."):
+            net.register_observer(observer)
+
+        p1 = net.add_place("place 1", "my type", "FIFO")
+        observer.observe_place.assert_called_with(p1)
+        self.assertTrue("place observer" in p1._place_observers)
+
+        t1 = net.add_immediate_transition("t1", 1, 1.)
+        observer.observe_transition.assert_called_with(t1)
+        self.assertTrue("transition observer" in t1._transition_observers)
+
+        observer2 = Mock()
+        observer2.configure_mock(name='observer #2')
+        observer2.observe_place = Mock(return_value="place observer #2")
+        observer2.observe_transition = Mock(return_value="transition observer #2")
+
+        net.register_observer(observer2)
+        observer2.observe_place.assert_called_with(p1)
+        self.assertTrue("place observer #2" in p1._place_observers)
+        observer2.observe_transition.assert_called_with(t1)
+        self.assertTrue("transition observer #2" in t1._transition_observers)
+
 
 if __name__ == '__main__':
-    unittest.main()
+    main()

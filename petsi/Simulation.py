@@ -1,31 +1,24 @@
 from . import Plugins
 
 from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Set, Dict
+from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from . import Structure
 
 
 @dataclass(eq=False)
-class ESPNObserver(Plugins.Observer):
+class ESPNPlugin(Plugins.AbstractPlugin):
     currentTime: float = field(default=0.0)
-    _place_observers: Dict[str, Plugins.PlaceObserver] = field(init=False)
-    _transition_observers: Dict[str, "TransitionObserver"] = field(init=False)
-    _token_observers: Set["TokenObserver"] = field(init=False)
 
-    def observe_place(self, p: "Structure.Place") -> Plugins.PlaceObserver:
-        self._place_observers[p.name] = o = PlaceObserver(p)
-        return o
+    def place_observer_factory(self, p: "Structure.Place") -> Plugins.PlaceObserver:
+        return PlaceObserver(p)
 
-    def observe_token(self, t: "Structure.Token") -> Plugins.TokenObserver:
-        o = TokenObserver(t)
-        self._token_observers.add(o)
-        return o
+    def token_observer_factory(self, t: "Structure.Token") -> Plugins.TokenObserver:
+        return TokenObserver(t)
 
-    def observe_transition(self, t: "Structure.Transition") -> Plugins.TransitionObserver:
-        self._transition_observers[t.name] = o = TransitionObserver(t)
-        return o
+    def transition_observer_factory(self, t: "Structure.Transition") -> Plugins.TransitionObserver:
+        return TransitionObserver(t)
 
 
 @dataclass(eq=False)
@@ -64,10 +57,10 @@ class TokenObserver(Plugins.TokenObserver):
 
     def report_departure_from(self, p: "Structure.Place"): pass
 
-# ESPNObserver *-- "*" TransitionObserver
-# ESPNObserver *-- "*" TokenObserver
-# ESPNObserver *-- "*" PlaceObserver
-# ESPNObserver ..|> Plugins.Observer
+# ESPNPlugin *-- "*" TransitionObserver
+# ESPNPlugin *-- "*" TokenObserver
+# ESPNPlugin *-- "*" PlaceObserver
+# ESPNPlugin ..|> Plugins.AbstractPlugin
 # TransitionObserver ..|> Plugins.TransitionObserver
 # TokenObserver ..|> Plugins.TokenObserver
 # PlaceObserver ..|> Plugins.PlaceObserver

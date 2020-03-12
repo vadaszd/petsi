@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict, Set
 
 if TYPE_CHECKING:
     # noinspection PyUnresolvedReferences
@@ -47,15 +47,31 @@ class TransitionObserver(ABC):
 
 
 @dataclass(eq=False)
-class Observer(ABC):
+class AbstractPlugin(ABC):
     name: str
 
-    @abstractmethod
-    def observe_place(self, p: "Structure.Place") -> PlaceObserver: pass
+    _place_observers: Dict[str, PlaceObserver] = field(init=False)
+    _transition_observers: Dict[str, TransitionObserver] = field(init=False)
+    _token_observers: Set[TokenObserver] = field(init=False)
 
     @abstractmethod
-    def observe_token(self, t: "Structure.Token") -> TokenObserver: pass
+    def place_observer_factory(self, p: "Structure.Place") -> PlaceObserver: pass
 
     @abstractmethod
-    def observe_transition(self, t: "Structure.Transition") -> TransitionObserver: pass
+    def token_observer_factory(self, t: "Structure.Token") -> TokenObserver: pass
 
+    @abstractmethod
+    def transition_observer_factory(self, t: "Structure.Transition") -> TransitionObserver: pass
+
+    def observe_place(self, p: "Structure.Place") -> PlaceObserver:
+        self._place_observers[p.name] = o = self.place_observer_factory(p)
+        return o
+
+    def observe_token(self, t: "Structure.Token") -> TokenObserver:
+        o = self.token_observer_factory(t)
+        self._token_observers.add(o)
+        return o
+
+    def observe_transition(self, t: "Structure.Transition") -> TransitionObserver:
+        self._transition_observers[t.name] = o = self.transition_observer_factory(t)
+        return o

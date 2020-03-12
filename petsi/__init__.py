@@ -1,2 +1,2 @@
 from .Structure import Net
-from .Simulation import ESPNObserver as Simulator
+from .Simulation import ESPNPlugin as Simulator

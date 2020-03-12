@@ -5,12 +5,16 @@ from . import Plugins
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 import collections
-from itertools import chain
+from more_itertools import flatten, consume
 
 from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from typing import Any, TYPE_CHECKING, Set, Dict, \
         Deque, Callable, ValuesView, Iterator
+
+
+def foreach(f, iterator):
+    consume(map(f, iterator))
 
 
 @dataclass(eq=False, repr=False)
@@ -19,7 +23,7 @@ class Net:
     _types: Dict[str, Type] = field(init=False, default_factory=dict)
     _places: Dict[str, Place] = field(init=False, default_factory=dict)
     _transitions: Dict[str, Transition] = field(init=False, default_factory=dict)
-    _observers: Dict[str, Plugins.Observer] = field(init=False, default_factory=dict)
+    _observers: Dict[str, Plugins.AbstractPlugin] = field(init=False, default_factory=dict)
     _queuing_policies: Dict[str, Callable[[str, Type], Place]] = field(init=False, default_factory=dict)
 
     def __post_init__(self):
@@ -27,17 +31,17 @@ class Net:
         self._queuing_policies["LIFO"] = LIFOPlace
 
     @property
-    def observers(self) -> ValuesView[Plugins.Observer]: return self._observers.values()
+    def observers(self) -> ValuesView[Plugins.AbstractPlugin]: return self._observers.values()
 
-    def register_observer(self, observer: Plugins.Observer):
-        if observer.name in self._observers:
-            raise ValueError(f"An observer with name {observer.name} is already registered.")
+    def register_observer(self, of: Plugins.AbstractPlugin):
+        if of.name in self._observers:
+            raise ValueError(f"An observer with name '{of.name}' is already registered.")
 
-        self._observers[observer.name] = observer
-        map(lambda t: observer.observe_transition(t), self._transitions.values())
-        map(lambda p: observer.observe_place(p), self._places.values())
-        map(lambda t: observer.observe_token(t),
-            chain.from_iterable(map(lambda p: p.tokens, self._places.values())))
+        self._observers[of.name] = of
+        foreach(lambda t: t.attach_observer(of), self._transitions.values())
+        foreach(lambda p: p.attach_observer(of), self._places.values())
+        foreach(lambda t: t.attach_observer(of),
+                flatten(map(lambda p: p.tokens, self._places.values())))
 
     # All arcs connected to a place must have the type of the place
     def add_type(self, type_name: str):
@@ -59,10 +63,14 @@ class Net:
             raise ValueError(f"Unknown queueing policy: '{queueing_policy_name}'")
         else:
             place = self._places[name] = klass(name, self._types[type_name])
-            map(lambda o: place.attach_place_observer(o.observe_place(place)),
-                self._observers.values())
+            foreach(lambda o: place.attach_observer(o),
+                    self._observers.values())
 
             return place
+
+    def _attach_transition_observers(self, t: Transition):
+        foreach(lambda o: t.attach_observer(o),
+                self._observers.values())
 
     def _validate_transition_name(self, name):
         if name in self._transitions:
@@ -78,11 +86,13 @@ class Net:
 
         self._validate_transition_name(name)
         self._transitions[name] = t = Transition(name, priority, weight, lambda: 0.0)
+        self._attach_transition_observers(t)
         return t
 
     def add_timed_transition(self, name: str, distribution: Callable[[], float]) -> Transition:
         self._validate_transition_name(name)
         self._transitions[name] = t = Transition(name, 0, 0.0, distribution)
+        self._attach_transition_observers(t)
         return t
 
     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> ConstructorArc:
@@ -122,22 +132,23 @@ class Token:
     tags: Dict[str, Any] = field(default_factory=dict, init=False)
 
     def __post_init__(self):
-        map(self._token_observers.add,
-            map(lambda of: of.observe_token(self), self.typ.net.observers)
-            )
-        map(lambda to: to.report_construction(), self._token_observers)
+        foreach(lambda of: self.attach_observer(of), self.typ.net.observers)
+        foreach(lambda to: to.report_construction(), self._token_observers)
+
+    def attach_observer(self, of: Plugins.AbstractPlugin):
+        self._token_observers.add(of.observe_token(self))
 
     @property
     def typ(self): return self._typ
 
     def move_to(self, p: Place):
-        map(lambda to: to.report_arrival_at(p), self._token_observers)
+        foreach(lambda to: to.report_arrival_at(p), self._token_observers)
 
     def remove_from(self, place: Place):
-        map(lambda to: to.report_departure_from(place), self._token_observers)
+        foreach(lambda to: to.report_departure_from(place), self._token_observers)
 
     def delete(self):
-        map(lambda to: to.report_destruction(), self._token_observers)
+        foreach(lambda to: to.report_destruction(), self._token_observers)
         self._token_observers.clear()
 
 
@@ -168,8 +179,8 @@ class Place(ABC):
     @abstractmethod
     def tokens(self) -> Iterator[Token]: pass
 
-    def attach_place_observer(self, o: Plugins.PlaceObserver):
-        self._place_observers.add(o)
+    def attach_observer(self, o: Plugins.Observer):
+        self._place_observers.add(o.observe_place(self))
 
     def attach_presence_observer(self, o: PresenceObserver):
         self._presence_observers.add(o)
@@ -177,10 +188,10 @@ class Place(ABC):
     def pop(self) -> Token:
         token = self._pop()
         token.remove_from(self)
-        map(lambda po: po.report_departure_of(token), self._place_observers)
+        foreach(lambda po: po.report_departure_of(token), self._place_observers)
 
         if self.is_empty:
-            map(lambda po: po.report_no_token(), self._presence_observers)
+            foreach(lambda po: po.report_no_token(), self._presence_observers)
 
         return token
 
@@ -194,10 +205,10 @@ class Place(ABC):
         # we first update the place, only then call move_to_place
         self._push(token)
         token.move_to(self)
-        map(lambda po: po.report_arrival_of(token), self._place_observers)
+        foreach(lambda po: po.report_arrival_of(token), self._place_observers)
 
         if was_empty:
-            map(lambda po: po.report_some_token(), self._presence_observers)
+            foreach(lambda po: po.report_some_token(), self._presence_observers)
 
     @abstractmethod
     def _push(self, t: Token): pass
@@ -250,7 +261,8 @@ class Transition:
     @property
     def name(self): return self._name
 
-    def attach_observer(self, o: Plugins.TransitionObserver): pass
+    def attach_observer(self, o: Plugins.Observer):
+        self._transition_observers.add(o.observe_transition(self))
 
     def add_arc(self, arc: Arc):
         if arc.name in self._arcs:
@@ -264,22 +276,22 @@ class Transition:
 
     def fire(self):
         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
-        map(lambda to: to.before_firing(), self._transition_observers)
-        map(lambda arc: arc.flow(), self._arcs)
-        map(lambda to: to.after_firing(), self._transition_observers)
+        foreach(lambda to: to.before_firing(), self._transition_observers)
+        foreach(lambda arc: arc.flow(), self._arcs)
+        foreach(lambda to: to.after_firing(), self._transition_observers)
 
     def increment_disabled_arc_count(self):
         old_disabled_arc_count = self._disabled_arc_count
         self._disabled_arc_count += 1
 
         if old_disabled_arc_count == 0:
-            map(lambda to: to.got_disabled(), self._transition_observers)
+            foreach(lambda to: to.got_disabled(), self._transition_observers)
 
     def decrement_disabled_arc_count(self):
         self._disabled_arc_count -= 1
 
         if self._disabled_arc_count == 0:
-            map(lambda to: to.got_enabled(), self._transition_observers)
+            foreach(lambda to: to.got_enabled(), self._transition_observers)
 
 
 class Condition(ABC):
