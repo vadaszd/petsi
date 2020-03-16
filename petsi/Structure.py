@@ -96,18 +96,26 @@ class Net:
         return t
 
     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> ConstructorArc:
-        return ConstructorArc(name, self._transitions[transition_name], self._places[output_place_name])
+        return ConstructorArc(_name=name,
+                              _transition=self._transitions[transition_name],
+                              _output_place=self._places[output_place_name])
 
-    def add_destructor(self, name: str, transition_name: str, input_place_name: str) -> DestructorArc:
-        return DestructorArc(name, self._transitions[transition_name], self._places[input_place_name])
+    def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> DestructorArc:
+        return DestructorArc(name,
+                             _transition=self._transitions[transition_name],
+                             _input_place=self._places[input_place_name])
 
-    def add_transfer(self, name: str, transition_name: str,
-                     input_place_name: str, output_place_name: str) -> TransferArc:
-        return TransferArc(name, self._transitions[transition_name],
-                           self._places[input_place_name], self._places[output_place_name])
+    def add_transfer(self, name: str, input_place_name: str, transition_name: str,
+                     output_place_name: str) -> TransferArc:
+        return TransferArc(_name=name,
+                           _transition=self._transitions[transition_name],
+                           _input_place=self._places[input_place_name],
+                           _output_place=self._places[output_place_name])
 
-    def add_test(self, name: str, transition_name: str, place_name: str) -> TestArc:
-        return TestArc(name, self._transitions[transition_name], self._places[place_name])
+    def add_test(self, name: str, place_name: str, transition_name: str, ) -> TestArc:
+        return TestArc(_name=name,
+                       _transition=self._transitions[transition_name],
+                       _input_place=self._places[place_name])
 
 
 @dataclass(eq=False, repr=False)
@@ -133,10 +141,13 @@ class Token:
 
     def __post_init__(self):
         foreach(lambda of: self.attach_observer(of), self.typ.net.observers)
-        foreach(lambda to: to.report_construction(), self._token_observers)
+        # foreach(lambda to: to.report_construction(), self._token_observers)
 
-    def attach_observer(self, of: Plugins.AbstractPlugin):
-        self._token_observers.add(of.observe_token(self))
+    def attach_observer(self, plugin: Plugins.AbstractPlugin):
+        observer = plugin.observe_token(self)
+        self._token_observers.add(observer)
+        observer.report_construction()
+        #observer.report_arrival_at(self.place)
 
     @property
     def typ(self): return self._typ
@@ -179,11 +190,18 @@ class Place(ABC):
     @abstractmethod
     def tokens(self) -> Iterator[Token]: pass
 
-    def attach_observer(self, o: Plugins.Observer):
-        self._place_observers.add(o.observe_place(self))
+    def attach_observer(self, plugin: Plugins.AbstractPlugin):
+        observer = plugin.observe_place(self)
+        foreach(observer.report_arrival_of, self.tokens)
+        self._place_observers.add(observer)
 
     def attach_presence_observer(self, o: PresenceObserver):
         self._presence_observers.add(o)
+
+        if self.is_empty:
+            o.report_no_token()
+        else:
+            o.report_some_token()
 
     def pop(self) -> Token:
         token = self._pop()
@@ -261,8 +279,14 @@ class Transition:
     @property
     def name(self): return self._name
 
-    def attach_observer(self, o: Plugins.Observer):
-        self._transition_observers.add(o.observe_transition(self))
+    def attach_observer(self, plugin: Plugins.AbstractPlugin):
+        observer = plugin.observe_transition(self)
+        self._transition_observers.add(observer)
+
+        if self.is_enabled:
+            observer.got_enabled()
+        else:
+            observer.got_disabled()
 
     def add_arc(self, arc: Arc):
         if arc.name in self._arcs:
@@ -276,9 +300,9 @@ class Transition:
 
     def fire(self):
         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
-        foreach(lambda to: to.before_firing(), self._transition_observers)
-        foreach(lambda arc: arc.flow(), self._arcs)
-        foreach(lambda to: to.after_firing(), self._transition_observers)
+        foreach(lambda o: o.before_firing(), self._transition_observers)
+        foreach(lambda arc: arc.flow(), self._arcs.values())
+        foreach(lambda o: o.after_firing(), self._transition_observers)
 
     def increment_disabled_arc_count(self):
         old_disabled_arc_count = self._disabled_arc_count
@@ -346,9 +370,16 @@ class TokenPlacer(Arc, ABC):
 @dataclass(eq=False)
 class PresenceObserver(Arc, ABC):
     _input_place: Place
-    _is_enabled: bool = field(init=False, default=False)
+
+    # Transitions track the number of disabled arcs. To match this,
+    # we initialize _is_enabled = True.
+    # When attaching ourselves to the input place, we get
+    # a report_no_token or report_some_token callback so that
+    # we can adjust the status and notify the transition, be there need.
+    _is_enabled: bool = field(init=False, default=True)
 
     def __post_init__(self):
+        super(PresenceObserver, self).__post_init__()
         self._input_place.attach_presence_observer(self)
 
     @property
@@ -358,18 +389,24 @@ class PresenceObserver(Arc, ABC):
     def is_enabled(self) -> bool: return self._is_enabled
 
     def report_no_token(self):
+        was_enabled = self._is_enabled
         self._is_enabled = False
-        self._transition.increment_disabled_arc_count()
+
+        if was_enabled:
+            self._transition.increment_disabled_arc_count()
 
     def report_some_token(self):
+        was_enabled = self._is_enabled
         self._is_enabled = True
-        self._transition.decrement_disabled_arc_count()
+
+        if not was_enabled:
+            self._transition.decrement_disabled_arc_count()
 
 
 class ConstructorArc(TokenPlacer):
 
     def flow(self):
-        token = Token(self._typ)
+        token = Token(self._output_place.typ)
         self._output_place.push(token)
 
 
@@ -388,6 +425,7 @@ class TransferArc(PresenceObserver, TokenPlacer):
             raise ValueError(f"Type mismatch on TransferArc('{self.name}'): "
                              f"type({self._input_place.name}) is {self._input_place.typ} whereas "
                              f"type({self._output_place.name}) is {self._output_place.typ})")
+        super(TransferArc, self).__post_init__()
 
     def flow(self):
         token = self._input_place.pop()
