@@ -1,13 +1,15 @@
 from __future__ import annotations
 
+#mypy: mypy_path=..
 from . import Plugins
 
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
+from enum import Enum, auto
 import collections
 from more_itertools import flatten, consume
 
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, List, Tuple, Type, TypeVar
 if TYPE_CHECKING:
     from typing import Any, TYPE_CHECKING, Set, Dict, \
         Deque, Callable, ValuesView, Iterator
@@ -20,11 +22,11 @@ def foreach(f, iterator):
 @dataclass(eq=False, repr=False)
 class Net:
     name: str
-    _types: Dict[str, Type] = field(init=False, default_factory=dict)
+    _types: Dict[str, PlaceType] = field(init=False, default_factory=dict)
     _places: Dict[str, Place] = field(init=False, default_factory=dict)
     _transitions: Dict[str, Transition] = field(init=False, default_factory=dict)
     _observers: Dict[str, Plugins.AbstractPlugin] = field(init=False, default_factory=dict)
-    _queuing_policies: Dict[str, Callable[[str, Type], Place]] = field(init=False, default_factory=dict)
+    _queuing_policies: Dict[str, Callable[[str, PlaceType], Place]] = field(init=False, default_factory=dict)
 
     def __post_init__(self):
         self._queuing_policies["FIFO"] = FIFOPlace
@@ -48,7 +50,7 @@ class Net:
         if type_name in self._types:
             raise ValueError(f"Type '{type_name}' is already defined in net "
                              f"'{self.name}'")
-        typ = Type(type_name, self)
+        typ = PlaceType(type_name, self)
         self._types[type_name] = typ
 
     def add_place(self, name, type_name: str, queueing_policy_name: str) -> Place:
@@ -101,7 +103,7 @@ class Net:
                               _output_place=self._places[output_place_name])
 
     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> DestructorArc:
-        return DestructorArc(name,
+        return DestructorArc(_name=name,
                              _transition=self._transitions[transition_name],
                              _input_place=self._places[input_place_name])
 
@@ -119,7 +121,7 @@ class Net:
 
 
 @dataclass(eq=False, repr=False)
-class Type(ABC):
+class PlaceType(ABC):
     _name: str
     _net: Net
 
@@ -135,7 +137,7 @@ class Type(ABC):
 
 @dataclass(eq=False)
 class Token:
-    _typ: Type
+    _typ: PlaceType
     _token_observers: Set[Plugins.TokenObserver] = field(default_factory=set, init=False)
     tags: Dict[str, Any] = field(default_factory=dict, init=False)
 
@@ -168,13 +170,260 @@ class Token:
 #     key: str
 #     value: Any
 
+@dataclass(eq=False, repr=False)
+class Transition:
+    _name: str
+    priority: int
+    weight: float
+    _distribution: Callable[[], float]
+
+    _deadline: float = field(default=0, init=False)
+    _disabled_arc_count: int = field(default=0, init=False)
+    _arcs: Dict[str, Arc] = field(default_factory=dict, init=False)
+    _transition_observers: Set[Plugins.TransitionObserver] = field(default_factory=set, init=False)
+
+    @property
+    def name(self): return self._name
+
+    @property
+    def is_timed(self) -> bool:
+        return self.priority == 0
+
+    def attach_observer(self, plugin: Plugins.AbstractPlugin):
+        observer = plugin.observe_transition(self)
+        self._transition_observers.add(observer)
+
+        if self.is_enabled:
+            observer.got_enabled()
+        else:
+            observer.got_disabled()
+
+    def add_arc(self, arc: Arc):
+        if arc.name in self._arcs:
+            raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")
+
+        self._arcs[arc.name] = arc
+
+    @property
+    def is_enabled(self) -> bool:
+        return self._disabled_arc_count == 0
+
+    def fire(self):
+        assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
+        foreach(lambda o: o.before_firing(), self._transition_observers)
+        foreach(lambda arc: arc.flow(), self._arcs.values())
+        foreach(lambda o: o.after_firing(), self._transition_observers)
+
+    def increment_disabled_arc_count(self):
+        old_disabled_arc_count = self._disabled_arc_count
+        self._disabled_arc_count += 1
+
+        if old_disabled_arc_count == 0:
+            foreach(lambda to: to.got_disabled(), self._transition_observers)
+
+    def decrement_disabled_arc_count(self):
+        self._disabled_arc_count -= 1
+
+        if self._disabled_arc_count == 0:
+            foreach(lambda to: to.got_enabled(), self._transition_observers)
+
+
+class Condition(ABC):
+    @property
+    @abstractmethod
+    def is_true(self) -> bool: pass
+
+
+@dataclass(frozen=True)
+class UpdateOp:
+    key: str
+    newValue: Any
+
+    def apply(self, t: Token): pass
+
+
+@dataclass(eq=False, repr=False)
+class Arc(ABC):
+    _name: str
+    _transition: Transition
+
+    def __post_init__(self):
+        self._transition.add_arc(self)
+
+    @property
+    def name(self): return self._name
+
+    @property
+    @abstractmethod
+    def typ(self) -> PlaceType: pass
+
+    @property
+    @abstractmethod
+    def is_enabled(self) -> bool: pass
+
+    @abstractmethod
+    def flow(self):
+        """ Move the token among places, according to the type of the arc"""
+
+
+class TokenConsumer(Arc, ABC):
+    pass
+
+
+@dataclass(eq=False)
+class TokenPlacer(Arc, ABC):
+    _output_place: Place
+
+    @property
+    def typ(self) -> PlaceType: return self._output_place.typ
+
+    @property
+    def is_enabled(self) -> bool: return True
+
+
+@dataclass(eq=False)
+class PresenceObserver(Arc, ABC):
+    """ An Arc-mixin providing the feature of enabling/disabling a transition.
+
+        The arc is notified of the presence of a token at the input place.
+        This information is forwarded to the transition so it can manage its enablement status.
+    """
+    _input_place: Place
+
+    # Transitions track the number of disabled arcs. To match this,
+    # we initialize _is_enabled = True.
+    # When attaching ourselves to the input place, we get
+    # a report_no_token or report_some_token callback so that
+    # we can adjust the status and notify the transition, be there need.
+    _is_enabled: bool = field(init=False, default=True)
+
+    def __post_init__(self):
+        # TODO: should the check happen before object construction?
+        self._input_place.accept_arc(self, self._transition.is_timed)
+        super(PresenceObserver, self).__post_init__()
+        self._input_place.attach_presence_observer(self)
+
+    @property
+    def typ(self) -> PlaceType: return self._input_place.typ
+
+    @property
+    def is_enabled(self) -> bool: return self._is_enabled
+
+    def report_no_token(self):
+        was_enabled = self._is_enabled
+        self._is_enabled = False
+
+        if was_enabled:
+            self._transition.increment_disabled_arc_count()
+
+    def report_some_token(self):
+        was_enabled = self._is_enabled
+        self._is_enabled = True
+
+        if not was_enabled:
+            self._transition.decrement_disabled_arc_count()
+
+
+class ConstructorArc(TokenPlacer):
+
+    def flow(self):
+        token = Token(self._output_place.typ)
+        self._output_place.push(token)
+
+
+class DestructorArc(PresenceObserver, TokenConsumer):
+
+    def flow(self):
+        token = self._input_place.pop()
+        token.delete()
+
+
+@dataclass(eq=False)
+class TransferArc(PresenceObserver, TokenPlacer, TokenConsumer):
+
+    def __post_init__(self):
+        # TODO: should the check happen before object construction?
+        if self._input_place.typ is not self._output_place.typ:
+            raise ValueError(f"Type mismatch on TransferArc('{self.name}'): "
+                             f"type({self._input_place.name}) is '{self._input_place.typ.name}' whereas "
+                             f"type({self._output_place.name}) is '{self._output_place.typ.name}'")
+        super(TransferArc, self).__post_init__()
+
+    def flow(self):
+        token = self._input_place.pop()
+        self._output_place.push(token)
+
+
+class TestArc(PresenceObserver):
+    def flow(self):
+        pass
+
 
 @dataclass(eq=False)
 class Place(ABC):
     _name: str
-    _typ:  Type
+    _typ:  PlaceType
+
+    _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")
+
+    # ==== Invariants ======
+    # The goal of the below invariants is to ensure that once a timed transition is enabled,
+    # the only way to disable it is to fire it.
+    # - A place can be stable or transient (or undefined until it becomes either stable or transient)
+    # - A stable place can have at most one TokenConsumer arc and that arc must also be a
+    # - All PresenceObserver arcs of timed transitions must connect to stable places
+
+    # The next status to transit to, depending on the class of the input
+    # arc and if the transition is timed
+    _state_table = {
+        _Status.UNDEFINED: {
+            True:  [  # The order of the items is important!
+                (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver
+                (PresenceObserver,  _Status.ERROR ),    # Only those that are not TokenConsumers
+            ],
+            False: [
+                (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
+                (PresenceObserver,  _Status.UNDEFINED),  # Only those that are not TokenConsumers
+            ]
+        },
+        _Status.STABLE: {
+            True: [
+                (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
+                (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
+            ],
+            False: [
+                (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
+                (PresenceObserver,  _Status.STABLE),  # Only those that are not TokenConsumers
+            ]
+        },
+        _Status.TRANSIENT: {
+            True: [
+                (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
+                (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
+            ],
+            False: [
+                (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
+                (PresenceObserver,  _Status.TRANSIENT),  # Only those that are not TokenConsumers
+            ]
+        }
+    }
+
+    _status: _Status = field(default=_Status.UNDEFINED, init=False)
+
     _place_observers: Set[Plugins.PlaceObserver] = field(default_factory=set, init=False)
     _presence_observers: Set[PresenceObserver] = field(default_factory=set, init=False)
+
+    def accept_arc(self, arc: Arc, is_timed: bool):
+        arc_class = type(arc)
+        for ArcType, status in self._state_table[self._status][is_timed]:
+            if issubclass(arc_class, ArcType):
+                if status == self._Status.ERROR:
+                    break
+                self._status = status
+                return
+        raise ValueError(f"Adding an arc of type {arc_class.__name__} to place "
+                         f"'{self.name}' is not allowed: the place is "
+                         f"in {self._status.name} status.")
 
     @property
     def name(self): return self._name
@@ -264,182 +513,5 @@ class LIFOPlace(DequeBasedPlaceImplementation):
         self._tokens.appendleft(t)
 
 
-@dataclass(eq=False, repr=False)
-class Transition:
-    _name: str
-    priority: int
-    weight: float
-    _distribution: Callable[[], float]
-
-    _deadline: float = field(default=0, init=False)
-    _disabled_arc_count: int = field(default=0, init=False)
-    _arcs: Dict[str, Arc] = field(default_factory=dict, init=False)
-    _transition_observers: Set[Plugins.TransitionObserver] = field(default_factory=set, init=False)
-
-    @property
-    def name(self): return self._name
-
-    def attach_observer(self, plugin: Plugins.AbstractPlugin):
-        observer = plugin.observe_transition(self)
-        self._transition_observers.add(observer)
-
-        if self.is_enabled:
-            observer.got_enabled()
-        else:
-            observer.got_disabled()
-
-    def add_arc(self, arc: Arc):
-        if arc.name in self._arcs:
-            raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")
-
-        self._arcs[arc.name] = arc
-
-    @property
-    def is_enabled(self) -> bool:
-        return self._disabled_arc_count == 0
-
-    def fire(self):
-        assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
-        foreach(lambda o: o.before_firing(), self._transition_observers)
-        foreach(lambda arc: arc.flow(), self._arcs.values())
-        foreach(lambda o: o.after_firing(), self._transition_observers)
-
-    def increment_disabled_arc_count(self):
-        old_disabled_arc_count = self._disabled_arc_count
-        self._disabled_arc_count += 1
-
-        if old_disabled_arc_count == 0:
-            foreach(lambda to: to.got_disabled(), self._transition_observers)
-
-    def decrement_disabled_arc_count(self):
-        self._disabled_arc_count -= 1
-
-        if self._disabled_arc_count == 0:
-            foreach(lambda to: to.got_enabled(), self._transition_observers)
-
-
-class Condition(ABC):
-    @property
-    @abstractmethod
-    def is_true(self) -> bool: pass
-
-
-@dataclass(frozen=True)
-class UpdateOp:
-    key: str
-    newValue: Any
-
-    def apply(self, t: Token): pass
-
-
-@dataclass(eq=False, repr=False)
-class Arc(ABC):
-    _name: str
-    _transition: Transition
-
-    def __post_init__(self):
-        self._transition.add_arc(self)
-
-    @property
-    def name(self): return self._name
-
-    @property
-    @abstractmethod
-    def typ(self) -> Type: pass
-
-    @property
-    @abstractmethod
-    def is_enabled(self) -> bool: pass
-
-    @abstractmethod
-    def flow(self):
-        """ Move the token among places, according to the type of the arc"""
-
-
-@dataclass(eq=False)
-class TokenPlacer(Arc, ABC):
-    _output_place: Place
-
-    @property
-    def typ(self) -> Type: return self._output_place.typ
-
-    @property
-    def is_enabled(self) -> bool: return True
-
-
-@dataclass(eq=False)
-class PresenceObserver(Arc, ABC):
-    _input_place: Place
-
-    # Transitions track the number of disabled arcs. To match this,
-    # we initialize _is_enabled = True.
-    # When attaching ourselves to the input place, we get
-    # a report_no_token or report_some_token callback so that
-    # we can adjust the status and notify the transition, be there need.
-    _is_enabled: bool = field(init=False, default=True)
-
-    def __post_init__(self):
-        super(PresenceObserver, self).__post_init__()
-        self._input_place.attach_presence_observer(self)
-
-    @property
-    def typ(self) -> Type: return self._input_place.typ
-
-    @property
-    def is_enabled(self) -> bool: return self._is_enabled
-
-    def report_no_token(self):
-        was_enabled = self._is_enabled
-        self._is_enabled = False
-
-        if was_enabled:
-            self._transition.increment_disabled_arc_count()
-
-    def report_some_token(self):
-        was_enabled = self._is_enabled
-        self._is_enabled = True
-
-        if not was_enabled:
-            self._transition.decrement_disabled_arc_count()
-
-
-class ConstructorArc(TokenPlacer):
-
-    def flow(self):
-        token = Token(self._output_place.typ)
-        self._output_place.push(token)
-
-
-class DestructorArc(PresenceObserver):
-
-    def flow(self):
-        token = self._input_place.pop()
-        token.delete()
-
-
-@dataclass(eq=False)
-class TransferArc(PresenceObserver, TokenPlacer):
-
-    def __post_init__(self):
-        if self._input_place.typ is not self._output_place.typ:
-            raise ValueError(f"Type mismatch on TransferArc('{self.name}'): "
-                             f"type({self._input_place.name}) is {self._input_place.typ} whereas "
-                             f"type({self._output_place.name}) is {self._output_place.typ})")
-        super(TransferArc, self).__post_init__()
-
-    def flow(self):
-        token = self._input_place.pop()
-        self._output_place.push(token)
-
-
-class TestArc(PresenceObserver):
-    def flow(self):
-        pass
-
-
-# Token *-- "*" Tag : tags
-# TokenPlacer *--> "*" Updater : updates
-# Updater *--> Condition
-# Updater *--> UpdateOp
 
 

@@ -53,12 +53,13 @@ class StructureTest(TestCase):
         net.add_type("your type")
         net.add_place("place 3", "your type", "LIFO")
         with self.assertRaisesRegex(ValueError, "Type mismatch on TransferArc\\('transfers'\\): "
-                                                "type\\(place 1\\) is Type\\('my type'\\) whereas "
-                                                "type\\(place 3\\) is Type\\('your type'\\)"):
+                                                "type\\(place 1\\) is 'my type' whereas "
+                                                "type\\(place 3\\) is 'your type'"):
             net.add_transfer("transfers", "place 1", "t1", "place 3")
 
         net.add_transfer("transfers", "place 1", "t1", "place 2")
-# FIXME: a transition can have at most 1 iput arc per place
+    # FIXME: a transition can have at most 1 input arc per place
+
     def test_input_arc_enablement_status(self): pass
 
     def test_net_building_attaches_observers(self):
