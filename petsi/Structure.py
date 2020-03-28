@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-#mypy: mypy_path=..
+# mypy: mypy_path=..
 from . import Plugins
 
 from abc import ABC, abstractmethod
@@ -149,7 +149,7 @@ class Token:
         observer = plugin.observe_token(self)
         self._token_observers.add(observer)
         observer.report_construction()
-        #observer.report_arrival_at(self.place)
+        # observer.report_arrival_at(self.place)
 
     @property
     def typ(self): return self._typ
@@ -379,7 +379,7 @@ class Place(ABC):
         _Status.UNDEFINED: {
             True:  [  # The order of the items is important!
                 (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver
-                (PresenceObserver,  _Status.ERROR ),    # Only those that are not TokenConsumers
+                (PresenceObserver,  _Status.ERROR),     # Only those that are not TokenConsumers
             ],
             False: [
                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
@@ -415,15 +415,18 @@ class Place(ABC):
 
     def accept_arc(self, arc: Arc, is_timed: bool):
         arc_class = type(arc)
-        for ArcType, status in self._state_table[self._status][is_timed]:
-            if issubclass(arc_class, ArcType):
+        for arc_type, status in self._state_table[self._status][is_timed]:
+            if issubclass(arc_class, arc_type):
                 if status == self._Status.ERROR:
                     break
                 self._status = status
                 return
-        raise ValueError(f"Adding an arc of type {arc_class.__name__} to place "
-                         f"'{self.name}' is not allowed: the place is "
-                         f"in {self._status.name} status.")
+        transition_kind = "a timed" if is_timed else "an immediate"
+        raise ValueError(f"Connecting place '{self.name}' to {transition_kind} "
+                         f"transition with a {arc_class.__name__} "
+                         f"is not allowed: the place is in {self._status.name} "
+                         f"status, which, for this kind of transitions, does not "
+                         f"allow adding {arc_type.__name__} arcs.")
 
     @property
     def name(self): return self._name
@@ -511,7 +514,4 @@ class FIFOPlace(DequeBasedPlaceImplementation):
 class LIFOPlace(DequeBasedPlaceImplementation):
     def _push(self, t: Token):
         self._tokens.appendleft(t)
-
-
-
 

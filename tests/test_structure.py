@@ -1,4 +1,5 @@
 from petsi import Net
+from petsi.Structure import Place
 from inspect import cleandoc
 from unittest import TestCase, main
 from unittest.mock import Mock
@@ -58,9 +59,8 @@ class StructureTest(TestCase):
             net.add_transfer("transfers", "place 1", "t1", "place 3")
 
         net.add_transfer("transfers", "place 1", "t1", "place 2")
-    # FIXME: a transition can have at most 1 input arc per place
 
-    def test_input_arc_enablement_status(self): pass
+    # FIXME: def test_input_arc_enablement_status(self): pass
 
     def test_net_building_attaches_observers(self):
         net = Net("test net")
@@ -193,8 +193,66 @@ class StructureTest(TestCase):
                                       observe_transition().after_firing
                                       """))
 
+
 def fff(calls):
     return "\n".join(list(call[0] for call in calls))
+
+
+class PlaceStabilityTest(TestCase):
+    def setUp(self):
+        self.net = Net("test net")
+        self.net.add_type("my type")
+        self.immediate_transition = self.net.add_immediate_transition("immediate_transition", 1, 1.)
+        self.timed_transition = self.net.add_timed_transition("timed_transition", lambda: 0.1)
+        self.place = self.net.add_place("place", "my type", "FIFO")
+        self.assertEqual(self.place._status, Place._Status.UNDEFINED)
+
+    def test_immediate_destructor_makes_place_transient(self):
+        self.net.add_destructor("d1", "place", "immediate_transition")
+        self.assertEqual(self.place._status, Place._Status.TRANSIENT)
+
+        with self.assertRaisesRegex(ValueError,
+                                    "Connecting place 'place' to a timed "
+                                    "transition with a DestructorArc is not "
+                                    "allowed: the place is in TRANSIENT status, "
+                                    "which, for this kind of transitions, does "
+                                    "not allow adding TokenConsumer arcs."):
+            self.net.add_destructor("d1", "place", "timed_transition")
+
+    def test_immediate_transfer_makes_place_transient(self):
+        self.net.add_place("place2", "my type", "FIFO")
+        self.net.add_transfer("d1", "place", "immediate_transition", "place2")
+        self.assertEqual(self.place._status, Place._Status.TRANSIENT)
+
+    def test_immediate_test_leaves_place_undefined(self):
+        self.net.add_test("d1", "place", "immediate_transition")
+        self.assertEqual(self.place._status, Place._Status.UNDEFINED)
+
+    def test_timed_destructor_makes_place_stable(self):
+        self.net.add_destructor("d1", "place", "timed_transition")
+        self.assertEqual(self.place._status, Place._Status.STABLE)
+
+        with self.assertRaisesRegex(ValueError,
+                                    "Connecting place 'place' to an immediate "
+                                    "transition with a DestructorArc is not "
+                                    "allowed: the place is in STABLE status, "
+                                    "which, for this kind of transitions, does "
+                                    "not allow adding TokenConsumer arcs."):
+            self.net.add_destructor("d1", "place", "immediate_transition")
+
+    def test_timed_transfer_makes_place_stable(self):
+        self.net.add_place("place2", "my type", "FIFO")
+        self.net.add_transfer("d1", "place", "timed_transition", "place2")
+        self.assertEqual(self.place._status, Place._Status.STABLE)
+
+    def test_timed_test_raises(self):
+        with self.assertRaisesRegex(ValueError,
+                                    "Connecting place 'place' to a timed "
+                                    "transition with a TestArc is not "
+                                    "allowed: the place is in UNDEFINED status, "
+                                    "which, for this kind of transitions, does "
+                                    "not allow adding PresenceObserver arcs."):
+            self.net.add_test("d1", "place", "timed_transition")
 
 
 if __name__ == '__main__':
