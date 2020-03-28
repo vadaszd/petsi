@@ -147,9 +147,11 @@ class Token:
 
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_token(self)
-        self._token_observers.add(observer)
-        observer.report_construction()
-        # observer.report_arrival_at(self.place)
+
+        if observer is not None:
+            self._token_observers.add(observer)
+            observer.report_construction()
+            # observer.report_arrival_at(self.place)
 
     @property
     def typ(self): return self._typ
@@ -191,12 +193,14 @@ class Transition:
 
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_transition(self)
-        self._transition_observers.add(observer)
 
-        if self.is_enabled:
-            observer.got_enabled()
-        else:
-            observer.got_disabled()
+        if observer is not None:
+            self._transition_observers.add(observer)
+
+            if self.is_enabled:
+                observer.got_enabled()
+            else:
+                observer.got_disabled()
 
     def add_arc(self, arc: Arc):
         if arc.name in self._arcs:
@@ -444,8 +448,10 @@ class Place(ABC):
 
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_place(self)
-        foreach(observer.report_arrival_of, self.tokens)
-        self._place_observers.add(observer)
+
+        if observer is not None:
+            foreach(observer.report_arrival_of, self.tokens)
+            self._place_observers.add(observer)
 
     def attach_presence_observer(self, o: PresenceObserver):
         self._presence_observers.add(o)
