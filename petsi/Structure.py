@@ -191,6 +191,9 @@ class Transition:
     def is_timed(self) -> bool:
         return self.priority == 0
 
+    def get_duration(self):
+        return self._distribution()
+
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_transition(self)
 
