@@ -1,2 +1,2 @@
 from .Structure import Net
-from .Simulation import ESPNPlugin as Simulator
+from .Simulation import AutoFirePlugin as Simulator

@@ -179,7 +179,6 @@ class Transition:
     weight: float
     _distribution: Callable[[], float]
 
-    _deadline: float = field(default=0, init=False)
     _disabled_arc_count: int = field(default=0, init=False)
     _arcs: Dict[str, Arc] = field(default_factory=dict, init=False)
     _transition_observers: Set[Plugins.TransitionObserver] = field(default_factory=set, init=False)
