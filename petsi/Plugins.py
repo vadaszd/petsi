@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
-from typing import TYPE_CHECKING, Dict, Set, Optional
+from typing import TYPE_CHECKING, Dict, Set, Optional, TypeVar, Generic
 
 if TYPE_CHECKING:
     # noinspection PyUnresolvedReferences
@@ -56,24 +56,29 @@ class TransitionObserver(ABC):
         """
 
 
+_PlaceObserver = TypeVar("_PlaceObserver", bound=PlaceObserver)
+_TransitionObserver = TypeVar("_TransitionObserver", bound=TransitionObserver)
+_TokenObserver = TypeVar("_TokenObserver", bound=TokenObserver)
+
+
 @dataclass(eq=False)
-class AbstractPlugin(ABC):
+class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObserver]):
     name: str
 
-    _place_observers: Dict[str, PlaceObserver] = field(init=False)
-    _transition_observers: Dict[str, TransitionObserver] = field(init=False)
-    _token_observers: Set[TokenObserver] = field(init=False)
+    _place_observers: Dict[str, _PlaceObserver] = field(init=False)
+    _transition_observers: Dict[str, _TransitionObserver] = field(init=False)
+    _token_observers: Set[_TokenObserver] = field(init=False)
 
     @abstractmethod
-    def place_observer_factory(self, p: "Structure.Place") -> Optional[PlaceObserver]: pass
+    def place_observer_factory(self, p: "Structure.Place") -> Optional[_PlaceObserver]: pass
 
     @abstractmethod
-    def token_observer_factory(self, t: "Structure.Token") -> Optional[TokenObserver]: pass
+    def token_observer_factory(self, t: "Structure.Token") -> Optional[_TokenObserver]: pass
 
     @abstractmethod
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[TransitionObserver]: pass
+    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[_TransitionObserver]: pass
 
-    def observe_place(self, p: "Structure.Place") -> Optional[PlaceObserver]:
+    def observe_place(self, p: "Structure.Place") -> Optional[_PlaceObserver]:
         o = self.place_observer_factory(p)
 
         if o is not None:
@@ -81,7 +86,7 @@ class AbstractPlugin(ABC):
 
         return o
 
-    def observe_token(self, t: "Structure.Token") -> Optional[TokenObserver]:
+    def observe_token(self, t: "Structure.Token") -> Optional[_TokenObserver]:
         o = self.token_observer_factory(t)
 
         if o is not None:
@@ -89,7 +94,7 @@ class AbstractPlugin(ABC):
 
         return o
 
-    def observe_transition(self, t: "Structure.Transition") -> Optional[TransitionObserver]:
+    def observe_transition(self, t: "Structure.Transition") -> Optional[_TransitionObserver]:
         o = self.transition_observer_factory(t)
 
         if o is not None:
