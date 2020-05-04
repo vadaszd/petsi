@@ -1,14 +1,16 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
-from typing import TYPE_CHECKING, Dict, Set, Optional, TypeVar, Generic
+from typing import TYPE_CHECKING, Dict, Set, Optional, TypeVar, Generic, Type, Union
 
 if TYPE_CHECKING:
     # noinspection PyUnresolvedReferences
     from . import Structure
 
 
-class PlaceObserver(ABC):
+@dataclass(eq=False)
+class AbstractPlaceObserver(ABC):
+    _place: "Structure.Place"
 
     @abstractmethod
     def report_arrival_of(self, token): pass
@@ -17,7 +19,9 @@ class PlaceObserver(ABC):
     def report_departure_of(self, token): pass
 
 
-class TokenObserver(ABC):
+@dataclass(eq=False)
+class AbstractTokenObserver(ABC):
+    _token: "Structure.Place"
 
     @abstractmethod
     def report_construction(self, ): pass
@@ -32,7 +36,10 @@ class TokenObserver(ABC):
     def report_departure_from(self, p: "Structure.Place"): pass
 
 
-class TransitionObserver(ABC):
+@dataclass(eq=False)
+class AbstractTransitionObserver(ABC):
+    _transition: "Structure.Transition"
+
     @abstractmethod
     def before_firing(self, ):
         """ This callback notifies about the start of the firing process."""
@@ -56,29 +63,31 @@ class TransitionObserver(ABC):
         """
 
 
-_PlaceObserver = TypeVar("_PlaceObserver", bound=PlaceObserver)
-_TransitionObserver = TypeVar("_TransitionObserver", bound=TransitionObserver)
-_TokenObserver = TypeVar("_TokenObserver", bound=TokenObserver)
+_PlaceObserver = TypeVar("_PlaceObserver", bound=AbstractPlaceObserver)
+_TransitionObserver = TypeVar("_TransitionObserver", bound=AbstractTransitionObserver)
+_TokenObserver = TypeVar("_TokenObserver", bound=AbstractTokenObserver)
 
 
 @dataclass(eq=False)
 class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObserver]):
     name: str
 
-    _place_observers: Dict[str, _PlaceObserver] = field(init=False)
-    _transition_observers: Dict[str, _TransitionObserver] = field(init=False)
-    _token_observers: Set[_TokenObserver] = field(init=False)
+    _place_observers: Dict[str, _PlaceObserver] = field(default_factory=dict, init=False)
+    _transition_observers: Dict[str, _TransitionObserver] = field(default_factory=dict, init=False)
+    _token_observers: Set[_TokenObserver] = field(default_factory=set, init=False)
 
-    @abstractmethod
+    # In derived classes of AbstractPlugin one may override these factory method
+    # to return instances of classes inheriting from
+    # `AbstractPlaceObserver`, `AbstractTransitionObserver` and `AbstractTokenObserver`.
+    # In these factory methods you can adopt the constructors of the derived classes
+    # to the uniform interface the rest of the plugin code assumes.
     def place_observer_factory(self, p: "Structure.Place") -> Optional[_PlaceObserver]: pass
 
-    @abstractmethod
     def token_observer_factory(self, t: "Structure.Token") -> Optional[_TokenObserver]: pass
 
-    @abstractmethod
     def transition_observer_factory(self, t: "Structure.Transition") -> Optional[_TransitionObserver]: pass
 
-    def observe_place(self, p: "Structure.Place") -> Optional[_PlaceObserver]:
+    def observe_place(self, p: "Structure.Place") -> Optional[AbstractPlaceObserver]:
         o = self.place_observer_factory(p)
 
         if o is not None:
@@ -86,7 +95,7 @@ class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObs
 
         return o
 
-    def observe_token(self, t: "Structure.Token") -> Optional[_TokenObserver]:
+    def observe_token(self, t: "Structure.Token") -> Optional[AbstractTokenObserver]:
         o = self.token_observer_factory(t)
 
         if o is not None:
@@ -94,7 +103,7 @@ class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObs
 
         return o
 
-    def observe_transition(self, t: "Structure.Transition") -> Optional[_TransitionObserver]:
+    def observe_transition(self, t: "Structure.Transition") -> Optional[AbstractTransitionObserver]:
         o = self.transition_observer_factory(t)
 
         if o is not None:

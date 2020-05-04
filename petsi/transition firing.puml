@@ -68,7 +68,7 @@ activate Token
 Token -> "token observers"++: reportDestruction()
 destroy "token observers"
 return
-Token -> Token: removeObserver(TokenObserver o)
+Token -> Token: removeObserver(AbstractTokenObserver o)
 
 destroy Token
 return

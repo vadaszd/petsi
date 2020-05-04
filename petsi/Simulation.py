@@ -145,18 +145,11 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
         # noinspection Mypy - complains about repeat(..., None)
         consume(repeat(lambda _: self._fire_control.fire_next(), None if count == 0 else count))
 
-    def place_observer_factory(self, p: "Structure.Place") -> Optional[Plugins.PlaceObserver]:
-        return None  # PlaceObserver(p)
-
-    def token_observer_factory(self, t: "Structure.Token") -> Optional[Plugins.TokenObserver]:
-        return None  # TokenObserver(t)
-
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[Plugins.TransitionObserver]:
+    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[Plugins.AbstractTransitionObserver]:
         return self.TransitionObserver(t, self._fire_control)
 
     @dataclass(eq=False)
-    class TransitionObserver(Plugins.TransitionObserver):
-        _transition: "Structure.Transition"
+    class TransitionObserver(Plugins.AbstractTransitionObserver):
         _fire_control: "AutoFirePlugin.FireControl"
 
         def got_enabled(self, ):
@@ -186,19 +179,10 @@ class TokenCounterPlugin(Plugins.AbstractPlugin):
         return self._place_observers[place_name].histogram
 
     def place_observer_factory(self, p: "Structure.Place") -> Optional["PlaceObserver"]:
-        o = self._place_observers[p.name] = self.PlaceObserver(p, self._get_current_time)
-        return o
-
-    def token_observer_factory(self, t: "Structure.Token") -> Optional[Plugins.TokenObserver]:
-        return None  # TokenObserver(t)
-
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[Plugins.TransitionObserver]:
-        return None  # TransitionObserver(t)
+        return self.PlaceObserver(p, self._get_current_time)
 
     @dataclass(eq=False)
-    class PlaceObserver(Plugins.PlaceObserver):
-        place: "Structure.Place"
-
+    class PlaceObserver(Plugins.AbstractPlaceObserver):
         # A function returning the current time
         _get_current_time: Callable[[], float]
 
@@ -239,9 +223,70 @@ class TokenCounterPlugin(Plugins.AbstractPlugin):
             self._update_num_tokens_by(-1)
 
 
+@dataclass(eq=False)
+class SojournTimerPlugin(Plugins.AbstractPlugin):
+    """ A PetSi plugin providing by-place sojourn time stats
+
+        The plugin collects the empirical distribution of the
+        time a token spends at each place of the observed Petri net,
+        i.e. in what percentage of the tokens seen was the per-arrival and overall time
+        spent by the token at place j in bucket i of the histogram.
+    """
+
+    @dataclass(eq=False)
+    class Histogram:
+        _bucket_boundaries: List[float] = field()
+        _buckets: List[int] = lambda: list(repeat(0, len(_bucket_boundaries) +1 ))
+
+        def add(self, value: float):
+            """ Increment the count of elements in the bucket value belongs to """
+    # A function returning the current time
+    _get_current_time: Callable[[], float]
+
+    _bucket_boundaries
+    _per_arrival_histograms: Dict["Structure.TokenType", Dict[str, List[int]]] = \
+        field(default_factory=defaultdict(lambda: defaultdict(lambda: list(repeat(0, len() +1 )))))
+
+    _overall_histograms: Dict["Structure.TokenType", Dict[str, List[int]]]
+
+    def _update_histogram(self, ):
+
+    def token_observer_factory(self, t: "Structure.Token") -> Optional["TokenObserver"]:
+        return self.TokenObserver(t, self._get_current_time)
+
+    @dataclass(eq=False)
+    class TokenObserver(Plugins.AbstractTokenObserver):
+        # A function returning the current time
+        _get_current_time: Callable[[], float]
+
+        # The overall sojourn time of the observed token for each visited
+        # place
+        _overall_sojourn_time: Dict[str, float]
+
+        _arrival_time: float = field(default=0.0, init=False)
+
+        def report_construction(self):
+            pass
+
+        def report_destruction(self):
+            """ For each visited place, select the overall s.t. histogram bucket
+                based on accumulated time and increment the bucket.
+            """
+
+        def report_arrival_at(self, p: "Structure.Place"):
+            """ Start timer for place"""
+            self._arrival_time = self._get_current_time()
+
+        def report_departure_from(self, p: "Structure.Place"):
+            """ Stop timer and compute the sojourn time.
+                Select the bucket of the per arrival histogram that belongs
+                to the place and increment it.
+                Add s.t. for the overall sojourn time of the token for this place
+            """
+            sojourn_time = self._get_current_time() - self._arrival_time
 
 # @dataclass(eq=False)
-# class TokenObserver(Plugins.TokenObserver):
+# class AbstractTokenObserver(Plugins.AbstractTokenObserver):
 #     token: "Structure.Token"
 #     creationTime: float = field(init=False)
 #     arrivalTime: float = field(init=False)
@@ -254,10 +299,10 @@ class TokenCounterPlugin(Plugins.AbstractPlugin):
 #
 #     def report_departure_from(self, p: "Structure.Place"): pass
 
-# AutoFirePlugin *-- "*" TransitionObserver
-# AutoFirePlugin *-- "*" TokenObserver
-# AutoFirePlugin *-- "*" PlaceObserver
+# AutoFirePlugin *-- "*" AbstractTransitionObserver
+# AutoFirePlugin *-- "*" AbstractTokenObserver
+# AutoFirePlugin *-- "*" AbstractPlaceObserver
 # AutoFirePlugin ..|> Plugins.AbstractPlugin
-# TransitionObserver ..|> Plugins.TransitionObserver
-# TokenObserver ..|> Plugins.TokenObserver
-# PlaceObserver ..|> Plugins.PlaceObserver
+# AbstractTransitionObserver ..|> Plugins.AbstractTransitionObserver
+# AbstractTokenObserver ..|> Plugins.AbstractTokenObserver
+# AbstractPlaceObserver ..|> Plugins.AbstractPlaceObserver

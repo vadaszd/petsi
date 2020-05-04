@@ -17,7 +17,7 @@ class Net {
 
 abstract class Place {
     name
-    attachObserver(PlaceObserver o)
+    attachObserver(AbstractPlaceObserver o)
     attachObserver(PresenceObserver o)
     push(Token t)
     Token pop()
@@ -37,7 +37,7 @@ class Transition{
     weight
     deadline
     disabledArcCount
-    attachObserver(TransitionObserver o)
+    attachObserver(AbstractTransitionObserver o)
     bool isEnabled()
     fire()
     incrementDisabledArcCount()
@@ -65,8 +65,8 @@ abstract class Arc {
 }
 
 class Token {
-    -attachObserver(TokenObserver o)
-    -removeObserver(TokenObserver o)
+    -attachObserver(AbstractTokenObserver o)
+    -removeObserver(AbstractTokenObserver o)
     moveTo(Place p)
     removeFrom(Place p)
     delete()
@@ -90,13 +90,13 @@ Net *--> "*" Plugins.AbstractPlugin: observers
 Type <-- "*" Arc
 Type <-- "*" Place
 Place -l- "*" Token
-Token *-- "*" Plugins.TokenObserver
+Token *-- "*" Plugins.AbstractTokenObserver
 Token *-- "*" Tag : tags
-Place *-- "*" Plugins.PlaceObserver
+Place *-- "*" Plugins.AbstractPlaceObserver
 TokenPlacer .u.|> Arc
 PresenceObserver .u.|> Arc
 Transition *-- "*" Arc
-Transition *-- "*" Plugins.TransitionObserver
+Transition *-- "*" Plugins.AbstractTransitionObserver
 PresenceObserver "*" -- Place : input
 TestArc .d.|> PresenceObserver
 ConstructorArc .d.|> TokenPlacer
@@ -124,34 +124,33 @@ class TokenObserver {
     creationTime
     arrivalTime
 }
-
-AutoFirePlugin *-- "*" TransitionObserver
-AutoFirePlugin *-- "*" TokenObserver
-AutoFirePlugin *-- "*" PlaceObserver
-AutoFirePlugin ..|> Plugins.AbstractPlugin
-TransitionObserver ..|> Plugins.TransitionObserver
-TokenObserver ..|> Plugins.TokenObserver
-PlaceObserver ..|> Plugins.PlaceObserver
+Simulation.AutoFirePlugin *-- "*" TransitionObserver
+Simulation.AutoFirePlugin *-- "*" TokenObserver
+Simulation.AutoFirePlugin *-- "*" PlaceObserver
+Simulation.AutoFirePlugin ..|> Plugins.AbstractPlugin
+TransitionObserver ..|> Plugins.AbstractTransitionObserver
+TokenObserver ..|> Plugins.AbstractTokenObserver
+PlaceObserver ..|> Plugins.AbstractPlaceObserver
 }
 
 namespace Plugins {
 interface AbstractPlugin {
     name
-    PlaceObserver observe(Structure.Place p)
-    TokenObserver observe(Simulation.Token t)
-    TransitionObserver observe(Structure.Transition t)
+    AbstractPlaceObserver observe(Structure.Place p)
+    AbstractTokenObserver observe(Simulation.Token t)
+    AbstractTransitionObserver observe(Structure.Transition t)
 }
-interface PlaceObserver{
+interface AbstractPlaceObserver{
     reportArrivalOf(token)
     reportDepartureOf(token)
 }
-interface TokenObserver{
+interface AbstractTokenObserver{
     reportConstruction()
     reportDestruction()
     reportArrivalAt(Structure.Place p)
     reportDepartureFrom(Structure.Place p)
 }
-interface TransitionObserver{
+interface AbstractTransitionObserver{
     beforeFiring()
     afterFiring()
     gotEnabled()

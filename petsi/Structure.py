@@ -22,11 +22,11 @@ def foreach(f, iterator):
 @dataclass(eq=False, repr=False)
 class Net:
     name: str
-    _types: Dict[str, PlaceType] = field(init=False, default_factory=dict)
+    _types: Dict[str, TokenType] = field(init=False, default_factory=dict)
     _places: Dict[str, Place] = field(init=False, default_factory=dict)
     _transitions: Dict[str, Transition] = field(init=False, default_factory=dict)
     _observers: Dict[str, Plugins.AbstractPlugin] = field(init=False, default_factory=dict)
-    _queuing_policies: Dict[str, Callable[[str, PlaceType], Place]] = field(init=False, default_factory=dict)
+    _queuing_policies: Dict[str, Callable[[str, TokenType], Place]] = field(init=False, default_factory=dict)
 
     def __post_init__(self):
         self._queuing_policies["FIFO"] = FIFOPlace
@@ -50,7 +50,7 @@ class Net:
         if type_name in self._types:
             raise ValueError(f"Type '{type_name}' is already defined in net "
                              f"'{self.name}'")
-        typ = PlaceType(type_name, self)
+        typ = TokenType(type_name, self)
         self._types[type_name] = typ
 
     def add_place(self, name, type_name: str, queueing_policy_name: str) -> Place:
@@ -121,7 +121,7 @@ class Net:
 
 
 @dataclass(eq=False, repr=False)
-class PlaceType(ABC):
+class TokenType(ABC):
     _name: str
     _net: Net
 
@@ -137,8 +137,8 @@ class PlaceType(ABC):
 
 @dataclass(eq=False)
 class Token:
-    _typ: PlaceType
-    _token_observers: Set[Plugins.TokenObserver] = field(default_factory=set, init=False)
+    _typ: TokenType
+    _token_observers: Set[Plugins.AbstractTokenObserver] = field(default_factory=set, init=False)
     tags: Dict[str, Any] = field(default_factory=dict, init=False)
 
     def __post_init__(self):
@@ -181,7 +181,7 @@ class Transition:
 
     _disabled_arc_count: int = field(default=0, init=False)
     _arcs: Dict[str, Arc] = field(default_factory=dict, init=False)
-    _transition_observers: Set[Plugins.TransitionObserver] = field(default_factory=set, init=False)
+    _transition_observers: Set[Plugins.AbstractTransitionObserver] = field(default_factory=set, init=False)
 
     @property
     def name(self): return self._name
@@ -261,7 +261,7 @@ class Arc(ABC):
 
     @property
     @abstractmethod
-    def typ(self) -> PlaceType: pass
+    def typ(self) -> TokenType: pass
 
     @property
     @abstractmethod
@@ -281,7 +281,7 @@ class TokenPlacer(Arc, ABC):
     _output_place: Place
 
     @property
-    def typ(self) -> PlaceType: return self._output_place.typ
+    def typ(self) -> TokenType: return self._output_place.typ
 
     @property
     def is_enabled(self) -> bool: return True
@@ -310,7 +310,7 @@ class PresenceObserver(Arc, ABC):
         self._input_place.attach_presence_observer(self)
 
     @property
-    def typ(self) -> PlaceType: return self._input_place.typ
+    def typ(self) -> TokenType: return self._input_place.typ
 
     @property
     def is_enabled(self) -> bool: return self._is_enabled
@@ -368,7 +368,7 @@ class TestArc(PresenceObserver):
 @dataclass(eq=False)
 class Place(ABC):
     _name: str
-    _typ:  PlaceType
+    _typ:  TokenType
 
     _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")
 
@@ -416,7 +416,7 @@ class Place(ABC):
 
     _status: _Status = field(default=_Status.UNDEFINED, init=False)
 
-    _place_observers: Set[Plugins.PlaceObserver] = field(default_factory=set, init=False)
+    _place_observers: Set[Plugins.AbstractPlaceObserver] = field(default_factory=set, init=False)
     _presence_observers: Set[PresenceObserver] = field(default_factory=set, init=False)
 
     def accept_arc(self, arc: Arc, is_timed: bool):
