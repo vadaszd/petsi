@@ -165,7 +165,7 @@ class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
 
         def fire_next(self):
             new_time, transition = self.select_next_transition()
-            print(new_time, transition.name)
+            # print(new_time, transition.name)
             self.current_time = new_time
             transition.fire()
 
@@ -177,9 +177,10 @@ class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
 
     _fire_control: FireControl = field(default_factory=FireControl, init=False)
 
-    @property
-    def current_time(self):
+    def get_current_time(self):
         return self._fire_control.current_time
+
+    current_time = property(get_current_time)
 
     def fire_until(self, end_time: float):
         self._fire_control.start()
@@ -275,7 +276,7 @@ class TokenCounterPlugin(Plugins.AbstractPlugin["TokenCounterPlugin.PlaceObserve
 
 
 @dataclass(eq=False)
-class SojournTimerPlugin(Plugins.AbstractPlugin):
+class SojournTimePlugin(Plugins.AbstractPlugin):
     """ A PetSi plugin providing by-place sojourn time stats
 
         The plugin collects the empirical distribution of the
@@ -294,12 +295,12 @@ class SojournTimerPlugin(Plugins.AbstractPlugin):
     class Histogram:
         _bucket_boundaries: List[float]
         _buckets: List[int] = field(init=False)
-        _min_value: float = field(default=0.0,init=False)
-        _max_value: float = field(default=0.0,init=False)
-        _sum_value: float = field(default=0.0,init=False)
+        _min_value: float = field(default=0.0, init=False)
+        _max_value: float = field(default=0.0, init=False)
+        _sum_value: float = field(default=0.0, init=False)
 
         def __post_init__(self):
-            self._buckets = list(repeat(0, len(self._bucket_boundaries) +1 ))
+            self._buckets = list(repeat(0, len(self._bucket_boundaries) + 1))
 
         def add(self, value: float):
             """ Increment the count of elements in the bucket value belongs to """
@@ -324,15 +325,15 @@ class SojournTimerPlugin(Plugins.AbstractPlugin):
         def mean(self):
             return self._sum_value / sum(self._buckets)
 
-    _bucket_boundaries_per_visit: List[float]
-    _bucket_boundaries_overall: List[float]
-
     # A function returning the current time
     _get_current_time: Callable[[], float]
 
+    _bucket_boundaries_per_visit: List[float]
+    _bucket_boundaries_overall: List[float]
+
     _per_visit_histograms: Dict["Structure.TokenType", Histogram] = field(init=False)
 
-    # A s.t. histrogram for each place
+    # A s.t. histogram for each place
     _overall_histograms: Dict["Structure.TokenType", Histogram] = field(init=False)
 
     def per_visit_histogram(self, place_name):

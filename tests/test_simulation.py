@@ -1,4 +1,4 @@
-from petsi.Simulation import AutoFirePlugin
+from petsi.Simulation import AutoFirePlugin, TokenCounterPlugin, SojournTimePlugin
 from petsi.Structure import Place, Net
 from inspect import cleandoc
 from unittest import TestCase, main
@@ -77,17 +77,25 @@ class AutoFireTest(TestCase):
     def setUp(self) -> None:
         self.net = Net("test net")
         self.net.add_type("my type")
-        self.plugin = AutoFirePlugin("test plugin")
-        self.net.register_plugin(self.plugin)
+        self.auto_fire = AutoFirePlugin("auto-fire plugin")
+        self.net.register_plugin(self.auto_fire)
+        self.token_counter = TokenCounterPlugin("token counter plugin", self.auto_fire.get_current_time)
+        self.net.register_plugin(self.token_counter)
+        self.sojourn_time = SojournTimePlugin("sojourn time plugin", self.auto_fire.get_current_time, [], [])
+        self.net.register_plugin(self.sojourn_time)
 
     def test_simple_net(self):
         p1 = self.net.add_place("waiting", "my type", "FIFO")
-        source = self.net.add_timed_transition("source", lambda: 1.0)
+        source = self.net.add_timed_transition("source", lambda: 2.0)
         self.net.add_constructor("arrivals", "source", "waiting")
-        sink = self.net.add_timed_transition("sink", lambda: 2.0)
+        sink = self.net.add_timed_transition("sink", lambda: 1.0)
         self.net.add_destructor("departures", "waiting", "sink", )
 
-        self.plugin.fire_repeatedly(10)
+        self.auto_fire.fire_repeatedly(1000)
+
+        assert(len(list(self.token_counter.histogram("waiting"))) == 2)
+        assert(self.sojourn_time.overall_histogram("waiting")._buckets[0] == 500)
+        assert(self.sojourn_time.per_visit_histogram("waiting")._buckets[0] == 500)
 
 
 if __name__ == '__main__':
