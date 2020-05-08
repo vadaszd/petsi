@@ -1,5 +1,5 @@
 from petsi.Simulation import AutoFirePlugin
-from petsi.Structure import Place
+from petsi.Structure import Place, Net
 from inspect import cleandoc
 from unittest import TestCase, main
 from unittest.mock import Mock
@@ -70,6 +70,24 @@ class FireControlTest(TestCase):
 
             # Mimic firing by disabling
             self.fire_control.disable_transition(transition)
+
+
+class AutoFireTest(TestCase):
+
+    def setUp(self) -> None:
+        self.net = Net("test net")
+        self.net.add_type("my type")
+        self.plugin = AutoFirePlugin("test plugin")
+        self.net.register_plugin(self.plugin)
+
+    def test_simple_net(self):
+        p1 = self.net.add_place("waiting", "my type", "FIFO")
+        source = self.net.add_timed_transition("source", lambda: 1.0)
+        self.net.add_constructor("arrivals", "source", "waiting")
+        sink = self.net.add_timed_transition("sink", lambda: 2.0)
+        self.net.add_destructor("departures", "waiting", "sink", )
+
+        self.plugin.fire_repeatedly(10)
 
 
 if __name__ == '__main__':

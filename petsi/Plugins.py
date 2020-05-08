@@ -8,8 +8,15 @@ if TYPE_CHECKING:
     from . import Structure
 
 
+_PlaceObserver = TypeVar("_PlaceObserver", bound="AbstractPlaceObserver")
+_TransitionObserver = TypeVar("_TransitionObserver", bound="AbstractTransitionObserver")
+_TokenObserver = TypeVar("_TokenObserver", bound="AbstractTokenObserver")
+_Plugin = TypeVar("_Plugin", bound="AbstractPlugin")
+
+
 @dataclass(eq=False)
-class AbstractPlaceObserver(ABC):
+class AbstractPlaceObserver(ABC, Generic[_Plugin]):
+    _plugin: _Plugin
     _place: "Structure.Place"
 
     @abstractmethod
@@ -20,24 +27,8 @@ class AbstractPlaceObserver(ABC):
 
 
 @dataclass(eq=False)
-class AbstractTokenObserver(ABC):
-    _token: "Structure.Place"
-
-    @abstractmethod
-    def report_construction(self, ): pass
-
-    @abstractmethod
-    def report_destruction(self, ): pass
-
-    @abstractmethod
-    def report_arrival_at(self, p: "Structure.Place"): pass
-
-    @abstractmethod
-    def report_departure_from(self, p: "Structure.Place"): pass
-
-
-@dataclass(eq=False)
-class AbstractTransitionObserver(ABC):
+class AbstractTransitionObserver(ABC, Generic[_Plugin]):
+    _plugin: _Plugin
     _transition: "Structure.Transition"
 
     @abstractmethod
@@ -63,9 +54,22 @@ class AbstractTransitionObserver(ABC):
         """
 
 
-_PlaceObserver = TypeVar("_PlaceObserver", bound=AbstractPlaceObserver)
-_TransitionObserver = TypeVar("_TransitionObserver", bound=AbstractTransitionObserver)
-_TokenObserver = TypeVar("_TokenObserver", bound=AbstractTokenObserver)
+@dataclass(eq=False)
+class AbstractTokenObserver(ABC, Generic[_Plugin]):
+    _plugin: _Plugin
+    _token: "Structure.Token"
+
+    @abstractmethod
+    def report_construction(self, ): pass
+
+    @abstractmethod
+    def report_destruction(self, ): pass
+
+    @abstractmethod
+    def report_arrival_at(self, p: "Structure.Place"): pass
+
+    @abstractmethod
+    def report_departure_from(self, p: "Structure.Place"): pass
 
 
 @dataclass(eq=False)
@@ -110,3 +114,44 @@ class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObs
             self._transition_observers[t.name] = o
 
         return o
+
+
+class NoopPlaceObserver(AbstractPlaceObserver, Generic[_Plugin]):
+
+    def report_arrival_of(self, token):
+        pass
+
+    def report_departure_of(self, token):
+        pass
+
+
+class NoopTransitionObserver(AbstractTransitionObserver, Generic[_Plugin]):
+
+    def after_firing(self):
+        pass
+
+    def got_enabled(self):
+        pass
+
+    def got_disabled(self):
+        pass
+
+    def before_firing(self):
+        pass
+
+
+class NoopTokenObserver(AbstractTokenObserver, Generic[_Plugin]):
+
+    def report_construction(self):
+        pass
+
+    def report_destruction(self):
+        pass
+
+    def report_arrival_at(self, p: "Structure.Place"):
+        pass
+
+    def report_departure_from(self, p: "Structure.Place"):
+        pass
+
+

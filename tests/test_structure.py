@@ -70,9 +70,9 @@ class StructureTest(TestCase):
         observer.configure_mock(name='observer #1')
 
         # Observers' name must not collide
-        net.register_observer(observer)
+        net.register_plugin(observer)
         with self.assertRaisesRegex(ValueError, "An observer with name 'observer #1' is already registered."):
-            net.register_observer(observer)
+            net.register_plugin(observer)
 
         # Adding a place to an observed net makes the place observed
         p1 = net.add_place("place 1", "my type", "FIFO")
@@ -95,7 +95,7 @@ class StructureTest(TestCase):
         observer2 = Mock()
         observer2.configure_mock(name='observer #2')
 
-        net.register_observer(observer2)
+        net.register_plugin(observer2)
         observer2.observe_place.assert_called_with(p1)
         self.assertTrue(observer2.observe_place.return_value in p1._place_observers)
         observer2.observe_transition.assert_called_with(t1)
@@ -138,7 +138,7 @@ class StructureTest(TestCase):
 
         net = Net("test net")
         observer = Mock()
-        net.register_observer(observer)
+        net.register_plugin(observer)
         net.add_type("my type")
         net.add_place("place 1", "my type", "FIFO")
         source = net.add_immediate_transition("source", 1, 1.)

@@ -1,12 +1,14 @@
-from . import Plugins
-
-from dataclasses import dataclass, field
-from typing import TYPE_CHECKING, Optional, List, Set, Dict, Tuple, DefaultDict, Callable, Iterator
-from more_itertools import consume
-from collections import defaultdict
-from heapq import heappush, heappop
-from itertools import repeat
 import random
+from bisect import bisect
+from collections import defaultdict
+from dataclasses import dataclass, field
+from heapq import heappush, heappop
+from itertools import repeat, count
+from typing import TYPE_CHECKING, Optional, List, Set, Dict, Tuple, DefaultDict, Callable, Iterator
+
+from . import Plugins
+from .Plugins import NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
+from .Structure import foreach
 
 if TYPE_CHECKING:
     from . import Structure
@@ -34,7 +36,9 @@ if TYPE_CHECKING:
 
 
 @dataclass(eq=False)
-class AutoFirePlugin(Plugins.AbstractPlugin):
+class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
+                                            "AutoFirePlugin.TransitionObserver",
+                                            NoopTokenObserver]):
     """ A PetSi plugin for firing transitions automatically.
 
         The transitions are selected for firing based on the rules for
@@ -44,6 +48,11 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
     @dataclass(eq=False)
     class FireControl:
         current_time: float = field(default=0.0)
+
+        _deadline_disambiguator: Iterator[int] = field(default_factory=count, init=False)
+
+        _is_build_in_progress: bool = field(default=True, init=False)
+        _transition_enabled_at_start_up: Dict["Structure.Transition", bool] = field(default_factory=dict, init=False)
 
         # A heap of (priority, Transition set) tuples, ordered by negative priority.
         # This is needed as the head of the heap (in the Python implementation) is
@@ -63,12 +72,41 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
             default_factory=lambda: defaultdict(set))
 
         # A heap of (deadline, Transition) tuples, ordered by deadline
-        _timed_transitions: List[Tuple[float, "Structure.Transition"]] = field(default_factory=list, init=False)
+        _timed_transitions: List[Tuple[float, int, "Structure.Transition"]] = field(default_factory=list, init=False)
+
+        def start(self):
+            if self._is_build_in_progress:
+                self._is_build_in_progress = False
+                for transition, is_enabled in self._transition_enabled_at_start_up.items():
+                    if is_enabled:
+                        self._enable_transition(transition)
+                    else:
+                        "Nothing to do, by default all transitions are treated as disabled."
 
         def enable_transition(self, transition: "Structure.Transition"):
+            if self._is_build_in_progress:
+                self._transition_enabled_at_start_up[transition] = True
+            else:
+                self._enable_transition(transition)
+
+        def disable_transition(self, transition: "Structure.Transition"):
+            if self._is_build_in_progress:
+                self._transition_enabled_at_start_up[transition] = False
+            else:
+                self._disable_transition(transition)
+
+        def _schedule_timed_transition(self, transition: "Structure.Transition"):
+            deadline = self.current_time + transition.get_duration()
+            heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
+
+        def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):
+            assert self._next_timed_transition() is transition, \
+                "Wow... cancelling a timed Transition before firing it..."
+            heappop(self._timed_transitions)
+
+        def _enable_transition(self, transition: "Structure.Transition"):
             if transition.is_timed:
-                deadline = self.current_time + transition.get_duration()
-                heappush(self._timed_transitions, (deadline, transition))
+                self._schedule_timed_transition(transition)
             else:
                 priority = transition.priority
                 priority_level = self._priority_levels[priority]
@@ -77,10 +115,9 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
                     heappush(self._active_priority_levels, (-priority, priority_level))
                     self._active_priorities.add(priority)
 
-        def disable_transition(self, transition: "Structure.Transition"):
+        def _disable_transition(self, transition: "Structure.Transition"):
             if transition.is_timed:
-                assert self._next_timed_transition() is transition, "Wow.... disabling a timed Transition..."
-                heappop(self._timed_transitions)
+                self._remove_timed_transition_from_schedule(transition)
             else:
                 priority = transition.priority
                 assert priority in self._active_priorities, "Wow... "
@@ -90,7 +127,7 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
                 # it gets to the front of the heap and remove it then.
 
         def _next_timed_transition(self):
-            return self._timed_transitions[0][1]
+            return self._timed_transitions[0][-1]
 
         def select_next_transition(self):
             """ Select and fire the next transition
@@ -122,14 +159,21 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
                 # The _active_priority_levels heap is empty.
                 # There is no enabled immediate transition, so we try a timed one
                 # Will raise an IndexError if there is no enabled timed transition
-                new_time, transition = self._timed_transitions[0]
+                new_time, _, transition = self._timed_transitions[0]
 
             return new_time, transition
 
         def fire_next(self):
-            new_time, transition = self._fire_control.select_next_transition()
-            transition.fire()
+            new_time, transition = self.select_next_transition()
+            print(new_time, transition.name)
             self.current_time = new_time
+            transition.fire()
+
+            # Timed transitions that remained enabled after firing them
+            # need to be re-scheduled.
+            if transition.is_timed and transition.is_enabled:
+                self._remove_timed_transition_from_schedule(transition)
+                self._schedule_timed_transition(transition)
 
     _fire_control: FireControl = field(default_factory=FireControl, init=False)
 
@@ -138,19 +182,24 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
         return self._fire_control.current_time
 
     def fire_until(self, end_time: float):
+        self._fire_control.start()
+
         while self.current_time < end_time:
             self._fire_control.fire_next()
 
-    def fire_repeatedly(self, count: int = 0):
-        # noinspection Mypy - complains about repeat(..., None)
-        consume(repeat(lambda _: self._fire_control.fire_next(), None if count == 0 else count))
+    def fire_repeatedly(self, count_of_firings: int = 0):
+        self._fire_control.start()
 
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[Plugins.AbstractTransitionObserver]:
-        return self.TransitionObserver(t, self._fire_control)
+        foreach(lambda _: self._fire_control.fire_next(),
+                repeat(None) if count_of_firings == 0 else repeat(None, count_of_firings))
+
+    def transition_observer_factory(self, t: "Structure.Transition") -> Optional["AutoFirePlugin.TransitionObserver"]:
+        return self.TransitionObserver(self, t, self._fire_control)
 
     @dataclass(eq=False)
-    class TransitionObserver(Plugins.AbstractTransitionObserver):
+    class TransitionObserver(Plugins.AbstractTransitionObserver["AutoFirePlugin"]):
         _fire_control: "AutoFirePlugin.FireControl"
+        _deadline: float = field(default=0.0, init=False)
 
         def got_enabled(self, ):
             self._fire_control.enable_transition(self._transition)
@@ -164,7 +213,9 @@ class AutoFirePlugin(Plugins.AbstractPlugin):
 
 
 @dataclass(eq=False)
-class TokenCounterPlugin(Plugins.AbstractPlugin):
+class TokenCounterPlugin(Plugins.AbstractPlugin["TokenCounterPlugin.PlaceObserver",
+                                                NoopTransitionObserver,
+                                                NoopTokenObserver]):
     """ A PetSi plugin providing by-place token-count stats
 
         The plugin collects the empirical distribution of the
@@ -179,10 +230,10 @@ class TokenCounterPlugin(Plugins.AbstractPlugin):
         return self._place_observers[place_name].histogram
 
     def place_observer_factory(self, p: "Structure.Place") -> Optional["PlaceObserver"]:
-        return self.PlaceObserver(p, self._get_current_time)
+        return self.PlaceObserver(self, p, self._get_current_time)
 
     @dataclass(eq=False)
-    class PlaceObserver(Plugins.AbstractPlaceObserver):
+    class PlaceObserver(Plugins.AbstractPlaceObserver["TokenCounterPlugin"]):
         # A function returning the current time
         _get_current_time: Callable[[], float]
 
@@ -229,39 +280,87 @@ class SojournTimerPlugin(Plugins.AbstractPlugin):
 
         The plugin collects the empirical distribution of the
         time a token spends at each place of the observed Petri net,
-        i.e. in what percentage of the tokens seen was the per-arrival and overall time
+        i.e. in what percentage of the tokens seen was the per-visit and overall time
         spent by the token at place j in bucket i of the histogram.
+
+        On the per-visit histograms each stay is translated into a separate increment.
+        The bucket is selected based on the time the token spent at the place during a single visit.
+
+        On the overall histograms one increment represents all the visits of a token at a given place.
+        The bucket is selected based on the cumulative time the token spent at the place during its whole life.
     """
 
     @dataclass(eq=False)
     class Histogram:
-        _bucket_boundaries: List[float] = field()
-        _buckets: List[int] = lambda: list(repeat(0, len(_bucket_boundaries) +1 ))
+        _bucket_boundaries: List[float]
+        _buckets: List[int] = field(init=False)
+        _min_value: float = field(default=0.0,init=False)
+        _max_value: float = field(default=0.0,init=False)
+        _sum_value: float = field(default=0.0,init=False)
+
+        def __post_init__(self):
+            self._buckets = list(repeat(0, len(self._bucket_boundaries) +1 ))
 
         def add(self, value: float):
             """ Increment the count of elements in the bucket value belongs to """
+            i = bisect(self._bucket_boundaries, value)
+            self._buckets[i] += 1
+
+            if self._min_value > value or self._min_value == 0.0:
+                self._min_value = value
+
+            if self._max_value < value or self._max_value == 0.0:
+                self._max_value = value
+
+        @property
+        def min(self):
+            return self._min_value
+
+        @property
+        def max(self):
+            return self._max_value
+
+        @property
+        def mean(self):
+            return self._sum_value / sum(self._buckets)
+
+    _bucket_boundaries_per_visit: List[float]
+    _bucket_boundaries_overall: List[float]
+
     # A function returning the current time
     _get_current_time: Callable[[], float]
 
-    _bucket_boundaries
-    _per_arrival_histograms: Dict["Structure.TokenType", Dict[str, List[int]]] = \
-        field(default_factory=defaultdict(lambda: defaultdict(lambda: list(repeat(0, len() +1 )))))
+    _per_visit_histograms: Dict["Structure.TokenType", Histogram] = field(init=False)
 
-    _overall_histograms: Dict["Structure.TokenType", Dict[str, List[int]]]
+    # A s.t. histrogram for each place
+    _overall_histograms: Dict["Structure.TokenType", Histogram] = field(init=False)
 
-    def _update_histogram(self, ):
+    def per_visit_histogram(self, place_name):
+        return self._per_visit_histograms[place_name]
+
+    def overall_histogram(self, place_name):
+        return self._overall_histograms[place_name]
+
+    def __post_init__(self):
+        self._per_visit_histograms = defaultdict(self._new_per_visit_histogram)
+        self._overall_histograms = defaultdict(self._new_overall_histogram)
+
+    def _new_per_visit_histogram(self):
+        return self.Histogram(self._bucket_boundaries_per_visit)
+
+    def _new_overall_histogram(self):
+        return self.Histogram(self._bucket_boundaries_overall)
 
     def token_observer_factory(self, t: "Structure.Token") -> Optional["TokenObserver"]:
-        return self.TokenObserver(t, self._get_current_time)
+        return self.TokenObserver(self, t, self._get_current_time)
 
     @dataclass(eq=False)
-    class TokenObserver(Plugins.AbstractTokenObserver):
+    class TokenObserver(Plugins.AbstractTokenObserver["SojournTimerPlugin"]):
         # A function returning the current time
         _get_current_time: Callable[[], float]
 
-        # The overall sojourn time of the observed token for each visited
-        # place
-        _overall_sojourn_time: Dict[str, float]
+        # The overall sojourn time of the observed token for each visited place
+        _overall_sojourn_time: DefaultDict[str, float] = field(default_factory=lambda: defaultdict(lambda: 0.0))
 
         _arrival_time: float = field(default=0.0, init=False)
 
@@ -272,6 +371,8 @@ class SojournTimerPlugin(Plugins.AbstractPlugin):
             """ For each visited place, select the overall s.t. histogram bucket
                 based on accumulated time and increment the bucket.
             """
+            for place_name, sojourn_time in self._overall_sojourn_time.items():
+                self._plugin.overall_histogram(place_name).add(sojourn_time)
 
         def report_arrival_at(self, p: "Structure.Place"):
             """ Start timer for place"""
@@ -279,11 +380,13 @@ class SojournTimerPlugin(Plugins.AbstractPlugin):
 
         def report_departure_from(self, p: "Structure.Place"):
             """ Stop timer and compute the sojourn time.
-                Select the bucket of the per arrival histogram that belongs
+                Select the bucket of the per visit histogram that belongs
                 to the place and increment it.
                 Add s.t. for the overall sojourn time of the token for this place
             """
             sojourn_time = self._get_current_time() - self._arrival_time
+            self._plugin.per_visit_histogram(p.name).add(sojourn_time)
+            self._overall_sojourn_time[p.name] += sojourn_time
 
 # @dataclass(eq=False)
 # class AbstractTokenObserver(Plugins.AbstractTokenObserver):

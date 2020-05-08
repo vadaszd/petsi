@@ -35,7 +35,7 @@ class Net:
     @property
     def observers(self) -> ValuesView[Plugins.AbstractPlugin]: return self._observers.values()
 
-    def register_observer(self, of: Plugins.AbstractPlugin):
+    def register_plugin(self, of: Plugins.AbstractPlugin):
         if of.name in self._observers:
             raise ValueError(f"An observer with name '{of.name}' is already registered.")
 
@@ -202,7 +202,8 @@ class Transition:
             if self.is_enabled:
                 observer.got_enabled()
             else:
-                observer.got_disabled()
+                # if not self.is_timed:
+                    observer.got_disabled()
 
     def add_arc(self, arc: Arc):
         if arc.name in self._arcs:
