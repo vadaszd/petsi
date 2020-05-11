@@ -171,7 +171,7 @@ class Token:
     @property
     def typ(self): return self._typ
 
-    def move_to(self, p: Place):
+    def deposit_at(self, p: Place):
         foreach(lambda to: to.report_arrival_at(p), self._token_observers)
 
     def remove_from(self, place: Place):
@@ -472,8 +472,9 @@ class Place(ABC):
     @abstractmethod
     def tokens(self) -> Iterator[Token]: pass
 
-    @abstractmethod
-    def clear(self): pass
+    def clear(self):
+        while not self.is_empty:
+            self.pop()
 
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_place(self)
@@ -491,7 +492,7 @@ class Place(ABC):
             o.report_some_token()
 
     def pop(self) -> Token:
-        token = self._pop()
+        token: Token = self._pop()
         token.remove_from(self)
         foreach(lambda po: po.report_departure_of(token), self._place_observers)
 
@@ -509,7 +510,7 @@ class Place(ABC):
         # Move_to_place notifies observers. To show them a consistent picture,
         # we first update the place, only then call move_to_place
         self._push(token)
-        token.move_to(self)
+        token.deposit_at(self)
         foreach(lambda po: po.report_arrival_of(token), self._place_observers)
 
         if was_empty:
@@ -533,9 +534,6 @@ class DequeBasedPlaceImplementation(Place, ABC):
     @property
     def tokens(self) -> Iterator[Token]:
         return iter(self._tokens)
-
-    def clear(self):
-        self._tokens.clear()
 
     def _pop(self) -> Token:
         return self._tokens.popleft()

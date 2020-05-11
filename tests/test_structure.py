@@ -32,7 +32,7 @@ class StructureTest(TestCase):
                                                 "'t1' must be a positive integer"):
             net.add_immediate_transition("t1", 0, 0)
 
-        for w in (0, 0.0, 1):
+        for w in (0, 0.0,):
             with self.assertRaisesRegex(ValueError, "The weight of immediate transition "
                                                     "'t1' must be a positive float"):
                 net.add_immediate_transition("t1", 1, w)

@@ -11,12 +11,12 @@ if TYPE_CHECKING:
 _PlaceObserver = TypeVar("_PlaceObserver", bound="AbstractPlaceObserver")
 _TransitionObserver = TypeVar("_TransitionObserver", bound="AbstractTransitionObserver")
 _TokenObserver = TypeVar("_TokenObserver", bound="AbstractTokenObserver")
-_Plugin = TypeVar("_Plugin", bound="AbstractPlugin")
+Plugin = TypeVar("Plugin", bound="AbstractPlugin")
 
 
 @dataclass(eq=False)
-class AbstractPlaceObserver(ABC, Generic[_Plugin]):
-    _plugin: _Plugin
+class AbstractPlaceObserver(ABC, Generic[Plugin]):
+    _plugin: Plugin
     _place: "Structure.Place"
 
     @abstractmethod
@@ -27,8 +27,8 @@ class AbstractPlaceObserver(ABC, Generic[_Plugin]):
 
 
 @dataclass(eq=False)
-class AbstractTransitionObserver(ABC, Generic[_Plugin]):
-    _plugin: _Plugin
+class AbstractTransitionObserver(ABC, Generic[Plugin]):
+    _plugin: Plugin
     _transition: "Structure.Transition"
 
     @abstractmethod
@@ -55,8 +55,8 @@ class AbstractTransitionObserver(ABC, Generic[_Plugin]):
 
 
 @dataclass(eq=False)
-class AbstractTokenObserver(ABC, Generic[_Plugin]):
-    _plugin: _Plugin
+class AbstractTokenObserver(ABC, Generic[Plugin]):
+    _plugin: Plugin
     _token: "Structure.Token"
 
     @abstractmethod
@@ -116,7 +116,7 @@ class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObs
         return o
 
 
-class NoopPlaceObserver(AbstractPlaceObserver, Generic[_Plugin]):
+class NoopPlaceObserver(AbstractPlaceObserver, Generic[Plugin]):
 
     def report_arrival_of(self, token):
         pass
@@ -125,7 +125,7 @@ class NoopPlaceObserver(AbstractPlaceObserver, Generic[_Plugin]):
         pass
 
 
-class NoopTransitionObserver(AbstractTransitionObserver, Generic[_Plugin]):
+class NoopTransitionObserver(AbstractTransitionObserver, Generic[Plugin]):
 
     def after_firing(self):
         pass
@@ -140,7 +140,7 @@ class NoopTransitionObserver(AbstractTransitionObserver, Generic[_Plugin]):
         pass
 
 
-class NoopTokenObserver(AbstractTokenObserver, Generic[_Plugin]):
+class NoopTokenObserver(AbstractTokenObserver, Generic[Plugin]):
 
     def report_construction(self):
         pass

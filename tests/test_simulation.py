@@ -1,13 +1,13 @@
 from unittest import TestCase, main
 from unittest.mock import Mock
 
-from petsi.Simulation import AutoFirePlugin, TokenCounterPlugin, SojournTimePlugin
+from petsi.Simulation import AutoFirePlugin, TokenCounterPlugin, SojournTimePlugin, FireControl
 from petsi.Structure import Net
 
 
 class FireControlTest(TestCase):
     def setUp(self):
-        self.fire_control = AutoFirePlugin.FireControl()
+        self.fire_control = FireControl()
         self.immediate_transition1 = Mock(is_timed=False, priority=1, weight=1.1)
         self.immediate_transition2a = Mock(is_timed=False, priority=2, weight=0.0)
         self.immediate_transition2b = Mock(is_timed=False, priority=2, weight=1.0)
@@ -15,12 +15,13 @@ class FireControlTest(TestCase):
         self.timed_transition2 = Mock(is_timed=True, **{'get_duration.return_value': 2.3})
 
     def assert_next_transition_is(self, transition):
-        self.assertIs(self.fire_control.select_next_transition()[1], transition)
+        self.assertIs(self.fire_control._select_next_transition()[1], transition)
 
     def test_firing_order(self):
+        self.fire_control._is_build_in_progress = False
         # No enabled transitions result in IndexError
         with self.assertRaises(IndexError):
-            self.fire_control.select_next_transition()
+            self.fire_control._select_next_transition()
 
         # Enable a single transition
         self.fire_control.enable_transition(self.immediate_transition1)
@@ -33,7 +34,7 @@ class FireControlTest(TestCase):
         # Disabling the sole enabled transition causes IndexError when asking for an enabled one
         self.fire_control.disable_transition(self.immediate_transition1)
         with self.assertRaises(IndexError):
-            self.fire_control.select_next_transition()
+            self.fire_control._select_next_transition()
 
         # Immediate transitions are selected before timed ones
         self.fire_control.enable_transition(self.immediate_transition1)
@@ -79,9 +80,9 @@ class AutoFireTest(TestCase):
         self.net.add_type("my type")
         self.auto_fire = AutoFirePlugin("auto-fire plugin")
         self.net.register_plugin(self.auto_fire)
-        self.token_counter = TokenCounterPlugin("token counter plugin", self.auto_fire.get_current_time)
+        self.token_counter = TokenCounterPlugin("token counter plugin", self.auto_fire.current_time_getter)
         self.net.register_plugin(self.token_counter)
-        self.sojourn_time = SojournTimePlugin("sojourn time plugin", self.auto_fire.get_current_time, [], [])
+        self.sojourn_time = SojournTimePlugin("sojourn time plugin", self.auto_fire.current_time_getter)
         self.net.register_plugin(self.sojourn_time)
 
     def test_simple_net(self):

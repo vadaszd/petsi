@@ -10,5 +10,5 @@ setup(
     author='vadaszd',
     author_email='',
     description='',
-    ext_modules = cythonize("helloworld.pyx"),
+    ext_modules=cythonize("*.pyx"),
 )
