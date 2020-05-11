@@ -1,2 +1,3 @@
 from .Structure import Net
-from .Simulation import AutoFirePlugin as Simulator
+from .Simulation import Simulator
+

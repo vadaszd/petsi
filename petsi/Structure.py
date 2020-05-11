@@ -1,22 +1,22 @@
 from __future__ import annotations
+import pyximport; pyximport.install(build_dir=".", inplace=True, build_in_temp=False, language_level=3)
+
+import collections
+from abc import ABC, abstractmethod
+from dataclasses import dataclass, field
+from enum import Enum
+from typing import TYPE_CHECKING
+
+from more_itertools import flatten, consume
 
 # mypy: mypy_path=..
 from . import Plugins
 
-from abc import ABC, abstractmethod
-from dataclasses import dataclass, field
-from enum import Enum, auto
-import collections
-from more_itertools import flatten, consume
-
-from typing import TYPE_CHECKING, List, Tuple, Type, TypeVar
 if TYPE_CHECKING:
     from typing import Any, TYPE_CHECKING, Set, Dict, \
         Deque, Callable, ValuesView, Iterator
 
-
-def foreach(f, iterator):
-    consume(map(f, iterator))
+from .util import foreach
 
 
 @dataclass(eq=False, repr=False)
@@ -31,6 +31,7 @@ class Net:
     def __post_init__(self):
         self._queuing_policies["FIFO"] = FIFOPlace
         self._queuing_policies["LIFO"] = LIFOPlace
+        self._black_dot = self.add_type("black dot")
 
     @property
     def observers(self) -> ValuesView[Plugins.AbstractPlugin]: return self._observers.values()
@@ -46,14 +47,17 @@ class Net:
                 flatten(map(lambda p: p.tokens, self._places.values())))
 
     # All arcs connected to a place must have the type of the place
-    def add_type(self, type_name: str):
+    def add_type(self, type_name: str) -> TokenType:
         if type_name in self._types:
             raise ValueError(f"Type '{type_name}' is already defined in net "
                              f"'{self.name}'")
         typ = TokenType(type_name, self)
         self._types[type_name] = typ
+        return typ
 
-    def add_place(self, name, type_name: str, queueing_policy_name: str) -> Place:
+    def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> Place:
+        """ Add a place to the Petri-net with the given name, type and Qing policy.
+        """
         if name in self._places:
             raise ValueError(f"Place '{name}' already exists in net '{self.name}'")
         if type_name not in self._types:
@@ -62,7 +66,8 @@ class Net:
         try:
             klass = self._queuing_policies[queueing_policy_name]
         except KeyError:
-            raise ValueError(f"Unknown queueing policy: '{queueing_policy_name}'")
+            raise ValueError(f"Unknown queueing policy: '{queueing_policy_name}'; "
+                             f"valid values are { ', '.join(self._queuing_policies.keys()) }")
         else:
             place = self._places[name] = klass(name, self._types[type_name])
             foreach(lambda o: place.attach_observer(o),
@@ -79,11 +84,11 @@ class Net:
             raise ValueError(f"A transition with name '{name}' already exists in net '{self.name}'.")
 
     # Arcs can be added only to empty input places!
-    def add_immediate_transition(self, name: str, priority: int, weight: float) -> Transition:
+    def add_immediate_transition(self, name: str, priority: int = 1, weight: float = 1.0) -> Transition:
         if not isinstance(priority, int) or priority < 1:
             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
 
-        if not isinstance(weight, float) or weight <= 0:
+        if not isinstance(weight, (float, int)) or weight <= 0:
             raise ValueError(f"The weight of immediate transition '{name}' must be a positive float")
 
         self._validate_transition_name(name)
@@ -118,6 +123,16 @@ class Net:
         return TestArc(_name=name,
                        _transition=self._transitions[transition_name],
                        _input_place=self._places[place_name])
+
+    def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> TestArc:
+        return InhibitorArc(_name=name,
+                            _transition=self._transitions[transition_name],
+                            _input_place=self._places[place_name])
+
+    def reset(self):
+        """ Remove all tokens from the Petri net """
+        for place in self._places.values():
+            place.clear()
 
 
 @dataclass(eq=False, repr=False)
@@ -366,6 +381,14 @@ class TestArc(PresenceObserver):
         pass
 
 
+class InhibitorArc(TestArc):
+    def report_some_token(self):
+        super().report_no_token()
+
+    def report_no_token(self):
+        super().report_some_token()
+
+
 @dataclass(eq=False)
 class Place(ABC):
     _name: str
@@ -449,6 +472,9 @@ class Place(ABC):
     @abstractmethod
     def tokens(self) -> Iterator[Token]: pass
 
+    @abstractmethod
+    def clear(self): pass
+
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_place(self)
 
@@ -507,6 +533,9 @@ class DequeBasedPlaceImplementation(Place, ABC):
     @property
     def tokens(self) -> Iterator[Token]:
         return iter(self._tokens)
+
+    def clear(self):
+        self._tokens.clear()
 
     def _pop(self) -> Token:
         return self._tokens.popleft()

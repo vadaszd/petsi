@@ -1,8 +1,8 @@
-from petsi.Simulation import AutoFirePlugin, TokenCounterPlugin, SojournTimePlugin
-from petsi.Structure import Place, Net
-from inspect import cleandoc
 from unittest import TestCase, main
 from unittest.mock import Mock
+
+from petsi.Simulation import AutoFirePlugin, TokenCounterPlugin, SojournTimePlugin
+from petsi.Structure import Net
 
 
 class FireControlTest(TestCase):

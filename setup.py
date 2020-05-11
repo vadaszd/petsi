@@ -1,4 +1,5 @@
 from setuptools import setup
+from Cython.Build import cythonize
 
 setup(
     name='petsi',
@@ -8,5 +9,6 @@ setup(
     license='MIT',
     author='vadaszd',
     author_email='',
-    description=''
+    description='',
+    ext_modules = cythonize("helloworld.pyx"),
 )

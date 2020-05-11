@@ -2,13 +2,15 @@ import random
 from bisect import bisect
 from collections import defaultdict
 from dataclasses import dataclass, field
+from functools import wraps, cached_property
 from heapq import heappush, heappop
 from itertools import repeat, count
-from typing import TYPE_CHECKING, Optional, List, Set, Dict, Tuple, DefaultDict, Callable, Iterator
+from typing import TYPE_CHECKING, Optional, List, Set, Dict, Tuple, DefaultDict, Callable, Iterator, TypeVar, Any, cast, \
+    Sequence
 
 from . import Plugins
 from .Plugins import NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
-from .Structure import foreach
+from .Structure import foreach, Net
 
 if TYPE_CHECKING:
     from . import Structure
@@ -36,9 +38,9 @@ if TYPE_CHECKING:
 
 
 @dataclass(eq=False)
-class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
-                                            "AutoFirePlugin.TransitionObserver",
-                                            NoopTokenObserver]):
+class AutoFirePlugin(
+        Plugins.AbstractPlugin[NoopPlaceObserver, "AutoFirePlugin.TransitionObserver", NoopTokenObserver]):
+
     """ A PetSi plugin for firing transitions automatically.
 
         The transitions are selected for firing based on the rules for
@@ -73,6 +75,16 @@ class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
 
         # A heap of (deadline, Transition) tuples, ordered by deadline
         _timed_transitions: List[Tuple[float, int, "Structure.Transition"]] = field(default_factory=list, init=False)
+
+        def reset(self):
+            # This will cause start() to re-enable the initially enabled transitions
+            # based on _transition_enabled_at_start_up
+            self.current_time = 0.0
+            self._is_build_in_progress = True
+            self._active_priority_levels.clear()
+            self._active_priorities.clear()
+            self._priority_levels.clear()
+            self._timed_transitions.clear()
 
         def start(self):
             if self._is_build_in_progress:
@@ -182,6 +194,8 @@ class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
 
     current_time = property(get_current_time)
 
+    def reset(self): self._fire_control.reset()
+
     def fire_until(self, end_time: float):
         self._fire_control.start()
 
@@ -214,18 +228,26 @@ class AutoFirePlugin(Plugins.AbstractPlugin[NoopPlaceObserver,
 
 
 @dataclass(eq=False)
-class TokenCounterPlugin(Plugins.AbstractPlugin["TokenCounterPlugin.PlaceObserver",
-                                                NoopTransitionObserver,
-                                                NoopTokenObserver]):
+class TokenCounterPlugin(
+        Plugins.AbstractPlugin["TokenCounterPlugin.PlaceObserver", NoopTransitionObserver, NoopTokenObserver]):
+
     """ A PetSi plugin providing by-place token-count stats
 
         The plugin collects the empirical distribution of the
         time-weighted token counts at all places of the observed Petri net,
         i.e. in what percentage of time the token count is i at place j.
+
+        :arg _get_current_time   A callable returning the current simulation time
     """
 
     # A function returning the current time
     _get_current_time: Callable[[], float]
+
+    def clear(self):
+        """ Clear the state of the plugin. Removes all data collected during the previous simulation.
+        """
+        for place_observer in self._place_observers.values():
+            place_observer.clear()
 
     def histogram(self, place_name: str) -> Iterator[float]:
         return self._place_observers[place_name].histogram
@@ -245,12 +267,18 @@ class TokenCounterPlugin(Plugins.AbstractPlugin["TokenCounterPlugin.PlaceObserve
         _time_of_last_token_move: float = field(default=0.0, init=False)
 
         # Element i of this list contains the amount of time the place had i tokens
+        # TODO: Use the Histogram class here as well
         _time_having: List[float] = field(default_factory=list, init=False)
+
+        def clear(self):
+            self._time_having.clear()
+            self._num_tokens = 0
+            self._time_of_last_token_move = 0.0
 
         @property
         def histogram(self) -> Iterator[float]:
             total_time = sum(self._time_having)
-            return (t/total_time for t in self._time_having)
+            return (t / total_time for t in self._time_having)
 
         def _update_num_tokens_by(self, delta):
             now = self._get_current_time()
@@ -293,7 +321,7 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
 
     @dataclass(eq=False)
     class Histogram:
-        _bucket_boundaries: List[float]
+        _bucket_boundaries: Sequence[float]
         _buckets: List[int] = field(init=False)
         _min_value: float = field(default=0.0, init=False)
         _max_value: float = field(default=0.0, init=False)
@@ -302,10 +330,20 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
         def __post_init__(self):
             self._buckets = list(repeat(0, len(self._bucket_boundaries) + 1))
 
+        def __iter__(self) -> Iterator[float]:
+            num_values_total = float(self.num_values)
+            for bucket_values in self._buckets:
+                yield bucket_values / num_values_total
+
+        def __len__(self):
+            return self.num_values
+
         def add(self, value: float):
             """ Increment the count of elements in the bucket value belongs to """
             i = bisect(self._bucket_boundaries, value)
             self._buckets[i] += 1
+
+            self._sum_value += value
 
             if self._min_value > value or self._min_value == 0.0:
                 self._min_value = value
@@ -323,23 +361,41 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
 
         @property
         def mean(self):
-            return self._sum_value / sum(self._buckets)
+            return self._sum_value / self.num_values
+
+        @cached_property
+        def num_values(self):
+            """ :returns The number of items addedd to the histogram.
+
+                Caveat!!! Only call this function after adding all items to the histogram,
+                as the return value is cached and not recalculated for subsequent invocations.
+             """
+            return sum(self._buckets)
 
     # A function returning the current time
     _get_current_time: Callable[[], float]
 
-    _bucket_boundaries_per_visit: List[float]
-    _bucket_boundaries_overall: List[float]
+    bucket_boundaries_per_visit: Sequence[float] = field(default=(), init=False)
+    bucket_boundaries_overall: Sequence[float] = field(default=(), init=False)
 
     _per_visit_histograms: Dict["Structure.TokenType", Histogram] = field(init=False)
 
     # A s.t. histogram for each place
     _overall_histograms: Dict["Structure.TokenType", Histogram] = field(init=False)
 
-    def per_visit_histogram(self, place_name):
+    def clear(self):
+        """ Clear the state of the plugin.
+
+        Removes all token observers and the data collected during the previous simulation.
+        """
+        self._per_visit_histograms.clear()
+        self._overall_histograms.clear()
+        self._token_observers.clear()
+
+    def per_visit_histogram(self, place_name) -> Histogram:
         return self._per_visit_histograms[place_name]
 
-    def overall_histogram(self, place_name):
+    def overall_histogram(self, place_name) -> Histogram:
         return self._overall_histograms[place_name]
 
     def __post_init__(self):
@@ -347,10 +403,10 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
         self._overall_histograms = defaultdict(self._new_overall_histogram)
 
     def _new_per_visit_histogram(self):
-        return self.Histogram(self._bucket_boundaries_per_visit)
+        return self.Histogram(self.bucket_boundaries_per_visit)
 
     def _new_overall_histogram(self):
-        return self.Histogram(self._bucket_boundaries_overall)
+        return self.Histogram(self.bucket_boundaries_overall)
 
     def token_observer_factory(self, t: "Structure.Token") -> Optional["TokenObserver"]:
         return self.TokenObserver(self, t, self._get_current_time)
@@ -388,6 +444,90 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
             sojourn_time = self._get_current_time() - self._arrival_time
             self._plugin.per_visit_histogram(p.name).add(sojourn_time)
             self._overall_sojourn_time[p.name] += sojourn_time
+
+
+class TransitionFrequencyPlugin(Plugins.AbstractPlugin):
+    pass
+
+
+class Simulator:
+    def __init__(self, net_name: str = "net"):
+        self._net = Net(net_name)
+        self._auto_fire = AutoFirePlugin("auto-fire plugin")
+        self._net.register_plugin(self._auto_fire)
+        self._token_counter = TokenCounterPlugin("token counter plugin", self._auto_fire.get_current_time)
+        self._net.register_plugin(self._token_counter)
+        self._sojourn_time = SojournTimePlugin("sojourn time plugin", self._auto_fire.get_current_time,)
+        self._net.register_plugin(self._sojourn_time)
+
+    @property
+    def net(self) -> "Structure.Net": return self._net
+
+    _FuncType = Callable[..., Any]
+    _F = TypeVar('_F', bound=_FuncType)
+
+    # noinspection Mypy,PyMethodParameters
+    def _delegate_to(f: _F) -> _F:
+        @wraps(f)
+        def _delegate_to_(self: 'Simulator', *args: Any, **kwargs: Any) -> Any:
+            return f(self._net, *args, **kwargs)
+
+        return cast("_F", _delegate_to_)
+
+    # noinspection PyArgumentList
+    add_type = _delegate_to(Net.add_type)
+    # noinspection PyArgumentList
+    add_place = _delegate_to(Net.add_place)
+    # noinspection PyArgumentList
+    add_immediate_transition = _delegate_to(Net.add_immediate_transition)
+    # noinspection PyArgumentList
+    add_timed_transition = _delegate_to(Net.add_timed_transition)
+    # noinspection PyArgumentList
+    add_constructor = _delegate_to(Net.add_constructor)
+    # noinspection PyArgumentList
+    add_transfer = _delegate_to(Net.add_transfer)
+    # noinspection PyArgumentList
+    add_destructor = _delegate_to(Net.add_destructor)
+    # noinspection PyArgumentList
+    add_test = _delegate_to(Net.add_test)
+    # noinspection PyArgumentList
+    add_inhibitor = _delegate_to(Net.add_inhibitor)
+
+    def fire_repeatedly(self, count_of_firings: int):
+        self._net.reset()
+        self._token_counter.clear()
+        self._sojourn_time.clear()
+        self._auto_fire.reset()
+        self._auto_fire.fire_repeatedly(count_of_firings)
+
+    @property
+    def bucket_boundaries_overall(self) -> Sequence[float]:
+        return self._sojourn_time.bucket_boundaries_overall
+
+    @bucket_boundaries_overall.setter
+    def bucket_boundaries_overall(self, value: Sequence[float]):
+        self._sojourn_time.bucket_boundaries_overall = value
+
+    @property
+    def bucket_boundaries_per_visit(self) -> Sequence[float]:
+        return self._sojourn_time.bucket_boundaries_per_visit
+
+    @bucket_boundaries_per_visit.setter
+    def bucket_boundaries_per_visit(self, value: Sequence[float]):
+        self._sojourn_time.bucket_boundaries_per_visit = value
+
+    def token_count_histogram(self, place_name: str) -> Iterator[float]:
+        """ Returns the empirical distribution of the number of tokens at a given place during the simulation.
+        """
+        return self._token_counter.histogram(place_name)
+
+    def sojourn_time_overall_histogram(self, place_name: str) -> SojournTimePlugin.Histogram:
+        """ Returns a histogram of the amount of time a token spends at a given place during its whole life."""
+        return self._sojourn_time.overall_histogram(place_name)
+
+    def sojourn_time_per_visit_histogram(self, place_name: str) -> SojournTimePlugin.Histogram:
+        """ Returns a histogram of the amount of time a token spends at a given place during a visit."""
+        return self._sojourn_time.per_visit_histogram(place_name)
 
 # @dataclass(eq=False)
 # class AbstractTokenObserver(Plugins.AbstractTokenObserver):
