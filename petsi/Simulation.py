@@ -3,13 +3,13 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from functools import wraps, cached_property
 from itertools import repeat
-from typing import TYPE_CHECKING, Optional, List, Dict, DefaultDict, Callable, Iterator, TypeVar, Any, cast, \
+from typing import TYPE_CHECKING, Optional, List, Dict, Callable, Iterator, TypeVar, Any, cast, \
     Sequence
 
 from . import Plugins
 from .Plugins import NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
 from .Structure import foreach, Net
-from .fire_control import FireControl
+from .fire_control import FireControl, SojournTimePluginTokenObserver, TokenCounterPluginPlaceObserver
 
 if TYPE_CHECKING:
     from . import Structure
@@ -112,54 +112,7 @@ class TokenCounterPlugin(
         return self._place_observers[place_name].histogram
 
     def place_observer_factory(self, p: "Structure.Place") -> Optional["PlaceObserver"]:
-        return self.PlaceObserver(self, p, self._current_time_getter)
-
-    @dataclass(eq=False)
-    class PlaceObserver(Plugins.AbstractPlaceObserver["TokenCounterPlugin"]):
-        # A function returning the current time
-        _get_current_time: Callable[[], float]
-
-        # Current number of tokens at the place
-        _num_tokens: int = field(default=0, init=False)
-
-        # When the state of having _num_tokens tokens at the place was entered
-        _time_of_last_token_move: float = field(default=0.0, init=False)
-
-        # Element i of this list contains the amount of time the place had i tokens
-        # TODO: Use the Histogram class here as well
-        _time_having: List[float] = field(default_factory=list, init=False)
-
-        def clear(self):
-            self._time_having.clear()
-            self._num_tokens = 0
-            self._time_of_last_token_move = 0.0
-
-        @property
-        def histogram(self) -> Iterator[float]:
-            total_time = sum(self._time_having)
-            return (t / total_time for t in self._time_having)
-
-        def _update_num_tokens_by(self, delta):
-            now: float = self._get_current_time()
-            duration = now - self._time_of_last_token_move
-
-            try:
-                self._time_having[self._num_tokens] += duration
-            except IndexError:
-                # Off by at most one
-                assert len(self._time_having) == self._num_tokens
-                self._time_having.append(duration)
-
-            self._time_of_last_token_move = now
-            self._num_tokens += delta
-            # Cannot go negative
-            assert self._num_tokens >= 0
-
-        def report_arrival_of(self, token):
-            self._update_num_tokens_by(+1)
-
-        def report_departure_of(self, token):
-            self._update_num_tokens_by(-1)
+        return TokenCounterPluginPlaceObserver(self, p, self._current_time_getter)
 
 
 @dataclass(eq=False)
@@ -268,47 +221,7 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
         return self.Histogram(self.bucket_boundaries_overall)
 
     def token_observer_factory(self, t: "Structure.Token") -> Optional["TokenObserver"]:
-        return self.TokenObserver(self, t, self._get_current_time)
-
-    class TokenObserver(Plugins.AbstractTokenObserver["SojournTimerPlugin"]):
-        # A function returning the current time
-        _get_current_time: Callable[[], float]
-
-        # The overall sojourn time of the observed token for each visited place
-        _overall_sojourn_time: DefaultDict[str, float]
-
-        _arrival_time: float
-
-        def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
-                     _get_current_time: Callable[[], float]):
-            super().__init__(_plugin, _token)
-            self._get_current_time = _get_current_time
-            self._overall_sojourn_time = defaultdict(lambda: 0.0)
-            self._arrival_time = 0.0
-
-        def report_construction(self):
-            pass
-
-        def report_destruction(self):
-            """ For each visited place, select the overall s.t. histogram bucket
-                based on accumulated time and increment the bucket.
-            """
-            for place_name, sojourn_time in self._overall_sojourn_time.items():
-                self._plugin.overall_histogram(place_name).add(sojourn_time)
-
-        def report_arrival_at(self, p: "Structure.Place"):
-            """ Start timer for place"""
-            self._arrival_time = self._get_current_time()
-
-        def report_departure_from(self, p: "Structure.Place"):
-            """ Stop timer and compute the sojourn time.
-                Select the bucket of the per visit histogram that belongs
-                to the place and increment it.
-                Add s.t. for the overall sojourn time of the token for this place
-            """
-            sojourn_time = self._get_current_time() - self._arrival_time
-            self._plugin.per_visit_histogram(p.name).add(sojourn_time)
-            self._overall_sojourn_time[p.name] += sojourn_time
+        return SojournTimePluginTokenObserver(self, t, self._get_current_time)
 
 
 class TransitionFrequencyPlugin(Plugins.AbstractPlugin):
