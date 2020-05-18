@@ -161,10 +161,9 @@ class TokenType(ABC):
         return f"{self.__class__.__name__}('{self.name}')"
 
 
-@cython.cclass
 class Token:
     _typ: TokenType
-    _token_observers: "Set[Plugins.AbstractTokenObserver]" = cython.declare(set)
+    _token_observers: "Set[Plugins.AbstractTokenObserver]"   #= cython.declare(set)
     tags: "Dict[str, Any]"
 
     def __init__(self, typ: TokenType):
@@ -185,17 +184,14 @@ class Token:
     @property
     def typ(self): return self._typ
 
-    @cython.cfunc
-    def deposit_at(self, p: "Place"):
+    def deposit_at(self, place):  # : "Place"
         for to in self._token_observers:
-            to.report_arrival_at(p)
+            to.report_arrival_at(place)
 
-    @cython.cfunc
-    def remove_from(self, place: "Place"):
+    def remove_from(self, place):  # : "Place"
         for to in self._token_observers:
             to.report_departure_from(place)
 
-    @cython.cfunc
     def delete(self):
         for to in self._token_observers:
             to.report_destruction()
@@ -209,14 +205,14 @@ class Token:
 
 @cython.cclass
 class Transition:
-    _name: str = cython.declare(cython.basestring)
-    priority: int = cython.declare(cython.int, visibility='readonly')
-    weight: float = cython.declare(cython.float, visibility='readonly')
+    _name: str   #= cython.declare(cython.basestring)
+    priority: int #= cython.declare(cython.int, visibility='readonly')
+    weight: float #= cython.declare(cython.float, visibility='readonly')
     _distribution: "Callable[[], float]"
 
-    _disabled_arc_count: int = cython.declare(cython.int)
-    _arcs: "Dict[str, Arc]" = cython.declare(dict)
-    _transition_observers: "Set[Plugins.AbstractTransitionObserver]" = cython.declare(set, visibility="readonly")
+    _disabled_arc_count: int   #= cython.declare(cython.int)
+    _arcs: "Dict[str, Arc]" # = cython.declare(dict)
+    _transition_observers: "Set[Plugins.AbstractTransitionObserver]" # = cython.declare(set, visibility="readonly")
 
     def __init__(self, name: str, priority: int, weight: float, distribution: "Callable[[], float]"):
         self._name = name
@@ -234,6 +230,8 @@ class Transition:
     def is_timed(self) -> bool:
         return self.priority == 0
 
+    @cython.cfunc
+    @cython.returns(cython.float)
     def get_duration(self):
         return self._distribution()
 
@@ -469,13 +467,13 @@ class InhibitorArc(TestArc):
         TestArc.report_some_token(self)
 
 
-@cython.cclass
+# @cython.cclass
 class Place:
     _name: str
     _typ:  TokenType
     _tokens: "Deque[Token]" # = cython.declare(_collections.deque)
-    _place_observers: "Set[Plugins.AbstractPlaceObserver]" = cython.declare(set, visibility="readonly")
-    _presence_observers: "Set[PresenceObserver]" = cython.declare(set, visibility="readonly")
+    _place_observers: "Set[Plugins.AbstractPlaceObserver]" # = cython.declare(set, visibility="readonly")
+    _presence_observers: "Set[PresenceObserver]"  # = cython.declare(set, visibility="readonly")
 
     _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")
 
@@ -521,7 +519,7 @@ class Place:
         }
     }
 
-    _status: _Status = cython.declare(object, visibility="readonly")
+    _status: _Status # = cython.declare(object, visibility="readonly")
 
     def __init__(self, name: str, typ:  TokenType, **kwargs):
         super().__init__(**kwargs)
@@ -572,9 +570,6 @@ class Place:
         else:
             o.report_some_token()
 
-    @cython.cfunc
-    @cython.locals(token=Token, presence_observer=PresenceObserver,)
-    @cython.returns(Token)
     def pop(self) -> Token:
         token: Token = self._pop()
         token.remove_from(self)
@@ -590,10 +585,10 @@ class Place:
 
         return token
 
-    @cython.locals(token=Token, presence_observer=PresenceObserver,
-                   # place_observer=Plugins.AbstractPlaceObserver,
-                   was_empty=cython.bint)
-    def push(self, token: Token):
+    # @cython.locals(token=Token, presence_observer=PresenceObserver,
+    #                # place_observer=Plugins.AbstractPlaceObserver,
+    #                was_empty=cython.bint)
+    def push(self, token):   # "Token"
         was_empty = self.is_empty
 
         # Move_to_place notifies observers. To show them a consistent picture,
@@ -608,8 +603,8 @@ class Place:
             for presence_observer in self._presence_observers:
                 presence_observer.report_some_token()
 
-    @cython.cfunc
-    @cython.returns(cython.bint)
+    # @cython.cfunc
+    # @cython.returns(cython.bint)
     def _is_empty(self):
         return  len(self._tokens) == 0
 
@@ -621,13 +616,13 @@ class Place:
     def tokens(self) -> "Iterator[Token]":
         return iter(self._tokens)
 
-    @cython.ccall
-    @cython.returns(Token)
+    # @cython.ccall
+    # @cython.returns(Token)
     def _pop(self) -> Token:
         return self._tokens.popleft()
 
-    @cython.ccall
-    def _push(self, t: Token):
+    # @cython.ccall
+    def _push(self, t):   # : Token
         self._tokens.append(t)  # Appends to the right
 
     # def peek(self) -> Token:

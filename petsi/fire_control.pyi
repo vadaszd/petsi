@@ -10,8 +10,15 @@ from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator,
 if TYPE_CHECKING:
     from . import Structure, Plugins
 
-print("fire_control.pyx")
+print("fire_control.py")
 
+
+class Clock:
+    def __init__(self, fire_control: "FireControl"):
+        pass
+
+    def read(self) -> float:
+        pass
 
 class FireControl:
     current_time: float

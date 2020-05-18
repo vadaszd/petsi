@@ -6,6 +6,8 @@ from itertools import repeat
 from typing import TYPE_CHECKING, Optional, List, Dict, Callable, Iterator, TypeVar, Any, cast, \
     Sequence
 
+from .fire_control import Clock
+
 from . import Plugins
 from .Plugins import NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
 from .Structure import foreach, Net
@@ -49,16 +51,16 @@ class AutoFirePlugin(
     _fire_control: FireControl = field(default_factory=FireControl, init=False)
 
     @cached_property
-    def current_time_getter(self) -> Callable[[], float]:
-        return self._fire_control.current_time_getter()
+    def clock(self) -> Clock:
+        return self._fire_control.get_clock()
 
     def reset(self): self._fire_control.reset()
 
     def fire_until(self, end_time: float):
-        get_current_time: Callable[[], float] = self.current_time_getter
+        clock: Clock = self.clock
         self._fire_control.start()
 
-        while get_current_time() < end_time:
+        while clock.read() < end_time:
             self._fire_control.fire_next()
 
     def fire_repeatedly(self, count_of_firings: int = 0):
@@ -96,11 +98,11 @@ class TokenCounterPlugin(
         time-weighted token counts at all places of the observed Petri net,
         i.e. in what percentage of time the token count is i at place j.
 
-        :arg _current_time_getter   A callable returning the current simulation time
+        :arg _clock   A callable returning the current simulation time
     """
 
     # A function returning the current time
-    _current_time_getter: Callable[[], float]
+    _clock: Clock
 
     def clear(self):
         """ Clear the state of the plugin. Removes all data collected during the previous simulation.
@@ -112,7 +114,7 @@ class TokenCounterPlugin(
         return self._place_observers[place_name].histogram
 
     def place_observer_factory(self, p: "Structure.Place") -> Optional["PlaceObserver"]:
-        return TokenCounterPluginPlaceObserver(self, p, self._current_time_getter)
+        return TokenCounterPluginPlaceObserver(self, p, self._clock)
 
 
 @dataclass(eq=False)
@@ -173,7 +175,7 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
 
         @property
         def mean(self):
-            return self._sum_value / self.num_values
+            return self._sum_value / self.num_values if self.num_values != 0 else 0
 
         @cached_property
         def num_values(self):
@@ -185,7 +187,7 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
             return sum(self._buckets)
 
     # A function returning the current time
-    _get_current_time: Callable[[], float]
+    _clock: Clock
 
     bucket_boundaries_per_visit: Sequence[float] = field(default=(), init=False)
     bucket_boundaries_overall: Sequence[float] = field(default=(), init=False)
@@ -221,7 +223,7 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
         return self.Histogram(self.bucket_boundaries_overall)
 
     def token_observer_factory(self, t: "Structure.Token") -> Optional["TokenObserver"]:
-        return SojournTimePluginTokenObserver(self, t, self._get_current_time)
+        return SojournTimePluginTokenObserver(self, t, self._clock)
 
 
 class TransitionFrequencyPlugin(Plugins.AbstractPlugin):
@@ -233,9 +235,9 @@ class Simulator:
         self._net = Net(net_name)
         self._auto_fire = AutoFirePlugin("auto-fire plugin")
         self._net.register_plugin(self._auto_fire)
-        self._token_counter = TokenCounterPlugin("token counter plugin", self._auto_fire.current_time_getter)
+        self._token_counter = TokenCounterPlugin("token counter plugin", self._auto_fire.clock)
         self._net.register_plugin(self._token_counter)
-        self._sojourn_time = SojournTimePlugin("sojourn time plugin", self._auto_fire.current_time_getter,)
+        self._sojourn_time = SojournTimePlugin("sojourn time plugin", self._auto_fire.clock,)
         self._net.register_plugin(self._sojourn_time)
 
     @property

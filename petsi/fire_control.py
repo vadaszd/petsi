@@ -1,85 +1,105 @@
 # cython: language_level=3
 # cython: profile=False
-
-import random
-from collections import defaultdict
-from functools import partial
-from heapq import heappush, heappop
-from itertools import count
-from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator, Callable
-from . import Plugins
-
-from cpython.object cimport Py_EQ, Py_NE, Py_LT, Py_GT, Py_LE, Py_GE
-# from cpython.set cimport * # PySetObject
-
 from .Plugins import Plugin
 
+import cython
+from random import choices as random_choices
+from collections import defaultdict
+from heapq import heappush, heappop
+from itertools import count
+
+from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator
+
 if TYPE_CHECKING:
-    from . import Structure
+    import Structure
 
-print("fire_control.pyx")
+print("fire_control.py")
 
 
-cdef class _PriorityLevel:
-    cdef int priority
-    cdef set transitions         # Set["Structure.Transition"]
+@cython.cclass
+class _PriorityLevel:
+    priority: int
+    transitions: Set["Structure.Transition"]
 
-    def __init__(self, priority: int , transitions: Set["Structure.Transition"]):
+    def __init__(self, priority: int):
         self.priority = priority
-        self.transitions = transitions
+        self.transitions = set()
 
-    def __richcmp__(self, anything, op: int):
-        """ Higher prio compares less!!! """
-        if not isinstance(anything, _PriorityLevel):
-            return NotImplemented
-        other: _PriorityLevel = anything
+    def add(self, transition: "Structure.Transition"):
+        self.transitions.add(transition)
 
-        if op == Py_EQ:
-            return self.priority == other.priority
-        elif op == Py_NE:
-            return self.priority != other.priority
-        elif op == Py_LT:
-            return self.priority > other.priority
-        elif op == Py_GT:
-            return self.priority < other.priority
-        elif op == Py_LE:
-            return self.priority >= other.priority
-        elif op == Py_GE:
-            return self.priority <= other.priority
-        else:
-            return NotImplemented
+    def remove(self, transition: "Structure.Transition"):
+        self.transitions.remove(transition)
+
+    @cython.locals(other="_PriorityLevel")
+    @cython.returns(cython.bint)
+    def __eq__(self, other):
+        # if not isinstance(anything, _PriorityLevel):
+        #     return NotImplemented
+        return self.priority == other.priority
+
+    @cython.locals(other="_PriorityLevel")
+    @cython.returns(cython.bint)
+    def __ne__(self, other):
+        return self.priority != other.priority
+
+    @cython.locals(other="_PriorityLevel")
+    @cython.returns(cython.bint)
+    def __lt__(self, other):
+        return self.priority > other.priority
+
+    @cython.locals(other="_PriorityLevel")
+    @cython.returns(cython.bint)
+    def __gt__(self, other):
+        return self.priority < other.priority
+
+    @cython.locals(other="_PriorityLevel")
+    @cython.returns(cython.bint)
+    def __le__(self, other):
+        return self.priority >= other.priority
+
+    @cython.locals(other="_PriorityLevel")
+    @cython.returns(cython.bint)
+    def __ge__(self, other):
+        return self.priority <= other.priority
 
 
+class Clock:
+    def __init__(self, fire_control):
+        self._fire_control = fire_control
 
-cdef class FireControl:
-    cdef:
-        readonly float current_time
-        public bint _is_build_in_progress
+    def read(self):
+        return self._fire_control.current_time
 
-    _deadline_disambiguator: Iterator[int]
-    _transition_enabled_at_start_up: Dict["Structure.Transition", bool]
+
+class FireControl:
+    current_time: float           # = cython.declare(float, visibility="readonly")
+    _is_build_in_progress: bool   # = cython.declare(cython.bint, visibility="public")
+
+    _deadline_disambiguator: Iterator[int]  # = cython.declare(cython.iterator)
+    _transition_enabled_at_start_up: Dict["Structure.Transition", bool] # = cython.declare(dict)
 
     # A heap of (priority, Transition set) tuples, ordered by negative priority.
     # This is needed as the head of the heap (in the Python implementation) is
     # the smallest item. Each set contains the enabled immediate transitions at
     # that level. Empty sets are removed from the head of the heap.
     # Below these sets are also called the 'priority_level'.
-    _active_priority_levels: List[_PriorityLevel]
+    _active_priority_levels: List[_PriorityLevel]  # = cython.declare(list)
 
     # The set of priorities with priority levels present in the _active_priority_levels heap
-    _active_priorities: Set[int]
+    _active_priorities: Set[int]  # = cython.declare(set)
 
     # The same set of Transitions as above (same set object!), keyed by priority,
     # allowing random access. The sets are created when the observer for
     # the first transition at that priority is created
     # and are never removed from this dict.
-    _priority_levels: DefaultDict[int, Set["Structure.Transition"]]
+    _priority_levels: Dict[int, _PriorityLevel]  #= cython.declare(defaultdict)
 
     # A heap of (deadline, Transition) tuples, ordered by deadline
-    _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
+    _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]   #= cython.declare(list)
 
-    def current_time_getter(self):
-        return partial(FireControl.current_time.__get__, self)
+    def get_clock(self) -> Clock:
+        return Clock(self)
 
     def __init__(self):
         self._deadline_disambiguator = count()
@@ -88,7 +108,13 @@ cdef class FireControl:
         self._is_build_in_progress = True
         self._active_priority_levels = list()
         self._active_priorities = set()
-        self._priority_levels = defaultdict(set)
+
+        class PriorityLevelDict(defaultdict):
+            def __missing__(self, priority):
+                priority_level = self[priority] = _PriorityLevel(priority)
+                return priority_level
+
+        self._priority_levels = PriorityLevelDict()
         self._timed_transitions = list()
 
     def reset(self):
@@ -122,48 +148,46 @@ cdef class FireControl:
         else:
             self._disable_transition(transition)
 
-    cdef _schedule_timed_transition(self, transition: "Structure.Transition"):
+    def _schedule_timed_transition(self, transition: "Structure.Transition"):
         deadline: float = self.current_time + transition.get_duration()
         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
 
-    cdef _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):
+    def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):
         assert self._next_timed_transition() is transition, \
             "Wow... cancelling a timed Transition before firing it..."
         heappop(self._timed_transitions)
 
-    cdef _enable_transition(self, transition: "Structure.Transition"):
+    def _enable_transition(self, transition: "Structure.Transition"):
         if transition.is_timed:
             self._schedule_timed_transition(transition)
         else:
             priority: int = transition.priority
-            priority_level: Set["Structure.Transition"] = self._priority_levels[priority]
+            priority_level: _PriorityLevel = self._priority_levels[priority]
             priority_level.add(transition)
             if priority not in self._active_priorities:
-                heappush(self._active_priority_levels, _PriorityLevel(priority, priority_level))
+                heappush(self._active_priority_levels, priority_level)
                 self._active_priorities.add(priority)
 
-    cdef _disable_transition(self, transition: "Structure.Transition"):
+    def _disable_transition(self, transition: "Structure.Transition"):
         if transition.is_timed:
             self._remove_timed_transition_from_schedule(transition)
         else:
             priority = transition.priority
             assert priority in self._active_priorities, "Wow... "
-            self._priority_levels[priority].remove(transition)
+            priority_level = self._priority_levels[priority]
+            priority_level.remove(transition)
             # It would be too expensive to remove a just emptied priority_level from
             # the _active_priority_levels heap, so we do not do that. We wait until
             # it gets to the front of the heap and remove it then.
 
-    cdef _next_timed_transition(self):
+    def _next_timed_transition(self):
         return self._timed_transitions[0][-1]
 
-    cpdef tuple _select_next_transition(self):
+    def _select_next_transition(self):
         """ Select and fire the next transition
 
             :raise IndexError   If there is no enabled transition
         """
-        cdef:
-            _PriorityLevel priority_level
-            float new_time
 
         # First try to find an enabled immediate transition
         while len(self._active_priority_levels) > 0:
@@ -175,8 +199,11 @@ cdef class FireControl:
                 self._active_priorities.remove(priority_level.priority)
                 continue
 
-            weights = [t.weight for t in priority_level.transitions]
-            transition = random.choices(list(priority_level.transitions), weights)[0]
+            weights = list()
+            for transition in priority_level.transitions:
+                weights.append(transition.weight)
+
+            transition = random_choices(list(priority_level.transitions), weights)[0]
             new_time = self.current_time
 
             # No need to remove the transition from the priority_level.
@@ -207,31 +234,32 @@ cdef class FireControl:
             self._schedule_timed_transition(transition)
 
 
-
-cdef class SojournTimePluginTokenObserver:
+# @cython.cclass
+class SojournTimePluginTokenObserver:
     _plugin: Plugin
-    _token: "Structure.Token"
+    _token: "Structure.Token"   #= cython.declare("Structure.Token")
 
     # A function returning the current time
-    _get_current_time: Callable[[], float]
-    cdef float (*fun_ptr)()
+    _clock: Clock
 
     # The overall sojourn time of the observed token for each visited place
     _overall_sojourn_time: DefaultDict[str, float]
 
-    _arrival_time: float
+    _arrival_time: float    #= cython.declare(cython.float)
 
     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
-                 _get_current_time: Callable[[], float]):
+                 _clock: Clock):
         self._plugin = _plugin
         self._token = _token
-        self._get_current_time = _get_current_time
+        self._clock = _clock
         self._overall_sojourn_time = defaultdict(lambda: 0.0)
         self._arrival_time = 0.0
 
+    # @cython.cfunc
     def report_construction(self):
         pass
 
+    # @cython.cfunc
     def report_destruction(self):
         """ For each visited place, select the overall s.t. histogram bucket
             based on accumulated time and increment the bucket.
@@ -239,44 +267,49 @@ cdef class SojournTimePluginTokenObserver:
         for place_name, sojourn_time in self._overall_sojourn_time.items():
             self._plugin.overall_histogram(place_name).add(sojourn_time)
 
+    # @cython.cfunc
+    # @cython.locals(p="Structure.Place")
     def report_arrival_at(self, p: "Structure.Place"):
         """ Start timer for place"""
-        self._arrival_time = self._get_current_time()
+        self._arrival_time = self._clock.read()
 
+    # @cython.cfunc
+    # @cython.locals(p="Structure.Place", current_time=cython.float, sojourn_time=cython.float)
     def report_departure_from(self, p: "Structure.Place"):
         """ Stop timer and compute the sojourn time.
             Select the bucket of the per visit histogram that belongs
             to the place and increment it.
             Add s.t. for the overall sojourn time of the token for this place
         """
-        current_time: float = self._get_current_time()
+        current_time: float = self._clock.read()
         sojourn_time: float = current_time - self._arrival_time
         sojourn_time_py: object = sojourn_time
         self._plugin.per_visit_histogram(p.name).add(sojourn_time_py)
         self._overall_sojourn_time[p.name] += sojourn_time_py
 
 
-cdef class TokenCounterPluginPlaceObserver:
+# @cython.cclass
+class TokenCounterPluginPlaceObserver:
     _plugin: Plugin
-    _place: "Structure.Place"
+    _place: "Structure.Place"    #= cython.declare("Structure.Place")
 
     # A function returning the current time
-    _get_current_time: Callable[[], float]
+    _clock: Clock
 
     # Current number of tokens at the place
-    _num_tokens: int
+    _num_tokens: int    # = cython.declare(cython.int)
 
     # When the state of having _num_tokens tokens at the place was entered
-    _time_of_last_token_move: float
+    _time_of_last_token_move: float     # = cython.declare(cython.float)
 
     # Element i of this list contains the amount of time the place had i tokens
     # TODO: Use the Histogram class here as well
-    _time_having: List[float]
+    _time_having: List[float]     #= cython.declare(list)
 
-    def __init__(self, _plugin: Plugin, _place: "Structure.Place", _get_current_time: Callable[[], float]):
+    def __init__(self, _plugin: Plugin, _place: "Structure.Place", _clock: Clock):
         self._plugin = _plugin
         self._place = _place
-        self._get_current_time = _get_current_time
+        self._clock = _clock
         self._num_tokens = 0
         self._time_of_last_token_move = 0.0
         self._time_having = list()
@@ -291,8 +324,8 @@ cdef class TokenCounterPluginPlaceObserver:
         total_time = sum(self._time_having)
         return (t / total_time for t in self._time_having)
 
-    cdef _update_num_tokens_by(self, delta: int):
-        now: float = self._get_current_time()
+    def _update_num_tokens_by(self, delta: int):
+        now: float = self._clock.read()
         duration: float = now - self._time_of_last_token_move
 
         try:
@@ -307,9 +340,11 @@ cdef class TokenCounterPluginPlaceObserver:
         # Cannot go negative
         assert self._num_tokens >= 0
 
+    # @cython.cfunc
     def report_arrival_of(self, token):
         self._update_num_tokens_by(+1)
 
+    # @cython.cfunc
     def report_departure_of(self, token):
         self._update_num_tokens_by(-1)
 
