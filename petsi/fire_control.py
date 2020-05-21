@@ -11,7 +11,7 @@ from itertools import count
 from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator
 
 if TYPE_CHECKING:
-    import Structure
+    from . import Structure, Plugins
 
 print("fire_control.py")
 
@@ -65,6 +65,8 @@ class _PriorityLevel:
 
 
 class Clock:
+    _fire_control: "FireControl"
+
     def __init__(self, fire_control):
         self._fire_control = fire_control
 
@@ -234,10 +236,9 @@ class FireControl:
             self._schedule_timed_transition(transition)
 
 
-# @cython.cclass
 class SojournTimePluginTokenObserver:
     _plugin: Plugin
-    _token: "Structure.Token"   #= cython.declare("Structure.Token")
+    _token: "Structure.Token"
 
     # A function returning the current time
     _clock: Clock
@@ -245,7 +246,7 @@ class SojournTimePluginTokenObserver:
     # The overall sojourn time of the observed token for each visited place
     _overall_sojourn_time: DefaultDict[str, float]
 
-    _arrival_time: float    #= cython.declare(cython.float)
+    _arrival_time: float
 
     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
                  _clock: Clock):

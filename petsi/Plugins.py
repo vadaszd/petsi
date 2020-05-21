@@ -1,16 +1,16 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 
-from typing import TYPE_CHECKING, Dict, Set, Optional, TypeVar, Generic, Type, Union
+from typing import TYPE_CHECKING, Dict, Set, Optional, TypeVar, Generic
 
 if TYPE_CHECKING:
     # noinspection PyUnresolvedReferences
     from . import Structure
 
 
-_PlaceObserver = TypeVar("_PlaceObserver", bound="AbstractPlaceObserver")
+APlaceObserver = TypeVar("APlaceObserver", bound="AbstractPlaceObserver")
 _TransitionObserver = TypeVar("_TransitionObserver", bound="AbstractTransitionObserver")
-_TokenObserver = TypeVar("_TokenObserver", bound="AbstractTokenObserver")
+ATokenObserver = TypeVar("ATokenObserver", bound="AbstractTokenObserver")
 Plugin = TypeVar("Plugin", bound="AbstractPlugin")
 
 
@@ -73,21 +73,21 @@ class AbstractTokenObserver(ABC, Generic[Plugin]):
 
 
 @dataclass(eq=False)
-class AbstractPlugin(ABC, Generic[_PlaceObserver, _TransitionObserver, _TokenObserver]):
+class AbstractPlugin(ABC, Generic[APlaceObserver, _TransitionObserver, ATokenObserver]):
     name: str
 
-    _place_observers: Dict[str, _PlaceObserver] = field(default_factory=dict, init=False)
+    _place_observers: Dict[str, APlaceObserver] = field(default_factory=dict, init=False)
     _transition_observers: Dict[str, _TransitionObserver] = field(default_factory=dict, init=False)
-    _token_observers: Set[_TokenObserver] = field(default_factory=set, init=False)
+    _token_observers: Set[ATokenObserver] = field(default_factory=set, init=False)
 
     # In derived classes of AbstractPlugin one may override these factory method
     # to return instances of classes inheriting from
     # `AbstractPlaceObserver`, `AbstractTransitionObserver` and `AbstractTokenObserver`.
     # In these factory methods you can adopt the constructors of the derived classes
     # to the uniform interface the rest of the plugin code assumes.
-    def place_observer_factory(self, p: "Structure.Place") -> Optional[_PlaceObserver]: pass
+    def place_observer_factory(self, p: "Structure.Place") -> Optional[APlaceObserver]: pass
 
-    def token_observer_factory(self, t: "Structure.Token") -> Optional[_TokenObserver]: pass
+    def token_observer_factory(self, t: "Structure.Token") -> Optional[ATokenObserver]: pass
 
     def transition_observer_factory(self, t: "Structure.Transition") -> Optional[_TransitionObserver]: pass
 

@@ -13,7 +13,7 @@ cdef class Transition:
 
     cdef int _disabled_arc_count   #: int = cython.declare(cython.int)
     cdef dict _arcs    # : "Dict[str, Arc]" = cython.declare(dict)
-    cdef set _transition_observers   #: "Set[Plugins.AbstractTransitionObserver]" = cython.declare(set, visibility="readonly")
+    cdef readonly set _transition_observers   #: "Set[Plugins.AbstractTransitionObserver]" = cython.declare(set, visibility="readonly")
 
 
     cdef float get_duration(self)

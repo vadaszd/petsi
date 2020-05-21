@@ -4,13 +4,16 @@ from dataclasses import dataclass, field
 from functools import wraps, cached_property
 from itertools import repeat
 from typing import TYPE_CHECKING, Optional, List, Dict, Callable, Iterator, TypeVar, Any, cast, \
-    Sequence
+    Sequence, Tuple
+
+from graphviz import Digraph
 
 from .fire_control import Clock
 
 from . import Plugins
+from .NetViz import Visualizer
 from .Plugins import NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
-from .Structure import foreach, Net
+from .Structure import foreach, Net, APetsiVisitor
 from .fire_control import FireControl, SojournTimePluginTokenObserver, TokenCounterPluginPlaceObserver
 
 if TYPE_CHECKING:
@@ -113,7 +116,7 @@ class TokenCounterPlugin(
     def histogram(self, place_name: str) -> Iterator[float]:
         return self._place_observers[place_name].histogram
 
-    def place_observer_factory(self, p: "Structure.Place") -> Optional["PlaceObserver"]:
+    def place_observer_factory(self, p: "Structure.Place") -> Optional["Plugins.APlaceObserver"]:
         return TokenCounterPluginPlaceObserver(self, p, self._clock)
 
 
@@ -137,17 +140,26 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
     class Histogram:
         _bucket_boundaries: Sequence[float]
         _buckets: List[int] = field(init=False)
+        _bucket_sizes: List[int] = field(init=False)
         _min_value: float = field(default=0.0, init=False)
         _max_value: float = field(default=0.0, init=False)
         _sum_value: float = field(default=0.0, init=False)
 
         def __post_init__(self):
             self._buckets = list(repeat(0, len(self._bucket_boundaries) + 1))
+            self._bucket_sizes = [(upper - lower) for (upper, lower) in zip(self._bucket_boundaries[1:],
+                                                                            self._bucket_boundaries)]
 
         def __iter__(self) -> Iterator[float]:
+            """ Iterate over the buckets of the histogram, yielding the number of items in each bucket"""
             num_values_total = float(self.num_values)
-            for bucket_values in self._buckets:
-                yield bucket_values / num_values_total
+            for bucket_value in self._buckets:
+                yield bucket_value / num_values_total
+
+        @property
+        def density(self):
+            for bucket_value, size in zip(self._buckets[1:], self._bucket_sizes):
+                yield bucket_value / size
 
         def __len__(self):
             return self.num_values
@@ -222,7 +234,7 @@ class SojournTimePlugin(Plugins.AbstractPlugin):
     def _new_overall_histogram(self):
         return self.Histogram(self.bucket_boundaries_overall)
 
-    def token_observer_factory(self, t: "Structure.Token") -> Optional["TokenObserver"]:
+    def token_observer_factory(self, t: "Structure.Token") -> Optional["Plugins.ATokenObserver"]:
         return SojournTimePluginTokenObserver(self, t, self._clock)
 
 
@@ -242,6 +254,12 @@ class Simulator:
 
     @property
     def net(self) -> "Structure.Net": return self._net
+
+    def visit_net(self, visualizer: APetsiVisitor) -> APetsiVisitor:
+        return self._net.accept(visualizer)
+
+    def show(self, figsize: Optional[Tuple[float, float]] = None) -> "Digraph":
+        return self.visit_net(Visualizer(figsize)).dot
 
     _FuncType = Callable[..., Any]
     _F = TypeVar('_F', bound=_FuncType)
@@ -309,24 +327,3 @@ class Simulator:
         """ Returns a histogram of the amount of time a token spends at a given place during a visit."""
         return self._sojourn_time.per_visit_histogram(place_name)
 
-# @dataclass(eq=False)
-# class AbstractTokenObserver(Plugins.AbstractTokenObserver):
-#     token: "Structure.Token"
-#     creationTime: float = field(init=False)
-#     arrivalTime: float = field(init=False)
-#
-#     def report_construction(self, ): pass
-#
-#     def report_destruction(self, ): pass
-#
-#     def report_arrival_at(self, p: "Structure.Place"): pass
-#
-#     def report_departure_from(self, p: "Structure.Place"): pass
-
-# AutoFirePlugin *-- "*" AbstractTransitionObserver
-# AutoFirePlugin *-- "*" AbstractTokenObserver
-# AutoFirePlugin *-- "*" AbstractPlaceObserver
-# AutoFirePlugin ..|> Plugins.AbstractPlugin
-# AbstractTransitionObserver ..|> Plugins.AbstractTransitionObserver
-# AbstractTokenObserver ..|> Plugins.AbstractTokenObserver
-# AbstractPlaceObserver ..|> Plugins.AbstractPlaceObserver

@@ -1,3 +1,4 @@
 /.idea/
 /target/
 /.mypy_cache/
+/venv/

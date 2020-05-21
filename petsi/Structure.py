@@ -3,11 +3,11 @@
 
 # You may compile this file as:
 #    cythonize --3str -a -f -i petsi/Structure.py
-import _collections
+
 import collections
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Union, TypeVar
 
 from more_itertools import flatten
 import cython
@@ -21,6 +21,9 @@ if TYPE_CHECKING:
         Deque, Callable, ValuesView, Iterator
 
 from .util import foreach
+
+
+APetsiVisitor = TypeVar('APetsiVisitor', bound="PetsiVisitor")
 
 
 class Net:
@@ -39,6 +42,17 @@ class Net:
         self._observers = dict()
         self._queuing_policies = dict(FIFO=FIFOPlace, LIFO=LIFOPlace)
         self._black_dot = self.add_type("black dot")
+
+    def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:
+        visitor.visit(self)
+
+        for place in self._places.values():
+            place.accept(visitor)
+
+        for transition in self._transitions.values():
+            transition.accept(visitor)
+
+        return visitor
 
     @property
     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":
@@ -97,7 +111,7 @@ class Net:
             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
 
         if not isinstance(weight, (float, int)) or weight <= 0:
-            raise ValueError(f"The weight of immediate transition '{name}' must be a positive float")
+            raise ValueError(f"The weight of immediate transition '{name}' must be a positive float, found {weight}")
 
         self._validate_transition_name(name)
         self._transitions[name] = t = Transition(name, priority, weight, lambda: 0.0)
@@ -205,14 +219,14 @@ class Token:
 
 @cython.cclass
 class Transition:
-    _name: str   #= cython.declare(cython.basestring)
-    priority: int #= cython.declare(cython.int, visibility='readonly')
-    weight: float #= cython.declare(cython.float, visibility='readonly')
+    _name: str
+    priority: int
+    weight: float
     _distribution: "Callable[[], float]"
 
-    _disabled_arc_count: int   #= cython.declare(cython.int)
-    _arcs: "Dict[str, Arc]" # = cython.declare(dict)
-    _transition_observers: "Set[Plugins.AbstractTransitionObserver]" # = cython.declare(set, visibility="readonly")
+    _disabled_arc_count: int
+    _arcs: "Dict[str, Arc]"
+    _transition_observers: "Set[Plugins.AbstractTransitionObserver]"
 
     def __init__(self, name: str, priority: int, weight: float, distribution: "Callable[[], float]"):
         self._name = name
@@ -224,11 +238,17 @@ class Transition:
         self._transition_observers = set()
 
     @property
-    def name(self): return self._name
+    def name(self) -> str: return self._name
 
     @property
     def is_timed(self) -> bool:
         return self.priority == 0
+
+    def accept(self, visitor: "PetsiVisitor"):
+        visitor.visit(self)
+
+        for arc in self._arcs.values():
+            visitor.visit(arc)
 
     @cython.cfunc
     @cython.returns(cython.float)
@@ -326,8 +346,14 @@ class Arc:
     def name(self): return self._name
 
     @property
+    def transition(self):return self._transition
+
+    @property
     def typ(self) -> TokenType:
         raise NotImplementedError
+
+    def accept(self, visitor: "PetsiVisitor"):
+        visitor.visit(self)
 
     @property
     def is_enabled(self) -> bool:
@@ -365,6 +391,9 @@ class PresenceObserver(Arc):
     def typ(self) -> TokenType: return self._input_place.typ
 
     @property
+    def input_place(self): return self._input_place
+
+    @property
     def is_enabled(self) -> bool: return self._is_enabled
 
     @cython.cfunc
@@ -396,6 +425,9 @@ class ConstructorArc(Arc, ):  # TokenPlacer
     def __init__(self, output_place: "Place", **kwargs):
         super().__init__(**kwargs)
         self._output_place = output_place
+
+    @property
+    def output_place(self): return self._output_place
 
     @cython.cfunc
     @cython.locals(token=Token)
@@ -440,6 +472,9 @@ class TransferArc(TokenConsumer):  # TokenPlacer,
         super().__init__(name=name, input_place=input_place, **kwargs)
         self._output_place = output_place  # output_place=output_place,
 
+    @property
+    def output_place(self): return self._output_place
+
     @cython.cfunc
     @cython.locals(token=Token)
     def flow(self):
@@ -467,13 +502,12 @@ class InhibitorArc(TestArc):
         TestArc.report_some_token(self)
 
 
-# @cython.cclass
 class Place:
     _name: str
     _typ:  TokenType
-    _tokens: "Deque[Token]" # = cython.declare(_collections.deque)
-    _place_observers: "Set[Plugins.AbstractPlaceObserver]" # = cython.declare(set, visibility="readonly")
-    _presence_observers: "Set[PresenceObserver]"  # = cython.declare(set, visibility="readonly")
+    _tokens: "Deque[Token]"
+    _place_observers: "Set[Plugins.AbstractPlaceObserver]"
+    _presence_observers: "Set[PresenceObserver]"
 
     _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")
 
@@ -519,7 +553,7 @@ class Place:
         }
     }
 
-    _status: _Status # = cython.declare(object, visibility="readonly")
+    _status: _Status
 
     def __init__(self, name: str, typ:  TokenType, **kwargs):
         super().__init__(**kwargs)
@@ -529,6 +563,12 @@ class Place:
         self._tokens = collections.deque()
         self._place_observers = set()
         self._presence_observers = set()
+
+    @property
+    def name(self): return self._name
+
+    def accept(self, visitor: "PetsiVisitor"):
+        visitor.visit(self)
 
     def accept_arc(self, arc: Arc, is_timed: bool):
         arc_class = type(arc)
@@ -544,9 +584,6 @@ class Place:
                          f"is not allowed: the place is in {self._status.name} "
                          f"status, which, for this kind of transitions, does not "
                          f"allow adding {arc_type.__name__} arcs.")
-
-    @property
-    def name(self): return self._name
 
     @property
     def typ(self): return self._typ
@@ -585,9 +622,6 @@ class Place:
 
         return token
 
-    # @cython.locals(token=Token, presence_observer=PresenceObserver,
-    #                # place_observer=Plugins.AbstractPlaceObserver,
-    #                was_empty=cython.bint)
     def push(self, token):   # "Token"
         was_empty = self.is_empty
 
@@ -603,8 +637,6 @@ class Place:
             for presence_observer in self._presence_observers:
                 presence_observer.report_some_token()
 
-    # @cython.cfunc
-    # @cython.returns(cython.bint)
     def _is_empty(self):
         return  len(self._tokens) == 0
 
@@ -616,17 +648,11 @@ class Place:
     def tokens(self) -> "Iterator[Token]":
         return iter(self._tokens)
 
-    # @cython.ccall
-    # @cython.returns(Token)
     def _pop(self) -> Token:
         return self._tokens.popleft()
 
-    # @cython.ccall
     def _push(self, t):   # : Token
         self._tokens.append(t)  # Appends to the right
-
-    # def peek(self) -> Token:
-    #     return self._tokens[0]
 
 
 FIFOPlace = Place
@@ -638,3 +664,8 @@ class LIFOPlace(Place):
     def _push(self, t: Token):
         self._tokens.appendleft(t)
 
+
+class PetsiVisitor(ABC):
+    @abstractmethod
+    def visit(self, visitable: Union[Net, Transition, Place, Arc]):
+        pass
