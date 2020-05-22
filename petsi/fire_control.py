@@ -75,30 +75,30 @@ class Clock:
 
 
 class FireControl:
-    current_time: float           # = cython.declare(float, visibility="readonly")
-    _is_build_in_progress: bool   # = cython.declare(cython.bint, visibility="public")
+    current_time: float
+    _is_build_in_progress: bool
 
-    _deadline_disambiguator: Iterator[int]  # = cython.declare(cython.iterator)
-    _transition_enabled_at_start_up: Dict["Structure.Transition", bool] # = cython.declare(dict)
+    _deadline_disambiguator: Iterator[int]
+    _transition_enabled_at_start_up: Dict["Structure.Transition", bool]
 
     # A heap of (priority, Transition set) tuples, ordered by negative priority.
     # This is needed as the head of the heap (in the Python implementation) is
     # the smallest item. Each set contains the enabled immediate transitions at
     # that level. Empty sets are removed from the head of the heap.
     # Below these sets are also called the 'priority_level'.
-    _active_priority_levels: List[_PriorityLevel]  # = cython.declare(list)
+    _active_priority_levels: List[_PriorityLevel]
 
     # The set of priorities with priority levels present in the _active_priority_levels heap
-    _active_priorities: Set[int]  # = cython.declare(set)
+    _active_priorities: Set[int]
 
     # The same set of Transitions as above (same set object!), keyed by priority,
     # allowing random access. The sets are created when the observer for
     # the first transition at that priority is created
     # and are never removed from this dict.
-    _priority_levels: Dict[int, _PriorityLevel]  #= cython.declare(defaultdict)
+    _priority_levels: Dict[int, _PriorityLevel]
 
     # A heap of (deadline, Transition) tuples, ordered by deadline
-    _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]   #= cython.declare(list)
+    _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
 
     def get_clock(self) -> Clock:
         return Clock(self)
@@ -256,11 +256,9 @@ class SojournTimePluginTokenObserver:
         self._overall_sojourn_time = defaultdict(lambda: 0.0)
         self._arrival_time = 0.0
 
-    # @cython.cfunc
     def report_construction(self):
         pass
 
-    # @cython.cfunc
     def report_destruction(self):
         """ For each visited place, select the overall s.t. histogram bucket
             based on accumulated time and increment the bucket.
@@ -268,14 +266,10 @@ class SojournTimePluginTokenObserver:
         for place_name, sojourn_time in self._overall_sojourn_time.items():
             self._plugin.overall_histogram(place_name).add(sojourn_time)
 
-    # @cython.cfunc
-    # @cython.locals(p="Structure.Place")
     def report_arrival_at(self, p: "Structure.Place"):
         """ Start timer for place"""
         self._arrival_time = self._clock.read()
 
-    # @cython.cfunc
-    # @cython.locals(p="Structure.Place", current_time=cython.float, sojourn_time=cython.float)
     def report_departure_from(self, p: "Structure.Place"):
         """ Stop timer and compute the sojourn time.
             Select the bucket of the per visit histogram that belongs
@@ -289,7 +283,6 @@ class SojournTimePluginTokenObserver:
         self._overall_sojourn_time[p.name] += sojourn_time_py
 
 
-# @cython.cclass
 class TokenCounterPluginPlaceObserver:
     _plugin: Plugin
     _place: "Structure.Place"    #= cython.declare("Structure.Place")
@@ -341,11 +334,9 @@ class TokenCounterPluginPlaceObserver:
         # Cannot go negative
         assert self._num_tokens >= 0
 
-    # @cython.cfunc
     def report_arrival_of(self, token):
         self._update_num_tokens_by(+1)
 
-    # @cython.cfunc
     def report_departure_of(self, token):
         self._update_num_tokens_by(-1)
 
