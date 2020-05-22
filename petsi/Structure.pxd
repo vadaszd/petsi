@@ -6,9 +6,9 @@ cdef class Place
 
 
 cdef class Transition:
-    cdef basestring _name   #= cython.declare(cython.basestring)
-    cdef int priority  #: int #= cython.declare(cython.int, visibility='readonly')
-    cdef float weight    # : float #= cython.declare(cython.float, visibility='readonly')
+    cdef readonly basestring _name   #= cython.declare(cython.basestring)
+    cdef readonly int priority  #: int #= cython.declare(cython.int, visibility='readonly')
+    cdef readonly float weight    # : float #= cython.declare(cython.float, visibility='readonly')
     cdef object _distribution  #: "Callable[[], float]"
 
     cdef int _disabled_arc_count   #: int = cython.declare(cython.int)

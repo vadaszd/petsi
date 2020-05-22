@@ -256,6 +256,10 @@ class SojournTimePluginTokenObserver:
         self._overall_sojourn_time = defaultdict(lambda: 0.0)
         self._arrival_time = 0.0
 
+    def reset(self):
+        # The observed token will anyway be removed, together with us...
+        pass
+
     def report_construction(self):
         pass
 
@@ -285,20 +289,20 @@ class SojournTimePluginTokenObserver:
 
 class TokenCounterPluginPlaceObserver:
     _plugin: Plugin
-    _place: "Structure.Place"    #= cython.declare("Structure.Place")
+    _place: "Structure.Place"
 
     # A function returning the current time
     _clock: Clock
 
     # Current number of tokens at the place
-    _num_tokens: int    # = cython.declare(cython.int)
+    _num_tokens: int
 
     # When the state of having _num_tokens tokens at the place was entered
-    _time_of_last_token_move: float     # = cython.declare(cython.float)
+    _time_of_last_token_move: float
 
     # Element i of this list contains the amount of time the place had i tokens
     # TODO: Use the Histogram class here as well
-    _time_having: List[float]     #= cython.declare(list)
+    _time_having: List[float]
 
     def __init__(self, _plugin: Plugin, _place: "Structure.Place", _clock: Clock):
         self._plugin = _plugin
@@ -308,7 +312,7 @@ class TokenCounterPluginPlaceObserver:
         self._time_of_last_token_move = 0.0
         self._time_having = list()
 
-    def clear(self):
+    def reset(self):
         self._time_having.clear()
         self._num_tokens = 0
         self._time_of_last_token_move = 0.0

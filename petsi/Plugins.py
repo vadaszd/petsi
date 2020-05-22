@@ -20,6 +20,9 @@ class AbstractPlaceObserver(ABC, Generic[Plugin]):
     _place: "Structure.Place"
 
     @abstractmethod
+    def reset(self): pass
+
+    @abstractmethod
     def report_arrival_of(self, token): pass
 
     @abstractmethod
@@ -30,6 +33,9 @@ class AbstractPlaceObserver(ABC, Generic[Plugin]):
 class AbstractTransitionObserver(ABC, Generic[Plugin]):
     _plugin: Plugin
     _transition: "Structure.Transition"
+
+    @abstractmethod
+    def reset(self): pass
 
     @abstractmethod
     def before_firing(self, ):
@@ -60,6 +66,9 @@ class AbstractTokenObserver(ABC, Generic[Plugin]):
     _token: "Structure.Token"
 
     @abstractmethod
+    def reset(self): pass
+
+    @abstractmethod
     def report_construction(self, ): pass
 
     @abstractmethod
@@ -79,6 +88,19 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, _TransitionObserver, ATokenObs
     _place_observers: Dict[str, APlaceObserver] = field(default_factory=dict, init=False)
     _transition_observers: Dict[str, _TransitionObserver] = field(default_factory=dict, init=False)
     _token_observers: Set[ATokenObserver] = field(default_factory=set, init=False)
+
+    def reset(self):
+        """ Reset the marking-related state of the plugin. Removes all data collected during the previous simulation.
+        """
+        for token_observer in self._token_observers:
+            token_observer.reset()
+        self._token_observers.clear()
+
+        for place_observer in self._place_observers.values():
+            place_observer.reset()
+
+        for transition_observer in self._transition_observers.values():
+            transition_observer.reset()
 
     # In derived classes of AbstractPlugin one may override these factory method
     # to return instances of classes inheriting from
@@ -118,6 +140,9 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, _TransitionObserver, ATokenObs
 
 class NoopPlaceObserver(AbstractPlaceObserver, Generic[Plugin]):
 
+    def reset(self):
+        pass
+
     def report_arrival_of(self, token):
         pass
 
@@ -126,6 +151,9 @@ class NoopPlaceObserver(AbstractPlaceObserver, Generic[Plugin]):
 
 
 class NoopTransitionObserver(AbstractTransitionObserver, Generic[Plugin]):
+
+    def reset(self):
+        pass
 
     def after_firing(self):
         pass
@@ -141,6 +169,9 @@ class NoopTransitionObserver(AbstractTransitionObserver, Generic[Plugin]):
 
 
 class NoopTokenObserver(AbstractTokenObserver, Generic[Plugin]):
+
+    def reset(self):
+        pass
 
     def report_construction(self):
         pass

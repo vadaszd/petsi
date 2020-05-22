@@ -57,6 +57,8 @@ class FireControl:
     # A heap of (deadline, Transition) tuples, ordered by deadline
     _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
 
+    def get_clock(self) -> Clock: pass
+
     def current_time_getter(self) -> Callable[[], float]:
         """ # noinspection PyUnresolvedReferences
             # return partial(FireControl.current_time.__get__, self)
@@ -107,9 +109,10 @@ class SojournTimePluginTokenObserver(Plugins.AbstractTokenObserver["SojournTimer
 
     _arrival_time: float
 
-    def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
-                 _get_current_time: Callable[[], float]):
+    def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token", _clock: Clock):
         pass
+
+    def reset(self): pass
 
     def report_construction(self): pass
 
@@ -146,7 +149,7 @@ class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounte
     def __init__(self, p: "Structure.Place", _get_current_time: Callable[[], float]):
         pass
 
-    def clear(self):pass
+    def reset(self):pass
 
     @property
     def histogram(self) -> Iterator[float]:

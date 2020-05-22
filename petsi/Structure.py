@@ -152,9 +152,13 @@ class Net:
                             input_place=self._places[place_name])
 
     def reset(self):
-        """ Remove all tokens from the Petri net """
+        """ Remove all tokens from the Petri net & reset the marking-related state of the observers"""
         for place in self._places.values():
-            place.clear()
+            place.reset()
+
+        # Reset the marking-related state
+        for observer in self._observers.values():
+            observer.reset()
 
 
 class TokenType(ABC):
@@ -588,7 +592,7 @@ class Place:
     @property
     def typ(self): return self._typ
 
-    def clear(self):
+    def reset(self):
         while not self.is_empty:
             self.pop()
 
