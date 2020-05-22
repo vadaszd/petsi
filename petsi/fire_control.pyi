@@ -1,19 +1,30 @@
 #cython: language_level=3
 
-import random
-from collections import defaultdict
-from functools import partial
-from heapq import heappush, heappop
-from itertools import count
 from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator, Callable
 
 if TYPE_CHECKING:
     from . import Structure, Plugins
 
-print("fire_control.py")
 
+class _PriorityLevel:
+    priority: int
+    transitions: Set["Structure.Transition"]
+
+    def __init__(self, priority: int): pass
+    def add(self, transition: "Structure.Transition"): pass
+
+    def remove(self, transition: "Structure.Transition"): pass
+
+    def __eq__(self, other: "_PriorityLevel") -> bool: pass
+    def __ne__(self, other: "_PriorityLevel") -> bool: pass
+    def __lt__(self, other: "_PriorityLevel") -> bool: pass
+    def __gt__(self, other: "_PriorityLevel") -> bool: pass
+    def __le__(self, other: "_PriorityLevel") -> bool: pass
+    def __ge__(self, other: "_PriorityLevel") -> bool: pass
 
 class Clock:
+    _fire_control: "FireControl"
+
     def __init__(self, fire_control: "FireControl"):
         pass
 
@@ -22,6 +33,29 @@ class Clock:
 
 class FireControl:
     current_time: float
+    _is_build_in_progress: bool
+
+    _deadline_disambiguator: Iterator[int]
+    _transition_enabled_at_start_up: Dict["Structure.Transition", bool]
+
+    # A heap of (priority, Transition set) tuples, ordered by negative priority.
+    # This is needed as the head of the heap (in the Python implementation) is
+    # the smallest item. Each set contains the enabled immediate transitions at
+    # that level. Empty sets are removed from the head of the heap.
+    # Below these sets are also called the 'priority_level'.
+    _active_priority_levels: List[_PriorityLevel]
+
+    # The set of priorities with priority levels present in the _active_priority_levels heap
+    _active_priorities: Set[int]
+
+    # The same set of Transitions as above (same set object!), keyed by priority,
+    # allowing random access. The sets are created when the observer for
+    # the first transition at that priority is created
+    # and are never removed from this dict.
+    _priority_levels: Dict[int, _PriorityLevel]
+
+    # A heap of (deadline, Transition) tuples, ordered by deadline
+    _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
 
     def current_time_getter(self) -> Callable[[], float]:
         """ # noinspection PyUnresolvedReferences
@@ -124,3 +158,9 @@ class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounte
     def report_departure_of(self, token):
         pass
 
+    def _enable_transition(self, transition: "Structure.Transition"): pass
+    def _disable_transition(self, transition: "Structure.Transition"): pass
+    def _next_timed_transition(self) -> "Structure.Transition": pass
+    def _schedule_timed_transition(self, transition: "Structure.Transition"): pass
+    def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"): pass
+    def _select_next_transition(self): pass
