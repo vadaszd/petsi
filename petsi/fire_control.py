@@ -237,23 +237,13 @@ class FireControl:
 
 
 class SojournTimePluginTokenObserver:
-    _plugin: Plugin
-    _token: "Structure.Token"
-
-    # A function returning the current time
-    _clock: Clock
-
-    # The overall sojourn time of the observed token for each visited place
-    _overall_sojourn_time: DefaultDict[str, float]
-
-    _arrival_time: float
 
     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
                  _clock: Clock):
         self._plugin = _plugin
         self._token = _token
         self._clock = _clock
-        self._overall_sojourn_time = defaultdict(lambda: 0.0)
+        self._overall_sojourn_time: DefaultDict[str, float] = defaultdict(lambda: 0.0)
         self._arrival_time = 0.0
 
     def reset(self):
@@ -270,7 +260,7 @@ class SojournTimePluginTokenObserver:
         for place_name, sojourn_time in self._overall_sojourn_time.items():
             self._plugin.overall_histogram(place_name).add(sojourn_time)
 
-    def report_arrival_at(self, p: "Structure.Place"):
+    def report_arrival_at(self, _: "Structure.Place"):
         """ Start timer for place"""
         self._arrival_time = self._clock.read()
 
@@ -288,21 +278,6 @@ class SojournTimePluginTokenObserver:
 
 
 class TokenCounterPluginPlaceObserver:
-    _plugin: Plugin
-    _place: "Structure.Place"
-
-    # A function returning the current time
-    _clock: Clock
-
-    # Current number of tokens at the place
-    _num_tokens: int
-
-    # When the state of having _num_tokens tokens at the place was entered
-    _time_of_last_token_move: float
-
-    # Element i of this list contains the amount of time the place had i tokens
-    # TODO: Use the Histogram class here as well
-    _time_having: List[float]
 
     def __init__(self, _plugin: Plugin, _place: "Structure.Place", _clock: Clock):
         self._plugin = _plugin
@@ -310,7 +285,7 @@ class TokenCounterPluginPlaceObserver:
         self._clock = _clock
         self._num_tokens = 0
         self._time_of_last_token_move = 0.0
-        self._time_having = list()
+        self._time_having: List[float] = list()
 
     def reset(self):
         self._time_having.clear()

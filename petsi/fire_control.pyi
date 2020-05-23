@@ -94,15 +94,25 @@ class FireControl:
                                 the transitison itself.
         """
 
+    def _enable_transition(self, transition: "Structure.Transition"): pass
+    def _disable_transition(self, transition: "Structure.Transition"): pass
+    def _next_timed_transition(self) -> "Structure.Transition": pass
+    def _schedule_timed_transition(self, transition: "Structure.Transition"): pass
+    def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"): pass
+    def _select_next_transition(self): pass
+
     def fire_next(self):
         """ Select and fire the next transition
         :return: None
         """
 
 
-class SojournTimePluginTokenObserver(Plugins.AbstractTokenObserver["SojournTimerPlugin"]):
+class SojournTimePluginTokenObserver(Plugins.AbstractTokenObserver["SojournTimePlugin"]):
+    _plugin: Plugins.Plugin
+    _token: "Structure.Token"
+
     # A function returning the current time
-    _get_current_time: Callable[[], float]
+    _clock: Clock
 
     # The overall sojourn time of the observed token for each visited place
     _overall_sojourn_time: DefaultDict[str, float]
@@ -133,8 +143,11 @@ class SojournTimePluginTokenObserver(Plugins.AbstractTokenObserver["SojournTimer
 
 
 class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounterPlugin"]):
-    # A function returning the current time
-    _get_current_time: Callable[[], float]
+    _plugin: Plugins.Plugin
+    _place: "Structure.Place"
+
+    # Access to the current time
+    _clock: Clock
 
     # Current number of tokens at the place
     _num_tokens: int
@@ -146,7 +159,7 @@ class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounte
     # TODO: Use the Histogram class here as well
     _time_having: List[float]
 
-    def __init__(self, p: "Structure.Place", _get_current_time: Callable[[], float]):
+    def __init__(self, _plugin: Plugins.Plugin, p: "Structure.Place", _clock: Clock):
         pass
 
     def reset(self):pass
@@ -161,9 +174,4 @@ class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounte
     def report_departure_of(self, token):
         pass
 
-    def _enable_transition(self, transition: "Structure.Transition"): pass
-    def _disable_transition(self, transition: "Structure.Transition"): pass
-    def _next_timed_transition(self) -> "Structure.Transition": pass
-    def _schedule_timed_transition(self, transition: "Structure.Transition"): pass
-    def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"): pass
-    def _select_next_transition(self): pass
+    def _update_num_tokens_by(self, delta: int): pass
