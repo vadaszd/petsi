@@ -284,9 +284,6 @@ class Transition:
     @cython.locals(arc="Arc")
     def fire(self):
         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
-        # foreach(lambda o: o.before_firing(), self._transition_observers)
-        # foreach(lambda arc: arc.flow(), self._arcs.values())
-        # foreach(lambda o: o.after_firing(), self._transition_observers)
         for transition_observer in self._transition_observers:
             transition_observer.before_firing()
         for arc in self._arcs.values():
