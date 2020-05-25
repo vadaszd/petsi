@@ -178,11 +178,17 @@ class TransitionIntervalPluginTransitionObserver:
         self._collector = _collector
         self.reset()
 
+    def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation
+
+    def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
+
+    def before_firing(self): pass   # No actual base class, so need to provide an implementation
+
     def after_firing(self, ):
-        current_time = self._plugin.clock.read()
+        current_time = self._clock.read()
         interval = current_time - self._previous_firing_time
         self._collector.collect(self._transition.ordinal, self._clock.read(), interval, )
         self._previous_firing_time = current_time
 
     def reset(self):
-        self._previous_firing_time = self._plugin.clock.read()
+        self._previous_firing_time = self._clock.read()

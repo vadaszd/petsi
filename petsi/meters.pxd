@@ -94,9 +94,13 @@ cdef class TransitionIntervalPluginTransitionObserver:
     cdef FiringCollector _collector
     cpdef float _previous_firing_time
 
+    cpdef got_enabled(self, )
+    cpdef got_disabled(self, )
+    cpdef reset(self)
+
     @cython.locals(current_time=cython.double, interval=cython.double)
     cpdef after_firing(self, )
 
-    cpdef reset(self)
+    cpdef before_firing(self)
 
 

@@ -45,7 +45,8 @@ class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounte
     # When the state of having _num_tokens tokens at the place was entered
     _time_of_last_token_move: float
 
-    def __init__(self, _plugin: Plugin, _place: "Structure.Place", _clock: Clock): pass
+    def __init__(self, _plugin: Plugin, _place: "Structure.Place", _clock: Clock,
+                 _collector: TokenCounterCollector): pass
 
     def reset(self): pass
 

@@ -1,12 +1,12 @@
 from array import array
-from dataclasses import dataclass, field, fields
+from dataclasses import dataclass, field
 from functools import wraps
 from itertools import count
 from typing import TYPE_CHECKING, Optional, Dict, Callable, Iterator, TypeVar, Any, cast, \
     Tuple, FrozenSet, Generic, Type
 
 from .NetViz import Visualizer
-from .Plugins import AbstractPlugin,  APlaceObserver, ATokenObserver, ATransitionObserver, \
+from .Plugins import AbstractPlugin, APlaceObserver, ATokenObserver, ATransitionObserver, \
     NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
 from .Structure import APetsiVisitor, Net, Place, Token, Transition
 from .autofire import AutoFirePlugin
@@ -173,7 +173,7 @@ class Simulator:
         _clock = self._auto_fire.clock
 
         # Create the plugin
-        plugin = plugin_type(name, _places, _transitions, _clock)
+        plugin = plugin_type(name, _places, _token_types, _transitions, _clock)
         self._net.register_plugin(plugin)
 
         return plugin.get_observations
