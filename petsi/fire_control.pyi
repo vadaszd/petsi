@@ -117,8 +117,5 @@ class AutoFirePluginTransitionObserver(Plugins.NoopTransitionObserver["AutoFireP
     def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition",
                      _fire_control: "FireControl"): pass
 
-    def got_enabled(self, ): pass
-
-    def got_disabled(self, ): pass
 
 

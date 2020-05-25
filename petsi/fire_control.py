@@ -13,8 +13,6 @@ if TYPE_CHECKING:
     from . import Structure
     from .Plugins import Plugin
 
-print("fire_control.py")
-
 
 @cython.cclass
 class _PriorityLevel:
@@ -256,5 +254,4 @@ class AutoFirePluginTransitionObserver:
     def after_firing(self): pass
 
     def before_firing(self): pass
-
 
