@@ -49,45 +49,16 @@ cdef class FireControl:
     cpdef tuple _select_next_transition(self)
 
 
-cdef class SojournTimePluginTokenObserver:
+cdef class AutoFirePluginTransitionObserver:
     cdef object _plugin   # Plugins.Plugin
-    cdef Token _token
+    cdef Transition _transition
+    cdef FireControl _fire_control
+    cdef float _deadline
 
-    # A function returning the current time
-    cdef Clock _clock
-
-    # The overall sojourn time of the observed token for each visited place
-    cdef object _overall_sojourn_time  # : DefaultDict[str, float]
-
-    cdef float _arrival_time       #: float = cython.declare(cython.float)
-
-    cpdef report_construction(self)
-    cpdef report_destruction(self)
-
-    cpdef report_arrival_at(self, Place p)
-    @cython.locals(current_time=cython.float, sojourn_time=cython.float)
-    cpdef report_departure_from(self, Place p)
-
-
-cdef class TokenCounterPluginPlaceObserver:
-    cdef object _plugin      #: Plugin
-    cdef Place _place        #: "Structure.Place" = cython.declare("Structure.Place")
-
-    cdef Clock _clock
-
-    cdef int _num_tokens       #: int = cython.declare(cython.int)
-
-    cdef float _time_of_last_token_move    # : float = cython.declare(cython.float)
-
-    cdef list _time_having      # : List[float] = cython.declare(list)
-
-
-    @cython.locals(now=cython.float, duration=cython.float)
-    cdef _update_num_tokens_by(self, int delta)
-
-    cpdef report_arrival_of(self, token)
-
-    cpdef report_departure_of(self, token)
-
+    cpdef got_enabled(self, )
+    cpdef got_disabled(self, )
+    cpdef reset(self)
+    cpdef after_firing(self)
+    cpdef before_firing(self)
 
 

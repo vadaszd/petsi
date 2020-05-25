@@ -7,6 +7,7 @@ cdef class Place
 
 cdef class Transition:
     cdef readonly basestring _name   #= cython.declare(cython.basestring)
+    cdef readonly unsigned int ordinal
     cdef readonly int priority  #: int #= cython.declare(cython.int, visibility='readonly')
     cdef readonly float weight    # : float #= cython.declare(cython.float, visibility='readonly')
     cdef object _distribution  #: "Callable[[], float]"
@@ -24,18 +25,27 @@ cdef class Transition:
     cdef decrement_disabled_arc_count(self)
 
 
+cdef class TokenType:
+    cdef readonly basestring _name
+    cdef readonly unsigned int ordinal
+    cdef object _net   # Net
+
+
 cdef class Token:
+    cdef readonly unsigned long long token_id
     cdef object _typ            # : TokenType
     cdef set _token_observers   # : "Set[Plugins.AbstractTokenObserver]" = cython.declare(set)
     cdef dict tags              #: "Dict[str, Any]"
 
+    cdef attach_observer(self, object plugin)
     cdef deposit_at(self, Place place)
     cdef remove_from(self, Place place)
     cdef delete(self)
 
 
 cdef class Place:
-    cdef basestring _name
+    cdef readonly basestring _name
+    cdef readonly unsigned int ordinal
     cdef object _typ  # :  TokenType
     cdef object _tokens  # : "Deque[Token]" # = cython.declare(_collections.deque)
     cdef readonly set _place_observers  #: "Set[Plugins.AbstractPlaceObserver]" = cython.declare(set, visibility="readonly")

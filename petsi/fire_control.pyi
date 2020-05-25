@@ -1,6 +1,9 @@
 #cython: language_level=3
+from dataclasses import dataclass
+from functools import cached_property
+from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator, Callable, Optional
 
-from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator, Callable
+from Plugins import NoopPlaceObserver, NoopTokenObserver
 
 if TYPE_CHECKING:
     from . import Structure, Plugins
@@ -99,7 +102,6 @@ class FireControl:
     def _next_timed_transition(self) -> "Structure.Transition": pass
     def _schedule_timed_transition(self, transition: "Structure.Transition"): pass
     def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"): pass
-    def _select_next_transition(self): pass
 
     def fire_next(self):
         """ Select and fire the next transition
@@ -107,71 +109,16 @@ class FireControl:
         """
 
 
-class SojournTimePluginTokenObserver(Plugins.AbstractTokenObserver["SojournTimePlugin"]):
-    _plugin: Plugins.Plugin
-    _token: "Structure.Token"
+class AutoFirePluginTransitionObserver(Plugins.NoopTransitionObserver["AutoFirePlugin"]):
 
-    # A function returning the current time
-    _clock: Clock
+    _fire_control: "FireControl"
+    _deadline: float
 
-    # The overall sojourn time of the observed token for each visited place
-    _overall_sojourn_time: DefaultDict[str, float]
+    def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition",
+                     _fire_control: "FireControl"): pass
 
-    _arrival_time: float
+    def got_enabled(self, ): pass
 
-    def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token", _clock: Clock):
-        pass
-
-    def reset(self): pass
-
-    def report_construction(self): pass
-
-    def report_destruction(self):
-        """ For each visited place, select the overall s.t. histogram bucket
-            based on accumulated time and increment the bucket.
-        """
-
-    def report_arrival_at(self, p: "Structure.Place"):
-        """ Start timer for place"""
-
-    def report_departure_from(self, p: "Structure.Place"):
-        """ Stop timer and compute the sojourn time.
-            Select the bucket of the per visit histogram that belongs
-            to the place and increment it.
-            Add s.t. for the overall sojourn time of the token for this place
-        """
+    def got_disabled(self, ): pass
 
 
-class TokenCounterPluginPlaceObserver(Plugins.AbstractPlaceObserver["TokenCounterPlugin"]):
-    _plugin: Plugins.Plugin
-    _place: "Structure.Place"
-
-    # Access to the current time
-    _clock: Clock
-
-    # Current number of tokens at the place
-    _num_tokens: int
-
-    # When the state of having _num_tokens tokens at the place was entered
-    _time_of_last_token_move: float
-
-    # Element i of this list contains the amount of time the place had i tokens
-    # TODO: Use the Histogram class here as well
-    _time_having: List[float]
-
-    def __init__(self, _plugin: Plugins.Plugin, p: "Structure.Place", _clock: Clock):
-        pass
-
-    def reset(self):pass
-
-    @property
-    def histogram(self) -> Iterator[float]:
-        pass
-
-    def report_arrival_of(self, token):
-        pass
-
-    def report_departure_of(self, token):
-        pass
-
-    def _update_num_tokens_by(self, delta: int): pass

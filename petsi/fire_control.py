@@ -1,17 +1,17 @@
 # cython: language_level=3
 # cython: profile=False
-from .Plugins import Plugin
 
-import cython
-from random import choices as random_choices
 from collections import defaultdict
 from heapq import heappush, heappop
 from itertools import count
+from random import choices as random_choices
+from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator
 
-from typing import TYPE_CHECKING, List, Set, Dict, Tuple, DefaultDict, Iterator
+import cython
 
 if TYPE_CHECKING:
-    from . import Structure, Plugins
+    from . import Structure
+    from .Plugins import Plugin
 
 print("fire_control.py")
 
@@ -236,88 +236,25 @@ class FireControl:
             self._schedule_timed_transition(transition)
 
 
-class SojournTimePluginTokenObserver:
+class AutoFirePluginTransitionObserver:
 
-    def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
-                 _clock: Clock):
+    def __init__(self, _plugin: "Plugin", _transition: "Structure.Transition",
+                 _fire_control: "FireControl"):
         self._plugin = _plugin
-        self._token = _token
-        self._clock = _clock
-        self._overall_sojourn_time: DefaultDict[str, float] = defaultdict(lambda: 0.0)
-        self._arrival_time = 0.0
+        self._transition = _transition
+        self._fire_control = _fire_control
+        self._deadline = 0.0
 
-    def reset(self):
-        # The observed token will anyway be removed, together with us...
-        pass
+    def got_enabled(self, ):
+        self._fire_control.enable_transition(self._transition)
 
-    def report_construction(self):
-        pass
+    def got_disabled(self, ):
+        self._fire_control.disable_transition(self._transition)
 
-    def report_destruction(self):
-        """ For each visited place, select the overall s.t. histogram bucket
-            based on accumulated time and increment the bucket.
-        """
-        for place_name, sojourn_time in self._overall_sojourn_time.items():
-            self._plugin.overall_histogram(place_name).add(sojourn_time)
+    def reset(self): pass
 
-    def report_arrival_at(self, _: "Structure.Place"):
-        """ Start timer for place"""
-        self._arrival_time = self._clock.read()
+    def after_firing(self): pass
 
-    def report_departure_from(self, p: "Structure.Place"):
-        """ Stop timer and compute the sojourn time.
-            Select the bucket of the per visit histogram that belongs
-            to the place and increment it.
-            Add s.t. for the overall sojourn time of the token for this place
-        """
-        current_time: float = self._clock.read()
-        sojourn_time: float = current_time - self._arrival_time
-        sojourn_time_py: object = sojourn_time
-        self._plugin.per_visit_histogram(p.name).add(sojourn_time_py)
-        self._overall_sojourn_time[p.name] += sojourn_time_py
-
-
-class TokenCounterPluginPlaceObserver:
-
-    def __init__(self, _plugin: Plugin, _place: "Structure.Place", _clock: Clock):
-        self._plugin = _plugin
-        self._place = _place
-        self._clock = _clock
-        self._num_tokens = 0
-        self._time_of_last_token_move = 0.0
-        self._time_having: List[float] = list()
-
-    def reset(self):
-        self._time_having.clear()
-        self._num_tokens = 0
-        self._time_of_last_token_move = 0.0
-
-    @property
-    def histogram(self) -> Iterator[float]:
-        total_time = sum(self._time_having)
-        return (t / total_time for t in self._time_having)
-
-    def _update_num_tokens_by(self, delta: int):
-        now: float = self._clock.read()
-        duration: float = now - self._time_of_last_token_move
-
-        try:
-            self._time_having[self._num_tokens] += duration
-        except IndexError:
-            # Off by at most one
-            assert len(self._time_having) == self._num_tokens
-            self._time_having.append(duration)
-
-        self._time_of_last_token_move = now
-        self._num_tokens += delta
-        # Cannot go negative
-        assert self._num_tokens >= 0
-
-    def report_arrival_of(self, token):
-        self._update_num_tokens_by(+1)
-
-    def report_departure_of(self, token):
-        self._update_num_tokens_by(-1)
-
+    def before_firing(self): pass
 
 

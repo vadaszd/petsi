@@ -1,23 +1,22 @@
-from bisect import bisect
-from collections import defaultdict
-from dataclasses import dataclass, field
-from functools import wraps, cached_property
-from itertools import repeat
-from typing import TYPE_CHECKING, Optional, List, Dict, Callable, Iterator, TypeVar, Any, cast, \
-    Sequence, Tuple
+from array import array
+from dataclasses import dataclass, field, fields
+from functools import wraps
+from itertools import count
+from typing import TYPE_CHECKING, Optional, Dict, Callable, Iterator, TypeVar, Any, cast, \
+    Tuple, FrozenSet, Generic, Type
 
-from graphviz import Digraph
-
-from .fire_control import Clock
-
-from . import Plugins
 from .NetViz import Visualizer
-from .Plugins import NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
-from .Structure import foreach, Net, APetsiVisitor
-from .fire_control import FireControl, SojournTimePluginTokenObserver, TokenCounterPluginPlaceObserver
+from .Plugins import AbstractPlugin,  APlaceObserver, ATokenObserver, ATransitionObserver, \
+    NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
+from .Structure import APetsiVisitor, Net, Place, Token, Transition
+from .autofire import AutoFirePlugin
+from .fire_control import Clock
+from .meters import SojournTimePluginTokenObserver, TokenCounterPluginPlaceObserver, \
+    TransitionIntervalPluginTransitionObserver, FiringCollector, GenericCollector, SojournTimeCollector, \
+    TokenCounterCollector
 
 if TYPE_CHECKING:
-    from . import Structure
+    from graphviz import Digraph
 
 """ This module contains a plugin that fires enabled transitions according to the below ordering rules.
 
@@ -41,142 +40,47 @@ if TYPE_CHECKING:
 """
 
 
-@dataclass(eq=False)
-class AutoFirePlugin(
-        Plugins.AbstractPlugin[NoopPlaceObserver, "AutoFirePlugin.TransitionObserver", NoopTokenObserver]):
-
-    """ A PetSi plugin for firing transitions automatically.
-
-        The transitions are selected for firing based on the rules for
-        Extended Stochastic Petri Nets.
-    """
-
-    _fire_control: FireControl = field(default_factory=FireControl, init=False)
-
-    @cached_property
-    def clock(self) -> Clock:
-        return self._fire_control.get_clock()
-
-    def reset(self): self._fire_control.reset()
-
-    def fire_until(self, end_time: float):
-        clock: Clock = self.clock
-        self._fire_control.start()
-
-        while clock.read() < end_time:
-            self._fire_control.fire_next()
-
-    def fire_repeatedly(self, count_of_firings: int = 0):
-        self._fire_control.start()
-
-        foreach(lambda _: self._fire_control.fire_next(),
-                repeat(None) if count_of_firings == 0 else repeat(None, count_of_firings))
-
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional["AutoFirePlugin.TransitionObserver"]:
-        return self.TransitionObserver(self, t, self._fire_control)
-
-    @dataclass(eq=False)
-    class TransitionObserver(Plugins.NoopTransitionObserver["AutoFirePlugin"]):
-
-        _fire_control: "FireControl"
-        _deadline: float = field(default=0.0, init=False)
-
-        def got_enabled(self, ):
-            self._fire_control.enable_transition(self._transition)
-
-        def got_disabled(self, ):
-            self._fire_control.disable_transition(self._transition)
+ACollector = TypeVar("ACollector", bound=GenericCollector)
 
 
 @dataclass(eq=False)
-class Histogram:
-    _bucket_boundaries: Sequence[float]
-    _buckets: List[int] = field(init=False)
-    _bucket_sizes: List[int] = field(init=False)
-    _min_value: float = field(default=0.0, init=False)
-    _max_value: float = field(default=0.0, init=False)
-    _sum_value: float = field(default=0.0, init=False)
+class _MeterPlugin(Generic[ACollector, APlaceObserver, ATransitionObserver, ATokenObserver],  #
+                   AbstractPlugin[APlaceObserver, ATransitionObserver, ATokenObserver],
+                   ):
+    _places: Optional[FrozenSet[int]]           # Observe these places only
+    _token_types: Optional[FrozenSet[int]]      # Observe these token types only
+    _transitions: Optional[FrozenSet[int]]      # Observe these transitions only
+    _clock: Clock
+    _collector: ACollector = field(init=False)
 
-    def __post_init__(self):
-        self._buckets = list(repeat(0, len(self._bucket_boundaries) + 1))
-        self._bucket_sizes = [(upper - lower) for (upper, lower) in zip(self._bucket_boundaries[1:],
-                                                                        self._bucket_boundaries)]
-
-    def __iter__(self) -> Iterator[float]:
-        """ Iterate over the buckets of the histogram, yielding the number of items in each bucket"""
-        num_values_total = float(self.num_values)
-        for bucket_value in self._buckets:
-            yield bucket_value / num_values_total
-
-    @property
-    def density(self):
-        for bucket_value, size in zip(self._buckets[1:], self._bucket_sizes):
-            yield bucket_value / size
-
-    def __len__(self):
-        return self.num_values
-
-    def add(self, value: float):
-        """ Increment the count of elements in the bucket value belongs to """
-        i = bisect(self._bucket_boundaries, value)
-        self._buckets[i] += 1
-
-        self._sum_value += value
-
-        if self._min_value > value or self._min_value == 0.0:
-            self._min_value = value
-
-        if self._max_value < value or self._max_value == 0.0:
-            self._max_value = value
-
-    @property
-    def min(self):
-        return self._min_value
-
-    @property
-    def max(self):
-        return self._max_value
-
-    @property
-    def mean(self):
-        return self._sum_value / self.num_values if self.num_values != 0 else 0
-
-    @cached_property
-    def num_values(self):
-        """ :returns The number of items addedd to the histogram.
-
-            Caveat!!! Only call this function after adding all items to the histogram,
-            as the return value is cached and not recalculated for subsequent invocations.
-         """
-        return sum(self._buckets)
+    def get_observations(self) -> Dict[str, array]:
+        return self._collector.get_observations()
 
 
 @dataclass(eq=False)
 class TokenCounterPlugin(
-        Plugins.AbstractPlugin["TokenCounterPluginPlaceObserver", NoopTransitionObserver, NoopTokenObserver]):
+        _MeterPlugin[TokenCounterCollector, TokenCounterPluginPlaceObserver,
+                     NoopTransitionObserver, NoopTokenObserver]):
 
     """ A PetSi plugin providing by-place token-count stats
 
         The plugin collects the empirical distribution of the
         time-weighted token counts at all places of the observed Petri net,
         i.e. in what percentage of time the token count is i at place j.
-
-        :arg _clock   A callable returning the current simulation time
     """
 
-    # A function returning the current time
-    _clock: Clock
+    def __post_init__(self):
+        self._collector = TokenCounterCollector()
 
-    def histogram(self, place_name: str) -> Iterator[float]:
-        return self._place_observers[place_name].histogram
-
-    def place_observer_factory(self, p: "Structure.Place") -> Optional["Plugins.APlaceObserver"]:
-        return TokenCounterPluginPlaceObserver(self, p, self._clock)
+    def place_observer_factory(self, p: "Place") -> Optional[TokenCounterPluginPlaceObserver]:
+        return TokenCounterPluginPlaceObserver(self, p, self._clock, self._collector) \
+            if self._places is None or p.ordinal in self._places else None
 
 
 @dataclass(eq=False)
 class SojournTimePlugin(
-        Plugins.AbstractPlugin[NoopPlaceObserver, NoopTransitionObserver, "SojournTimePluginTokenObserver"]):
+        _MeterPlugin[SojournTimeCollector, "NoopPlaceObserver", "NoopTransitionObserver",
+                     SojournTimePluginTokenObserver]):
     """ A PetSi plugin providing by-place sojourn time stats
 
         The plugin collects the empirical distribution of the
@@ -191,92 +95,91 @@ class SojournTimePlugin(
         The bucket is selected based on the cumulative time the token spent at the place during its whole life.
     """
 
-    _clock: Clock
-
-    bucket_boundaries_per_visit: Sequence[float] = field(default=(), init=False)
-    bucket_boundaries_overall: Sequence[float] = field(default=(), init=False)
-
-    _per_visit_histograms: Dict[str, Histogram] = field(init=False)
-
-    # A s.t. histogram for each place
-    _overall_histograms: Dict["str", Histogram] = field(init=False)
-
-    def reset(self):
-        """ Clear the state of the plugin.
-
-        Removes all token observers and the data collected during the previous simulation.
-        """
-        self._per_visit_histograms.clear()
-        self._overall_histograms.clear()
-        super().reset()
-
-    def per_visit_histogram(self, place_name) -> Histogram:
-        return self._per_visit_histograms[place_name]
-
-    def overall_histogram(self, place_name) -> Histogram:
-        return self._overall_histograms[place_name]
+    token_id: Iterator[int] = field(default_factory=count, init=False)
 
     def __post_init__(self):
-        self._per_visit_histograms = defaultdict(self._new_per_visit_histogram)
-        self._overall_histograms = defaultdict(self._new_overall_histogram)
+        self._collector = SojournTimeCollector()
 
-    def _new_per_visit_histogram(self):
-        return Histogram(self.bucket_boundaries_per_visit)
-
-    def _new_overall_histogram(self):
-        return Histogram(self.bucket_boundaries_overall)
-
-    def token_observer_factory(self, t: "Structure.Token") -> Optional["Plugins.ATokenObserver"]:
-        return SojournTimePluginTokenObserver(self, t, self._clock)
+    def token_observer_factory(self, t: "Token") -> Optional[SojournTimePluginTokenObserver]:
+        return SojournTimePluginTokenObserver(self, t, self._places, self._clock,
+                                              self._collector, next(self.token_id)) \
+            if self._token_types is None or t.typ.ordinal in self._token_types else None
 
 
 @dataclass(eq=False)
 class TransitionIntervalPlugin(
-        Plugins.AbstractPlugin[NoopPlaceObserver, "TransitionIntervalPlugin.TransitionObserver", NoopTokenObserver]):
+        _MeterPlugin[FiringCollector,
+                     NoopPlaceObserver, TransitionIntervalPluginTransitionObserver, NoopTokenObserver]):
 
-    clock: Clock
-    bucket_boundaries: Sequence[float] = field(default=(), init=False)
+    def __post_init__(self):
+        self._collector = FiringCollector()
 
-    def transition_observer_factory(self, t: "Structure.Transition") -> \
-            Optional["TransitionIntervalPlugin.TransitionObserver"]:
-        return self.TransitionObserver(self, t)
+    def transition_observer_factory(self, t: "Transition") -> \
+            Optional[TransitionIntervalPluginTransitionObserver]:
 
-    def firing_interval_histogram(self, transition_name: str) -> Histogram:
-        return self._transition_observers[transition_name].histogram
-
-    @dataclass(eq=False)
-    class TransitionObserver(Plugins.NoopTransitionObserver["TransitionIntervalPlugin"]):
-
-        previous_firing_time: float = field(init=False)
-        histogram: Histogram = field(init=False)
-
-        def __post_init__(self):
-            self.previous_firing_time = self._plugin.clock.read()
-            self.histogram = Histogram(self._plugin.bucket_boundaries)
-
-        def after_firing(self, ):
-            now = self._plugin.clock.read()
-            self.histogram.add(now - self.previous_firing_time)
-            self.previous_firing_time = now
-
-        def reset(self):
-            self.__post_init__()
+        return TransitionIntervalPluginTransitionObserver(self, t, self._clock, self._collector) \
+            if self._transitions is None or t.ordinal in self._transitions else None
 
 
 class Simulator:
-    def __init__(self, net_name: str = "net"):
+    _net: Net
+    _auto_fire: AutoFirePlugin
+
+    _meter_plugins: Dict[str, Type[_MeterPlugin]] = \
+        dict(token_visits=SojournTimePlugin,
+             place_population=TokenCounterPlugin,
+             transition_firing=TransitionIntervalPlugin,
+             )
+
+    def __init__(self, net_name: str = "net",):
+        """ Create a Simulator object
+
+        :param net_name:    The name of the Petri-net
+        """
         self._net = Net(net_name)
         self._auto_fire = AutoFirePlugin("auto-fire plugin")
         self._net.register_plugin(self._auto_fire)
-        self._token_counter = TokenCounterPlugin("token counter plugin", self._auto_fire.clock)
-        self._net.register_plugin(self._token_counter)
-        self._sojourn_time = SojournTimePlugin("sojourn time plugin", self._auto_fire.clock,)
-        self._net.register_plugin(self._sojourn_time)
-        self._transition_interval = TransitionIntervalPlugin("transition interval plugin", self._auto_fire.clock, )
-        self._net.register_plugin(self._transition_interval)
+
+    def observe(self, stream: str,
+                places: Optional[FrozenSet[str]] = None,
+                transitions: Optional[FrozenSet[str]] = None,
+                token_types: Optional[FrozenSet[str]] = None,
+                ) -> Callable[[], Dict[str, array]]:
+        """ Create an observation stream
+
+        :param stream: The type of the stream. Currently the following types are supported:
+                        - `token_visits`
+                        - `place_population`
+                        - `transition_firing`
+                       Only one stream of each type can be created.
+
+        :param places:  The places to observe. Observes all places when set to `None`.
+                        This parameter is ignored for the `transition_firing` stream.
+        :param transitions: The transitions to observe. Observes all transitions when set to `None`.
+                        This parameter is ignored for the `token_visits` and `place_population` streams.
+        :param token_types: The type of tokens to observe. Observes all types when set to `None`.
+                        This parameter is ignored for the `transition_firing` and `place_population` streams.
+        :return:        A callable returning the observations
+        """
+        plugin_type = self._meter_plugins[stream]
+
+        _places = None if places is None \
+            else map(lambda n: self._net.place(n).ordinal, places)
+        _token_types = None if token_types is None \
+            else map(lambda n: self._net.token_type(n).ordinal, token_types)
+        _transitions = None if transitions is None \
+            else map(lambda n: self._net.transition(n).ordinal, transitions)
+        name = stream
+        _clock = self._auto_fire.clock
+
+        # Create the plugin
+        plugin = plugin_type(name, _places, _transitions, _clock)
+        self._net.register_plugin(plugin)
+
+        return plugin.get_observations
 
     @property
-    def net(self) -> "Structure.Net": return self._net
+    def net(self) -> Net: return self._net
 
     def visit_net(self, visualizer: APetsiVisitor) -> APetsiVisitor:
         return self._net.accept(visualizer)
@@ -317,44 +220,3 @@ class Simulator:
     def fire_repeatedly(self, count_of_firings: int):
         self._net.reset()
         self._auto_fire.fire_repeatedly(count_of_firings)
-
-    @property
-    def st_bucket_boundaries_overall(self) -> Sequence[float]:
-        return self._sojourn_time.bucket_boundaries_overall
-
-    @st_bucket_boundaries_overall.setter
-    def st_bucket_boundaries_overall(self, value: Sequence[float]):
-        self._sojourn_time.bucket_boundaries_overall = value
-
-    @property
-    def st_bucket_boundaries_per_visit(self) -> Sequence[float]:
-        return self._sojourn_time.bucket_boundaries_per_visit
-
-    @st_bucket_boundaries_per_visit.setter
-    def st_bucket_boundaries_per_visit(self, value: Sequence[float]):
-        self._sojourn_time.bucket_boundaries_per_visit = value
-
-    @property
-    def transition_interval_bucket_boundaries(self) -> Sequence[float]:
-        return self._transition_interval.bucket_boundaries
-
-    @transition_interval_bucket_boundaries.setter
-    def transition_interval_bucket_boundaries(self, value: Sequence[float]):
-        self._transition_interval.bucket_boundaries = value
-
-    def token_count_histogram(self, place_name: str) -> Iterator[float]:
-        """ Returns the empirical distribution of the number of tokens at a given place during the simulation.
-        """
-        return self._token_counter.histogram(place_name)
-
-    def sojourn_time_overall_histogram(self, place_name: str) -> Histogram:
-        """ Returns a histogram of the amount of time a token spends at a given place during its whole life."""
-        return self._sojourn_time.overall_histogram(place_name)
-
-    def sojourn_time_per_visit_histogram(self, place_name: str) -> Histogram:
-        """ Returns a histogram of the amount of time a token spends at a given place during a visit."""
-        return self._sojourn_time.per_visit_histogram(place_name)
-
-    def transition_interval_histogram(self, transition_name: str) -> Histogram:
-        """ Returns a histogram of the amount of time a token spends at a given place during a visit."""
-        return self._transition_interval.firing_interval_histogram(transition_name)

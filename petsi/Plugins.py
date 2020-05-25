@@ -9,7 +9,7 @@ if TYPE_CHECKING:
 
 
 APlaceObserver = TypeVar("APlaceObserver", bound="AbstractPlaceObserver")
-_TransitionObserver = TypeVar("_TransitionObserver", bound="AbstractTransitionObserver")
+ATransitionObserver = TypeVar("ATransitionObserver", bound="AbstractTransitionObserver")
 ATokenObserver = TypeVar("ATokenObserver", bound="AbstractTokenObserver")
 Plugin = TypeVar("Plugin", bound="AbstractPlugin")
 
@@ -82,11 +82,11 @@ class AbstractTokenObserver(ABC, Generic[Plugin]):
 
 
 @dataclass(eq=False)
-class AbstractPlugin(ABC, Generic[APlaceObserver, _TransitionObserver, ATokenObserver]):
-    name: str
+class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObserver]):
+    name: str = field()
 
     _place_observers: Dict[str, APlaceObserver] = field(default_factory=dict, init=False)
-    _transition_observers: Dict[str, _TransitionObserver] = field(default_factory=dict, init=False)
+    _transition_observers: Dict[str, ATransitionObserver] = field(default_factory=dict, init=False)
     _token_observers: Set[ATokenObserver] = field(default_factory=set, init=False)
 
     def reset(self):
@@ -111,7 +111,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, _TransitionObserver, ATokenObs
 
     def token_observer_factory(self, t: "Structure.Token") -> Optional[ATokenObserver]: pass
 
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[_TransitionObserver]: pass
+    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[ATransitionObserver]: pass
 
     def observe_place(self, p: "Structure.Place") -> Optional[AbstractPlaceObserver]:
         o = self.place_observer_factory(p)

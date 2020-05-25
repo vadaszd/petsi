@@ -32,7 +32,7 @@ class Net:
     _places: "Dict[str, Place]"
     _transitions: "Dict[str, Transition]"
     _observers: "Dict[str, Plugins.AbstractPlugin]"
-    _queuing_policies: "Dict[str, Callable[[str, TokenType], Place]]"
+    _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
 
     def __init__(self, name: str):
         self.name = name
@@ -73,9 +73,12 @@ class Net:
         if type_name in self._types:
             raise ValueError(f"Type '{type_name}' is already defined in net "
                              f"'{self.name}'")
-        typ = TokenType(type_name, self)
+        typ = TokenType(type_name, len(self._types), self, )
         self._types[type_name] = typ
         return typ
+
+    def token_type(self, type_name: str) -> "TokenType":
+        return self._types[type_name]
 
     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":
         """ Add a place to the Petri-net with the given name, type and Qing policy.
@@ -91,11 +94,14 @@ class Net:
             raise ValueError(f"Unknown queueing policy: '{queueing_policy_name}'; "
                              f"valid values are { ', '.join(self._queuing_policies.keys()) }")
         else:
-            place = self._places[name] = klass(name, self._types[type_name])
+            place = self._places[name] = klass(name, len(self._places), self._types[type_name])
             foreach(lambda o: place.attach_observer(o),
                     self._observers.values())
 
             return place
+
+    def place(self, place_name: str) -> "Place":
+        return self._places[place_name]
 
     def _attach_transition_observers(self, t: "Transition"):
         foreach(lambda o: t.attach_observer(o),
@@ -114,15 +120,18 @@ class Net:
             raise ValueError(f"The weight of immediate transition '{name}' must be a positive float, found {weight}")
 
         self._validate_transition_name(name)
-        self._transitions[name] = t = Transition(name, priority, weight, lambda: 0.0)
+        self._transitions[name] = t = Transition(name, len(self._transitions), priority, weight, lambda: 0.0)
         self._attach_transition_observers(t)
         return t
 
     def add_timed_transition(self, name: str, distribution: "Callable[[], float]") -> "Transition":
         self._validate_transition_name(name)
-        self._transitions[name] = t = Transition(name, 0, 0.0, distribution)
+        self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)
         self._attach_transition_observers(t)
         return t
+
+    def transition(self, transition_name: str) -> "Transition":
+        return self._transitions[transition_name]
 
     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":
         return ConstructorArc(name=name,
@@ -161,12 +170,14 @@ class Net:
             observer.reset()
 
 
-class TokenType(ABC):
+class TokenType:  # dataclasses are not usable with Cython ...
     _name: str
+    ordinal: int
     _net: Net
 
-    def __init__(self, name: str, net: Net):
+    def __init__(self, name: str, ordinal: int, net: Net):
         self._name = name
+        self.ordinal = ordinal
         self._net = net
 
     @property
@@ -181,15 +192,15 @@ class TokenType(ABC):
 
 class Token:
     _typ: TokenType
-    _token_observers: "Set[Plugins.AbstractTokenObserver]"   #= cython.declare(set)
+    _token_observers: "Set[Plugins.AbstractTokenObserver]"
     tags: "Dict[str, Any]"
 
     def __init__(self, typ: TokenType):
         self._typ = typ
         self._token_observers = set()
         self.tags = dict()
-        foreach(lambda of: self.attach_observer(of), self.typ.net.observers)
-        # foreach(lambda to: to.report_construction(), self._token_observers)
+        for of in self.typ.net.observers:
+            self.attach_observer(of)
 
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
         observer = plugin.observe_token(self)
@@ -197,7 +208,6 @@ class Token:
         if observer is not None:
             self._token_observers.add(observer)
             observer.report_construction()
-            # observer.report_arrival_at(self.place)
 
     @property
     def typ(self): return self._typ
@@ -224,6 +234,7 @@ class Token:
 @cython.cclass
 class Transition:
     _name: str
+    ordinal: int
     priority: int
     weight: float
     _distribution: "Callable[[], float]"
@@ -232,8 +243,9 @@ class Transition:
     _arcs: "Dict[str, Arc]"
     _transition_observers: "Set[Plugins.AbstractTransitionObserver]"
 
-    def __init__(self, name: str, priority: int, weight: float, distribution: "Callable[[], float]"):
+    def __init__(self, name: str, ordinal: int, priority: int, weight: float, distribution: "Callable[[], float]"):
         self._name = name
+        self.ordinal = ordinal
         self.priority = priority
         self.weight = weight
         self._distribution = distribution
@@ -505,6 +517,7 @@ class InhibitorArc(TestArc):
 
 class Place:
     _name: str
+    ordinal: int
     _typ:  TokenType
     _tokens: "Deque[Token]"
     _place_observers: "Set[Plugins.AbstractPlaceObserver]"
@@ -556,9 +569,10 @@ class Place:
 
     _status: _Status
 
-    def __init__(self, name: str, typ:  TokenType, **kwargs):
+    def __init__(self, name: str, ordinal: int, typ:  TokenType, **kwargs):
         super().__init__(**kwargs)
         self._name = name
+        self.ordinal = ordinal
         self._typ = typ
         self._status = self._Status.UNDEFINED
         self._tokens = collections.deque()
