@@ -15,7 +15,7 @@ cdef class _PriorityLevel:
 
 cdef class Clock:
     cdef FireControl _fire_control
-    cpdef float read(self)
+    cpdef float read(self) except -999
 
 
 cdef class FireControl:

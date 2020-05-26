@@ -29,8 +29,12 @@ class _PriorityLevel:
     def remove(self, transition: "Structure.Transition"):
         self.transitions.remove(transition)
 
+    # These dunder methods cannot be cdef or cpdef (as per cython rules)
+    # We need to use the @cython syntax to define their signature.
+
     @cython.locals(other="_PriorityLevel")
     @cython.returns(cython.bint)
+    @cython.exceptval(-99, check=True)
     def __eq__(self, other):
         # if not isinstance(anything, _PriorityLevel):
         #     return NotImplemented
@@ -38,26 +42,31 @@ class _PriorityLevel:
 
     @cython.locals(other="_PriorityLevel")
     @cython.returns(cython.bint)
+    @cython.exceptval(-99, check=True)
     def __ne__(self, other):
         return self.priority != other.priority
 
     @cython.locals(other="_PriorityLevel")
     @cython.returns(cython.bint)
+    @cython.exceptval(-99, check=True)
     def __lt__(self, other):
         return self.priority > other.priority
 
     @cython.locals(other="_PriorityLevel")
     @cython.returns(cython.bint)
+    @cython.exceptval(-99, check=True)
     def __gt__(self, other):
         return self.priority < other.priority
 
     @cython.locals(other="_PriorityLevel")
     @cython.returns(cython.bint)
+    @cython.exceptval(-99, check=True)
     def __le__(self, other):
         return self.priority >= other.priority
 
     @cython.locals(other="_PriorityLevel")
     @cython.returns(cython.bint)
+    @cython.exceptval(-99, check=True)
     def __ge__(self, other):
         return self.priority <= other.priority
 

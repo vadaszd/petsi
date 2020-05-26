@@ -17,7 +17,7 @@ cdef class Transition:
     cdef readonly set _transition_observers   #: "Set[Plugins.AbstractTransitionObserver]" = cython.declare(set, visibility="readonly")
 
 
-    cdef float get_duration(self)
+    cdef float get_duration(self) except? -999
 
     @cython.locals(old_disabled_arc_count=int)
     cdef increment_disabled_arc_count(self)
@@ -59,7 +59,7 @@ cdef class Place:
     @cython.locals(token=Token, presence_observer=PresenceObserver, was_empty=cython.bint)
     cdef push(self,  token )
 
-    cdef bint _is_empty(self)
+    cdef bint _is_empty(self) except -123
 
     cdef Token _pop(self)
 

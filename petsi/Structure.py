@@ -266,8 +266,6 @@ class Transition:
         for arc in self._arcs.values():
             visitor.visit(arc)
 
-    @cython.cfunc
-    @cython.returns(cython.float)
     def get_duration(self):
         return self._distribution()
 
