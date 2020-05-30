@@ -7,12 +7,13 @@ import cython
 
 
 cdef class GenericCollector:
-    # cdef dict _type_codes  #: Dict[str, str]
+    cdef public int required_observations
     cdef dict _arrays      #: Dict[str, array]
+    cdef array _any_array
 
     # def reset(self)
     # cpdef get_observations(self) -> Dict[str, array]
-
+    # def need_more_observations(self) -> bool:
 
 cdef class TokenCounterCollector(GenericCollector):
     cdef array _start_time
@@ -31,12 +32,12 @@ cdef class TokenCounterPluginPlaceObserver:
 
     cdef int _num_tokens       #: int = cython.declare(cython.int)
 
-    cdef float _time_of_last_token_move    # : float = cython.declare(cython.float)
+    cdef double _time_of_last_token_move    # : float = cython.declare(cython.double)
 
     cdef list _time_having      # : List[float] = cython.declare(list)
 
 
-    @cython.locals(now=cython.float, duration=cython.float)
+    @cython.locals(now=cython.double, duration=cython.double)
     cdef _update_num_tokens_by(self, int delta)
 
     cpdef report_arrival_of(self, token)
@@ -69,13 +70,13 @@ cdef class SojournTimePluginTokenObserver:
     cdef Clock _clock
     cdef SojournTimeCollector _collector
 
-    cdef float _arrival_time       #: float = cython.declare(cython.float)
+    cdef double _arrival_time       #: double = cython.declare(cython.double)
 
     cpdef report_construction(self)
     cpdef report_destruction(self)
 
     cpdef report_arrival_at(self, Place p)
-    @cython.locals(current_time=cython.float, sojourn_time=cython.float)
+    @cython.locals(current_time=cython.double, sojourn_time=cython.double)
     cpdef report_departure_from(self, Place p)
 
 
@@ -92,7 +93,7 @@ cdef class TransitionIntervalPluginTransitionObserver:
     cdef Transition _transition
     cdef Clock _clock
     cdef FiringCollector _collector
-    cpdef float _previous_firing_time
+    cpdef double _previous_firing_time
 
     cpdef got_enabled(self, )
     cpdef got_disabled(self, )

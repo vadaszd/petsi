@@ -15,11 +15,11 @@ cdef class _PriorityLevel:
 
 cdef class Clock:
     cdef FireControl _fire_control
-    cpdef float read(self) except -999
+    cpdef double read(self) except -999
 
 
 cdef class FireControl:
-    cdef readonly float current_time
+    cdef readonly double current_time
     cdef public bint _is_build_in_progress
 
     cdef object _deadline_disambiguator      # : Iterator[int]  # = cython.declare(cython.iterator)
@@ -32,7 +32,7 @@ cdef class FireControl:
     cpdef enable_transition(self, Transition transition)
     cpdef disable_transition(self, Transition transition)
 
-    @cython.locals(deadline=cython.float)
+    @cython.locals(deadline=cython.double)
     cdef _schedule_timed_transition(self, Transition transition)
 
     cdef _remove_timed_transition_from_schedule(self, Transition transition)
@@ -45,7 +45,7 @@ cdef class FireControl:
 
     cdef Transition _next_timed_transition(self)
 
-    @cython.locals(priority_level=_PriorityLevel, new_time=cython.float, weights=list, transition=Transition)
+    @cython.locals(priority_level=_PriorityLevel, new_time=cython.double, weights=list, transition=Transition)
     cpdef tuple _select_next_transition(self)
 
 
@@ -53,7 +53,7 @@ cdef class AutoFirePluginTransitionObserver:
     cdef object _plugin   # Plugins.Plugin
     cdef Transition _transition
     cdef FireControl _fire_control
-    cdef float _deadline
+    cdef double _deadline
 
     cpdef got_enabled(self, )
     cpdef got_disabled(self, )

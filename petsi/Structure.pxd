@@ -9,7 +9,7 @@ cdef class Transition:
     cdef readonly basestring _name   #= cython.declare(cython.basestring)
     cdef readonly unsigned int ordinal
     cdef readonly int priority  #: int #= cython.declare(cython.int, visibility='readonly')
-    cdef readonly float weight    # : float #= cython.declare(cython.float, visibility='readonly')
+    cdef readonly double weight    # : float #= cython.declare(cython.double, visibility='readonly')
     cdef object _distribution  #: "Callable[[], float]"
 
     cdef int _disabled_arc_count   #: int = cython.declare(cython.int)
@@ -17,7 +17,7 @@ cdef class Transition:
     cdef readonly set _transition_observers   #: "Set[Plugins.AbstractTransitionObserver]" = cython.declare(set, visibility="readonly")
 
 
-    cdef float get_duration(self) except? -999
+    cdef double get_duration(self) except? -999
 
     @cython.locals(old_disabled_arc_count=int)
     cdef increment_disabled_arc_count(self)
