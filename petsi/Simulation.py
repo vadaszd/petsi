@@ -3,7 +3,7 @@ from dataclasses import dataclass, field
 from functools import wraps
 from itertools import count
 from typing import TYPE_CHECKING, Optional, Dict, Callable, Iterator, TypeVar, Any, cast, \
-    Tuple, FrozenSet, Generic, Type
+    Tuple, FrozenSet, Generic, Iterable, List
 
 from .NetViz import Visualizer
 from .Plugins import AbstractPlugin, APlaceObserver, ATokenObserver, ATransitionObserver, \
@@ -47,14 +47,27 @@ ACollector = TypeVar("ACollector", bound=GenericCollector)
 class _MeterPlugin(Generic[ACollector, APlaceObserver, ATransitionObserver, ATokenObserver],  #
                    AbstractPlugin[APlaceObserver, ATransitionObserver, ATokenObserver],
                    ):
+    _n: int                                     # number of observations to collect
     _places: Optional[FrozenSet[int]]           # Observe these places only
     _token_types: Optional[FrozenSet[int]]      # Observe these token types only
     _transitions: Optional[FrozenSet[int]]      # Observe these transitions only
     _clock: Clock
+
     _collector: ACollector = field(init=False)
 
     def get_observations(self) -> Dict[str, array]:
         return self._collector.get_observations()
+
+    def get_need_more_observations(self) -> Callable[[], bool]:
+        return self._collector.need_more_observations
+
+    @property
+    def required_observations(self) -> int:
+        return self._collector.required_observations
+
+    @required_observations.setter
+    def required_observations(self, required_observations: int):
+        self._collector.required_observations = required_observations
 
 
 @dataclass(eq=False)
@@ -70,7 +83,7 @@ class TokenCounterPlugin(
     """
 
     def __post_init__(self):
-        self._collector = TokenCounterCollector()
+        self._collector = TokenCounterCollector(self._n)
 
     def place_observer_factory(self, p: "Place") -> Optional[TokenCounterPluginPlaceObserver]:
         return TokenCounterPluginPlaceObserver(self, p, self._clock, self._collector) \
@@ -98,7 +111,7 @@ class SojournTimePlugin(
     token_id: Iterator[int] = field(default_factory=count, init=False)
 
     def __post_init__(self):
-        self._collector = SojournTimeCollector()
+        self._collector = SojournTimeCollector(self._n)
 
     def token_observer_factory(self, t: "Token") -> Optional[SojournTimePluginTokenObserver]:
         return SojournTimePluginTokenObserver(self, t, self._places, self._clock,
@@ -112,7 +125,7 @@ class TransitionIntervalPlugin(
                      NoopPlaceObserver, TransitionIntervalPluginTransitionObserver, NoopTokenObserver]):
 
     def __post_init__(self):
-        self._collector = FiringCollector()
+        self._collector = FiringCollector(self._n)
 
     def transition_observer_factory(self, t: "Transition") -> \
             Optional[TransitionIntervalPluginTransitionObserver]:
@@ -124,8 +137,16 @@ class TransitionIntervalPlugin(
 class Simulator:
     _net: Net
     _auto_fire: AutoFirePlugin
+    _meters: Dict[str, _MeterPlugin]
+    _need_more_observations: List[Callable[[], bool]]
 
-    _meter_plugins: Dict[str, Type[_MeterPlugin]] = \
+    # Type[_MeterPlugin] Callable[[str, ], _MeterPlugin]
+    _meter_plugins: Dict[str, Callable[[str, int,
+                                        Optional[FrozenSet[int]],
+                                        Optional[FrozenSet[int]],
+                                        Optional[FrozenSet[int]],
+                                        Clock],
+                                       _MeterPlugin]] = \
         dict(token_visits=SojournTimePlugin,
              place_population=TokenCounterPlugin,
              transition_firing=TransitionIntervalPlugin,
@@ -139,12 +160,15 @@ class Simulator:
         self._net = Net(net_name)
         self._auto_fire = AutoFirePlugin("auto-fire plugin")
         self._net.register_plugin(self._auto_fire)
+        self._meters = dict()
+        self._need_more_observations = list()
 
-    def observe(self, stream: str,
-                places: Optional[FrozenSet[str]] = None,
-                transitions: Optional[FrozenSet[str]] = None,
-                token_types: Optional[FrozenSet[str]] = None,
-                ) -> Callable[[], Dict[str, array]]:
+    def observe(self,
+                places: Optional[Iterable[str]] = None,
+                transitions: Optional[Iterable[str]] = None,
+                token_types: Optional[Iterable[str]] = None,
+                **required_observations: int,
+                ) -> Tuple[Callable[[], Dict[str, array]], ...]:
         """ Create an observation stream
 
         :param stream: The type of the stream. Currently the following types are supported:
@@ -159,24 +183,44 @@ class Simulator:
                         This parameter is ignored for the `token_visits` and `place_population` streams.
         :param token_types: The type of tokens to observe. Observes all types when set to `None`.
                         This parameter is ignored for the `transition_firing` and `place_population` streams.
+        :param n:       The number of observations to produce
         :return:        A callable returning the observations
         """
-        plugin_type = self._meter_plugins[stream]
-
         _places = None if places is None \
-            else map(lambda n: self._net.place(n).ordinal, places)
+            else frozenset(self._net.place(p).ordinal for p in places)
         _token_types = None if token_types is None \
-            else map(lambda n: self._net.token_type(n).ordinal, token_types)
+            else frozenset(self._net.token_type(t).ordinal for t in token_types)
         _transitions = None if transitions is None \
-            else map(lambda n: self._net.transition(n).ordinal, transitions)
-        name = stream
+            else frozenset(self._net.transition(t).ordinal for t in transitions)
         _clock = self._auto_fire.clock
 
-        # Create the plugin
-        plugin = plugin_type(name, _places, _token_types, _transitions, _clock)
-        self._net.register_plugin(plugin)
+        get_observations: List[Callable[[], Dict[str, array]]] = list()
+        for stream, n in required_observations.items():
+            plugin_type = self._meter_plugins[stream]
 
-        return plugin.get_observations
+            # Create the plugin
+            plugin: _MeterPlugin = plugin_type(stream, n, _places, _token_types, _transitions, _clock)
+            self._net.register_plugin(plugin)
+            self._meters[stream] = plugin
+            self._need_more_observations.append(plugin.get_need_more_observations())
+            get_observations.append(plugin.get_observations)
+
+        return tuple(get_observations)
+
+    def required_observations(self, **required_observations: int):
+        for stream, n in required_observations.items():
+            self._meters[stream].required_observations = n
+
+    def need_more_observations(self) -> bool:
+        return any(map(lambda c: c(), self._need_more_observations))
+
+    def fire_repeatedly(self, count_of_firings: int):
+        self._net.reset()
+        self._auto_fire.fire_repeatedly(count_of_firings)
+
+    def simulate(self):
+        self._net.reset()
+        self._auto_fire.fire_while(self.need_more_observations)
 
     @property
     def net(self) -> Net: return self._net
@@ -216,7 +260,3 @@ class Simulator:
     add_test = _delegate_to(Net.add_test)
     # noinspection PyArgumentList
     add_inhibitor = _delegate_to(Net.add_inhibitor)
-
-    def fire_repeatedly(self, count_of_firings: int):
-        self._net.reset()
-        self._auto_fire.fire_repeatedly(count_of_firings)

@@ -8,18 +8,24 @@ if TYPE_CHECKING:
 
 
 class GenericCollector:
-    def __init__(self):
+    def __init__(self, required_observations):
+        self.required_observations = required_observations
         self._arrays = dict()
         self.reset()
 
     def reset(self):
         self._arrays.clear()
         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())
+        # noinspection PyAttributeOutsideInit
+        self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
 
     def get_observations(self) -> Dict[str, array]:
         data = self._arrays.copy()
         self.reset()
         return data
+
+    def need_more_observations(self) -> bool:
+        return len(self._any_array) < self.required_observations
 
 
 class TokenCounterCollector(GenericCollector):
