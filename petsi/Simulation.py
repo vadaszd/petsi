@@ -1,6 +1,9 @@
-from array import array
+import os, re
+from array import array, typecodes
+from collections import defaultdict
 from dataclasses import dataclass, field
-from functools import wraps
+from functools import wraps, reduce
+from glob import glob
 from itertools import count
 from typing import TYPE_CHECKING, Optional, Dict, Callable, Iterator, TypeVar, Any, cast, \
     Tuple, FrozenSet, Generic, Iterable, List
@@ -169,13 +172,14 @@ class Simulator:
                 token_types: Optional[Iterable[str]] = None,
                 **required_observations: int,
                 ) -> Tuple[Callable[[], Dict[str, array]], ...]:
-        """ Create an observation stream
+        """ Create one or more observation streams
 
-        :param stream: The type of the stream. Currently the following types are supported:
+        :param required_observations: The types of the stream. Currently the following types are supported:
                         - `token_visits`
                         - `place_population`
                         - `transition_firing`
                        Only one stream of each type can be created.
+                       The value assigned is the number of observations to produce in each stream.
 
         :param places:  The places to observe. Observes all places when set to `None`.
                         This parameter is ignored for the `transition_firing` stream.
@@ -183,7 +187,6 @@ class Simulator:
                         This parameter is ignored for the `token_visits` and `place_population` streams.
         :param token_types: The type of tokens to observe. Observes all types when set to `None`.
                         This parameter is ignored for the `transition_firing` and `place_population` streams.
-        :param n:       The number of observations to produce
         :return:        A callable returning the observations
         """
         _places = None if places is None \
@@ -260,3 +263,103 @@ class Simulator:
     add_test = _delegate_to(Net.add_test)
     # noinspection PyArgumentList
     add_inhibitor = _delegate_to(Net.add_inhibitor)
+
+
+def save_array(a: array, file_name_prefix: str, ):
+    filename = f"{file_name_prefix}.array_{a.typecode}"
+    a.tofile(open(filename, "wb"))
+
+
+def save_observations(observations: Dict[str, array], file_name_prefix: str, ):
+    for metric_name, a in observations.items():
+        save_array(a, f"{file_name_prefix}_{metric_name}")
+
+
+def load_array(file_name_prefix: str, a: Optional[array] = None, typecode: Optional[str] = None) -> array:
+    """ Load an array from a file.
+
+    :param file_name_prefix:  The path to the file. If the ".array_{typecode}" extension is missing, it will be
+                                    appended.
+    :param a:                 Load into this array. If None, a new array will be created.
+    :param typecode:          The type code of the array. Required only if the file_name_prefix matches multiple
+                                files on the disk; in such cases it is used for disambiguation.
+                                If not None, must match the type code embedded in the name of the file found on disk.
+    :return:                  The loaded array.
+    """
+    if a is None:
+        if typecode is None:
+            pattern = f"{file_name_prefix}.array_*"
+            file_names: List[str] = glob(pattern)
+
+            if len(file_names) == 0:
+                file_names = glob(file_name_prefix)
+
+            if len(file_names) == 0:
+                raise ValueError(f"No file to load the array from. Seeking for {pattern}")
+
+            if len(file_names) > 1:
+                raise ValueError(f"Cannot choose a file to load the array from. "
+                                 f"Please specify a type code. Candidates: {', '.join(file_names)}")
+
+            file_name = file_names[0]
+            m = re.match(".+\\.array_(?P<typecode>.+)", file_name)
+
+            if m is None:
+                raise ValueError(f"{file_name} contains no type code.")
+
+            typecode = m.group('typecode')
+
+            if len(typecode) > 1 or typecode not in typecodes:
+                raise ValueError(f"Cannot load {file_name}: unknown type code '{typecode}'")
+
+        a = array(typecode)
+    else:
+        if typecode is None:
+            typecode = a.typecode
+        else:
+            if typecode != a.typecode:
+                raise ValueError(
+                    f"np_array.typecode={a.typecode} but in the argument typecode={typecode} was provided")
+
+    filename = f"{file_name_prefix}.array_{typecode}"
+    file_size = os.stat(filename).st_size
+
+    if file_size % a.itemsize:
+        raise ValueError(f"The size of {filename} is not a multiple of itemsize '{a.itemsize}'")
+
+    a.fromfile(open(filename, "rb"), int(file_size / a.itemsize))
+
+    return a
+
+
+def load_observations(file_name_prefix: str, ) -> Dict[str, array]:
+    observations: Dict[str, array] = dict()
+
+    for file_name in glob(f"{file_name_prefix}_*.array_*"):
+        m = re.match(".*_(?P<metric_name>[^_]+)\\.array_.", file_name)
+
+        if m is None:
+            raise ValueError(f"{file_name} contains no metric name")
+
+        metric_name = m.group('metric_name')
+        observations[metric_name] = load_array(file_name)
+
+    return observations
+
+
+def flatten_observations(observations: Iterable[Dict[str, array]]) -> Dict[str, array]:
+    transposed = defaultdict(list)
+
+    for metric_dict in observations:
+        for metric_name, value_array in metric_dict.items():
+            transposed[metric_name].append(value_array)
+
+    def concatenate(a: array, b: array) -> array:
+        a.extend(b)
+        return a
+
+    flat_observations: Dict[str, array] = dict()
+    for metric_name, value_array_list in transposed.items():
+        flat_observations[metric_name] = reduce(concatenate, value_array_list)
+
+    return flat_observations
