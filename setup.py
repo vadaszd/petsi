@@ -25,7 +25,7 @@ def modules_with_prefix_suffix(modules, prefix, suffix):
 package_data = (
     modules_with_suffix(cythonized_modules, ".c") +
     modules_with_suffix(cythonized_modules, ".pxd") +
-    modules_with_suffix(cythonized_modules, ".html") +
+    # modules_with_suffix(cythonized_modules, ".html") +
     modules_with_suffix(cythonized_modules, ".pyi")
 )
 
