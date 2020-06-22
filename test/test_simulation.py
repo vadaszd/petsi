@@ -87,9 +87,9 @@ class AutoFireTest(TestCase):
         self.net.add_type("my type")
         self.auto_fire = AutoFirePlugin("auto-fire plugin")
         self.net.register_plugin(self.auto_fire)
-        self.token_counter = TokenCounterPlugin("token counter plugin", None, None, None, self.auto_fire.clock)
+        self.token_counter = TokenCounterPlugin("token counter plugin", 10, None, None, None, self.auto_fire.clock)
         self.net.register_plugin(self.token_counter)
-        self.sojourn_time = SojournTimePlugin("sojourn time plugin", None, None, None, self.auto_fire.clock)
+        self.sojourn_time = SojournTimePlugin("sojourn time plugin", 10, None, None, None, self.auto_fire.clock)
         self.net.register_plugin(self.sojourn_time)
 
     def test_simple_net(self):
