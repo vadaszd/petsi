@@ -11,7 +11,7 @@ package_name = "petsi"
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-cythonized_modules = ["Structure", "_autofire", "_meters", ]
+cythonized_modules = ["_structure", "_autofire", "_meters", ]
 
 
 def modules_with_suffix(modules, suffix):

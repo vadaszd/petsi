@@ -1,4 +1,4 @@
-from petsi.Structure import Net, Place
+from petsi._structure import Net, Place
 from inspect import cleandoc
 from unittest import TestCase, main
 from unittest.mock import Mock

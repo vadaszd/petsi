@@ -188,7 +188,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         Petsi will invoke this method for the places of the net that were selected for observation.
         The method should return a place observer or ``None`` if the plugin is not interested in observing places.
 
-        :param p: The :class:`petsi.Structure.Place` to observe.
+        :param p: The :class:`petsi._structure.Place` to observe.
         :return: A place observer or ``None``
         """
 
@@ -200,7 +200,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         Petsi will invoke this method for the tokens of the net that were selected for observation.
         The method should return a token observer or ``None`` if the plugin is not interested in observing tokens.
 
-        :param t: The :class:`petsi.Structure.Token` to observe.
+        :param t: The :class:`petsi._structure.Token` to observe.
         :return: A token observer or ``None``
         """
 
@@ -213,7 +213,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         The method should return a transition observer or ``None`` if the plugin is not interested in observing
         transitions.
 
-        :param t: The :class:`petsi.Structure.Token` to observe.
+        :param t: The :class:`petsi._structure.Token` to observe.
         :return: A token observer or ``None``
         """
 

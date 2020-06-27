@@ -10,12 +10,12 @@ Internals
     :recursive:
     :toctree: _generated
 
-    petsi.Structure
+    petsi._structure
     petsi.autofire
-    petsi.fire_control
+    petsi._autofire
     petsi.meters
+    petsi._meters
     petsi.NetViz
-    petsi.util
 
 
 

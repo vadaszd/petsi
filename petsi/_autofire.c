@@ -827,32 +827,32 @@ static const char *__pyx_f[] = {
   "petsi/_autofire.py",
   "stringsource",
   "petsi/_autofire.pxd",
-  "petsi/Structure.pxd",
+  "petsi/_structure.pxd",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/type.pxd",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/bool.pxd",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/complex.pxd",
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_5petsi_9Structure_Transition;
-struct __pyx_obj_5petsi_9Structure_TokenType;
-struct __pyx_obj_5petsi_9Structure_Token;
-struct __pyx_obj_5petsi_9Structure_Place;
+struct __pyx_obj_5petsi_10_structure_Transition;
+struct __pyx_obj_5petsi_10_structure_TokenType;
+struct __pyx_obj_5petsi_10_structure_Token;
+struct __pyx_obj_5petsi_10_structure_Place;
 struct __pyx_obj_5petsi_9_autofire__PriorityLevel;
 struct __pyx_obj_5petsi_9_autofire_Clock;
 struct __pyx_obj_5petsi_9_autofire_FireControl;
 struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver;
 
-/* "Structure.pxd":8
+/* "_structure.pxd":8
  * 
  * 
  * cdef class Transition:             # <<<<<<<<<<<<<<
  *     cdef readonly basestring _name   #= cython.declare(cython.basestring)
  *     cdef readonly unsigned int ordinal
  */
-struct __pyx_obj_5petsi_9Structure_Transition {
+struct __pyx_obj_5petsi_10_structure_Transition {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5petsi_9Structure_Transition *__pyx_vtab;
+  struct __pyx_vtabstruct_5petsi_10_structure_Transition *__pyx_vtab;
   PyObject *_name;
   unsigned int ordinal;
   int priority;
@@ -864,14 +864,14 @@ struct __pyx_obj_5petsi_9Structure_Transition {
 };
 
 
-/* "Structure.pxd":28
+/* "_structure.pxd":28
  * 
  * 
  * cdef class TokenType:             # <<<<<<<<<<<<<<
  *     cdef readonly basestring _name
  *     cdef readonly unsigned int ordinal
  */
-struct __pyx_obj_5petsi_9Structure_TokenType {
+struct __pyx_obj_5petsi_10_structure_TokenType {
   PyObject_HEAD
   PyObject *_name;
   unsigned int ordinal;
@@ -879,16 +879,16 @@ struct __pyx_obj_5petsi_9Structure_TokenType {
 };
 
 
-/* "Structure.pxd":34
+/* "_structure.pxd":34
  * 
  * 
  * cdef class Token:             # <<<<<<<<<<<<<<
  *     cdef readonly unsigned long long token_id
  *     cdef object _typ            # : TokenType
  */
-struct __pyx_obj_5petsi_9Structure_Token {
+struct __pyx_obj_5petsi_10_structure_Token {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5petsi_9Structure_Token *__pyx_vtab;
+  struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtab;
   unsigned PY_LONG_LONG token_id;
   PyObject *_typ;
   PyObject *_token_observers;
@@ -896,16 +896,16 @@ struct __pyx_obj_5petsi_9Structure_Token {
 };
 
 
-/* "Structure.pxd":4
+/* "_structure.pxd":4
  * 
  * 
  * cdef class Place             # <<<<<<<<<<<<<<
  * 
  * 
  */
-struct __pyx_obj_5petsi_9Structure_Place {
+struct __pyx_obj_5petsi_10_structure_Place {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5petsi_9Structure_Place *__pyx_vtab;
+  struct __pyx_vtabstruct_5petsi_10_structure_Place *__pyx_vtab;
   PyObject *_name;
   unsigned int ordinal;
   PyObject *_typ;
@@ -977,14 +977,14 @@ struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver {
   PyObject_HEAD
   struct __pyx_vtabstruct_5petsi_9_autofire_AutoFirePluginTransitionObserver *__pyx_vtab;
   PyObject *_plugin;
-  struct __pyx_obj_5petsi_9Structure_Transition *_transition;
+  struct __pyx_obj_5petsi_10_structure_Transition *_transition;
   struct __pyx_obj_5petsi_9_autofire_FireControl *_fire_control;
   double _deadline;
 };
 
 
 
-/* "Structure.pxd":4
+/* "_structure.pxd":4
  * 
  * 
  * cdef class Place             # <<<<<<<<<<<<<<
@@ -992,17 +992,17 @@ struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver {
  * 
  */
 
-struct __pyx_vtabstruct_5petsi_9Structure_Place {
-  struct __pyx_obj_5petsi_9Structure_Token *(*pop)(struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*push)(struct __pyx_obj_5petsi_9Structure_Place *, struct __pyx_obj_5petsi_9Structure_Token *);
-  int (*_is_empty)(struct __pyx_obj_5petsi_9Structure_Place *);
-  struct __pyx_obj_5petsi_9Structure_Token *(*_pop)(struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*_push)(struct __pyx_obj_5petsi_9Structure_Place *, struct __pyx_obj_5petsi_9Structure_Token *);
+struct __pyx_vtabstruct_5petsi_10_structure_Place {
+  struct __pyx_obj_5petsi_10_structure_Token *(*pop)(struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*push)(struct __pyx_obj_5petsi_10_structure_Place *, struct __pyx_obj_5petsi_10_structure_Token *);
+  int (*_is_empty)(struct __pyx_obj_5petsi_10_structure_Place *);
+  struct __pyx_obj_5petsi_10_structure_Token *(*_pop)(struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*_push)(struct __pyx_obj_5petsi_10_structure_Place *, struct __pyx_obj_5petsi_10_structure_Token *);
 };
-static struct __pyx_vtabstruct_5petsi_9Structure_Place *__pyx_vtabptr_5petsi_9Structure_Place;
+static struct __pyx_vtabstruct_5petsi_10_structure_Place *__pyx_vtabptr_5petsi_10_structure_Place;
 
 
-/* "Structure.pxd":8
+/* "_structure.pxd":8
  * 
  * 
  * cdef class Transition:             # <<<<<<<<<<<<<<
@@ -1010,15 +1010,15 @@ static struct __pyx_vtabstruct_5petsi_9Structure_Place *__pyx_vtabptr_5petsi_9St
  *     cdef readonly unsigned int ordinal
  */
 
-struct __pyx_vtabstruct_5petsi_9Structure_Transition {
-  double (*get_duration)(struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*increment_disabled_arc_count)(struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*decrement_disabled_arc_count)(struct __pyx_obj_5petsi_9Structure_Transition *);
+struct __pyx_vtabstruct_5petsi_10_structure_Transition {
+  double (*get_duration)(struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*increment_disabled_arc_count)(struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*decrement_disabled_arc_count)(struct __pyx_obj_5petsi_10_structure_Transition *);
 };
-static struct __pyx_vtabstruct_5petsi_9Structure_Transition *__pyx_vtabptr_5petsi_9Structure_Transition;
+static struct __pyx_vtabstruct_5petsi_10_structure_Transition *__pyx_vtabptr_5petsi_10_structure_Transition;
 
 
-/* "Structure.pxd":34
+/* "_structure.pxd":34
  * 
  * 
  * cdef class Token:             # <<<<<<<<<<<<<<
@@ -1026,13 +1026,13 @@ static struct __pyx_vtabstruct_5petsi_9Structure_Transition *__pyx_vtabptr_5pets
  *     cdef object _typ            # : TokenType
  */
 
-struct __pyx_vtabstruct_5petsi_9Structure_Token {
-  PyObject *(*attach_observer)(struct __pyx_obj_5petsi_9Structure_Token *, PyObject *);
-  PyObject *(*deposit_at)(struct __pyx_obj_5petsi_9Structure_Token *, struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*remove_from)(struct __pyx_obj_5petsi_9Structure_Token *, struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*delete)(struct __pyx_obj_5petsi_9Structure_Token *);
+struct __pyx_vtabstruct_5petsi_10_structure_Token {
+  PyObject *(*attach_observer)(struct __pyx_obj_5petsi_10_structure_Token *, PyObject *);
+  PyObject *(*deposit_at)(struct __pyx_obj_5petsi_10_structure_Token *, struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*remove_from)(struct __pyx_obj_5petsi_10_structure_Token *, struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*delete)(struct __pyx_obj_5petsi_10_structure_Token *);
 };
-static struct __pyx_vtabstruct_5petsi_9Structure_Token *__pyx_vtabptr_5petsi_9Structure_Token;
+static struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtabptr_5petsi_10_structure_Token;
 
 
 /* "petsi/_autofire.py":18
@@ -1044,8 +1044,8 @@ static struct __pyx_vtabstruct_5petsi_9Structure_Token *__pyx_vtabptr_5petsi_9St
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel {
-  PyObject *(*add)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*remove)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_9Structure_Transition *);
+  PyObject *(*add)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*remove)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *);
 };
 static struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *__pyx_vtabptr_5petsi_9_autofire__PriorityLevel;
 
@@ -1073,13 +1073,13 @@ static struct __pyx_vtabstruct_5petsi_9_autofire_Clock *__pyx_vtabptr_5petsi_9_a
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire_FireControl {
-  PyObject *(*enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *, int __pyx_skip_dispatch);
-  PyObject *(*disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *, int __pyx_skip_dispatch);
-  PyObject *(*_schedule_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*_remove_timed_transition_from_schedule)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*_enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*_disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  struct __pyx_obj_5petsi_9Structure_Transition *(*_next_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *);
+  PyObject *(*enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch);
+  PyObject *(*disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch);
+  PyObject *(*_schedule_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*_remove_timed_transition_from_schedule)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*_enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*_disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  struct __pyx_obj_5petsi_10_structure_Transition *(*_next_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *);
   PyObject *(*_select_next_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, int __pyx_skip_dispatch);
 };
 static struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *__pyx_vtabptr_5petsi_9_autofire_FireControl;
@@ -1643,16 +1643,16 @@ static int __Pyx_check_binary_version(void);
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
-static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto*/
 static double __pyx_f_5petsi_9_autofire_5Clock_read(struct __pyx_obj_5petsi_9_autofire_Clock *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transition_from_schedule(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto*/
-static struct __pyx_obj_5petsi_9Structure_Transition *__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transition_from_schedule(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto*/
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto*/
+static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto*/
 static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_enabled(struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_disabled(struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
@@ -1662,11 +1662,11 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_be
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'petsi.Structure' */
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_Place = 0;
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_Transition = 0;
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_TokenType = 0;
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_Token = 0;
+/* Module declarations from 'petsi._structure' */
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_Place = 0;
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_Transition = 0;
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_TokenType = 0;
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_Token = 0;
 
 /* Module declarations from 'cpython.version' */
 
@@ -2026,8 +2026,8 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8__init___17PriorityLe
 static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto */
-static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition); /* proto */
+static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto */
+static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition); /* proto */
 static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_12_select_next_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_12current_time___get__(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self); /* proto */
@@ -2233,7 +2233,7 @@ static int __pyx_pf_5petsi_9_autofire_14_PriorityLevel___init__(struct __pyx_obj
  * 
  */
 
-static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -2283,7 +2283,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj
  * 
  */
 
-static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
@@ -4294,8 +4294,8 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
  *                 else:
  *                     "Nothing to do, by default all transitions are treated as disabled."
  */
-        if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 144, __pyx_L1_error)
-        __pyx_t_7 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_enable_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
+        if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 144, __pyx_L1_error)
+        __pyx_t_7 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_enable_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
@@ -4365,7 +4365,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
  */
 
 static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_9enable_transition(PyObject *__pyx_v_self, PyObject *__pyx_v_transition); /*proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch) {
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4505,8 +4505,8 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_9enable_transition(PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("enable_transition (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_9Structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 148, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_v_self), ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_v_transition));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition));
 
   /* function exit code */
   goto __pyx_L0;
@@ -4517,7 +4517,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_9enable_transition(PyO
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4552,7 +4552,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(str
  */
 
 static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_11disable_transition(PyObject *__pyx_v_self, PyObject *__pyx_v_transition); /*proto*/
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch) {
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4692,8 +4692,8 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_11disable_transition(P
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("disable_transition (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_9Structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 154, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_v_self), ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_v_transition));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition));
 
   /* function exit code */
   goto __pyx_L0;
@@ -4704,7 +4704,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_11disable_transition(P
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4738,7 +4738,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(s
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  */
 
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   double __pyx_v_deadline;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -4761,7 +4761,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9Structure_Transition *)__pyx_v_transition->__pyx_vtab)->get_duration(__pyx_v_transition); if (unlikely(__pyx_t_1 == ((double)-999.0) && PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_transition->__pyx_vtab)->get_duration(__pyx_v_transition); if (unlikely(__pyx_t_1 == ((double)-999.0) && PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L1_error)
   __pyx_v_deadline = (__pyx_v_self->current_time + __pyx_t_1);
 
   /* "petsi/_autofire.py":162
@@ -4873,7 +4873,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
  *             "Wow... cancelling a timed Transition before firing it..."
  */
 
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transition_from_schedule(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transition_from_schedule(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -4896,7 +4896,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transitio
   if (unlikely(!Py_OptimizeFlag)) {
     __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_next_timed_transition(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = (((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1) == __pyx_v_transition);
+    __pyx_t_2 = (((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1) == __pyx_v_transition);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (unlikely(!(__pyx_t_2 != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_Wow_cancelling_a_timed_Transitio);
@@ -4962,7 +4962,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transitio
  *             self._schedule_timed_transition(transition)
  */
 
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   int __pyx_v_priority;
   struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_priority_level = 0;
   PyObject *__pyx_r = NULL;
@@ -5183,7 +5183,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
  *             self._remove_timed_transition_from_schedule(transition)
  */
 
-static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition) {
+static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition) {
   struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_priority_level = 0;
   int __pyx_v_priority;
   PyObject *__pyx_r = NULL;
@@ -5321,8 +5321,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(str
  * 
  */
 
-static struct __pyx_obj_5petsi_9Structure_Transition *__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self) {
-  struct __pyx_obj_5petsi_9Structure_Transition *__pyx_r = NULL;
+static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition(struct __pyx_obj_5petsi_9_autofire_FireControl *__pyx_v_self) {
+  struct __pyx_obj_5petsi_10_structure_Transition *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   PyObject *__pyx_t_2 = NULL;
@@ -5348,8 +5348,8 @@ static struct __pyx_obj_5petsi_9Structure_Transition *__pyx_f_5petsi_9_autofire_
   __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 193, __pyx_L1_error)
-  __pyx_r = ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_2);
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_r = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
@@ -5386,7 +5386,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
   struct __pyx_obj_5petsi_9_autofire__PriorityLevel *__pyx_v_priority_level = 0;
   double __pyx_v_new_time;
   PyObject *__pyx_v_weights = 0;
-  struct __pyx_obj_5petsi_9Structure_Transition *__pyx_v_transition = 0;
+  struct __pyx_obj_5petsi_10_structure_Transition *__pyx_v_transition = 0;
   Py_ssize_t __pyx_v_num_transitions;
   CYTHON_UNUSED PyObject *__pyx_v__ = NULL;
   PyObject *__pyx_r = NULL;
@@ -5609,8 +5609,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       if (unlikely(__pyx_t_10 == 0)) break;
       if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 212, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 212, __pyx_L1_error)
-      __Pyx_XDECREF_SET(__pyx_v_transition, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_2));
+      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 212, __pyx_L1_error)
+      __Pyx_XDECREF_SET(__pyx_v_transition, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2));
       __pyx_t_2 = 0;
 
       /* "petsi/_autofire.py":213
@@ -5688,8 +5688,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 215, __pyx_L1_error)
-    __Pyx_XDECREF_SET(__pyx_v_transition, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_2));
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 215, __pyx_L1_error)
+    __Pyx_XDECREF_SET(__pyx_v_transition, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2));
     __pyx_t_2 = 0;
 
     /* "petsi/_autofire.py":216
@@ -5782,11 +5782,11 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     }
     __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_12 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 229, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 229, __pyx_L1_error)
+    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 229, __pyx_L1_error)
     __pyx_v_new_time = __pyx_t_12;
     __pyx_v__ = __pyx_t_11;
     __pyx_t_11 = 0;
-    __pyx_v_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_3);
+    __pyx_v_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_3);
     __pyx_t_3 = 0;
   }
   __pyx_L4_break:;
@@ -6023,8 +6023,8 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
  *             self._schedule_timed_transition(transition)
  * 
  */
-    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 242, __pyx_L1_error)
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_remove_timed_transition_from_schedule(__pyx_v_self, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 242, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_remove_timed_transition_from_schedule(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -6035,8 +6035,8 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
  * 
  * 
  */
-    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 243, __pyx_L1_error)
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_schedule_timed_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 243, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_schedule_timed_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -6679,13 +6679,13 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
  *         self._fire_control = _fire_control
  *         self._deadline = 0.0
  */
-  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 251, __pyx_L1_error)
+  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 251, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__transition;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_transition);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_transition));
-  __pyx_v_self->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1);
+  __pyx_v_self->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "petsi/_autofire.py":252
@@ -6806,7 +6806,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
  */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->_transition);
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->enable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->enable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -6951,7 +6951,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
  */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->_transition);
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->disable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->disable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -9328,11 +9328,11 @@ static PyObject *__pyx_f_5petsi_9_autofire___pyx_unpickle_AutoFirePluginTransiti
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(1, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(1, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->_transition);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->_transition));
-  __pyx_v___pyx_result->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1);
+  __pyx_v___pyx_result->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":13
@@ -9894,7 +9894,7 @@ static PyObject *__pyx_tp_new_5petsi_9_autofire_AutoFirePluginTransitionObserver
   p = ((struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *)o);
   p->__pyx_vtab = __pyx_vtabptr_5petsi_9_autofire_AutoFirePluginTransitionObserver;
   p->_plugin = Py_None; Py_INCREF(Py_None);
-  p->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)Py_None); Py_INCREF(Py_None);
+  p->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)Py_None); Py_INCREF(Py_None);
   p->_fire_control = ((struct __pyx_obj_5petsi_9_autofire_FireControl *)Py_None); Py_INCREF(Py_None);
   return o;
 }
@@ -9935,7 +9935,7 @@ static int __pyx_tp_clear_5petsi_9_autofire_AutoFirePluginTransitionObserver(PyO
   p->_plugin = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_transition);
-  p->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)Py_None); Py_INCREF(Py_None);
+  p->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_fire_control);
   p->_fire_control = ((struct __pyx_obj_5petsi_9_autofire_FireControl *)Py_None); Py_INCREF(Py_None);
@@ -10526,8 +10526,8 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   __pyx_vtabptr_5petsi_9_autofire__PriorityLevel = &__pyx_vtable_5petsi_9_autofire__PriorityLevel;
-  __pyx_vtable_5petsi_9_autofire__PriorityLevel.add = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_9Structure_Transition *))__pyx_f_5petsi_9_autofire_14_PriorityLevel_add;
-  __pyx_vtable_5petsi_9_autofire__PriorityLevel.remove = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_9Structure_Transition *))__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove;
+  __pyx_vtable_5petsi_9_autofire__PriorityLevel.add = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_14_PriorityLevel_add;
+  __pyx_vtable_5petsi_9_autofire__PriorityLevel.remove = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove;
   if (PyType_Ready(&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_9_autofire__PriorityLevel.tp_print = 0;
@@ -10553,13 +10553,13 @@ static int __Pyx_modinit_type_init_code(void) {
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
   __pyx_ptype_5petsi_9_autofire_Clock = &__pyx_type_5petsi_9_autofire_Clock;
   __pyx_vtabptr_5petsi_9_autofire_FireControl = &__pyx_vtable_5petsi_9_autofire_FireControl;
-  __pyx_vtable_5petsi_9_autofire_FireControl.enable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl_enable_transition;
-  __pyx_vtable_5petsi_9_autofire_FireControl.disable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl_disable_transition;
-  __pyx_vtable_5petsi_9_autofire_FireControl._schedule_timed_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transition;
-  __pyx_vtable_5petsi_9_autofire_FireControl._remove_timed_transition_from_schedule = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transition_from_schedule;
-  __pyx_vtable_5petsi_9_autofire_FireControl._enable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__enable_transition;
-  __pyx_vtable_5petsi_9_autofire_FireControl._disable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__disable_transition;
-  __pyx_vtable_5petsi_9_autofire_FireControl._next_timed_transition = (struct __pyx_obj_5petsi_9Structure_Transition *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *))__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition;
+  __pyx_vtable_5petsi_9_autofire_FireControl.enable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl_enable_transition;
+  __pyx_vtable_5petsi_9_autofire_FireControl.disable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl_disable_transition;
+  __pyx_vtable_5petsi_9_autofire_FireControl._schedule_timed_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transition;
+  __pyx_vtable_5petsi_9_autofire_FireControl._remove_timed_transition_from_schedule = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transition_from_schedule;
+  __pyx_vtable_5petsi_9_autofire_FireControl._enable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__enable_transition;
+  __pyx_vtable_5petsi_9_autofire_FireControl._disable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__disable_transition;
+  __pyx_vtable_5petsi_9_autofire_FireControl._next_timed_transition = (struct __pyx_obj_5petsi_10_structure_Transition *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *))__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition;
   __pyx_vtable_5petsi_9_autofire_FireControl._select_next_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition;
   if (PyType_Ready(&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
@@ -10604,19 +10604,19 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("petsi.Structure"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 4, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("petsi._structure"); if (unlikely(!__pyx_t_1)) __PYX_ERR(3, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_5petsi_9Structure_Place = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "Place", sizeof(struct __pyx_obj_5petsi_9Structure_Place), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_Place) __PYX_ERR(3, 4, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_9Structure_Place = (struct __pyx_vtabstruct_5petsi_9Structure_Place*)__Pyx_GetVtable(__pyx_ptype_5petsi_9Structure_Place->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_9Structure_Place)) __PYX_ERR(3, 4, __pyx_L1_error)
-  __pyx_ptype_5petsi_9Structure_Transition = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "Transition", sizeof(struct __pyx_obj_5petsi_9Structure_Transition), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_Transition) __PYX_ERR(3, 8, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_9Structure_Transition = (struct __pyx_vtabstruct_5petsi_9Structure_Transition*)__Pyx_GetVtable(__pyx_ptype_5petsi_9Structure_Transition->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_9Structure_Transition)) __PYX_ERR(3, 8, __pyx_L1_error)
-  __pyx_ptype_5petsi_9Structure_TokenType = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "TokenType", sizeof(struct __pyx_obj_5petsi_9Structure_TokenType), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_TokenType) __PYX_ERR(3, 28, __pyx_L1_error)
-  __pyx_ptype_5petsi_9Structure_Token = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "Token", sizeof(struct __pyx_obj_5petsi_9Structure_Token), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_Token) __PYX_ERR(3, 34, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_9Structure_Token = (struct __pyx_vtabstruct_5petsi_9Structure_Token*)__Pyx_GetVtable(__pyx_ptype_5petsi_9Structure_Token->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_9Structure_Token)) __PYX_ERR(3, 34, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_Place = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Place", sizeof(struct __pyx_obj_5petsi_10_structure_Place), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_Place) __PYX_ERR(3, 4, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Place = (struct __pyx_vtabstruct_5petsi_10_structure_Place*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Place->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Place)) __PYX_ERR(3, 4, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_Transition = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Transition", sizeof(struct __pyx_obj_5petsi_10_structure_Transition), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_Transition) __PYX_ERR(3, 8, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Transition = (struct __pyx_vtabstruct_5petsi_10_structure_Transition*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Transition->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Transition)) __PYX_ERR(3, 8, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_TokenType = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "TokenType", sizeof(struct __pyx_obj_5petsi_10_structure_TokenType), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_TokenType) __PYX_ERR(3, 28, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_Token = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Token", sizeof(struct __pyx_obj_5petsi_10_structure_Token), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_Token) __PYX_ERR(3, 34, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Token = (struct __pyx_vtabstruct_5petsi_10_structure_Token*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Token->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Token)) __PYX_ERR(3, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);

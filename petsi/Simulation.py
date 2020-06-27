@@ -31,7 +31,7 @@ from typing import TYPE_CHECKING, Optional, Dict, Callable, TypeVar, Any, cast, 
 from .meters import _MeterPlugin, TokenCounterPlugin, SojournTimePlugin, TransitionIntervalPlugin
 
 from .NetViz import Visualizer
-from .Structure import Net
+from ._structure import Net
 from .autofire import AutoFirePlugin
 from ._autofire import Clock
 
@@ -166,7 +166,7 @@ class Simulator:
 
     @property
     def net(self) -> Net:
-        """ The underlying :class:`~petsi.Structure.Net` object representing the Petri net.
+        """ The underlying :class:`~petsi._structure.Net` object representing the Petri net.
         """
         return self._net
 

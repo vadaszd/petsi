@@ -3,7 +3,7 @@ from unittest import TestCase, main, skipUnless
 from unittest.mock import Mock
 
 from petsi.autofire import AutoFirePlugin
-from petsi.Structure import Net
+from petsi._structure import Net
 from petsi._autofire import FireControl
 from petsi.meters import TokenCounterPlugin, SojournTimePlugin
 

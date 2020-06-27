@@ -5,10 +5,10 @@ from typing import Optional, Callable
 
 from .Plugins import AbstractPlugin, NoopPlaceObserver, NoopTokenObserver
 
-from . import Structure
+from . import _structure
 
 from ._autofire import AutoFirePluginTransitionObserver, FireControl, Clock
-from .Structure import foreach
+from ._structure import foreach
 
 
 @dataclass(eq=False)
@@ -45,7 +45,7 @@ class AutoFirePlugin(
         foreach(lambda _: self._fire_control.fire_next(),
                 repeat(None) if count_of_firings == 0 else repeat(None, count_of_firings))
 
-    def transition_observer_factory(self, t: "Structure.Transition") -> Optional[AutoFirePluginTransitionObserver]:
+    def transition_observer_factory(self, t: "_structure.Transition") -> Optional[AutoFirePluginTransitionObserver]:
         return AutoFirePluginTransitionObserver(self, t, self._fire_control)
 
 

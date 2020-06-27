@@ -2,7 +2,7 @@ from dataclasses import dataclass, field
 from functools import singledispatchmethod, reduce
 from typing import Union, Tuple, Optional
 
-from .Structure import PetsiVisitor, Net, Transition, Place, Arc, TestArc, InhibitorArc
+from ._structure import PetsiVisitor, Net, Transition, Place, Arc, TestArc, InhibitorArc
 from graphviz import Digraph
 
 @dataclass

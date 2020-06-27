@@ -2,7 +2,7 @@
 # cython: profile=False
 
 # You may compile this file as:
-#    cythonize --3str -a -f -i petsi/Structure.py
+#    cythonize --3str -a -f -i petsi/_structure.py
 
 """ A Cython module defining the data structures for Petri nets."""
 

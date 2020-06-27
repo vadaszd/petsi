@@ -828,7 +828,7 @@ static const char *__pyx_f[] = {
   "petsi/_meters.pxd",
   "stringsource",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/array.pxd",
-  "petsi/Structure.pxd",
+  "petsi/_structure.pxd",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/type.pxd",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/bool.pxd",
   "venv/lib/python3.8/site-packages/Cython/Includes/cpython/complex.pxd",
@@ -840,10 +840,10 @@ static const char *__pyx_f[] = {
 struct arrayobject;
 typedef struct arrayobject arrayobject;
 #endif
-struct __pyx_obj_5petsi_9Structure_Transition;
-struct __pyx_obj_5petsi_9Structure_TokenType;
-struct __pyx_obj_5petsi_9Structure_Token;
-struct __pyx_obj_5petsi_9Structure_Place;
+struct __pyx_obj_5petsi_10_structure_Transition;
+struct __pyx_obj_5petsi_10_structure_TokenType;
+struct __pyx_obj_5petsi_10_structure_Token;
+struct __pyx_obj_5petsi_10_structure_Place;
 struct __pyx_obj_5petsi_9_autofire__PriorityLevel;
 struct __pyx_obj_5petsi_9_autofire_Clock;
 struct __pyx_obj_5petsi_9_autofire_FireControl;
@@ -858,16 +858,16 @@ struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver;
 struct __pyx_obj_5petsi_7_meters___pyx_scope_struct__reset;
 struct __pyx_obj_5petsi_7_meters___pyx_scope_struct_1_genexpr;
 
-/* "Structure.pxd":8
+/* "_structure.pxd":8
  * 
  * 
  * cdef class Transition:             # <<<<<<<<<<<<<<
  *     cdef readonly basestring _name   #= cython.declare(cython.basestring)
  *     cdef readonly unsigned int ordinal
  */
-struct __pyx_obj_5petsi_9Structure_Transition {
+struct __pyx_obj_5petsi_10_structure_Transition {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5petsi_9Structure_Transition *__pyx_vtab;
+  struct __pyx_vtabstruct_5petsi_10_structure_Transition *__pyx_vtab;
   PyObject *_name;
   unsigned int ordinal;
   int priority;
@@ -879,14 +879,14 @@ struct __pyx_obj_5petsi_9Structure_Transition {
 };
 
 
-/* "Structure.pxd":28
+/* "_structure.pxd":28
  * 
  * 
  * cdef class TokenType:             # <<<<<<<<<<<<<<
  *     cdef readonly basestring _name
  *     cdef readonly unsigned int ordinal
  */
-struct __pyx_obj_5petsi_9Structure_TokenType {
+struct __pyx_obj_5petsi_10_structure_TokenType {
   PyObject_HEAD
   PyObject *_name;
   unsigned int ordinal;
@@ -894,16 +894,16 @@ struct __pyx_obj_5petsi_9Structure_TokenType {
 };
 
 
-/* "Structure.pxd":34
+/* "_structure.pxd":34
  * 
  * 
  * cdef class Token:             # <<<<<<<<<<<<<<
  *     cdef readonly unsigned long long token_id
  *     cdef object _typ            # : TokenType
  */
-struct __pyx_obj_5petsi_9Structure_Token {
+struct __pyx_obj_5petsi_10_structure_Token {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5petsi_9Structure_Token *__pyx_vtab;
+  struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtab;
   unsigned PY_LONG_LONG token_id;
   PyObject *_typ;
   PyObject *_token_observers;
@@ -911,16 +911,16 @@ struct __pyx_obj_5petsi_9Structure_Token {
 };
 
 
-/* "Structure.pxd":4
+/* "_structure.pxd":4
  * 
  * 
  * cdef class Place             # <<<<<<<<<<<<<<
  * 
  * 
  */
-struct __pyx_obj_5petsi_9Structure_Place {
+struct __pyx_obj_5petsi_10_structure_Place {
   PyObject_HEAD
-  struct __pyx_vtabstruct_5petsi_9Structure_Place *__pyx_vtab;
+  struct __pyx_vtabstruct_5petsi_10_structure_Place *__pyx_vtab;
   PyObject *_name;
   unsigned int ordinal;
   PyObject *_typ;
@@ -992,7 +992,7 @@ struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver {
   PyObject_HEAD
   struct __pyx_vtabstruct_5petsi_9_autofire_AutoFirePluginTransitionObserver *__pyx_vtab;
   PyObject *_plugin;
-  struct __pyx_obj_5petsi_9Structure_Transition *_transition;
+  struct __pyx_obj_5petsi_10_structure_Transition *_transition;
   struct __pyx_obj_5petsi_9_autofire_FireControl *_fire_control;
   double _deadline;
 };
@@ -1041,7 +1041,7 @@ struct __pyx_obj_5petsi_7_meters_TokenCounterPluginPlaceObserver {
   PyObject_HEAD
   struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver *__pyx_vtab;
   PyObject *_plugin;
-  struct __pyx_obj_5petsi_9Structure_Place *_place;
+  struct __pyx_obj_5petsi_10_structure_Place *_place;
   struct __pyx_obj_5petsi_9_autofire_Clock *_clock;
   struct __pyx_obj_5petsi_7_meters_TokenCounterCollector *_collector;
   int _num_tokens;
@@ -1080,7 +1080,7 @@ struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver {
   PyObject_HEAD
   struct __pyx_vtabstruct_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_vtab;
   PyObject *_plugin;
-  struct __pyx_obj_5petsi_9Structure_Token *_token;
+  struct __pyx_obj_5petsi_10_structure_Token *_token;
   unsigned PY_LONG_LONG _token_id;
   unsigned PY_LONG_LONG _transition_count;
   PyObject *_places;
@@ -1117,7 +1117,7 @@ struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver {
   PyObject_HEAD
   struct __pyx_vtabstruct_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *__pyx_vtab;
   PyObject *_plugin;
-  struct __pyx_obj_5petsi_9Structure_Transition *_transition;
+  struct __pyx_obj_5petsi_10_structure_Transition *_transition;
   struct __pyx_obj_5petsi_9_autofire_Clock *_clock;
   struct __pyx_obj_5petsi_7_meters_FiringCollector *_collector;
   double _previous_firing_time;
@@ -1157,7 +1157,7 @@ struct __pyx_obj_5petsi_7_meters___pyx_scope_struct_1_genexpr {
 
 
 
-/* "Structure.pxd":4
+/* "_structure.pxd":4
  * 
  * 
  * cdef class Place             # <<<<<<<<<<<<<<
@@ -1165,17 +1165,17 @@ struct __pyx_obj_5petsi_7_meters___pyx_scope_struct_1_genexpr {
  * 
  */
 
-struct __pyx_vtabstruct_5petsi_9Structure_Place {
-  struct __pyx_obj_5petsi_9Structure_Token *(*pop)(struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*push)(struct __pyx_obj_5petsi_9Structure_Place *, struct __pyx_obj_5petsi_9Structure_Token *);
-  int (*_is_empty)(struct __pyx_obj_5petsi_9Structure_Place *);
-  struct __pyx_obj_5petsi_9Structure_Token *(*_pop)(struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*_push)(struct __pyx_obj_5petsi_9Structure_Place *, struct __pyx_obj_5petsi_9Structure_Token *);
+struct __pyx_vtabstruct_5petsi_10_structure_Place {
+  struct __pyx_obj_5petsi_10_structure_Token *(*pop)(struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*push)(struct __pyx_obj_5petsi_10_structure_Place *, struct __pyx_obj_5petsi_10_structure_Token *);
+  int (*_is_empty)(struct __pyx_obj_5petsi_10_structure_Place *);
+  struct __pyx_obj_5petsi_10_structure_Token *(*_pop)(struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*_push)(struct __pyx_obj_5petsi_10_structure_Place *, struct __pyx_obj_5petsi_10_structure_Token *);
 };
-static struct __pyx_vtabstruct_5petsi_9Structure_Place *__pyx_vtabptr_5petsi_9Structure_Place;
+static struct __pyx_vtabstruct_5petsi_10_structure_Place *__pyx_vtabptr_5petsi_10_structure_Place;
 
 
-/* "Structure.pxd":8
+/* "_structure.pxd":8
  * 
  * 
  * cdef class Transition:             # <<<<<<<<<<<<<<
@@ -1183,15 +1183,15 @@ static struct __pyx_vtabstruct_5petsi_9Structure_Place *__pyx_vtabptr_5petsi_9St
  *     cdef readonly unsigned int ordinal
  */
 
-struct __pyx_vtabstruct_5petsi_9Structure_Transition {
-  double (*get_duration)(struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*increment_disabled_arc_count)(struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*decrement_disabled_arc_count)(struct __pyx_obj_5petsi_9Structure_Transition *);
+struct __pyx_vtabstruct_5petsi_10_structure_Transition {
+  double (*get_duration)(struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*increment_disabled_arc_count)(struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*decrement_disabled_arc_count)(struct __pyx_obj_5petsi_10_structure_Transition *);
 };
-static struct __pyx_vtabstruct_5petsi_9Structure_Transition *__pyx_vtabptr_5petsi_9Structure_Transition;
+static struct __pyx_vtabstruct_5petsi_10_structure_Transition *__pyx_vtabptr_5petsi_10_structure_Transition;
 
 
-/* "Structure.pxd":34
+/* "_structure.pxd":34
  * 
  * 
  * cdef class Token:             # <<<<<<<<<<<<<<
@@ -1199,13 +1199,13 @@ static struct __pyx_vtabstruct_5petsi_9Structure_Transition *__pyx_vtabptr_5pets
  *     cdef object _typ            # : TokenType
  */
 
-struct __pyx_vtabstruct_5petsi_9Structure_Token {
-  PyObject *(*attach_observer)(struct __pyx_obj_5petsi_9Structure_Token *, PyObject *);
-  PyObject *(*deposit_at)(struct __pyx_obj_5petsi_9Structure_Token *, struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*remove_from)(struct __pyx_obj_5petsi_9Structure_Token *, struct __pyx_obj_5petsi_9Structure_Place *);
-  PyObject *(*delete)(struct __pyx_obj_5petsi_9Structure_Token *);
+struct __pyx_vtabstruct_5petsi_10_structure_Token {
+  PyObject *(*attach_observer)(struct __pyx_obj_5petsi_10_structure_Token *, PyObject *);
+  PyObject *(*deposit_at)(struct __pyx_obj_5petsi_10_structure_Token *, struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*remove_from)(struct __pyx_obj_5petsi_10_structure_Token *, struct __pyx_obj_5petsi_10_structure_Place *);
+  PyObject *(*delete)(struct __pyx_obj_5petsi_10_structure_Token *);
 };
-static struct __pyx_vtabstruct_5petsi_9Structure_Token *__pyx_vtabptr_5petsi_9Structure_Token;
+static struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtabptr_5petsi_10_structure_Token;
 
 
 /* "_autofire.pxd":7
@@ -1217,8 +1217,8 @@ static struct __pyx_vtabstruct_5petsi_9Structure_Token *__pyx_vtabptr_5petsi_9St
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel {
-  PyObject *(*add)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*remove)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_9Structure_Transition *);
+  PyObject *(*add)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*remove)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *);
 };
 static struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *__pyx_vtabptr_5petsi_9_autofire__PriorityLevel;
 
@@ -1246,13 +1246,13 @@ static struct __pyx_vtabstruct_5petsi_9_autofire_Clock *__pyx_vtabptr_5petsi_9_a
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire_FireControl {
-  PyObject *(*enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *, int __pyx_skip_dispatch);
-  PyObject *(*disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *, int __pyx_skip_dispatch);
-  PyObject *(*_schedule_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*_remove_timed_transition_from_schedule)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*_enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  PyObject *(*_disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_9Structure_Transition *);
-  struct __pyx_obj_5petsi_9Structure_Transition *(*_next_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *);
+  PyObject *(*enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch);
+  PyObject *(*disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch);
+  PyObject *(*_schedule_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*_remove_timed_transition_from_schedule)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*_enable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  PyObject *(*_disable_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *);
+  struct __pyx_obj_5petsi_10_structure_Transition *(*_next_timed_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *);
   PyObject *(*_select_next_transition)(struct __pyx_obj_5petsi_9_autofire_FireControl *, int __pyx_skip_dispatch);
 };
 static struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *__pyx_vtabptr_5petsi_9_autofire_FireControl;
@@ -1331,8 +1331,8 @@ static struct __pyx_vtabstruct_5petsi_7_meters_SojournTimeCollector *__pyx_vtabp
 struct __pyx_vtabstruct_5petsi_7_meters_SojournTimePluginTokenObserver {
   PyObject *(*report_construction)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, int __pyx_skip_dispatch);
   PyObject *(*report_destruction)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, int __pyx_skip_dispatch);
-  PyObject *(*report_arrival_at)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_9Structure_Place *, int __pyx_skip_dispatch);
-  PyObject *(*report_departure_from)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_9Structure_Place *, int __pyx_skip_dispatch);
+  PyObject *(*report_arrival_at)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_10_structure_Place *, int __pyx_skip_dispatch);
+  PyObject *(*report_departure_from)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_10_structure_Place *, int __pyx_skip_dispatch);
 };
 static struct __pyx_vtabstruct_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver;
 
@@ -2165,8 +2165,8 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
 static PyObject *__pyx_f_5petsi_7_meters_20SojournTimeCollector_collect(struct __pyx_obj_5petsi_7_meters_SojournTimeCollector *__pyx_v_self, unsigned PY_LONG_LONG __pyx_v_token_id, unsigned int __pyx_v_token_type, double __pyx_v_start_time, unsigned PY_LONG_LONG __pyx_v_num_transitions, unsigned int __pyx_v_place, double __pyx_v_duration); /* proto*/
 static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_construction(CYTHON_UNUSED struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_destruction(CYTHON_UNUSED struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_5petsi_9Structure_Place *__pyx_v__, int __pyx_skip_dispatch); /* proto*/
-static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Place *__pyx_v_p, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_5petsi_10_structure_Place *__pyx_v__, int __pyx_skip_dispatch); /* proto*/
+static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v_p, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_5petsi_7_meters_15FiringCollector_collect(struct __pyx_obj_5petsi_7_meters_FiringCollector *__pyx_v_self, unsigned long __pyx_v_transition, double __pyx_v_firing_time, double __pyx_v_interval); /* proto*/
 static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_enabled(CYTHON_UNUSED struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
 static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_disabled(CYTHON_UNUSED struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *__pyx_v_self, int __pyx_skip_dispatch); /* proto*/
@@ -2176,11 +2176,11 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
 
 /* Module declarations from 'cython' */
 
-/* Module declarations from 'petsi.Structure' */
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_Place = 0;
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_Transition = 0;
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_TokenType = 0;
-static PyTypeObject *__pyx_ptype_5petsi_9Structure_Token = 0;
+/* Module declarations from 'petsi._structure' */
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_Place = 0;
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_Transition = 0;
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_TokenType = 0;
+static PyTypeObject *__pyx_ptype_5petsi_10_structure_Token = 0;
 
 /* Module declarations from 'cpython.version' */
 
@@ -2622,8 +2622,8 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
 static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_2reset(CYTHON_UNUSED struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_4report_construction(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_6report_destruction(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Place *__pyx_v__); /* proto */
-static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Place *__pyx_v_p); /* proto */
+static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v__); /* proto */
+static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v_p); /* proto */
 static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_12__reduce_cython__(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_14__setstate_cython__(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_obj_5petsi_7_meters_FiringCollector *__pyx_v_self); /* proto */
@@ -4538,13 +4538,13 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
  *         self._clock = _clock
  *         self._collector = _collector
  */
-  if (!(likely(((__pyx_v__place) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__place, __pyx_ptype_5petsi_9Structure_Place))))) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (!(likely(((__pyx_v__place) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__place, __pyx_ptype_5petsi_10_structure_Place))))) __PYX_ERR(0, 56, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__place;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_place);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_place));
-  __pyx_v_self->_place = ((struct __pyx_obj_5petsi_9Structure_Place *)__pyx_t_1);
+  __pyx_v_self->_place = ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "petsi/_meters.py":57
@@ -6274,13 +6274,13 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
  *         self._token_id = _token_id
  *         self._transition_count = 0
  */
-  if (!(likely(((__pyx_v__token) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__token, __pyx_ptype_5petsi_9Structure_Token))))) __PYX_ERR(0, 118, __pyx_L1_error)
+  if (!(likely(((__pyx_v__token) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__token, __pyx_ptype_5petsi_10_structure_Token))))) __PYX_ERR(0, 118, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__token;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_token);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_token));
-  __pyx_v_self->_token = ((struct __pyx_obj_5petsi_9Structure_Token *)__pyx_t_1);
+  __pyx_v_self->_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "petsi/_meters.py":119
@@ -6694,7 +6694,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_6repo
  */
 
 static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_9report_arrival_at(PyObject *__pyx_v_self, PyObject *__pyx_v__); /*proto*/
-static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_5petsi_9Structure_Place *__pyx_v__, int __pyx_skip_dispatch) {
+static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, CYTHON_UNUSED struct __pyx_obj_5petsi_10_structure_Place *__pyx_v__, int __pyx_skip_dispatch) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6798,8 +6798,8 @@ static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_9repo
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("report_arrival_at (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__), __pyx_ptype_5petsi_9Structure_Place, 1, "_", 0))) __PYX_ERR(0, 136, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), ((struct __pyx_obj_5petsi_9Structure_Place *)__pyx_v__));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__), __pyx_ptype_5petsi_10_structure_Place, 1, "_", 0))) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v__));
 
   /* function exit code */
   goto __pyx_L0;
@@ -6810,7 +6810,7 @@ static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_9repo
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Place *__pyx_v__) {
+static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v__) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -6845,7 +6845,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8repo
  */
 
 static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_11report_departure_from(PyObject *__pyx_v_self, PyObject *__pyx_v_p); /*proto*/
-static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Place *__pyx_v_p, int __pyx_skip_dispatch) {
+static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v_p, int __pyx_skip_dispatch) {
   double __pyx_v_current_time;
   double __pyx_v_sojourn_time;
   PyObject *__pyx_r = NULL;
@@ -7022,8 +7022,8 @@ static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_11rep
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("report_departure_from (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_5petsi_9Structure_Place, 1, "p", 0))) __PYX_ERR(0, 141, __pyx_L1_error)
-  __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), ((struct __pyx_obj_5petsi_9Structure_Place *)__pyx_v_p));
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_5petsi_10_structure_Place, 1, "p", 0))) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v_p));
 
   /* function exit code */
   goto __pyx_L0;
@@ -7034,7 +7034,7 @@ static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_11rep
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_9Structure_Place *__pyx_v_p) {
+static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v_p) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -8148,13 +8148,13 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
  *         self._clock = _clock
  *         self._collector = _collector
  */
-  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(0, 181, __pyx_L1_error)
+  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 181, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__transition;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_transition);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_transition));
-  __pyx_v_self->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1);
+  __pyx_v_self->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "petsi/_meters.py":182
@@ -10454,11 +10454,11 @@ static PyObject *__pyx_f_5petsi_7_meters___pyx_unpickle_TokenCounterPluginPlaceO
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 3, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9Structure_Place))))) __PYX_ERR(2, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Place))))) __PYX_ERR(2, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->_place);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->_place));
-  __pyx_v___pyx_result->_place = ((struct __pyx_obj_5petsi_9Structure_Place *)__pyx_t_1);
+  __pyx_v___pyx_result->_place = ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -11434,11 +11434,11 @@ static PyObject *__pyx_f_5petsi_7_meters___pyx_unpickle_SojournTimePluginTokenOb
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 5, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9Structure_Token))))) __PYX_ERR(2, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Token))))) __PYX_ERR(2, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->_token);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->_token));
-  __pyx_v___pyx_result->_token = ((struct __pyx_obj_5petsi_9Structure_Token *)__pyx_t_1);
+  __pyx_v___pyx_result->_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
@@ -12351,11 +12351,11 @@ static PyObject *__pyx_f_5petsi_7_meters___pyx_unpickle_TransitionIntervalPlugin
   }
   __pyx_t_1 = __Pyx_GetItemInt_Tuple(__pyx_v___pyx_state, 4, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9Structure_Transition))))) __PYX_ERR(2, 12, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(2, 12, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v___pyx_result->_transition);
   __Pyx_DECREF(((PyObject *)__pyx_v___pyx_result->_transition));
-  __pyx_v___pyx_result->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)__pyx_t_1);
+  __pyx_v___pyx_result->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __pyx_t_1 = 0;
 
   /* "(tree fragment)":13
@@ -13409,7 +13409,7 @@ static PyObject *__pyx_tp_new_5petsi_7_meters_TokenCounterPluginPlaceObserver(Py
   p = ((struct __pyx_obj_5petsi_7_meters_TokenCounterPluginPlaceObserver *)o);
   p->__pyx_vtab = __pyx_vtabptr_5petsi_7_meters_TokenCounterPluginPlaceObserver;
   p->_plugin = Py_None; Py_INCREF(Py_None);
-  p->_place = ((struct __pyx_obj_5petsi_9Structure_Place *)Py_None); Py_INCREF(Py_None);
+  p->_place = ((struct __pyx_obj_5petsi_10_structure_Place *)Py_None); Py_INCREF(Py_None);
   p->_clock = ((struct __pyx_obj_5petsi_9_autofire_Clock *)Py_None); Py_INCREF(Py_None);
   p->_collector = ((struct __pyx_obj_5petsi_7_meters_TokenCounterCollector *)Py_None); Py_INCREF(Py_None);
   p->_time_having = ((PyObject*)Py_None); Py_INCREF(Py_None);
@@ -13460,7 +13460,7 @@ static int __pyx_tp_clear_5petsi_7_meters_TokenCounterPluginPlaceObserver(PyObje
   p->_plugin = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_place);
-  p->_place = ((struct __pyx_obj_5petsi_9Structure_Place *)Py_None); Py_INCREF(Py_None);
+  p->_place = ((struct __pyx_obj_5petsi_10_structure_Place *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_clock);
   p->_clock = ((struct __pyx_obj_5petsi_9_autofire_Clock *)Py_None); Py_INCREF(Py_None);
@@ -13727,7 +13727,7 @@ static PyObject *__pyx_tp_new_5petsi_7_meters_SojournTimePluginTokenObserver(PyT
   p = ((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)o);
   p->__pyx_vtab = __pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver;
   p->_plugin = Py_None; Py_INCREF(Py_None);
-  p->_token = ((struct __pyx_obj_5petsi_9Structure_Token *)Py_None); Py_INCREF(Py_None);
+  p->_token = ((struct __pyx_obj_5petsi_10_structure_Token *)Py_None); Py_INCREF(Py_None);
   p->_places = ((PyObject*)Py_None); Py_INCREF(Py_None);
   p->_clock = ((struct __pyx_obj_5petsi_9_autofire_Clock *)Py_None); Py_INCREF(Py_None);
   p->_collector = ((struct __pyx_obj_5petsi_7_meters_SojournTimeCollector *)Py_None); Py_INCREF(Py_None);
@@ -13778,7 +13778,7 @@ static int __pyx_tp_clear_5petsi_7_meters_SojournTimePluginTokenObserver(PyObjec
   p->_plugin = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_token);
-  p->_token = ((struct __pyx_obj_5petsi_9Structure_Token *)Py_None); Py_INCREF(Py_None);
+  p->_token = ((struct __pyx_obj_5petsi_10_structure_Token *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_places);
   p->_places = ((PyObject*)Py_None); Py_INCREF(Py_None);
@@ -14021,7 +14021,7 @@ static PyObject *__pyx_tp_new_5petsi_7_meters_TransitionIntervalPluginTransition
   p = ((struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *)o);
   p->__pyx_vtab = __pyx_vtabptr_5petsi_7_meters_TransitionIntervalPluginTransitionObserver;
   p->_plugin = Py_None; Py_INCREF(Py_None);
-  p->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)Py_None); Py_INCREF(Py_None);
+  p->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)Py_None); Py_INCREF(Py_None);
   p->_clock = ((struct __pyx_obj_5petsi_9_autofire_Clock *)Py_None); Py_INCREF(Py_None);
   p->_collector = ((struct __pyx_obj_5petsi_7_meters_FiringCollector *)Py_None); Py_INCREF(Py_None);
   return o;
@@ -14067,7 +14067,7 @@ static int __pyx_tp_clear_5petsi_7_meters_TransitionIntervalPluginTransitionObse
   p->_plugin = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_transition);
-  p->_transition = ((struct __pyx_obj_5petsi_9Structure_Transition *)Py_None); Py_INCREF(Py_None);
+  p->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->_clock);
   p->_clock = ((struct __pyx_obj_5petsi_9_autofire_Clock *)Py_None); Py_INCREF(Py_None);
@@ -15118,8 +15118,8 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver = &__pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver;
   __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_construction = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_construction;
   __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_destruction = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_destruction;
-  __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_arrival_at = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_9Structure_Place *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at;
-  __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_departure_from = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_9Structure_Place *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from;
+  __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_arrival_at = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_10_structure_Place *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at;
+  __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_departure_from = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_10_structure_Place *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from;
   if (PyType_Ready(&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_print = 0;
@@ -15193,19 +15193,19 @@ static int __Pyx_modinit_type_import_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_import_code", 0);
   /*--- Type import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("petsi.Structure"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 4, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("petsi._structure"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_ptype_5petsi_9Structure_Place = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "Place", sizeof(struct __pyx_obj_5petsi_9Structure_Place), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_Place) __PYX_ERR(4, 4, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_9Structure_Place = (struct __pyx_vtabstruct_5petsi_9Structure_Place*)__Pyx_GetVtable(__pyx_ptype_5petsi_9Structure_Place->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_9Structure_Place)) __PYX_ERR(4, 4, __pyx_L1_error)
-  __pyx_ptype_5petsi_9Structure_Transition = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "Transition", sizeof(struct __pyx_obj_5petsi_9Structure_Transition), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_Transition) __PYX_ERR(4, 8, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_9Structure_Transition = (struct __pyx_vtabstruct_5petsi_9Structure_Transition*)__Pyx_GetVtable(__pyx_ptype_5petsi_9Structure_Transition->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_9Structure_Transition)) __PYX_ERR(4, 8, __pyx_L1_error)
-  __pyx_ptype_5petsi_9Structure_TokenType = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "TokenType", sizeof(struct __pyx_obj_5petsi_9Structure_TokenType), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_TokenType) __PYX_ERR(4, 28, __pyx_L1_error)
-  __pyx_ptype_5petsi_9Structure_Token = __Pyx_ImportType(__pyx_t_1, "petsi.Structure", "Token", sizeof(struct __pyx_obj_5petsi_9Structure_Token), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_9Structure_Token) __PYX_ERR(4, 34, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_9Structure_Token = (struct __pyx_vtabstruct_5petsi_9Structure_Token*)__Pyx_GetVtable(__pyx_ptype_5petsi_9Structure_Token->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_9Structure_Token)) __PYX_ERR(4, 34, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_Place = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Place", sizeof(struct __pyx_obj_5petsi_10_structure_Place), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_Place) __PYX_ERR(4, 4, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Place = (struct __pyx_vtabstruct_5petsi_10_structure_Place*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Place->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Place)) __PYX_ERR(4, 4, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_Transition = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Transition", sizeof(struct __pyx_obj_5petsi_10_structure_Transition), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_Transition) __PYX_ERR(4, 8, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Transition = (struct __pyx_vtabstruct_5petsi_10_structure_Transition*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Transition->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Transition)) __PYX_ERR(4, 8, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_TokenType = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "TokenType", sizeof(struct __pyx_obj_5petsi_10_structure_TokenType), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_TokenType) __PYX_ERR(4, 28, __pyx_L1_error)
+  __pyx_ptype_5petsi_10_structure_Token = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Token", sizeof(struct __pyx_obj_5petsi_10_structure_Token), __Pyx_ImportType_CheckSize_Warn);
+   if (!__pyx_ptype_5petsi_10_structure_Token) __PYX_ERR(4, 34, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Token = (struct __pyx_vtabstruct_5petsi_10_structure_Token*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Token->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Token)) __PYX_ERR(4, 34, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(5, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
