@@ -74,7 +74,7 @@ setup(
     license='MIT',
     author='vadaszd',
     author_email='',
-    description='A Petri net simulator for performance modelling',
+    description='A Petri net simulator for performance analysis',
     long_description=long_description,
     long_description_content_type="text/markdown",
     keywords="Petri net simulator performance modelling",

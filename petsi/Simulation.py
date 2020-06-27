@@ -1,26 +1,3 @@
-import os, re
-from array import array, typecodes
-from collections import defaultdict
-from dataclasses import dataclass, field
-from functools import wraps, reduce
-from glob import glob
-from itertools import count
-from typing import TYPE_CHECKING, Optional, Dict, Callable, Iterator, TypeVar, Any, cast, \
-    Tuple, FrozenSet, Generic, Iterable, List
-
-from .NetViz import Visualizer
-from .Plugins import AbstractPlugin, APlaceObserver, ATokenObserver, ATransitionObserver, \
-    NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
-from .Structure import APetsiVisitor, Net, Place, Token, Transition
-from .autofire import AutoFirePlugin
-from .fire_control import Clock
-from .meters import SojournTimePluginTokenObserver, TokenCounterPluginPlaceObserver, \
-    TransitionIntervalPluginTransitionObserver, FiringCollector, GenericCollector, SojournTimeCollector, \
-    TokenCounterCollector
-
-if TYPE_CHECKING:
-    from graphviz import Digraph
-
 """ This module contains a plugin that fires enabled transitions according to the below ordering rules.
 
     0. We track a global current time, initialized to a user-provided value.
@@ -41,6 +18,30 @@ if TYPE_CHECKING:
     4. The underlying Petri net guarantees that a timed transition, once enabled, will not get disabled
         without firing the transition.
 """
+
+import os
+import re
+from array import array, typecodes
+from collections import defaultdict
+from dataclasses import dataclass, field
+from functools import wraps, reduce
+from glob import glob
+from itertools import count
+from typing import TYPE_CHECKING, Optional, Dict, Callable, Iterator, TypeVar, Any, cast, \
+    Tuple, FrozenSet, Generic, Iterable, List
+
+from .NetViz import Visualizer
+from .Plugins import AbstractPlugin, APlaceObserver, ATokenObserver, ATransitionObserver, \
+    NoopTokenObserver, NoopTransitionObserver, NoopPlaceObserver
+from .Structure import Net, Place, Token, Transition
+from .autofire import AutoFirePlugin
+from .fire_control import Clock
+from .meters import SojournTimePluginTokenObserver, TokenCounterPluginPlaceObserver, \
+    TransitionIntervalPluginTransitionObserver, FiringCollector, GenericCollector, SojournTimeCollector, \
+    TokenCounterCollector
+
+if TYPE_CHECKING:
+    from graphviz import Digraph
 
 
 ACollector = TypeVar("ACollector", bound=GenericCollector)
@@ -138,6 +139,8 @@ class TransitionIntervalPlugin(
 
 
 class Simulator:
+    """ A high level API for creating a performance simulator.
+    """
     _net: Net
     _auto_fire: AutoFirePlugin
     _meters: Dict[str, _MeterPlugin]
@@ -156,9 +159,9 @@ class Simulator:
              )
 
     def __init__(self, net_name: str = "net",):
-        """ Create a Simulator object
+        """ Create a Simulator object.
 
-        :param net_name:    The name of the Petri-net
+        :param net_name:    The name of the Petri net
         """
         self._net = Net(net_name)
         self._auto_fire = AutoFirePlugin("auto-fire plugin")
@@ -172,22 +175,33 @@ class Simulator:
                 token_types: Optional[Iterable[str]] = None,
                 **required_observations: int,
                 ) -> Tuple[Callable[[], Dict[str, array]], ...]:
-        """ Create one or more observation streams
+        """ Create one or more observation streams.
 
-        :param required_observations: The types of the stream. Currently the following types are supported:
-                        - `token_visits`
-                        - `place_population`
-                        - `transition_firing`
-                       Only one stream of each type can be created.
-                       The value assigned is the number of observations to produce in each stream.
+        This method may be called several times to specify various observation critera like the places, transitions and
+        token types to observe. The criteria provided in each call apply to the stream types specified in
+        ``required_observations``. There must be no overlap between the stream types specified in subsequent calls
+        to ``observe()``.
 
-        :param places:  The places to observe. Observes all places when set to `None`.
-                        This parameter is ignored for the `transition_firing` stream.
-        :param transitions: The transitions to observe. Observes all transitions when set to `None`.
-                        This parameter is ignored for the `token_visits` and `place_population` streams.
-        :param token_types: The type of tokens to observe. Observes all types when set to `None`.
-                        This parameter is ignored for the `transition_firing` and `place_population` streams.
-        :return:        A callable returning the observations
+        :param required_observations:
+            Keyword arguments specifying the types of the streams to observe.
+                Currently the following types are supported:
+                - ``token_visits``
+                - ``place_population``
+                - ``transition_firing``
+
+            Only one stream of each type can be created.
+            The value assigned is the number of observations to produce in each stream.
+
+        :param places:  The places to observe. Observes all places when set to ``None``.
+                        This parameter is ignored for the ``transition_firing`` stream.
+        :param transitions: The transitions to observe. Observes all transitions when set to ``None``.
+                        This parameter is ignored for the ``token_visits`` and ``place_population`` streams.
+        :param token_types: The type of tokens to observe. Observes all types when set to ``None``.
+                        This parameter is ignored for the ``transition_firing`` and ``place_population`` streams.
+        :return:        A tuple of callables returning the observations as a dictionary of Python arrays.
+                        The order of the callables matches the order of the stream types in ``required_observations``.
+        :raise KeyError: ``required_observations`` got an unexpected stream type.
+        :raise ValueError: There is an overlap in ``required_observations`` of an earlier call to ``observer()``.
         """
         _places = None if places is None \
             else frozenset(self._net.place(p).ordinal for p in places)
@@ -211,6 +225,18 @@ class Simulator:
         return tuple(get_observations)
 
     def required_observations(self, **required_observations: int):
+        """ Specify the number of observations to collect during one call to :func:`simulate`.
+
+        This method can be used to override the values provided in :func:`observe`.
+
+        :param required_observations:
+            Keyword arguments specifying the number of observations in each stream. The allowed keys are:
+                - ``token_visits``
+                - ``place_population``
+                - ``transition_firing``
+
+        :raise KeyError: An unknown stream type is provided as keyword argument
+        """
         for stream, n in required_observations.items():
             self._meters[stream].required_observations = n
 
@@ -218,20 +244,45 @@ class Simulator:
         return any(map(lambda c: c(), self._need_more_observations))
 
     def fire_repeatedly(self, count_of_firings: int):
+        """ Fire ``count_of_firings`` transitions.
+
+        This method ignores the limits provided in :func:`observe()` or :func:`required_observations()`.
+
+        The actual number of firings performed may be less if the enabled transitions are exhausted.
+        """
         self._net.reset()
         self._auto_fire.fire_repeatedly(count_of_firings)
 
     def simulate(self):
+        """ Run a simulation using the Petri net.
+
+        The net will keep firing transitions until all transitions get disabled or the required number of
+        observations have been collected (see the ``required_observations`` parameter in :func:`observe()`
+        and :func:`required_observations()`).
+        """
         self._net.reset()
         self._auto_fire.fire_while(self.need_more_observations)
 
     @property
-    def net(self) -> Net: return self._net
-
-    def visit_net(self, visualizer: APetsiVisitor) -> APetsiVisitor:
-        return self._net.accept(visualizer)
+    def net(self) -> Net:
+        """ The underlying :class:`~petsi.Structure.Net` object representing the Petri net.
+        """
+        return self._net
 
     def show(self, figsize: Optional[Tuple[float, float]] = None) -> "Digraph":
+        """ Render a `graphviz <https://www.graphviz.org/>`_ graph representing the Petri net.
+
+        :param figsize: The size (in inches) of the figure to create.
+        :return: A :class:`graphviz.Digraph` object representing the graph.
+
+        .. note:: IPython will automatically display the graph as a picture when this object is the return value
+                  of the last statement in a code cell.
+
+                  When this is not the case, the object can be programmatically displayed as::
+
+                      from IPython.display import display
+                      display(simulator.show())
+        """
         return self.visit_net(Visualizer(figsize)).dot
 
     _FuncType = Callable[..., Any]
@@ -245,6 +296,11 @@ class Simulator:
 
         return cast("_F", _delegate_to_)
 
+    # def visit_net(self, visualizer: APetsiVisitor) -> APetsiVisitor:
+    #     return self._net.accept(visualizer)
+
+    # noinspection PyArgumentList
+    visit_net = _delegate_to(Net.accept)
     # noinspection PyArgumentList
     add_type = _delegate_to(Net.add_type)
     # noinspection PyArgumentList

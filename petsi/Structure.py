@@ -4,6 +4,8 @@
 # You may compile this file as:
 #    cythonize --3str -a -f -i petsi/Structure.py
 
+""" A Cython module defining the data structures for Petri nets."""
+
 import collections
 from abc import ABC, abstractmethod
 from enum import Enum
@@ -27,6 +29,7 @@ APetsiVisitor = TypeVar('APetsiVisitor', bound="PetsiVisitor")
 
 
 class Net:
+    """ Represents a Petri net."""
     name: str
     _types: "Dict[str, TokenType]"
     _places: "Dict[str, Place]"
@@ -35,6 +38,10 @@ class Net:
     _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
 
     def __init__(self, name: str):
+        """ Create a Petri net.
+
+        :param name: The name of the Petri net
+        """
         self.name = name
         self._types = dict()
         self._places = dict()
@@ -44,6 +51,16 @@ class Net:
         self._black_dot = self.add_type("black dot")
 
     def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:
+        """ Accept a :class:`PetsiVisitor`.
+
+        The `visitor pattern <https://en.wikipedia.org/wiki/Visitor_pattern#Python_example>`_ can be used
+        to generate an alternative representation of the network (e.g. to render it as a `graphviz` graph).
+
+        This method causes the accepted visitor to visit all places and transitions of the Petri net.
+
+        :param visitor: the visitor to accept
+        :return: the visitor object
+        """
         visitor.visit(self)
 
         for place in self._places.values():
@@ -58,18 +75,38 @@ class Net:
     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":
         return self._observers.values()
 
-    def register_plugin(self, of: "Plugins.AbstractPlugin"):
-        if of.name in self._observers:
-            raise ValueError(f"An observer with name '{of.name}' is already registered.")
+    def register_plugin(self, plugin: "Plugins.AbstractPlugin"):
+        """ Register the given plugin.
 
-        self._observers[of.name] = of
-        foreach(lambda t: t.attach_observer(of), self._transitions.values())
-        foreach(lambda p: p.attach_observer(of), self._places.values())
-        foreach(lambda t: t.attach_observer(of),
+        The name of the plugin must not collide with the name of any plugins registered earlier.
+
+        The plugin is offered all the existing and future places, transitions and tokens
+        for providing observers for these objects. If the plugin creates observers for these,
+        those observers are remembered and their appropriate callback methods are invoked
+        as the movement of the tokens dictate.
+
+        :param plugin: The plugin to register.
+        """
+        if plugin.name in self._observers:
+            raise ValueError(f"An observer with name '{plugin.name}' is already registered.")
+
+        self._observers[plugin.name] = plugin
+        foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
+        foreach(lambda p: p.attach_observer(plugin), self._places.values())
+        foreach(lambda t: t.attach_observer(plugin),
                 flatten(map(lambda p: p.tokens, self._places.values())))
 
     # All arcs connected to a place must have the type of the place
     def add_type(self, type_name: str) -> "TokenType":
+        """ Define a token type in the Petri net.
+
+        A type named ``"black dot"`` is implicitly defined when the ``Net`` instance is initialized.
+        This type is the default value in the API calls that require a token type.
+
+        :param type_name: The name of the type.
+        :return: A :class:`TokenType` object representing the type.
+        :raise ValueError: The name is already in use for another type.
+        """
         if type_name in self._types:
             raise ValueError(f"Type '{type_name}' is already defined in net "
                              f"'{self.name}'")
@@ -78,10 +115,21 @@ class Net:
         return typ
 
     def token_type(self, type_name: str) -> "TokenType":
+        """ Get the token type with the given name.
+
+        :param type_name: The name of the type.
+        :return: A :class:`TokenType` object representing the type.
+        :raise KeyError: The requested type is not defined.
+        """
         return self._types[type_name]
 
     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":
-        """ Add a place to the Petri-net with the given name, type and Qing policy.
+        """ Add a place to the Petri-net with the given name, type and queueing policy.
+
+        :param name: The name of the place to add.
+        :param type_name: The type of the place to add. Defaults to ``"black dot"``.
+        :param queueing_policy_name:
+        :return: The place added.
         """
         if name in self._places:
             raise ValueError(f"Place '{name}' already exists in net '{self.name}'")
@@ -101,6 +149,12 @@ class Net:
             return place
 
     def place(self, place_name: str) -> "Place":
+        """ Get the place with the given name.
+
+        :param place_name: The name of the place.
+        :return: A :class:`Place` object representing the place.
+        :raise KeyError: The requested place does not exist.
+        """
         return self._places[place_name]
 
     def _attach_transition_observers(self, t: "Transition"):
@@ -113,6 +167,18 @@ class Net:
 
     # Arcs can be added only to empty input places!
     def add_immediate_transition(self, name: str, priority: int = 1, weight: float = 1.0) -> "Transition":
+        """ Create and add an immediate transition to the Petri net.
+
+        Enabled immediate transitions are always fired before enabled timed transitions.
+
+        :param name: The name of the transition.
+        :param priority: The priority of the transisition. The :mod:`petsi.autofire` module fires
+                            higher priority transitions before lower ones.
+        :param weight: The weight of the transition. If there is a priority tie,
+                            :mod:`petsi.autofire` will fire a transtition randomly with
+                            probability proportional to the weights of the enabled transitions.
+        :return: The transition created.
+        """
         if not isinstance(priority, int) or priority < 1:
             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
 
@@ -125,37 +191,106 @@ class Net:
         return t
 
     def add_timed_transition(self, name: str, distribution: "Callable[[], float]") -> "Transition":
+        """ Create and add a timed transition to the Petri net.
+
+        Enabled immediate transitions are always fired before enabled timed transitions.
+
+        :param name: The name of the transition.
+        :param distribution: A callable returning a sample from the probability distribution of the time
+                                between the transition becoming enabled and its firing.
+                                By constraints on constructing the Petri net it is guaranteed that once a
+                                timed transition is enabled, the only way to disable it is to fire it.
+        :return: The transition created.
+        """
         self._validate_transition_name(name)
         self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)
         self._attach_transition_observers(t)
         return t
 
     def transition(self, transition_name: str) -> "Transition":
+        """ Get the transition with the given name.
+
+        :param transition_name: The name of the transition.
+        :return: A :class:`Transition` object representing the transition.
+        :raise KeyError: The requested transition does not exist.
+        """
         return self._transitions[transition_name]
 
     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":
+        """ Create a constructor arc.
+
+        Upon firing the controlling transition, a constructor arc creates a new token.
+        The type of the token will match the type of the output place of the arc.
+
+        :param name: The name of the arc.
+        :param transition_name: The name of the transition controlling the arc.
+        :param output_place_name: The name of the place the arc deposits the created tokens at.
+        :return: The created constructor arc.
+        """
         return ConstructorArc(name=name,
                               transition=self._transitions[transition_name],
                               output_place=self._places[output_place_name])
 
     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> "DestructorArc":
+        """ Create a destructor arc.
+
+        When the controlling transition fires, a destructor arc removes a token from its input place
+        and destroys it.
+
+        :param name: The name of the arc.
+        :param input_place_name: The name of the input place.
+        :param transition_name: The name of the controlling transition.
+        :return: The new destructor arc.
+        """
         return DestructorArc(name=name,
                              transition=self._transitions[transition_name],
                              input_place=self._places[input_place_name])
 
     def add_transfer(self, name: str, input_place_name: str, transition_name: str,
                      output_place_name: str) -> "TransferArc":
+        """ Create a destructor arc.
+
+        On firing the controlling transition, the transfer arc moves a token from its input place to its output place.
+
+        :param name: The name of the arc.
+        :param input_place_name: The name of the input place.
+        :param transition_name:  The name of the transition controlling the arc.
+        :param output_place_name: The name of the output place.
+        :return: The arc created.
+        """
         return TransferArc(name=name,
                            transition=self._transitions[transition_name],
                            input_place=self._places[input_place_name],
                            output_place=self._places[output_place_name])
 
     def add_test(self, name: str, place_name: str, transition_name: str, ) -> "TestArc":
+        """ Create a test arc.
+
+        Like a transfer or destructor arc, a test arc influences the enablement status of its controlling transition.
+        That is, the transition will only enable if there is a token at the input place of the test arc.
+        Unlike the transfer or destructor arcs, a test arc never moves a token.
+
+        :param name: The name of the arc.
+        :param place_name: The name of its input place.
+        :param transition_name: The name of the transition controlling the arc.
+        :return: The arc created.
+        """
         return TestArc(name=name,
                        transition=self._transitions[transition_name],
                        input_place=self._places[place_name])
 
     def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> "InhibitorArc":
+        """ Create an inhibitor arc.
+
+        Like a test arc, an inhibitor arc never moves any tokens. All it does it influences the enablement of its
+        controlling transition.
+        Unlike a test arc, it allows the transition to fire iff its input place is empty.
+
+        :param name: The name of the arc.
+        :param place_name: The name of the input place.
+        :param transition_name: The name of the controlling transition.
+        :return: The arc created.
+        """
         return InhibitorArc(name=name,
                             transition=self._transitions[transition_name],
                             input_place=self._places[place_name])
@@ -170,7 +305,8 @@ class Net:
             observer.reset()
 
 
-class TokenType:  # dataclasses are not usable with Cython ...
+class TokenType:
+    """ Represents a token type."""
     _name: str
     ordinal: int
     _net: Net
@@ -233,6 +369,7 @@ class Token:
 
 @cython.cclass
 class Transition:
+    """ Represents a transition in a Petri net."""
     _name: str
     ordinal: int
     priority: int
@@ -514,6 +651,7 @@ class InhibitorArc(TestArc):
 
 
 class Place:
+    """ Represents a place in a Petri net."""
     _name: str
     ordinal: int
     _typ:  TokenType
