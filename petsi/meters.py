@@ -1,200 +1,103 @@
 from array import array
-from typing import TYPE_CHECKING, FrozenSet, Optional, Dict
+from dataclasses import dataclass, field
+from itertools import count
+from typing import TypeVar, Generic, Optional, FrozenSet, Dict, Callable, Iterator
 
-from .fire_control import Clock
+from .Plugins import APlaceObserver, ATransitionObserver, ATokenObserver, AbstractPlugin, NoopTransitionObserver, \
+    NoopTokenObserver, NoopPlaceObserver
+from ._autofire import Clock
+from ._meters import GenericCollector, TokenCounterCollector, TokenCounterPluginPlaceObserver, SojournTimeCollector, \
+    SojournTimePluginTokenObserver, FiringCollector, TransitionIntervalPluginTransitionObserver
 
-if TYPE_CHECKING:
-    from . import Structure, Plugins
+ACollector = TypeVar("ACollector", bound=GenericCollector)
 
 
-class GenericCollector:
-    def __init__(self, required_observations):
-        self.required_observations = required_observations
-        self._arrays = dict()
-        self.reset()
+@dataclass(eq=False)
+class _MeterPlugin(Generic[ACollector, APlaceObserver, ATransitionObserver, ATokenObserver],  #
+                   AbstractPlugin[APlaceObserver, ATransitionObserver, ATokenObserver],
+                   ):
+    _n: int                                     # number of observations to collect
+    _places: Optional[FrozenSet[int]]           # Observe these places only
+    _token_types: Optional[FrozenSet[int]]      # Observe these token types only
+    _transitions: Optional[FrozenSet[int]]      # Observe these transitions only
+    _clock: Clock
 
-    def reset(self):
-        self._arrays.clear()
-        self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())
-        # noinspection PyAttributeOutsideInit
-        self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
+    _collector: ACollector = field(init=False)
 
     def get_observations(self) -> Dict[str, array]:
-        data = self._arrays.copy()
-        self.reset()
-        return data
+        return self._collector.get_observations()
 
-    def need_more_observations(self) -> bool:
-        return len(self._any_array) < self.required_observations
+    def get_need_more_observations(self) -> Callable[[], bool]:
+        return self._collector.need_more_observations
 
+    @property
+    def required_observations(self) -> int:
+        return self._collector.required_observations
 
-class TokenCounterCollector(GenericCollector):
-    _type_codes = dict(start_time='d',   # double
-                       place='I',        # unsigned int (16 bits)
-                       count='Q',        # unsigned long long (64 bits)
-                       duration='d',     # double
-                       )
-
-    def reset(self):
-        super().reset()
-        # noinspection PyAttributeOutsideInit
-        self._start_time, self._place, self._count, self._duration = self._arrays.values()
-
-    # cython crashes with argument annotations ....
-    # def collect(self, start_time: float, place: int, count: int, duration: float):
-    def collect(self, start_time, place, count, duration):
-        self._start_time.append(start_time)
-        self._place.append(place)
-        self._count.append(count)
-        self._duration.append(duration)
+    @required_observations.setter
+    def required_observations(self, required_observations: int):
+        self._collector.required_observations = required_observations
 
 
-class TokenCounterPluginPlaceObserver:
+@dataclass(eq=False)
+class TokenCounterPlugin(
+        _MeterPlugin[TokenCounterCollector, TokenCounterPluginPlaceObserver,
+                     NoopTransitionObserver, NoopTokenObserver]):
 
-    def __init__(self, _plugin: "Plugins.Plugin", _place: "Structure.Place", _clock: Clock,
-                 _collector: TokenCounterCollector):
-        self._plugin = _plugin
-        self._place = _place
-        self._clock = _clock
-        self._collector = _collector
-        self._num_tokens = 0
-        self._time_of_last_token_move = 0.0
-        # self._time_having: List[float] = list()
+    """ A PetSi plugin providing by-place token-count stats
 
-    def reset(self):
-        self._num_tokens = 0
-        self._time_of_last_token_move = 0.0
+        The plugin collects the empirical distribution of the
+        time-weighted token counts at all places of the observed Petri net,
+        i.e. in what percentage of time the token count is i at place j.
+    """
 
-    def _update_num_tokens_by(self, delta: int):
-        now: float = self._clock.read()
-        duration: float = now - self._time_of_last_token_move
+    def __post_init__(self):
+        self._collector = TokenCounterCollector(self._n)
 
-        self._collector.collect(self._time_of_last_token_move, self._place.ordinal, self._num_tokens, duration)
-
-        self._time_of_last_token_move = now
-        self._num_tokens += delta
-        # Cannot go negative
-        assert self._num_tokens >= 0
-
-    def report_arrival_of(self, _):
-        self._update_num_tokens_by(+1)
-
-    def report_departure_of(self, _):
-        self._update_num_tokens_by(-1)
+    def place_observer_factory(self, p: "Place") -> Optional[TokenCounterPluginPlaceObserver]:
+        return TokenCounterPluginPlaceObserver(self, p, self._clock, self._collector) \
+            if self._places is None or p.ordinal in self._places else None
 
 
-class SojournTimeCollector(GenericCollector):
-    _type_codes = dict(token_id='Q',     # unsigned long long (64 bits)
-                       token_type='I',   # unsigned int (16 bits)
-                       start_time='d',   # double
-                       transitions='Q',  # unsigned long long (64 bits)
-                       place='I',        # unsigned int (16 bits)
-                       duration='d',     # double
-                       )
+@dataclass(eq=False)
+class SojournTimePlugin(
+        _MeterPlugin[SojournTimeCollector, "NoopPlaceObserver", "NoopTransitionObserver",
+                     SojournTimePluginTokenObserver]):
+    """ A PetSi plugin providing by-place sojourn time stats
 
-    def reset(self):
-        super().reset()
-        # noinspection PyAttributeOutsideInit
-        self._token_id, self._token_type, self._start_time, self._num_transitions, self._place, self._duration = \
-            self._arrays.values()
+        The plugin collects the empirical distribution of the
+        time a token spends at each place of the observed Petri net,
+        i.e. in what percentage of the tokens seen was the per-visit and overall time
+        spent by the token at place j in bucket i of the histogram.
 
-    # cython crashes with argument annotations ....
-    # def collect(self, token_id: int, token_type: int, start_time: float,
-    #             num_transitions: int, place: int, duration: float):
-    def collect(self, token_id, token_type, start_time,
-                num_transitions, place, duration):
-        self._token_id.append(token_id)
-        self._token_type.append(token_type)
-        self._start_time.append(start_time)
-        self._num_transitions.append(num_transitions)
-        self._place.append(place)
-        self._duration.append(duration)
+        On the per-visit histograms each stay is translated into a separate increment.
+        The bucket is selected based on the time the token spent at the place during a single visit.
 
+        On the overall histograms one increment represents all the visits of a token at a given place.
+        The bucket is selected based on the cumulative time the token spent at the place during its whole life.
+    """
 
-class SojournTimePluginTokenObserver:  # Cython does not cope with base classes here
+    token_id: Iterator[int] = field(default_factory=count, init=False)
 
-    def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
-                 _places: Optional[FrozenSet[int]], _clock: Clock, _collector: SojournTimeCollector, _token_id: int):
-        self._plugin = _plugin
-        self._token = _token
-        self._token_id = _token_id
-        self._transition_count = 0
-        self._places = _places
-        self._clock = _clock
-        self._collector = _collector
-        self._arrival_time = 0.0
+    def __post_init__(self):
+        self._collector = SojournTimeCollector(self._n)
 
-    def reset(self):
-        # The observed token will anyway be removed, together with us...
-        pass
-
-    def report_construction(self):
-        pass
-
-    def report_destruction(self):
-        pass
-
-    def report_arrival_at(self, _: "Structure.Place"):
-        """ Start timer for place"""
-        # if self._places is None or p.ordinal in self._places:
-        self._arrival_time = self._clock.read()
-
-    def report_departure_from(self, p: "Structure.Place"):
-        """ Stop timer and compute the sojourn time.
-            Select the bucket of the per visit histogram that belongs
-            to the place and increment it.
-            Add s.t. for the overall sojourn time of the token for this place
-        """
-        if self._places is None or p.ordinal in self._places:
-            current_time: float = self._clock.read()
-            sojourn_time: float = current_time - self._arrival_time
-            self._collector.collect(self._token_id, self._token.typ.ordinal, self._arrival_time,
-                                    self._transition_count, p.ordinal, sojourn_time)
+    def token_observer_factory(self, t: "Token") -> Optional[SojournTimePluginTokenObserver]:
+        return SojournTimePluginTokenObserver(self, t, self._places, self._clock,
+                                              self._collector, next(self.token_id)) \
+            if self._token_types is None or t.typ.ordinal in self._token_types else None
 
 
-class FiringCollector(GenericCollector):
-    _type_codes = dict(transition='I',   # unsigned int (16 bits)
-                       firing_time='d',  # double
-                       interval='d',     # double
-                       )
+@dataclass(eq=False)
+class TransitionIntervalPlugin(
+        _MeterPlugin[FiringCollector,
+                     NoopPlaceObserver, TransitionIntervalPluginTransitionObserver, NoopTokenObserver]):
 
-    def reset(self):
-        super().reset()
-        # noinspection PyAttributeOutsideInit
-        self._transition, self._firing_time, self._interval = self._arrays.values()
+    def __post_init__(self):
+        self._collector = FiringCollector(self._n)
 
-    # cython crashes with argument annotations ....
-    # def collect(self, transition: int, firing_time: float, interval: float):
-    def collect(self, transition, firing_time, interval):
-        self._transition.append(transition)
-        self._firing_time.append(firing_time)
-        self._interval.append(interval)
+    def transition_observer_factory(self, t: "Transition") -> \
+            Optional[TransitionIntervalPluginTransitionObserver]:
 
-
-class TransitionIntervalPluginTransitionObserver:
-
-    _previous_firing_time: float
-    _collector: FiringCollector
-
-    def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition", _clock: Clock,
-                 _collector: FiringCollector):
-        self._plugin = _plugin
-        self._transition = _transition
-        self._clock = _clock
-        self._collector = _collector
-        self.reset()
-
-    def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation
-
-    def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
-
-    def before_firing(self): pass   # No actual base class, so need to provide an implementation
-
-    def after_firing(self, ):
-        current_time = self._clock.read()
-        interval = current_time - self._previous_firing_time
-        self._collector.collect(self._transition.ordinal, self._clock.read(), interval, )
-        self._previous_firing_time = current_time
-
-    def reset(self):
-        self._previous_firing_time = self._clock.read()
+        return TransitionIntervalPluginTransitionObserver(self, t, self._clock, self._collector) \
+            if self._transitions is None or t.ordinal in self._transitions else None

@@ -2,3 +2,5 @@
 /target/
 /.mypy_cache/
 /venv/
+/doc/_build/
+/doc/_generated/

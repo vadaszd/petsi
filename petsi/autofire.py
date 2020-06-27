@@ -7,8 +7,8 @@ from .Plugins import AbstractPlugin, NoopPlaceObserver, NoopTokenObserver
 
 from . import Structure
 
-from .fire_control import AutoFirePluginTransitionObserver, FireControl, Clock
-from .util import foreach
+from ._autofire import AutoFirePluginTransitionObserver, FireControl, Clock
+from .Structure import foreach
 
 
 @dataclass(eq=False)

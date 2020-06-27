@@ -9,7 +9,7 @@
 import collections
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import TYPE_CHECKING, Union, TypeVar
+from typing import TYPE_CHECKING, Union, TypeVar, Callable, Any, Iterable
 
 from more_itertools import flatten
 import cython
@@ -21,8 +21,6 @@ from . import Plugins
 if TYPE_CHECKING:
     from typing import Any, TYPE_CHECKING, Set, Dict, \
         Deque, Callable, ValuesView, Iterator
-
-from .util import foreach
 
 
 APetsiVisitor = TypeVar('APetsiVisitor', bound="PetsiVisitor")
@@ -820,3 +818,12 @@ class PetsiVisitor(ABC):
     @abstractmethod
     def visit(self, visitable: Union[Net, Transition, Place, Arc]):
         pass
+
+
+_ForeachArgumentType = TypeVar("_ForeachArgumentType")
+
+
+@cython.ccall
+def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):
+    for x in iterator:
+        f(x)

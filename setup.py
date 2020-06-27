@@ -11,7 +11,7 @@ package_name = "petsi"
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-cythonized_modules = ["Structure", "util", "fire_control", "meters", ]
+cythonized_modules = ["Structure", "_autofire", "_meters", ]
 
 
 def modules_with_suffix(modules, suffix):
@@ -40,9 +40,9 @@ if 'develop' in sys.argv and "--uninstall" not in sys.argv:
     from Cython.Build import cythonize
 
     extension_args.update(
-        # Command line for the manual cythonization of individual modules use (on the example of meters.py):
+        # Command line for the manual cythonization of individual modules use (on the example of _meters.py):
         #
-        #    cythonize --3str -a -f -i petsi/meters.py
+        #    cythonize --3str -a -f -i petsi/_meters.py
         #
         ext_modules=cythonize([os.path.join(package_name, module_name + ".py")
                                for module_name in cythonized_modules

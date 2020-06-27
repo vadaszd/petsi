@@ -1,4 +1,4 @@
-from .fire_control cimport Clock
+from ._autofire cimport Clock
 from .Structure cimport Transition, Token, Place
 from cpython cimport iterator
 from cpython.array cimport array

@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING, List, Iterator, Sequence, FrozenSet, Optional,
 from . import Plugins
 from .Plugins import Plugin
 from .Structure import Place
-from .fire_control import Clock
+from ._autofire import Clock
 
 if TYPE_CHECKING:
     from . import Structure
