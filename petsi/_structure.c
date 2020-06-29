@@ -917,7 +917,7 @@ struct __pyx_obj_5petsi_10_structure_Place {
 };
 
 
-/* "petsi/_structure.py":476
+/* "petsi/_structure.py":491
  * 
  * @cython.cclass
  * class Arc:             # <<<<<<<<<<<<<<
@@ -934,8 +934,8 @@ struct __pyx_obj_5petsi_10_structure_Arc {
 };
 
 
-/* "petsi/_structure.py":515
- * 
+/* "petsi/_structure.py":532
+ * # noinspection PyAbstractClass
  * @cython.cclass
  * class PresenceObserver(Arc):             # <<<<<<<<<<<<<<
  *     """ An Arc-mixin providing the feature of enabling/disabling a transition.
@@ -947,7 +947,7 @@ struct __pyx_obj_5petsi_10_structure_PresenceObserver {
 };
 
 
-/* "petsi/_structure.py":569
+/* "petsi/_structure.py":586
  * 
  * @cython.cclass
  * class ConstructorArc(Arc, ):  # TokenPlacer             # <<<<<<<<<<<<<<
@@ -959,7 +959,7 @@ struct __pyx_obj_5petsi_10_structure_ConstructorArc {
 };
 
 
-/* "petsi/_structure.py":593
+/* "petsi/_structure.py":610
  * 
  * @cython.cclass
  * class TokenConsumer(PresenceObserver):             # <<<<<<<<<<<<<<
@@ -971,7 +971,7 @@ struct __pyx_obj_5petsi_10_structure_TokenConsumer {
 };
 
 
-/* "petsi/_structure.py":600
+/* "petsi/_structure.py":617
  * 
  * @cython.cclass
  * class DestructorArc(TokenConsumer, ):             # <<<<<<<<<<<<<<
@@ -983,7 +983,7 @@ struct __pyx_obj_5petsi_10_structure_DestructorArc {
 };
 
 
-/* "petsi/_structure.py":610
+/* "petsi/_structure.py":627
  * 
  * @cython.cclass
  * class TransferArc(TokenConsumer):  # TokenPlacer,             # <<<<<<<<<<<<<<
@@ -995,7 +995,7 @@ struct __pyx_obj_5petsi_10_structure_TransferArc {
 };
 
 
-/* "petsi/_structure.py":632
+/* "petsi/_structure.py":649
  * 
  * @cython.cclass
  * class TestArc(PresenceObserver):             # <<<<<<<<<<<<<<
@@ -1007,7 +1007,7 @@ struct __pyx_obj_5petsi_10_structure_TestArc {
 };
 
 
-/* "petsi/_structure.py":639
+/* "petsi/_structure.py":656
  * 
  * @cython.cclass
  * class InhibitorArc(TestArc):             # <<<<<<<<<<<<<<
@@ -1019,7 +1019,7 @@ struct __pyx_obj_5petsi_10_structure_InhibitorArc {
 };
 
 
-/* "petsi/_structure.py":811
+/* "petsi/_structure.py":826
  * 
  * @cython.cclass
  * class LIFOPlace(Place):             # <<<<<<<<<<<<<<
@@ -1031,7 +1031,7 @@ struct __pyx_obj_5petsi_10_structure_LIFOPlace {
 };
 
 
-/* "petsi/_structure.py":76
+/* "petsi/_structure.py":75
  *         return self._observers.values()
  * 
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
@@ -1044,7 +1044,7 @@ struct __pyx_obj_5petsi_10_structure___pyx_scope_struct__register_plugin {
 };
 
 
-/* "petsi/_structure.py":124
+/* "petsi/_structure.py":123
  *         return self._types[type_name]
  * 
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":             # <<<<<<<<<<<<<<
@@ -1071,7 +1071,7 @@ struct __pyx_obj_5petsi_10_structure___pyx_scope_struct_2__attach_transition_obs
 
 
 
-/* "petsi/_structure.py":651
+/* "petsi/_structure.py":668
  * 
  * 
  * class Place:             # <<<<<<<<<<<<<<
@@ -1089,7 +1089,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_Place {
 static struct __pyx_vtabstruct_5petsi_10_structure_Place *__pyx_vtabptr_5petsi_10_structure_Place;
 
 
-/* "petsi/_structure.py":369
+/* "petsi/_structure.py":384
  * 
  * @cython.cclass
  * class Transition:             # <<<<<<<<<<<<<<
@@ -1105,12 +1105,12 @@ struct __pyx_vtabstruct_5petsi_10_structure_Transition {
 static struct __pyx_vtabstruct_5petsi_10_structure_Transition *__pyx_vtabptr_5petsi_10_structure_Transition;
 
 
-/* "petsi/_structure.py":327
+/* "petsi/_structure.py":335
  * 
  * 
  * class Token:             # <<<<<<<<<<<<<<
+ *     """ A typed token in a Petri net. """
  *     _typ: TokenType
- *     _token_observers: "Set[Plugins.AbstractTokenObserver]"
  */
 
 struct __pyx_vtabstruct_5petsi_10_structure_Token {
@@ -1122,7 +1122,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_Token {
 static struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtabptr_5petsi_10_structure_Token;
 
 
-/* "petsi/_structure.py":476
+/* "petsi/_structure.py":491
  * 
  * @cython.cclass
  * class Arc:             # <<<<<<<<<<<<<<
@@ -1136,8 +1136,8 @@ struct __pyx_vtabstruct_5petsi_10_structure_Arc {
 static struct __pyx_vtabstruct_5petsi_10_structure_Arc *__pyx_vtabptr_5petsi_10_structure_Arc;
 
 
-/* "petsi/_structure.py":515
- * 
+/* "petsi/_structure.py":532
+ * # noinspection PyAbstractClass
  * @cython.cclass
  * class PresenceObserver(Arc):             # <<<<<<<<<<<<<<
  *     """ An Arc-mixin providing the feature of enabling/disabling a transition.
@@ -1152,7 +1152,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver {
 static struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *__pyx_vtabptr_5petsi_10_structure_PresenceObserver;
 
 
-/* "petsi/_structure.py":569
+/* "petsi/_structure.py":586
  * 
  * @cython.cclass
  * class ConstructorArc(Arc, ):  # TokenPlacer             # <<<<<<<<<<<<<<
@@ -1166,7 +1166,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_ConstructorArc {
 static struct __pyx_vtabstruct_5petsi_10_structure_ConstructorArc *__pyx_vtabptr_5petsi_10_structure_ConstructorArc;
 
 
-/* "petsi/_structure.py":593
+/* "petsi/_structure.py":610
  * 
  * @cython.cclass
  * class TokenConsumer(PresenceObserver):             # <<<<<<<<<<<<<<
@@ -1180,7 +1180,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_TokenConsumer {
 static struct __pyx_vtabstruct_5petsi_10_structure_TokenConsumer *__pyx_vtabptr_5petsi_10_structure_TokenConsumer;
 
 
-/* "petsi/_structure.py":600
+/* "petsi/_structure.py":617
  * 
  * @cython.cclass
  * class DestructorArc(TokenConsumer, ):             # <<<<<<<<<<<<<<
@@ -1194,7 +1194,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_DestructorArc {
 static struct __pyx_vtabstruct_5petsi_10_structure_DestructorArc *__pyx_vtabptr_5petsi_10_structure_DestructorArc;
 
 
-/* "petsi/_structure.py":610
+/* "petsi/_structure.py":627
  * 
  * @cython.cclass
  * class TransferArc(TokenConsumer):  # TokenPlacer,             # <<<<<<<<<<<<<<
@@ -1208,7 +1208,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_TransferArc {
 static struct __pyx_vtabstruct_5petsi_10_structure_TransferArc *__pyx_vtabptr_5petsi_10_structure_TransferArc;
 
 
-/* "petsi/_structure.py":632
+/* "petsi/_structure.py":649
  * 
  * @cython.cclass
  * class TestArc(PresenceObserver):             # <<<<<<<<<<<<<<
@@ -1222,7 +1222,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_TestArc {
 static struct __pyx_vtabstruct_5petsi_10_structure_TestArc *__pyx_vtabptr_5petsi_10_structure_TestArc;
 
 
-/* "petsi/_structure.py":639
+/* "petsi/_structure.py":656
  * 
  * @cython.cclass
  * class InhibitorArc(TestArc):             # <<<<<<<<<<<<<<
@@ -1236,7 +1236,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_InhibitorArc {
 static struct __pyx_vtabstruct_5petsi_10_structure_InhibitorArc *__pyx_vtabptr_5petsi_10_structure_InhibitorArc;
 
 
-/* "petsi/_structure.py":811
+/* "petsi/_structure.py":826
  * 
  * @cython.cclass
  * class LIFOPlace(Place):             # <<<<<<<<<<<<<<
@@ -2002,9 +2002,7 @@ static const char __pyx_k_Deque[] = "Deque";
 static const char __pyx_k_ERROR[] = "ERROR";
 static const char __pyx_k_Place[] = "Place '";
 static const char __pyx_k_Token[] = "Token";
-static const char __pyx_k_Union[] = "Union";
 static const char __pyx_k_apply[] = "apply";
-static const char __pyx_k_bound[] = "bound";
 static const char __pyx_k_class[] = "__class__";
 static const char __pyx_k_deque[] = "deque";
 static const char __pyx_k_float[] = "float";
@@ -2039,6 +2037,7 @@ static const char __pyx_k_Place_2[] = "Place";
 static const char __pyx_k_Plugins[] = "Plugins";
 static const char __pyx_k_TestArc[] = "TestArc";
 static const char __pyx_k_TypeVar[] = "TypeVar";
+static const char __pyx_k_Visitor[] = "Visitor";
 static const char __pyx_k_a_timed[] = "a timed";
 static const char __pyx_k_add_arc[] = "add_arc";
 static const char __pyx_k_flatten[] = "flatten";
@@ -2084,7 +2083,6 @@ static const char __pyx_k_observers[] = "_observers";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_type_name[] = "type_name";
-static const char __pyx_k_visitable[] = "visitable";
 static const char __pyx_k_Arc_accept[] = "Arc.accept";
 static const char __pyx_k_Net___init[] = "Net.__init__";
 static const char __pyx_k_Net_accept[] = "Net.accept";
@@ -2173,7 +2171,6 @@ static const char __pyx_k_report_arrival_at[] = "report_arrival_at";
 static const char __pyx_k_report_arrival_of[] = "report_arrival_of";
 static const char __pyx_k_transition_with_a[] = " transition with a ";
 static const char __pyx_k_Net_add_destructor[] = "Net.add_destructor";
-static const char __pyx_k_PetsiVisitor_visit[] = "PetsiVisitor.visit";
 static const char __pyx_k_Transition_add_arc[] = "Transition.add_arc";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_observe_transition[] = "observe_transition";
@@ -2352,7 +2349,6 @@ static PyObject *__pyx_kp_u_None;
 static PyObject *__pyx_n_s_NotImplementedError;
 static PyObject *__pyx_n_s_PetsiVisitor;
 static PyObject *__pyx_n_u_PetsiVisitor;
-static PyObject *__pyx_n_s_PetsiVisitor_visit;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_kp_u_Place;
 static PyObject *__pyx_n_s_Place_2;
@@ -2412,7 +2408,6 @@ static PyObject *__pyx_n_s_TypeVar;
 static PyObject *__pyx_kp_u_Type_mismatch_on_TransferArc;
 static PyObject *__pyx_n_s_UNDEFINED;
 static PyObject *__pyx_kp_u_UNDEFINED_STABLE_TRANSIENT_ERROR;
-static PyObject *__pyx_n_s_Union;
 static PyObject *__pyx_kp_u_Unknown_queueing_policy;
 static PyObject *__pyx_n_s_UpdateOp;
 static PyObject *__pyx_n_s_UpdateOp___init;
@@ -2420,6 +2415,7 @@ static PyObject *__pyx_n_s_UpdateOp_apply;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_ValuesView;
 static PyObject *__pyx_kp_u_ValuesView_Plugins_AbstractPlugi;
+static PyObject *__pyx_n_s_Visitor;
 static PyObject *__pyx_kp_u__2;
 static PyObject *__pyx_kp_u__3;
 static PyObject *__pyx_kp_u__4;
@@ -2457,7 +2453,6 @@ static PyObject *__pyx_n_s_attach_transition_observers;
 static PyObject *__pyx_n_s_before_firing;
 static PyObject *__pyx_kp_u_black_dot;
 static PyObject *__pyx_n_s_black_dot_2;
-static PyObject *__pyx_n_s_bound;
 static PyObject *__pyx_n_s_class;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_collections;
@@ -2595,7 +2590,6 @@ static PyObject *__pyx_kp_u_valid_values_are;
 static PyObject *__pyx_n_s_validate_transition_name;
 static PyObject *__pyx_n_s_values;
 static PyObject *__pyx_n_s_visit;
-static PyObject *__pyx_n_s_visitable;
 static PyObject *__pyx_n_s_visitor;
 static PyObject *__pyx_n_s_weight;
 static PyObject *__pyx_kp_u_whereas_type;
@@ -2708,7 +2702,6 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_14__setstate_cython__(struc
 static PyObject *__pyx_pf_5petsi_10_structure_9LIFOPlace__push(struct __pyx_obj_5petsi_10_structure_LIFOPlace *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Token *__pyx_v_t); /* proto */
 static PyObject *__pyx_pf_5petsi_10_structure_9LIFOPlace_2__reduce_cython__(struct __pyx_obj_5petsi_10_structure_LIFOPlace *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_5petsi_10_structure_9LIFOPlace_4__setstate_cython__(struct __pyx_obj_5petsi_10_structure_LIFOPlace *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_5petsi_10_structure_12PetsiVisitor_visit(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_visitable); /* proto */
 static PyObject *__pyx_pf_5petsi_10_structure_foreach(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_f, PyObject *__pyx_v_iterator); /* proto */
 static PyObject *__pyx_pf_5petsi_10_structure_2__pyx_unpickle_TokenType(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_5petsi_10_structure_4__pyx_unpickle_Token(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
@@ -2749,160 +2742,157 @@ static PyObject *__pyx_int_127316433;
 static PyObject *__pyx_int_199336351;
 static PyObject *__pyx_int_222601725;
 static PyObject *__pyx_tuple__7;
-static PyObject *__pyx_tuple__8;
-static PyObject *__pyx_tuple__10;
-static PyObject *__pyx_tuple__12;
-static PyObject *__pyx_tuple__14;
-static PyObject *__pyx_tuple__16;
-static PyObject *__pyx_tuple__18;
-static PyObject *__pyx_tuple__20;
+static PyObject *__pyx_tuple__9;
+static PyObject *__pyx_tuple__11;
+static PyObject *__pyx_tuple__13;
+static PyObject *__pyx_tuple__15;
+static PyObject *__pyx_tuple__17;
+static PyObject *__pyx_tuple__19;
+static PyObject *__pyx_tuple__21;
 static PyObject *__pyx_tuple__22;
-static PyObject *__pyx_tuple__23;
-static PyObject *__pyx_tuple__25;
-static PyObject *__pyx_tuple__27;
-static PyObject *__pyx_tuple__29;
-static PyObject *__pyx_tuple__31;
-static PyObject *__pyx_tuple__33;
-static PyObject *__pyx_tuple__35;
-static PyObject *__pyx_tuple__37;
-static PyObject *__pyx_tuple__39;
-static PyObject *__pyx_tuple__41;
-static PyObject *__pyx_tuple__43;
-static PyObject *__pyx_tuple__45;
-static PyObject *__pyx_tuple__47;
-static PyObject *__pyx_tuple__49;
-static PyObject *__pyx_tuple__51;
-static PyObject *__pyx_tuple__53;
-static PyObject *__pyx_tuple__55;
-static PyObject *__pyx_tuple__57;
-static PyObject *__pyx_tuple__59;
-static PyObject *__pyx_tuple__61;
-static PyObject *__pyx_tuple__63;
-static PyObject *__pyx_tuple__65;
-static PyObject *__pyx_tuple__67;
-static PyObject *__pyx_tuple__69;
-static PyObject *__pyx_tuple__71;
-static PyObject *__pyx_tuple__73;
-static PyObject *__pyx_tuple__75;
-static PyObject *__pyx_tuple__77;
-static PyObject *__pyx_tuple__79;
-static PyObject *__pyx_tuple__81;
-static PyObject *__pyx_tuple__83;
-static PyObject *__pyx_tuple__85;
-static PyObject *__pyx_tuple__87;
-static PyObject *__pyx_tuple__89;
-static PyObject *__pyx_tuple__91;
-static PyObject *__pyx_tuple__93;
-static PyObject *__pyx_tuple__95;
-static PyObject *__pyx_tuple__97;
-static PyObject *__pyx_tuple__99;
-static PyObject *__pyx_codeobj__9;
-static PyObject *__pyx_tuple__101;
-static PyObject *__pyx_tuple__103;
-static PyObject *__pyx_tuple__105;
+static PyObject *__pyx_tuple__24;
+static PyObject *__pyx_tuple__26;
+static PyObject *__pyx_tuple__28;
+static PyObject *__pyx_tuple__30;
+static PyObject *__pyx_tuple__32;
+static PyObject *__pyx_tuple__34;
+static PyObject *__pyx_tuple__36;
+static PyObject *__pyx_tuple__38;
+static PyObject *__pyx_tuple__40;
+static PyObject *__pyx_tuple__42;
+static PyObject *__pyx_tuple__44;
+static PyObject *__pyx_tuple__46;
+static PyObject *__pyx_tuple__48;
+static PyObject *__pyx_tuple__50;
+static PyObject *__pyx_tuple__52;
+static PyObject *__pyx_tuple__54;
+static PyObject *__pyx_tuple__56;
+static PyObject *__pyx_tuple__58;
+static PyObject *__pyx_tuple__60;
+static PyObject *__pyx_tuple__62;
+static PyObject *__pyx_tuple__64;
+static PyObject *__pyx_tuple__66;
+static PyObject *__pyx_tuple__68;
+static PyObject *__pyx_tuple__70;
+static PyObject *__pyx_tuple__72;
+static PyObject *__pyx_tuple__74;
+static PyObject *__pyx_tuple__76;
+static PyObject *__pyx_tuple__78;
+static PyObject *__pyx_tuple__80;
+static PyObject *__pyx_tuple__82;
+static PyObject *__pyx_tuple__84;
+static PyObject *__pyx_tuple__86;
+static PyObject *__pyx_tuple__88;
+static PyObject *__pyx_tuple__90;
+static PyObject *__pyx_tuple__92;
+static PyObject *__pyx_tuple__94;
+static PyObject *__pyx_tuple__96;
+static PyObject *__pyx_tuple__98;
+static PyObject *__pyx_codeobj__8;
+static PyObject *__pyx_tuple__100;
+static PyObject *__pyx_tuple__102;
+static PyObject *__pyx_tuple__104;
+static PyObject *__pyx_tuple__106;
 static PyObject *__pyx_tuple__107;
-static PyObject *__pyx_tuple__108;
-static PyObject *__pyx_tuple__110;
-static PyObject *__pyx_tuple__112;
-static PyObject *__pyx_tuple__114;
-static PyObject *__pyx_tuple__116;
-static PyObject *__pyx_tuple__118;
-static PyObject *__pyx_tuple__120;
-static PyObject *__pyx_tuple__122;
-static PyObject *__pyx_tuple__124;
-static PyObject *__pyx_tuple__126;
+static PyObject *__pyx_tuple__109;
+static PyObject *__pyx_tuple__111;
+static PyObject *__pyx_tuple__113;
+static PyObject *__pyx_tuple__115;
+static PyObject *__pyx_tuple__117;
+static PyObject *__pyx_tuple__119;
+static PyObject *__pyx_tuple__121;
+static PyObject *__pyx_tuple__123;
+static PyObject *__pyx_tuple__125;
+static PyObject *__pyx_tuple__127;
 static PyObject *__pyx_tuple__128;
 static PyObject *__pyx_tuple__130;
-static PyObject *__pyx_tuple__131;
-static PyObject *__pyx_tuple__133;
-static PyObject *__pyx_tuple__135;
-static PyObject *__pyx_tuple__137;
-static PyObject *__pyx_tuple__139;
-static PyObject *__pyx_tuple__141;
-static PyObject *__pyx_tuple__143;
-static PyObject *__pyx_tuple__145;
-static PyObject *__pyx_tuple__147;
-static PyObject *__pyx_tuple__149;
-static PyObject *__pyx_tuple__151;
-static PyObject *__pyx_tuple__153;
-static PyObject *__pyx_tuple__155;
-static PyObject *__pyx_tuple__157;
-static PyObject *__pyx_codeobj__11;
-static PyObject *__pyx_codeobj__13;
-static PyObject *__pyx_codeobj__15;
-static PyObject *__pyx_codeobj__17;
-static PyObject *__pyx_codeobj__19;
-static PyObject *__pyx_codeobj__21;
-static PyObject *__pyx_codeobj__24;
-static PyObject *__pyx_codeobj__26;
-static PyObject *__pyx_codeobj__28;
-static PyObject *__pyx_codeobj__30;
-static PyObject *__pyx_codeobj__32;
-static PyObject *__pyx_codeobj__34;
-static PyObject *__pyx_codeobj__36;
-static PyObject *__pyx_codeobj__38;
-static PyObject *__pyx_codeobj__40;
-static PyObject *__pyx_codeobj__42;
-static PyObject *__pyx_codeobj__44;
-static PyObject *__pyx_codeobj__46;
-static PyObject *__pyx_codeobj__48;
-static PyObject *__pyx_codeobj__50;
-static PyObject *__pyx_codeobj__52;
-static PyObject *__pyx_codeobj__54;
-static PyObject *__pyx_codeobj__56;
-static PyObject *__pyx_codeobj__58;
-static PyObject *__pyx_codeobj__60;
-static PyObject *__pyx_codeobj__62;
-static PyObject *__pyx_codeobj__64;
-static PyObject *__pyx_codeobj__66;
-static PyObject *__pyx_codeobj__68;
-static PyObject *__pyx_codeobj__70;
-static PyObject *__pyx_codeobj__72;
-static PyObject *__pyx_codeobj__74;
-static PyObject *__pyx_codeobj__76;
-static PyObject *__pyx_codeobj__78;
-static PyObject *__pyx_codeobj__80;
-static PyObject *__pyx_codeobj__82;
-static PyObject *__pyx_codeobj__84;
-static PyObject *__pyx_codeobj__86;
-static PyObject *__pyx_codeobj__88;
-static PyObject *__pyx_codeobj__90;
-static PyObject *__pyx_codeobj__92;
-static PyObject *__pyx_codeobj__94;
-static PyObject *__pyx_codeobj__96;
-static PyObject *__pyx_codeobj__98;
-static PyObject *__pyx_codeobj__100;
-static PyObject *__pyx_codeobj__102;
-static PyObject *__pyx_codeobj__104;
-static PyObject *__pyx_codeobj__106;
-static PyObject *__pyx_codeobj__109;
-static PyObject *__pyx_codeobj__111;
-static PyObject *__pyx_codeobj__113;
-static PyObject *__pyx_codeobj__115;
-static PyObject *__pyx_codeobj__117;
-static PyObject *__pyx_codeobj__119;
-static PyObject *__pyx_codeobj__121;
-static PyObject *__pyx_codeobj__123;
-static PyObject *__pyx_codeobj__125;
-static PyObject *__pyx_codeobj__127;
+static PyObject *__pyx_tuple__132;
+static PyObject *__pyx_tuple__134;
+static PyObject *__pyx_tuple__136;
+static PyObject *__pyx_tuple__138;
+static PyObject *__pyx_tuple__140;
+static PyObject *__pyx_tuple__142;
+static PyObject *__pyx_tuple__144;
+static PyObject *__pyx_tuple__146;
+static PyObject *__pyx_tuple__148;
+static PyObject *__pyx_tuple__150;
+static PyObject *__pyx_tuple__152;
+static PyObject *__pyx_tuple__154;
+static PyObject *__pyx_codeobj__10;
+static PyObject *__pyx_codeobj__12;
+static PyObject *__pyx_codeobj__14;
+static PyObject *__pyx_codeobj__16;
+static PyObject *__pyx_codeobj__18;
+static PyObject *__pyx_codeobj__20;
+static PyObject *__pyx_codeobj__23;
+static PyObject *__pyx_codeobj__25;
+static PyObject *__pyx_codeobj__27;
+static PyObject *__pyx_codeobj__29;
+static PyObject *__pyx_codeobj__31;
+static PyObject *__pyx_codeobj__33;
+static PyObject *__pyx_codeobj__35;
+static PyObject *__pyx_codeobj__37;
+static PyObject *__pyx_codeobj__39;
+static PyObject *__pyx_codeobj__41;
+static PyObject *__pyx_codeobj__43;
+static PyObject *__pyx_codeobj__45;
+static PyObject *__pyx_codeobj__47;
+static PyObject *__pyx_codeobj__49;
+static PyObject *__pyx_codeobj__51;
+static PyObject *__pyx_codeobj__53;
+static PyObject *__pyx_codeobj__55;
+static PyObject *__pyx_codeobj__57;
+static PyObject *__pyx_codeobj__59;
+static PyObject *__pyx_codeobj__61;
+static PyObject *__pyx_codeobj__63;
+static PyObject *__pyx_codeobj__65;
+static PyObject *__pyx_codeobj__67;
+static PyObject *__pyx_codeobj__69;
+static PyObject *__pyx_codeobj__71;
+static PyObject *__pyx_codeobj__73;
+static PyObject *__pyx_codeobj__75;
+static PyObject *__pyx_codeobj__77;
+static PyObject *__pyx_codeobj__79;
+static PyObject *__pyx_codeobj__81;
+static PyObject *__pyx_codeobj__83;
+static PyObject *__pyx_codeobj__85;
+static PyObject *__pyx_codeobj__87;
+static PyObject *__pyx_codeobj__89;
+static PyObject *__pyx_codeobj__91;
+static PyObject *__pyx_codeobj__93;
+static PyObject *__pyx_codeobj__95;
+static PyObject *__pyx_codeobj__97;
+static PyObject *__pyx_codeobj__99;
+static PyObject *__pyx_codeobj__101;
+static PyObject *__pyx_codeobj__103;
+static PyObject *__pyx_codeobj__105;
+static PyObject *__pyx_codeobj__108;
+static PyObject *__pyx_codeobj__110;
+static PyObject *__pyx_codeobj__112;
+static PyObject *__pyx_codeobj__114;
+static PyObject *__pyx_codeobj__116;
+static PyObject *__pyx_codeobj__118;
+static PyObject *__pyx_codeobj__120;
+static PyObject *__pyx_codeobj__122;
+static PyObject *__pyx_codeobj__124;
+static PyObject *__pyx_codeobj__126;
 static PyObject *__pyx_codeobj__129;
-static PyObject *__pyx_codeobj__132;
-static PyObject *__pyx_codeobj__134;
-static PyObject *__pyx_codeobj__136;
-static PyObject *__pyx_codeobj__138;
-static PyObject *__pyx_codeobj__140;
-static PyObject *__pyx_codeobj__142;
-static PyObject *__pyx_codeobj__144;
-static PyObject *__pyx_codeobj__146;
-static PyObject *__pyx_codeobj__148;
-static PyObject *__pyx_codeobj__150;
-static PyObject *__pyx_codeobj__152;
-static PyObject *__pyx_codeobj__154;
-static PyObject *__pyx_codeobj__156;
-static PyObject *__pyx_codeobj__158;
+static PyObject *__pyx_codeobj__131;
+static PyObject *__pyx_codeobj__133;
+static PyObject *__pyx_codeobj__135;
+static PyObject *__pyx_codeobj__137;
+static PyObject *__pyx_codeobj__139;
+static PyObject *__pyx_codeobj__141;
+static PyObject *__pyx_codeobj__143;
+static PyObject *__pyx_codeobj__145;
+static PyObject *__pyx_codeobj__147;
+static PyObject *__pyx_codeobj__149;
+static PyObject *__pyx_codeobj__151;
+static PyObject *__pyx_codeobj__153;
+static PyObject *__pyx_codeobj__155;
 /* Late includes */
 
-/* "petsi/_structure.py":38
+/* "petsi/_structure.py":37
  *     _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
  * 
  *     def __init__(self, name: str):             # <<<<<<<<<<<<<<
@@ -2946,11 +2936,11 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_1__init__(PyObject *__pyx_sel
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 38, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 37, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 38, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 37, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2963,13 +2953,13 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_1__init__(PyObject *__pyx_sel
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 38, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 37, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 37, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net___init__(__pyx_self, __pyx_v_self, __pyx_v_name);
 
   /* function exit code */
@@ -2992,88 +2982,88 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net___init__(CYTHON_UNUSED PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":43
+  /* "petsi/_structure.py":42
  *         :param name: The name of the Petri net
  *         """
  *         self.name = name             # <<<<<<<<<<<<<<
  *         self._types = dict()
  *         self._places = dict()
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
 
-  /* "petsi/_structure.py":44
+  /* "petsi/_structure.py":43
  *         """
  *         self.name = name
  *         self._types = dict()             # <<<<<<<<<<<<<<
  *         self._places = dict()
  *         self._transitions = dict()
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_types, __pyx_t_1) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":45
+  /* "petsi/_structure.py":44
  *         self.name = name
  *         self._types = dict()
  *         self._places = dict()             # <<<<<<<<<<<<<<
  *         self._transitions = dict()
  *         self._observers = dict()
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_places, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_places, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":46
+  /* "petsi/_structure.py":45
  *         self._types = dict()
  *         self._places = dict()
  *         self._transitions = dict()             # <<<<<<<<<<<<<<
  *         self._observers = dict()
  *         self._queuing_policies = dict(FIFO=FIFOPlace, LIFO=LIFOPlace)
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_transitions, __pyx_t_1) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_transitions, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":47
+  /* "petsi/_structure.py":46
  *         self._places = dict()
  *         self._transitions = dict()
  *         self._observers = dict()             # <<<<<<<<<<<<<<
  *         self._queuing_policies = dict(FIFO=FIFOPlace, LIFO=LIFOPlace)
  *         self._black_dot = self.add_type("black dot")
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_observers, __pyx_t_1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_observers, __pyx_t_1) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":48
+  /* "petsi/_structure.py":47
  *         self._transitions = dict()
  *         self._observers = dict()
  *         self._queuing_policies = dict(FIFO=FIFOPlace, LIFO=LIFOPlace)             # <<<<<<<<<<<<<<
  *         self._black_dot = self.add_type("black dot")
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_FIFOPlace); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_FIFOPlace); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_FIFO, __pyx_t_2) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_FIFO, __pyx_t_2) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_LIFO, ((PyObject *)__pyx_ptype_5petsi_10_structure_LIFOPlace)) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_queuing_policies, __pyx_t_1) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_LIFO, ((PyObject *)__pyx_ptype_5petsi_10_structure_LIFOPlace)) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_queuing_policies, __pyx_t_1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":49
+  /* "petsi/_structure.py":48
  *         self._observers = dict()
  *         self._queuing_policies = dict(FIFO=FIFOPlace, LIFO=LIFOPlace)
  *         self._black_dot = self.add_type("black dot")             # <<<<<<<<<<<<<<
  * 
- *     def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:
+ *     def accept(self, visitor: "APetsiVisitor") -> "APetsiVisitor":
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_add_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_add_type); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3087,13 +3077,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net___init__(CYTHON_UNUSED PyObje
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_kp_u_black_dot) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_kp_u_black_dot);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_black_dot_2, __pyx_t_1) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_black_dot_2, __pyx_t_1) < 0) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":38
+  /* "petsi/_structure.py":37
  *     _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
  * 
  *     def __init__(self, name: str):             # <<<<<<<<<<<<<<
@@ -3116,10 +3106,10 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net___init__(CYTHON_UNUSED PyObje
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":51
+/* "petsi/_structure.py":50
  *         self._black_dot = self.add_type("black dot")
  * 
- *     def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:             # <<<<<<<<<<<<<<
+ *     def accept(self, visitor: "APetsiVisitor") -> "APetsiVisitor":             # <<<<<<<<<<<<<<
  *         """ Accept a :class:`PetsiVisitor`.
  * 
  */
@@ -3160,11 +3150,11 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_3accept(PyObject *__pyx_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_visitor)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("accept", 1, 2, 2, 1); __PYX_ERR(0, 51, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("accept", 1, 2, 2, 1); __PYX_ERR(0, 50, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "accept") < 0)) __PYX_ERR(0, 51, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "accept") < 0)) __PYX_ERR(0, 50, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3177,7 +3167,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_3accept(PyObject *__pyx_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("accept", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 51, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("accept", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 50, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.accept", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3208,14 +3198,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("accept", 0);
 
-  /* "petsi/_structure.py":62
+  /* "petsi/_structure.py":61
  *         :return: the visitor object
  *         """
  *         visitor.visit(self)             # <<<<<<<<<<<<<<
  * 
  *         for place in self._places.values():
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 62, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3229,12 +3219,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_self) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_self);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 62, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":64
+  /* "petsi/_structure.py":63
  *         visitor.visit(self)
  * 
  *         for place in self._places.values():             # <<<<<<<<<<<<<<
@@ -3242,13 +3232,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
  * 
  */
   __pyx_t_4 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely(__pyx_t_2 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 64, __pyx_L1_error)
+    __PYX_ERR(0, 63, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_dict_iterator(__pyx_t_2, 0, __pyx_n_s_values, (&__pyx_t_5), (&__pyx_t_6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_dict_iterator(__pyx_t_2, 0, __pyx_n_s_values, (&__pyx_t_5), (&__pyx_t_6)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 63, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -3257,19 +3247,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_5, &__pyx_t_4, NULL, &__pyx_t_3, NULL, __pyx_t_6);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 64, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 63, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_XDECREF_SET(__pyx_v_place, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "petsi/_structure.py":65
+    /* "petsi/_structure.py":64
  * 
  *         for place in self._places.values():
  *             place.accept(visitor)             # <<<<<<<<<<<<<<
  * 
  *         for transition in self._transitions.values():
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_place, __pyx_n_s_accept); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 65, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_place, __pyx_n_s_accept); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3283,14 +3273,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
     }
     __pyx_t_3 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_8, __pyx_v_visitor) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_visitor);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 65, __pyx_L1_error)
+    if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":67
+  /* "petsi/_structure.py":66
  *             place.accept(visitor)
  * 
  *         for transition in self._transitions.values():             # <<<<<<<<<<<<<<
@@ -3298,13 +3288,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
  * 
  */
   __pyx_t_5 = 0;
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (unlikely(__pyx_t_3 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 67, __pyx_L1_error)
+    __PYX_ERR(0, 66, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_dict_iterator(__pyx_t_3, 0, __pyx_n_s_values, (&__pyx_t_4), (&__pyx_t_6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_dict_iterator(__pyx_t_3, 0, __pyx_n_s_values, (&__pyx_t_4), (&__pyx_t_6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -3313,19 +3303,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_4, &__pyx_t_5, NULL, &__pyx_t_2, NULL, __pyx_t_6);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 67, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 66, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_transition, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "petsi/_structure.py":68
+    /* "petsi/_structure.py":67
  * 
  *         for transition in self._transitions.values():
  *             transition.accept(visitor)             # <<<<<<<<<<<<<<
  * 
  *         return visitor
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_accept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 68, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_accept); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -3339,14 +3329,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
     }
     __pyx_t_2 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_8, __pyx_v_visitor) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_visitor);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 68, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 67, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":70
+  /* "petsi/_structure.py":69
  *             transition.accept(visitor)
  * 
  *         return visitor             # <<<<<<<<<<<<<<
@@ -3358,10 +3348,10 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
   __pyx_r = __pyx_v_visitor;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":51
+  /* "petsi/_structure.py":50
  *         self._black_dot = self.add_type("black dot")
  * 
- *     def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:             # <<<<<<<<<<<<<<
+ *     def accept(self, visitor: "APetsiVisitor") -> "APetsiVisitor":             # <<<<<<<<<<<<<<
  *         """ Accept a :class:`PetsiVisitor`.
  * 
  */
@@ -3382,7 +3372,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_2accept(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":73
+/* "petsi/_structure.py":72
  * 
  *     @property
  *     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":             # <<<<<<<<<<<<<<
@@ -3415,7 +3405,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_4observers(CYTHON_UNUSED PyOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("observers", 0);
 
-  /* "petsi/_structure.py":74
+  /* "petsi/_structure.py":73
  *     @property
  *     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":
  *         return self._observers.values()             # <<<<<<<<<<<<<<
@@ -3423,9 +3413,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_4observers(CYTHON_UNUSED PyOb
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_values); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 74, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_values); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -3440,14 +3430,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_4observers(CYTHON_UNUSED PyOb
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":73
+  /* "petsi/_structure.py":72
  * 
  *     @property
  *     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":             # <<<<<<<<<<<<<<
@@ -3468,7 +3458,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_4observers(CYTHON_UNUSED PyOb
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":76
+/* "petsi/_structure.py":75
  *         return self._observers.values()
  * 
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
@@ -3512,11 +3502,11 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_7register_plugin(PyObject *__
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_plugin)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("register_plugin", 1, 2, 2, 1); __PYX_ERR(0, 76, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("register_plugin", 1, 2, 2, 1); __PYX_ERR(0, 75, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "register_plugin") < 0)) __PYX_ERR(0, 76, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "register_plugin") < 0)) __PYX_ERR(0, 75, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3529,7 +3519,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_7register_plugin(PyObject *__
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("register_plugin", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 76, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("register_plugin", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 75, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.register_plugin", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3542,7 +3532,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_3Net_7register_plugin(PyObject *__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":92
+/* "petsi/_structure.py":91
  * 
  *         self._observers[plugin.name] = plugin
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())             # <<<<<<<<<<<<<<
@@ -3579,9 +3569,9 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   __pyx_outer_scope = (struct __pyx_obj_5petsi_10_structure___pyx_scope_struct__register_plugin *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_t, __pyx_n_s_attach_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_t, __pyx_n_s_attach_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_plugin)) { __Pyx_RaiseClosureNameError("plugin"); __PYX_ERR(0, 92, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_plugin)) { __Pyx_RaiseClosureNameError("plugin"); __PYX_ERR(0, 91, __pyx_L1_error) }
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
     __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
@@ -3594,7 +3584,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_cur_scope->__pyx_v_plugin) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_cur_scope->__pyx_v_plugin);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
@@ -3614,7 +3604,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":93
+/* "petsi/_structure.py":92
  *         self._observers[plugin.name] = plugin
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())             # <<<<<<<<<<<<<<
@@ -3651,9 +3641,9 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   __pyx_outer_scope = (struct __pyx_obj_5petsi_10_structure___pyx_scope_struct__register_plugin *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_p, __pyx_n_s_attach_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_p, __pyx_n_s_attach_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_plugin)) { __Pyx_RaiseClosureNameError("plugin"); __PYX_ERR(0, 93, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_plugin)) { __Pyx_RaiseClosureNameError("plugin"); __PYX_ERR(0, 92, __pyx_L1_error) }
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
     __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
@@ -3666,7 +3656,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_cur_scope->__pyx_v_plugin) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_cur_scope->__pyx_v_plugin);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
@@ -3686,7 +3676,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":94
+/* "petsi/_structure.py":93
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  *         foreach(lambda t: t.attach_observer(plugin),             # <<<<<<<<<<<<<<
@@ -3723,9 +3713,9 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, PyObject *__
   __pyx_outer_scope = (struct __pyx_obj_5petsi_10_structure___pyx_scope_struct__register_plugin *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_t, __pyx_n_s_attach_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_t, __pyx_n_s_attach_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(!__pyx_cur_scope->__pyx_v_plugin)) { __Pyx_RaiseClosureNameError("plugin"); __PYX_ERR(0, 94, __pyx_L1_error) }
+  if (unlikely(!__pyx_cur_scope->__pyx_v_plugin)) { __Pyx_RaiseClosureNameError("plugin"); __PYX_ERR(0, 93, __pyx_L1_error) }
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
     __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
@@ -3738,7 +3728,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, PyObject *__
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_cur_scope->__pyx_v_plugin) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_cur_scope->__pyx_v_plugin);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_r = __pyx_t_1;
@@ -3758,7 +3748,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":95
+/* "petsi/_structure.py":94
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  *         foreach(lambda t: t.attach_observer(plugin),
  *                 flatten(map(lambda p: p.tokens, self._places.values())))             # <<<<<<<<<<<<<<
@@ -3789,7 +3779,7 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lambda3", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_p, __pyx_n_s_tokens); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_p, __pyx_n_s_tokens); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3806,7 +3796,7 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":76
+/* "petsi/_structure.py":75
  *         return self._observers.values()
  * 
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
@@ -3837,7 +3827,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5petsi_10_structure___pyx_scope_struct__register_plugin *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 76, __pyx_L1_error)
+    __PYX_ERR(0, 75, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -3845,31 +3835,31 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   __Pyx_INCREF(__pyx_cur_scope->__pyx_v_plugin);
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_plugin);
 
-  /* "petsi/_structure.py":88
+  /* "petsi/_structure.py":87
  *         :param plugin: The plugin to register.
  *         """
  *         if plugin.name in self._observers:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"An observer with name '{plugin.name}' is already registered.")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_plugin, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_plugin, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_t_2, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_3 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_t_2, Py_EQ)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 87, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_4 = (__pyx_t_3 != 0);
   if (unlikely(__pyx_t_4)) {
 
-    /* "petsi/_structure.py":89
+    /* "petsi/_structure.py":88
  *         """
  *         if plugin.name in self._observers:
  *             raise ValueError(f"An observer with name '{plugin.name}' is already registered.")             # <<<<<<<<<<<<<<
  * 
  *         self._observers[plugin.name] = plugin
  */
-    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_5 = 0;
     __pyx_t_6 = 127;
@@ -3877,9 +3867,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
     __pyx_t_5 += 23;
     __Pyx_GIVEREF(__pyx_kp_u_An_observer_with_name);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_An_observer_with_name);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_plugin, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_plugin, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_6;
@@ -3891,17 +3881,17 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
     __pyx_t_5 += 24;
     __Pyx_GIVEREF(__pyx_kp_u_is_already_registered);
     PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u_is_already_registered);
-    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_2, 3, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_2, 3, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 88, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 89, __pyx_L1_error)
+    __PYX_ERR(0, 88, __pyx_L1_error)
 
-    /* "petsi/_structure.py":88
+    /* "petsi/_structure.py":87
  *         :param plugin: The plugin to register.
  *         """
  *         if plugin.name in self._observers:             # <<<<<<<<<<<<<<
@@ -3910,33 +3900,33 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
  */
   }
 
-  /* "petsi/_structure.py":91
+  /* "petsi/_structure.py":90
  *             raise ValueError(f"An observer with name '{plugin.name}' is already registered.")
  * 
  *         self._observers[plugin.name] = plugin             # <<<<<<<<<<<<<<
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_plugin, __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 91, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_plugin, __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_t_7, __pyx_cur_scope->__pyx_v_plugin) < 0)) __PYX_ERR(0, 91, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_t_7, __pyx_cur_scope->__pyx_v_plugin) < 0)) __PYX_ERR(0, 90, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "petsi/_structure.py":92
+  /* "petsi/_structure.py":91
  * 
  *         self._observers[plugin.name] = plugin
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())             # <<<<<<<<<<<<<<
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  *         foreach(lambda t: t.attach_observer(plugin),
  */
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_lambda, 0, __pyx_n_s_Net_register_plugin_locals_lambd, ((PyObject*)__pyx_cur_scope), __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_lambda, 0, __pyx_n_s_Net_register_plugin_locals_lambd, ((PyObject*)__pyx_cur_scope), __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_values); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_values); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = NULL;
@@ -3951,27 +3941,27 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   }
   __pyx_t_2 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_7, __pyx_t_2, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_8 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_7, __pyx_t_2, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 91, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":93
+  /* "petsi/_structure.py":92
  *         self._observers[plugin.name] = plugin
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())             # <<<<<<<<<<<<<<
  *         foreach(lambda t: t.attach_observer(plugin),
  *                 flatten(map(lambda p: p.tokens, self._places.values())))
  */
-  __pyx_t_8 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_1lambda1, 0, __pyx_n_s_Net_register_plugin_locals_lambd, ((PyObject*)__pyx_cur_scope), __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_1lambda1, 0, __pyx_n_s_Net_register_plugin_locals_lambd, ((PyObject*)__pyx_cur_scope), __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_values); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_t_7 = NULL;
@@ -3986,39 +3976,39 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   }
   __pyx_t_2 = (__pyx_t_7) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 93, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_8, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_8, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":94
+  /* "petsi/_structure.py":93
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  *         foreach(lambda t: t.attach_observer(plugin),             # <<<<<<<<<<<<<<
  *                 flatten(map(lambda p: p.tokens, self._places.values())))
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_2lambda2, 0, __pyx_n_s_Net_register_plugin_locals_lambd, ((PyObject*)__pyx_cur_scope), __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_2lambda2, 0, __pyx_n_s_Net_register_plugin_locals_lambd, ((PyObject*)__pyx_cur_scope), __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
 
-  /* "petsi/_structure.py":95
+  /* "petsi/_structure.py":94
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  *         foreach(lambda t: t.attach_observer(plugin),
  *                 flatten(map(lambda p: p.tokens, self._places.values())))             # <<<<<<<<<<<<<<
  * 
  *     # All arcs connected to a place must have the type of the place
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_flatten); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_flatten); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_3lambda3, 0, __pyx_n_s_Net_register_plugin_locals_lambd, NULL, __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15register_plugin_3lambda3, 0, __pyx_n_s_Net_register_plugin_locals_lambd, NULL, __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_values); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_11 = __Pyx_PyObject_GetAttrStr(__pyx_t_10, __pyx_n_s_values); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __pyx_t_10 = NULL;
@@ -4033,10 +4023,10 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   }
   __pyx_t_9 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_11, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_11);
   __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-  __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_11 = PyTuple_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_11);
   __Pyx_GIVEREF(__pyx_t_7);
   PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_7);
@@ -4044,7 +4034,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   PyTuple_SET_ITEM(__pyx_t_11, 1, __pyx_t_9);
   __pyx_t_7 = 0;
   __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_11, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_11, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
   __pyx_t_11 = NULL;
@@ -4060,24 +4050,24 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   __pyx_t_2 = (__pyx_t_11) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_11, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_9);
   __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 94, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":94
+  /* "petsi/_structure.py":93
  *         foreach(lambda t: t.attach_observer(plugin), self._transitions.values())
  *         foreach(lambda p: p.attach_observer(plugin), self._places.values())
  *         foreach(lambda t: t.attach_observer(plugin),             # <<<<<<<<<<<<<<
  *                 flatten(map(lambda p: p.tokens, self._places.values())))
  * 
  */
-  __pyx_t_8 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_1, __pyx_t_2, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_t_8 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_1, __pyx_t_2, 0); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 93, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":76
+  /* "petsi/_structure.py":75
  *         return self._observers.values()
  * 
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
@@ -4105,7 +4095,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_6register_plugin(CYTHON_UNUSE
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":98
+/* "petsi/_structure.py":97
  * 
  *     # All arcs connected to a place must have the type of the place
  *     def add_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
@@ -4149,11 +4139,11 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pw_5petsi_10_struct
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_type_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_type", 1, 2, 2, 1); __PYX_ERR(0, 98, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_type", 1, 2, 2, 1); __PYX_ERR(0, 97, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_type") < 0)) __PYX_ERR(0, 98, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_type") < 0)) __PYX_ERR(0, 97, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4166,13 +4156,13 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pw_5petsi_10_struct
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_type", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 98, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_type", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 97, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_type", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type_name), (&PyUnicode_Type), 1, "type_name", 1))) __PYX_ERR(0, 98, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type_name), (&PyUnicode_Type), 1, "type_name", 1))) __PYX_ERR(0, 97, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_8add_type(__pyx_self, __pyx_v_self, __pyx_v_type_name);
 
   /* function exit code */
@@ -4200,28 +4190,28 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_type", 0);
 
-  /* "petsi/_structure.py":108
+  /* "petsi/_structure.py":107
  *         :raise ValueError: The name is already in use for another type.
  *         """
  *         if type_name in self._types:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"Type '{type_name}' is already defined in net "
  *                              f"'{self.name}'")
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_type_name, __pyx_t_1, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_type_name, __pyx_t_1, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "petsi/_structure.py":109
+    /* "petsi/_structure.py":108
  *         """
  *         if type_name in self._types:
  *             raise ValueError(f"Type '{type_name}' is already defined in net "             # <<<<<<<<<<<<<<
  *                              f"'{self.name}'")
  *         typ = TokenType(type_name, len(self._types), self, )
  */
-    __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_4 = 0;
     __pyx_t_5 = 127;
@@ -4229,7 +4219,7 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
     __pyx_t_4 += 6;
     __Pyx_GIVEREF(__pyx_kp_u_Type);
     PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_Type);
-    __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_type_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_type_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
     __pyx_t_4 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
@@ -4241,16 +4231,16 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
     __Pyx_GIVEREF(__pyx_kp_u_is_already_defined_in_net);
     PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u_is_already_defined_in_net);
 
-    /* "petsi/_structure.py":110
+    /* "petsi/_structure.py":109
  *         if type_name in self._types:
  *             raise ValueError(f"Type '{type_name}' is already defined in net "
  *                              f"'{self.name}'")             # <<<<<<<<<<<<<<
  *         typ = TokenType(type_name, len(self._types), self, )
  *         self._types[type_name] = typ
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 110, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_5;
@@ -4263,24 +4253,24 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
     __Pyx_GIVEREF(__pyx_kp_u_);
     PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_kp_u_);
 
-    /* "petsi/_structure.py":109
+    /* "petsi/_structure.py":108
  *         """
  *         if type_name in self._types:
  *             raise ValueError(f"Type '{type_name}' is already defined in net "             # <<<<<<<<<<<<<<
  *                              f"'{self.name}'")
  *         typ = TokenType(type_name, len(self._types), self, )
  */
-    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_7); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 109, __pyx_L1_error)
+    __PYX_ERR(0, 108, __pyx_L1_error)
 
-    /* "petsi/_structure.py":108
+    /* "petsi/_structure.py":107
  *         :raise ValueError: The name is already in use for another type.
  *         """
  *         if type_name in self._types:             # <<<<<<<<<<<<<<
@@ -4289,20 +4279,20 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
  */
   }
 
-  /* "petsi/_structure.py":111
+  /* "petsi/_structure.py":110
  *             raise ValueError(f"Type '{type_name}' is already defined in net "
  *                              f"'{self.name}'")
  *         typ = TokenType(type_name, len(self._types), self, )             # <<<<<<<<<<<<<<
  *         self._types[type_name] = typ
  *         return typ
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_7 = PyTuple_New(3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_INCREF(__pyx_v_type_name);
   __Pyx_GIVEREF(__pyx_v_type_name);
@@ -4313,25 +4303,25 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
   __Pyx_GIVEREF(__pyx_v_self);
   PyTuple_SET_ITEM(__pyx_t_7, 2, __pyx_v_self);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenType), __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenType), __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   __pyx_v_typ = ((struct __pyx_obj_5petsi_10_structure_TokenType *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":112
+  /* "petsi/_structure.py":111
  *                              f"'{self.name}'")
  *         typ = TokenType(type_name, len(self._types), self, )
  *         self._types[type_name] = typ             # <<<<<<<<<<<<<<
  *         return typ
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_type_name, ((PyObject *)__pyx_v_typ)) < 0)) __PYX_ERR(0, 112, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_t_1, __pyx_v_type_name, ((PyObject *)__pyx_v_typ)) < 0)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":113
+  /* "petsi/_structure.py":112
  *         typ = TokenType(type_name, len(self._types), self, )
  *         self._types[type_name] = typ
  *         return typ             # <<<<<<<<<<<<<<
@@ -4343,7 +4333,7 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
   __pyx_r = __pyx_v_typ;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":98
+  /* "petsi/_structure.py":97
  * 
  *     # All arcs connected to a place must have the type of the place
  *     def add_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
@@ -4365,7 +4355,7 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":115
+/* "petsi/_structure.py":114
  *         return typ
  * 
  *     def token_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
@@ -4409,11 +4399,11 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pw_5petsi_10_struct
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_type_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("token_type", 1, 2, 2, 1); __PYX_ERR(0, 115, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("token_type", 1, 2, 2, 1); __PYX_ERR(0, 114, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "token_type") < 0)) __PYX_ERR(0, 115, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "token_type") < 0)) __PYX_ERR(0, 114, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -4426,13 +4416,13 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pw_5petsi_10_struct
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("token_type", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 115, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("token_type", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 114, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.token_type", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type_name), (&PyUnicode_Type), 1, "type_name", 1))) __PYX_ERR(0, 115, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type_name), (&PyUnicode_Type), 1, "type_name", 1))) __PYX_ERR(0, 114, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_10token_type(__pyx_self, __pyx_v_self, __pyx_v_type_name);
 
   /* function exit code */
@@ -4454,7 +4444,7 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("token_type", 0);
 
-  /* "petsi/_structure.py":122
+  /* "petsi/_structure.py":121
  *         :raise KeyError: The requested type is not defined.
  *         """
  *         return self._types[type_name]             # <<<<<<<<<<<<<<
@@ -4462,17 +4452,17 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_types); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_v_type_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_v_type_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_TokenType))))) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_TokenType))))) __PYX_ERR(0, 121, __pyx_L1_error)
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_TokenType *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":115
+  /* "petsi/_structure.py":114
  *         return typ
  * 
  *     def token_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
@@ -4492,7 +4482,7 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":124
+/* "petsi/_structure.py":123
  *         return self._types[type_name]
  * 
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":             # <<<<<<<<<<<<<<
@@ -4502,7 +4492,7 @@ static struct __pyx_obj_5petsi_10_structure_TokenType *__pyx_pf_5petsi_10_struct
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pw_5petsi_10_structure_3Net_13add_place(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_12add_place[] = " Add a place to the Petri-net with the given name, type and queueing policy.\n\n        :param name: The name of the place to add.\n        :param type_name: The type of the place to add. Defaults to ``\"black dot\"``.\n        :param queueing_policy_name:\n        :return: The place added.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_12add_place[] = " Add a place to the Petri-net with the given name, type and queueing policy.\n\n        :param name: The name of the place to add.\n        :param type_name: The type of the place to add. Defaults to ``\"black dot\"``.\n        :param queueing_policy_name:\n        :return: The place added.\n        :raise ValueError: A place with the given name already exists or the given type does not exist.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_13add_place = {"add_place", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_13add_place, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_12add_place};
 static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pw_5petsi_10_structure_3Net_13add_place(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -4544,7 +4534,7 @@ static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pw_5petsi_10_structure_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_place", 0, 2, 4, 1); __PYX_ERR(0, 124, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_place", 0, 2, 4, 1); __PYX_ERR(0, 123, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
@@ -4560,7 +4550,7 @@ static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pw_5petsi_10_structure_
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_place") < 0)) __PYX_ERR(0, 124, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_place") < 0)) __PYX_ERR(0, 123, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -4581,14 +4571,14 @@ static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pw_5petsi_10_structure_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_place", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 124, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_place", 0, 2, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 123, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_place", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type_name), (&PyUnicode_Type), 1, "type_name", 1))) __PYX_ERR(0, 124, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_queueing_policy_name), (&PyUnicode_Type), 1, "queueing_policy_name", 1))) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_type_name), (&PyUnicode_Type), 1, "type_name", 1))) __PYX_ERR(0, 123, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_queueing_policy_name), (&PyUnicode_Type), 1, "queueing_policy_name", 1))) __PYX_ERR(0, 123, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_12add_place(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_type_name, __pyx_v_queueing_policy_name);
 
   /* function exit code */
@@ -4672,7 +4662,7 @@ static PyObject *__pyx_lambda_funcdef_lambda4(PyObject *__pyx_self, PyObject *__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":124
+/* "petsi/_structure.py":123
  *         return self._types[type_name]
  * 
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":             # <<<<<<<<<<<<<<
@@ -4708,13 +4698,13 @@ static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pf_5petsi_10_structure_
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5petsi_10_structure___pyx_scope_struct_1_add_place *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 124, __pyx_L1_error)
+    __PYX_ERR(0, 123, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
 
   /* "petsi/_structure.py":132
- *         :return: The place added.
+ *         :raise ValueError: A place with the given name already exists or the given type does not exist.
  *         """
  *         if name in self._places:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"Place '{name}' already exists in net '{self.name}'")
@@ -4778,7 +4768,7 @@ static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pf_5petsi_10_structure_
     __PYX_ERR(0, 133, __pyx_L1_error)
 
     /* "petsi/_structure.py":132
- *         :return: The place added.
+ *         :raise ValueError: A place with the given name already exists or the given type does not exist.
  *         """
  *         if name in self._places:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"Place '{name}' already exists in net '{self.name}'")
@@ -5153,7 +5143,7 @@ static struct __pyx_obj_5petsi_10_structure_Place *__pyx_pf_5petsi_10_structure_
     goto __pyx_L0;
   }
 
-  /* "petsi/_structure.py":124
+  /* "petsi/_structure.py":123
  *         return self._types[type_name]
  * 
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":             # <<<<<<<<<<<<<<
@@ -5759,7 +5749,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_18_validate_transition_name(C
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_structure_3Net_21add_immediate_transition(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_20add_immediate_transition[] = " Create and add an immediate transition to the Petri net.\n\n        Enabled immediate transitions are always fired before enabled timed transitions.\n\n        :param name: The name of the transition.\n        :param priority: The priority of the transisition. The :mod:`petsi.autofire` module fires\n                            higher priority transitions before lower ones.\n        :param weight: The weight of the transition. If there is a priority tie,\n                            :mod:`petsi.autofire` will fire a transtition randomly with\n                            probability proportional to the weights of the enabled transitions.\n        :return: The transition created.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_20add_immediate_transition[] = " Create and add an immediate transition to the Petri net.\n\n        Enabled immediate transitions are always fired before enabled timed transitions.\n\n        :param name: The name of the transition.\n        :param priority: The priority of the transisition. The :mod:`petsi.autofire` module fires\n                            higher priority transitions before lower ones.\n        :param weight: The weight of the transition. If there is a priority tie,\n                            :mod:`petsi.autofire` will fire a transtition randomly with\n                            probability proportional to the weights of the enabled transitions.\n        :return: The transition created.\n        :raise ValueError: The priority of immediate transition is not a positive integer or the weight of the\n                            transition is not a positive float or a transition with given name already exists.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_21add_immediate_transition = {"add_immediate_transition", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_21add_immediate_transition, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_20add_immediate_transition};
 static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_structure_3Net_21add_immediate_transition(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -5859,7 +5849,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_struc
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":187
+/* "petsi/_structure.py":189
  * 
  *         self._validate_transition_name(name)
  *         self._transitions[name] = t = Transition(name, len(self._transitions), priority, weight, lambda: 0.0)             # <<<<<<<<<<<<<<
@@ -5924,8 +5914,8 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_immediate_transition", 0);
 
-  /* "petsi/_structure.py":180
- *         :return: The transition created.
+  /* "petsi/_structure.py":182
+ *                             transition is not a positive float or a transition with given name already exists.
  *         """
  *         if not isinstance(priority, int) or priority < 1:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
@@ -5938,21 +5928,21 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __pyx_t_1 = __pyx_t_3;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_4 = PyObject_RichCompare(__pyx_v_priority, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 180, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_v_priority, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 182, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_1 = __pyx_t_3;
   __pyx_L4_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "petsi/_structure.py":181
+    /* "petsi/_structure.py":183
  *         """
  *         if not isinstance(priority, int) or priority < 1:
  *             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")             # <<<<<<<<<<<<<<
  * 
  *         if not isinstance(weight, (float, int)) or weight <= 0:
  */
-    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 0;
     __pyx_t_6 = 127;
@@ -5960,7 +5950,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __pyx_t_5 += 38;
     __Pyx_GIVEREF(__pyx_kp_u_The_priority_of_immediate_transi);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_kp_u_The_priority_of_immediate_transi);
-    __pyx_t_7 = __Pyx_PyUnicode_Unicode(__pyx_v_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Unicode(__pyx_v_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_6;
     __pyx_t_5 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7);
@@ -5971,18 +5961,18 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __pyx_t_5 += 28;
     __Pyx_GIVEREF(__pyx_kp_u_must_be_a_positive_integer);
     PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_kp_u_must_be_a_positive_integer);
-    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_4, 3, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Join(__pyx_t_4, 3, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 181, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 181, __pyx_L1_error)
+    __PYX_ERR(0, 183, __pyx_L1_error)
 
-    /* "petsi/_structure.py":180
- *         :return: The transition created.
+    /* "petsi/_structure.py":182
+ *                             transition is not a positive float or a transition with given name already exists.
  *         """
  *         if not isinstance(priority, int) or priority < 1:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
@@ -5990,14 +5980,14 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
  */
   }
 
-  /* "petsi/_structure.py":183
+  /* "petsi/_structure.py":185
  *             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
  * 
  *         if not isinstance(weight, (float, int)) or weight <= 0:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"The weight of immediate transition '{name}' must be a positive float, found {weight}")
  * 
  */
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_2 = PyFloat_Check(__pyx_t_4); 
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -6007,7 +5997,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __pyx_t_3 = __pyx_t_8;
     goto __pyx_L9_bool_binop_done;
   }
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 183, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 185, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_8 = PyInt_Check(__pyx_t_4); 
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
@@ -6025,14 +6015,14 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   __pyx_L7_bool_binop_done:;
   if (unlikely(__pyx_t_1)) {
 
-    /* "petsi/_structure.py":184
+    /* "petsi/_structure.py":186
  * 
  *         if not isinstance(weight, (float, int)) or weight <= 0:
  *             raise ValueError(f"The weight of immediate transition '{name}' must be a positive float, found {weight}")             # <<<<<<<<<<<<<<
  * 
  *         self._validate_transition_name(name)
  */
-    __pyx_t_4 = PyTuple_New(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = 0;
     __pyx_t_6 = 127;
@@ -6040,7 +6030,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __pyx_t_5 += 36;
     __Pyx_GIVEREF(__pyx_kp_u_The_weight_of_immediate_transiti);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_kp_u_The_weight_of_immediate_transiti);
-    __pyx_t_7 = __Pyx_PyUnicode_Unicode(__pyx_v_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyUnicode_Unicode(__pyx_v_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_6;
     __pyx_t_5 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_7);
@@ -6051,9 +6041,9 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __pyx_t_5 += 34;
     __Pyx_GIVEREF(__pyx_kp_u_must_be_a_positive_float_found);
     PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_kp_u_must_be_a_positive_float_found);
-    __pyx_t_7 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_7 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_9) : __pyx_t_6;
@@ -6061,17 +6051,17 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
     __Pyx_GIVEREF(__pyx_t_9);
     PyTuple_SET_ITEM(__pyx_t_4, 3, __pyx_t_9);
     __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_4, 4, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyUnicode_Join(__pyx_t_4, 4, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 184, __pyx_L1_error)
+    __PYX_ERR(0, 186, __pyx_L1_error)
 
-    /* "petsi/_structure.py":183
+    /* "petsi/_structure.py":185
  *             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
  * 
  *         if not isinstance(weight, (float, int)) or weight <= 0:             # <<<<<<<<<<<<<<
@@ -6080,14 +6070,14 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
  */
   }
 
-  /* "petsi/_structure.py":186
+  /* "petsi/_structure.py":188
  *             raise ValueError(f"The weight of immediate transition '{name}' must be a positive float, found {weight}")
  * 
  *         self._validate_transition_name(name)             # <<<<<<<<<<<<<<
  *         self._transitions[name] = t = Transition(name, len(self._transitions), priority, weight, lambda: 0.0)
  *         self._attach_transition_observers(t)
  */
-  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_validate_transition_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_validate_transition_name); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __pyx_t_7 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -6101,29 +6091,29 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   }
   __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_9, __pyx_t_7, __pyx_v_name) : __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_name);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 186, __pyx_L1_error)
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":187
+  /* "petsi/_structure.py":189
  * 
  *         self._validate_transition_name(name)
  *         self._transitions[name] = t = Transition(name, len(self._transitions), priority, weight, lambda: 0.0)             # <<<<<<<<<<<<<<
  *         self._attach_transition_observers(t)
  *         return t
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_5 = PyObject_Length(__pyx_t_4); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_9 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_9 = PyFloat_FromDouble(__pyx_v_weight); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_24add_immediate_transition_lambda6, 0, __pyx_n_s_Net_add_immediate_transition_loc, NULL, __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_24add_immediate_transition_lambda6, 0, __pyx_n_s_Net_add_immediate_transition_loc, NULL, __pyx_n_s_petsi__structure, __pyx_d, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_10 = PyTuple_New(5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(5); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_INCREF(__pyx_v_name);
   __Pyx_GIVEREF(__pyx_v_name);
@@ -6140,25 +6130,25 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   __pyx_t_4 = 0;
   __pyx_t_9 = 0;
   __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_Transition), __pyx_t_10, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_Transition), __pyx_t_10, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 187, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
-  if (unlikely(PyObject_SetItem(__pyx_t_10, __pyx_v_name, __pyx_t_7) < 0)) __PYX_ERR(0, 187, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_t_10, __pyx_v_name, __pyx_t_7) < 0)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_INCREF(__pyx_t_7);
   __pyx_v_t = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "petsi/_structure.py":188
+  /* "petsi/_structure.py":190
  *         self._validate_transition_name(name)
  *         self._transitions[name] = t = Transition(name, len(self._transitions), priority, weight, lambda: 0.0)
  *         self._attach_transition_observers(t)             # <<<<<<<<<<<<<<
  *         return t
  * 
  */
-  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_attach_transition_observers); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_attach_transition_observers); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __pyx_t_9 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_10))) {
@@ -6172,12 +6162,12 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   }
   __pyx_t_7 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_10, __pyx_t_9, ((PyObject *)__pyx_v_t)) : __Pyx_PyObject_CallOneArg(__pyx_t_10, ((PyObject *)__pyx_v_t));
   __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
+  if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "petsi/_structure.py":189
+  /* "petsi/_structure.py":191
  *         self._transitions[name] = t = Transition(name, len(self._transitions), priority, weight, lambda: 0.0)
  *         self._attach_transition_observers(t)
  *         return t             # <<<<<<<<<<<<<<
@@ -6212,7 +6202,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":191
+/* "petsi/_structure.py":193
  *         return t
  * 
  *     def add_timed_transition(self, name: str, distribution: "Callable[[], float]") -> "Transition":             # <<<<<<<<<<<<<<
@@ -6222,7 +6212,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_structure_3Net_23add_timed_transition(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_22add_timed_transition[] = " Create and add a timed transition to the Petri net.\n\n        Enabled immediate transitions are always fired before enabled timed transitions.\n\n        :param name: The name of the transition.\n        :param distribution: A callable returning a sample from the probability distribution of the time\n                                between the transition becoming enabled and its firing.\n                                By constraints on constructing the Petri net it is guaranteed that once a\n                                timed transition is enabled, the only way to disable it is to fire it.\n        :return: The transition created.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_22add_timed_transition[] = " Create and add a timed transition to the Petri net.\n\n        Enabled immediate transitions are always fired before enabled timed transitions.\n\n        :param name: The name of the transition.\n        :param distribution: A callable returning a sample from the probability distribution of the time\n                                between the transition becoming enabled and its firing.\n                                By constraints on constructing the Petri net it is guaranteed that once a\n                                timed transition is enabled, the only way to disable it is to fire it.\n        :return: The transition created.\n        :raise ValueError: A transition with given name already exists.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_23add_timed_transition = {"add_timed_transition", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_23add_timed_transition, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_22add_timed_transition};
 static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_structure_3Net_23add_timed_transition(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -6259,17 +6249,17 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_struc
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_timed_transition", 1, 3, 3, 1); __PYX_ERR(0, 191, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_timed_transition", 1, 3, 3, 1); __PYX_ERR(0, 193, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_distribution)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_timed_transition", 1, 3, 3, 2); __PYX_ERR(0, 191, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_timed_transition", 1, 3, 3, 2); __PYX_ERR(0, 193, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_timed_transition") < 0)) __PYX_ERR(0, 191, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_timed_transition") < 0)) __PYX_ERR(0, 193, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -6284,13 +6274,13 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_struc
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_timed_transition", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 191, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_timed_transition", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 193, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_timed_transition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 191, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 193, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_22add_timed_transition(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_distribution);
 
   /* function exit code */
@@ -6315,14 +6305,14 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_timed_transition", 0);
 
-  /* "petsi/_structure.py":203
- *         :return: The transition created.
+  /* "petsi/_structure.py":206
+ *         :raise ValueError: A transition with given name already exists.
  *         """
  *         self._validate_transition_name(name)             # <<<<<<<<<<<<<<
  *         self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)
  *         self._attach_transition_observers(t)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_validate_transition_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 203, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_validate_transition_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -6336,25 +6326,25 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_name) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_name);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":204
+  /* "petsi/_structure.py":207
  *         """
  *         self._validate_transition_name(name)
  *         self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)             # <<<<<<<<<<<<<<
  *         self._attach_transition_observers(t)
  *         return t
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_4 == ((Py_ssize_t)-1))) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = PyInt_FromSsize_t(__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_v_name);
   __Pyx_GIVEREF(__pyx_v_name);
@@ -6371,25 +6361,25 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   __Pyx_GIVEREF(__pyx_v_distribution);
   PyTuple_SET_ITEM(__pyx_t_2, 4, __pyx_v_distribution);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_Transition), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_Transition), __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 204, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_name, __pyx_t_1) < 0)) __PYX_ERR(0, 204, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_name, __pyx_t_1) < 0)) __PYX_ERR(0, 207, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_INCREF(__pyx_t_1);
   __pyx_v_t = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":205
+  /* "petsi/_structure.py":208
  *         self._validate_transition_name(name)
  *         self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)
  *         self._attach_transition_observers(t)             # <<<<<<<<<<<<<<
  *         return t
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_attach_transition_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 205, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_attach_transition_observers); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -6403,12 +6393,12 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_t)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_t));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 205, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":206
+  /* "petsi/_structure.py":209
  *         self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)
  *         self._attach_transition_observers(t)
  *         return t             # <<<<<<<<<<<<<<
@@ -6420,7 +6410,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   __pyx_r = __pyx_v_t;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":191
+  /* "petsi/_structure.py":193
  *         return t
  * 
  *     def add_timed_transition(self, name: str, distribution: "Callable[[], float]") -> "Transition":             # <<<<<<<<<<<<<<
@@ -6442,7 +6432,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":208
+/* "petsi/_structure.py":211
  *         return t
  * 
  *     def transition(self, transition_name: str) -> "Transition":             # <<<<<<<<<<<<<<
@@ -6486,11 +6476,11 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_struc
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("transition", 1, 2, 2, 1); __PYX_ERR(0, 208, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("transition", 1, 2, 2, 1); __PYX_ERR(0, 211, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "transition") < 0)) __PYX_ERR(0, 208, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "transition") < 0)) __PYX_ERR(0, 211, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -6503,13 +6493,13 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pw_5petsi_10_struc
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("transition", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 208, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("transition", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 211, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.transition", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 208, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 211, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_24transition(__pyx_self, __pyx_v_self, __pyx_v_transition_name);
 
   /* function exit code */
@@ -6531,7 +6521,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("transition", 0);
 
-  /* "petsi/_structure.py":215
+  /* "petsi/_structure.py":218
  *         :raise KeyError: The requested transition does not exist.
  *         """
  *         return self._transitions[transition_name]             # <<<<<<<<<<<<<<
@@ -6539,17 +6529,17 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
  *     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_v_transition_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_1, __pyx_v_transition_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 218, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 215, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 218, __pyx_L1_error)
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":208
+  /* "petsi/_structure.py":211
  *         return t
  * 
  *     def transition(self, transition_name: str) -> "Transition":             # <<<<<<<<<<<<<<
@@ -6569,7 +6559,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":217
+/* "petsi/_structure.py":220
  *         return self._transitions[transition_name]
  * 
  *     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":             # <<<<<<<<<<<<<<
@@ -6579,7 +6569,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_pf_5petsi_10_struc
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pw_5petsi_10_structure_3Net_27add_constructor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_26add_constructor[] = " Create a constructor arc.\n\n        Upon firing the controlling transition, a constructor arc creates a new token.\n        The type of the token will match the type of the output place of the arc.\n\n        :param name: The name of the arc.\n        :param transition_name: The name of the transition controlling the arc.\n        :param output_place_name: The name of the place the arc deposits the created tokens at.\n        :return: The created constructor arc.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_26add_constructor[] = " Create a constructor arc.\n\n        Upon firing the controlling transition, a constructor arc creates a new token.\n        The type of the token will match the type of the output place of the arc.\n\n        :param name: The name of the arc.\n        :param transition_name: The name of the transition controlling the arc.\n        :param output_place_name: The name of the place the arc deposits the created tokens at.\n        :return: The created constructor arc.\n        :raise KeyError: The given transition or place does not exist.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_27add_constructor = {"add_constructor", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_27add_constructor, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_26add_constructor};
 static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pw_5petsi_10_structure_3Net_27add_constructor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -6619,23 +6609,23 @@ static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pw_5petsi_10_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, 1); __PYX_ERR(0, 217, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, 1); __PYX_ERR(0, 220, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, 2); __PYX_ERR(0, 217, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, 2); __PYX_ERR(0, 220, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_output_place_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, 3); __PYX_ERR(0, 217, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, 3); __PYX_ERR(0, 220, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_constructor") < 0)) __PYX_ERR(0, 217, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_constructor") < 0)) __PYX_ERR(0, 220, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -6652,15 +6642,15 @@ static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pw_5petsi_10_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 217, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_constructor", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 220, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_constructor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 217, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 217, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place_name), (&PyUnicode_Type), 1, "output_place_name", 1))) __PYX_ERR(0, 217, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place_name), (&PyUnicode_Type), 1, "output_place_name", 1))) __PYX_ERR(0, 220, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_26add_constructor(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_transition_name, __pyx_v_output_place_name);
 
   /* function exit code */
@@ -6683,63 +6673,63 @@ static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pf_5petsi_10_s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_constructor", 0);
 
-  /* "petsi/_structure.py":228
- *         :return: The created constructor arc.
+  /* "petsi/_structure.py":232
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return ConstructorArc(name=name,             # <<<<<<<<<<<<<<
  *                               transition=self._transitions[transition_name],
  *                               output_place=self._places[output_place_name])
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 228, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
 
-  /* "petsi/_structure.py":229
+  /* "petsi/_structure.py":233
  *         """
  *         return ConstructorArc(name=name,
  *                               transition=self._transitions[transition_name],             # <<<<<<<<<<<<<<
  *                               output_place=self._places[output_place_name])
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 233, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 228, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":230
+  /* "petsi/_structure.py":234
  *         return ConstructorArc(name=name,
  *                               transition=self._transitions[transition_name],
  *                               output_place=self._places[output_place_name])             # <<<<<<<<<<<<<<
  * 
  *     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> "DestructorArc":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_output_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 230, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_output_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_output_place, __pyx_t_2) < 0) __PYX_ERR(0, 228, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_output_place, __pyx_t_2) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":228
- *         :return: The created constructor arc.
+  /* "petsi/_structure.py":232
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return ConstructorArc(name=name,             # <<<<<<<<<<<<<<
  *                               transition=self._transitions[transition_name],
  *                               output_place=self._places[output_place_name])
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 228, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_ConstructorArc *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":217
+  /* "petsi/_structure.py":220
  *         return self._transitions[transition_name]
  * 
  *     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":             # <<<<<<<<<<<<<<
@@ -6760,7 +6750,7 @@ static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pf_5petsi_10_s
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":232
+/* "petsi/_structure.py":236
  *                               output_place=self._places[output_place_name])
  * 
  *     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> "DestructorArc":             # <<<<<<<<<<<<<<
@@ -6770,7 +6760,7 @@ static struct __pyx_obj_5petsi_10_structure_ConstructorArc *__pyx_pf_5petsi_10_s
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pw_5petsi_10_structure_3Net_29add_destructor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_28add_destructor[] = " Create a destructor arc.\n\n        When the controlling transition fires, a destructor arc removes a token from its input place\n        and destroys it.\n\n        :param name: The name of the arc.\n        :param input_place_name: The name of the input place.\n        :param transition_name: The name of the controlling transition.\n        :return: The new destructor arc.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_28add_destructor[] = " Create a destructor arc.\n\n        When the controlling transition fires, a destructor arc removes a token from its input place\n        and destroys it.\n\n        :param name: The name of the arc.\n        :param input_place_name: The name of the input place.\n        :param transition_name: The name of the controlling transition.\n        :return: The new destructor arc.\n        :raise KeyError: The given transition or place does not exist.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_29add_destructor = {"add_destructor", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_29add_destructor, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_28add_destructor};
 static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pw_5petsi_10_structure_3Net_29add_destructor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -6810,23 +6800,23 @@ static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pw_5petsi_10_st
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, 1); __PYX_ERR(0, 232, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, 1); __PYX_ERR(0, 236, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_input_place_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, 2); __PYX_ERR(0, 232, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, 2); __PYX_ERR(0, 236, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, 3); __PYX_ERR(0, 232, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, 3); __PYX_ERR(0, 236, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_destructor") < 0)) __PYX_ERR(0, 232, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_destructor") < 0)) __PYX_ERR(0, 236, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -6843,15 +6833,15 @@ static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pw_5petsi_10_st
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 232, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_destructor", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 236, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_destructor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 232, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place_name), (&PyUnicode_Type), 1, "input_place_name", 1))) __PYX_ERR(0, 232, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 232, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place_name), (&PyUnicode_Type), 1, "input_place_name", 1))) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 236, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_28add_destructor(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_input_place_name, __pyx_v_transition_name);
 
   /* function exit code */
@@ -6874,63 +6864,63 @@ static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pf_5petsi_10_st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_destructor", 0);
 
-  /* "petsi/_structure.py":243
- *         :return: The new destructor arc.
+  /* "petsi/_structure.py":248
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return DestructorArc(name=name,             # <<<<<<<<<<<<<<
  *                              transition=self._transitions[transition_name],
  *                              input_place=self._places[input_place_name])
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
 
-  /* "petsi/_structure.py":244
+  /* "petsi/_structure.py":249
  *         """
  *         return DestructorArc(name=name,
  *                              transition=self._transitions[transition_name],             # <<<<<<<<<<<<<<
  *                              input_place=self._places[input_place_name])
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 244, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 249, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":245
+  /* "petsi/_structure.py":250
  *         return DestructorArc(name=name,
  *                              transition=self._transitions[transition_name],
  *                              input_place=self._places[input_place_name])             # <<<<<<<<<<<<<<
  * 
  *     def add_transfer(self, name: str, input_place_name: str, transition_name: str,
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_input_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 245, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_input_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 250, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 243, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":243
- *         :return: The new destructor arc.
+  /* "petsi/_structure.py":248
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return DestructorArc(name=name,             # <<<<<<<<<<<<<<
  *                              transition=self._transitions[transition_name],
  *                              input_place=self._places[input_place_name])
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_DestructorArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 243, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_DestructorArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 248, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_DestructorArc *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":232
+  /* "petsi/_structure.py":236
  *                               output_place=self._places[output_place_name])
  * 
  *     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> "DestructorArc":             # <<<<<<<<<<<<<<
@@ -6951,7 +6941,7 @@ static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pf_5petsi_10_st
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":247
+/* "petsi/_structure.py":252
  *                              input_place=self._places[input_place_name])
  * 
  *     def add_transfer(self, name: str, input_place_name: str, transition_name: str,             # <<<<<<<<<<<<<<
@@ -6961,7 +6951,7 @@ static struct __pyx_obj_5petsi_10_structure_DestructorArc *__pyx_pf_5petsi_10_st
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pw_5petsi_10_structure_3Net_31add_transfer(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_30add_transfer[] = " Create a destructor arc.\n\n        On firing the controlling transition, the transfer arc moves a token from its input place to its output place.\n\n        :param name: The name of the arc.\n        :param input_place_name: The name of the input place.\n        :param transition_name:  The name of the transition controlling the arc.\n        :param output_place_name: The name of the output place.\n        :return: The arc created.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_30add_transfer[] = " Create a destructor arc.\n\n        On firing the controlling transition, the transfer arc moves a token from its input place to its output place.\n\n        :param name: The name of the arc.\n        :param input_place_name: The name of the input place.\n        :param transition_name:  The name of the transition controlling the arc.\n        :param output_place_name: The name of the output place.\n        :return: The arc created.\n        :raise KeyError: The given transition or input or output place does not exist.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_31add_transfer = {"add_transfer", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_31add_transfer, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_30add_transfer};
 static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pw_5petsi_10_structure_3Net_31add_transfer(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -7004,29 +6994,29 @@ static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pw_5petsi_10_stru
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 1); __PYX_ERR(0, 247, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 1); __PYX_ERR(0, 252, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_input_place_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 2); __PYX_ERR(0, 247, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 2); __PYX_ERR(0, 252, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 3); __PYX_ERR(0, 247, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 3); __PYX_ERR(0, 252, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_output_place_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 4); __PYX_ERR(0, 247, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, 4); __PYX_ERR(0, 252, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_transfer") < 0)) __PYX_ERR(0, 247, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_transfer") < 0)) __PYX_ERR(0, 252, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -7045,16 +7035,16 @@ static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pw_5petsi_10_stru
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 247, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_transfer", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 252, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_transfer", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place_name), (&PyUnicode_Type), 1, "input_place_name", 1))) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place_name), (&PyUnicode_Type), 1, "output_place_name", 1))) __PYX_ERR(0, 248, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place_name), (&PyUnicode_Type), 1, "input_place_name", 1))) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place_name), (&PyUnicode_Type), 1, "output_place_name", 1))) __PYX_ERR(0, 253, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_30add_transfer(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_input_place_name, __pyx_v_transition_name, __pyx_v_output_place_name);
 
   /* function exit code */
@@ -7077,78 +7067,78 @@ static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pf_5petsi_10_stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_transfer", 0);
 
-  /* "petsi/_structure.py":259
- *         :return: The arc created.
+  /* "petsi/_structure.py":265
+ *         :raise KeyError: The given transition or input or output place does not exist.
  *         """
  *         return TransferArc(name=name,             # <<<<<<<<<<<<<<
  *                            transition=self._transitions[transition_name],
  *                            input_place=self._places[input_place_name],
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
 
-  /* "petsi/_structure.py":260
+  /* "petsi/_structure.py":266
  *         """
  *         return TransferArc(name=name,
  *                            transition=self._transitions[transition_name],             # <<<<<<<<<<<<<<
  *                            input_place=self._places[input_place_name],
  *                            output_place=self._places[output_place_name])
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 260, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 266, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":261
+  /* "petsi/_structure.py":267
  *         return TransferArc(name=name,
  *                            transition=self._transitions[transition_name],
  *                            input_place=self._places[input_place_name],             # <<<<<<<<<<<<<<
  *                            output_place=self._places[output_place_name])
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_input_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_input_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 267, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":262
+  /* "petsi/_structure.py":268
  *                            transition=self._transitions[transition_name],
  *                            input_place=self._places[input_place_name],
  *                            output_place=self._places[output_place_name])             # <<<<<<<<<<<<<<
  * 
  *     def add_test(self, name: str, place_name: str, transition_name: str, ) -> "TestArc":
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_output_place_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 262, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_output_place_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 268, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_output_place, __pyx_t_3) < 0) __PYX_ERR(0, 259, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_output_place, __pyx_t_3) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":259
- *         :return: The arc created.
+  /* "petsi/_structure.py":265
+ *         :raise KeyError: The given transition or input or output place does not exist.
  *         """
  *         return TransferArc(name=name,             # <<<<<<<<<<<<<<
  *                            transition=self._transitions[transition_name],
  *                            input_place=self._places[input_place_name],
  */
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 265, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_TransferArc *)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":247
+  /* "petsi/_structure.py":252
  *                              input_place=self._places[input_place_name])
  * 
  *     def add_transfer(self, name: str, input_place_name: str, transition_name: str,             # <<<<<<<<<<<<<<
@@ -7169,7 +7159,7 @@ static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pf_5petsi_10_stru
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":264
+/* "petsi/_structure.py":270
  *                            output_place=self._places[output_place_name])
  * 
  *     def add_test(self, name: str, place_name: str, transition_name: str, ) -> "TestArc":             # <<<<<<<<<<<<<<
@@ -7179,7 +7169,7 @@ static struct __pyx_obj_5petsi_10_structure_TransferArc *__pyx_pf_5petsi_10_stru
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pw_5petsi_10_structure_3Net_33add_test(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_32add_test[] = " Create a test arc.\n\n        Like a transfer or destructor arc, a test arc influences the enablement status of its controlling transition.\n        That is, the transition will only enable if there is a token at the input place of the test arc.\n        Unlike the transfer or destructor arcs, a test arc never moves a token.\n\n        :param name: The name of the arc.\n        :param place_name: The name of its input place.\n        :param transition_name: The name of the transition controlling the arc.\n        :return: The arc created.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_32add_test[] = " Create a test arc.\n\n        Like a transfer or destructor arc, a test arc influences the enablement status of its controlling transition.\n        That is, the transition will only enable if there is a token at the input place of the test arc.\n        Unlike the transfer or destructor arcs, a test arc never moves a token.\n\n        :param name: The name of the arc.\n        :param place_name: The name of its input place.\n        :param transition_name: The name of the transition controlling the arc.\n        :return: The arc created.\n        :raise KeyError: The given transition or place does not exist.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_33add_test = {"add_test", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_33add_test, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_32add_test};
 static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pw_5petsi_10_structure_3Net_33add_test(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -7219,23 +7209,23 @@ static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pw_5petsi_10_structur
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, 1); __PYX_ERR(0, 264, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, 1); __PYX_ERR(0, 270, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_place_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, 2); __PYX_ERR(0, 264, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, 2); __PYX_ERR(0, 270, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, 3); __PYX_ERR(0, 264, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, 3); __PYX_ERR(0, 270, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_test") < 0)) __PYX_ERR(0, 264, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_test") < 0)) __PYX_ERR(0, 270, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -7252,15 +7242,15 @@ static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pw_5petsi_10_structur
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 264, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_test", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 270, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_test", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 264, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_place_name), (&PyUnicode_Type), 1, "place_name", 1))) __PYX_ERR(0, 264, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 264, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_place_name), (&PyUnicode_Type), 1, "place_name", 1))) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 270, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_32add_test(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_place_name, __pyx_v_transition_name);
 
   /* function exit code */
@@ -7283,63 +7273,63 @@ static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pf_5petsi_10_structur
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_test", 0);
 
-  /* "petsi/_structure.py":276
- *         :return: The arc created.
+  /* "petsi/_structure.py":283
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return TestArc(name=name,             # <<<<<<<<<<<<<<
  *                        transition=self._transitions[transition_name],
  *                        input_place=self._places[place_name])
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 283, __pyx_L1_error)
 
-  /* "petsi/_structure.py":277
+  /* "petsi/_structure.py":284
  *         """
  *         return TestArc(name=name,
  *                        transition=self._transitions[transition_name],             # <<<<<<<<<<<<<<
  *                        input_place=self._places[place_name])
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 277, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 284, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":278
+  /* "petsi/_structure.py":285
  *         return TestArc(name=name,
  *                        transition=self._transitions[transition_name],
  *                        input_place=self._places[place_name])             # <<<<<<<<<<<<<<
  * 
  *     def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> "InhibitorArc":
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 276, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":276
- *         :return: The arc created.
+  /* "petsi/_structure.py":283
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return TestArc(name=name,             # <<<<<<<<<<<<<<
  *                        transition=self._transitions[transition_name],
  *                        input_place=self._places[place_name])
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_TestArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 276, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_TestArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 283, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_TestArc *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":264
+  /* "petsi/_structure.py":270
  *                            output_place=self._places[output_place_name])
  * 
  *     def add_test(self, name: str, place_name: str, transition_name: str, ) -> "TestArc":             # <<<<<<<<<<<<<<
@@ -7360,7 +7350,7 @@ static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pf_5petsi_10_structur
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":280
+/* "petsi/_structure.py":287
  *                        input_place=self._places[place_name])
  * 
  *     def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> "InhibitorArc":             # <<<<<<<<<<<<<<
@@ -7370,7 +7360,7 @@ static struct __pyx_obj_5petsi_10_structure_TestArc *__pyx_pf_5petsi_10_structur
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_10_structure_InhibitorArc *__pyx_pw_5petsi_10_structure_3Net_35add_inhibitor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_5petsi_10_structure_3Net_34add_inhibitor[] = " Create an inhibitor arc.\n\n        Like a test arc, an inhibitor arc never moves any tokens. All it does it influences the enablement of its\n        controlling transition.\n        Unlike a test arc, it allows the transition to fire iff its input place is empty.\n\n        :param name: The name of the arc.\n        :param place_name: The name of the input place.\n        :param transition_name: The name of the controlling transition.\n        :return: The arc created.\n        ";
+static char __pyx_doc_5petsi_10_structure_3Net_34add_inhibitor[] = " Create an inhibitor arc.\n\n        Like a test arc, an inhibitor arc never moves any tokens. All it does it influences the enablement of its\n        controlling transition.\n        Unlike a test arc, it allows the transition to fire iff its input place is empty.\n\n        :param name: The name of the arc.\n        :param place_name: The name of the input place.\n        :param transition_name: The name of the controlling transition.\n        :return: The arc created.\n        :raise KeyError: The given transition or place does not exist.\n        ";
 static PyMethodDef __pyx_mdef_5petsi_10_structure_3Net_35add_inhibitor = {"add_inhibitor", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_3Net_35add_inhibitor, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_3Net_34add_inhibitor};
 static struct __pyx_obj_5petsi_10_structure_InhibitorArc *__pyx_pw_5petsi_10_structure_3Net_35add_inhibitor(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_self = 0;
@@ -7410,23 +7400,23 @@ static struct __pyx_obj_5petsi_10_structure_InhibitorArc *__pyx_pw_5petsi_10_str
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, 1); __PYX_ERR(0, 280, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, 1); __PYX_ERR(0, 287, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_place_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, 2); __PYX_ERR(0, 280, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, 2); __PYX_ERR(0, 287, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition_name)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, 3); __PYX_ERR(0, 280, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, 3); __PYX_ERR(0, 287, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_inhibitor") < 0)) __PYX_ERR(0, 280, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "add_inhibitor") < 0)) __PYX_ERR(0, 287, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -7443,15 +7433,15 @@ static struct __pyx_obj_5petsi_10_structure_InhibitorArc *__pyx_pw_5petsi_10_str
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 280, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("add_inhibitor", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 287, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Net.add_inhibitor", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 280, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_place_name), (&PyUnicode_Type), 1, "place_name", 1))) __PYX_ERR(0, 280, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 280, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 287, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_place_name), (&PyUnicode_Type), 1, "place_name", 1))) __PYX_ERR(0, 287, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition_name), (&PyUnicode_Type), 1, "transition_name", 1))) __PYX_ERR(0, 287, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Net_34add_inhibitor(__pyx_self, __pyx_v_self, __pyx_v_name, __pyx_v_place_name, __pyx_v_transition_name);
 
   /* function exit code */
@@ -7474,63 +7464,63 @@ static struct __pyx_obj_5petsi_10_structure_InhibitorArc *__pyx_pf_5petsi_10_str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_inhibitor", 0);
 
-  /* "petsi/_structure.py":292
- *         :return: The arc created.
+  /* "petsi/_structure.py":300
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return InhibitorArc(name=name,             # <<<<<<<<<<<<<<
  *                             transition=self._transitions[transition_name],
  *                             input_place=self._places[place_name])
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 292, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 300, __pyx_L1_error)
 
-  /* "petsi/_structure.py":293
+  /* "petsi/_structure.py":301
  *         """
  *         return InhibitorArc(name=name,
  *                             transition=self._transitions[transition_name],             # <<<<<<<<<<<<<<
  *                             input_place=self._places[place_name])
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_transitions); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 293, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_t_2, __pyx_v_transition_name); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 292, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition, __pyx_t_3) < 0) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":294
+  /* "petsi/_structure.py":302
  *         return InhibitorArc(name=name,
  *                             transition=self._transitions[transition_name],
  *                             input_place=self._places[place_name])             # <<<<<<<<<<<<<<
  * 
  *     def reset(self):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 294, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Dict_GetItem(__pyx_t_3, __pyx_v_place_name); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 302, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 292, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place, __pyx_t_2) < 0) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":292
- *         :return: The arc created.
+  /* "petsi/_structure.py":300
+ *         :raise KeyError: The given transition or place does not exist.
  *         """
  *         return InhibitorArc(name=name,             # <<<<<<<<<<<<<<
  *                             transition=self._transitions[transition_name],
  *                             input_place=self._places[place_name])
  */
-  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_InhibitorArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 292, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5petsi_10_structure_InhibitorArc), __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 300, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_InhibitorArc *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":280
+  /* "petsi/_structure.py":287
  *                        input_place=self._places[place_name])
  * 
  *     def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> "InhibitorArc":             # <<<<<<<<<<<<<<
@@ -7551,7 +7541,7 @@ static struct __pyx_obj_5petsi_10_structure_InhibitorArc *__pyx_pf_5petsi_10_str
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":296
+/* "petsi/_structure.py":304
  *                             input_place=self._places[place_name])
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -7592,7 +7582,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_structure.py":298
+  /* "petsi/_structure.py":306
  *     def reset(self):
  *         """ Remove all tokens from the Petri net & reset the marking-related state of the observers"""
  *         for place in self._places.values():             # <<<<<<<<<<<<<<
@@ -7600,13 +7590,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
  * 
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_places); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 306, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (unlikely(__pyx_t_5 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 298, __pyx_L1_error)
+    __PYX_ERR(0, 306, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_values, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 298, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_values, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 306, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -7615,19 +7605,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, NULL, &__pyx_t_6, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 298, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 306, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF_SET(__pyx_v_place, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "petsi/_structure.py":299
+    /* "petsi/_structure.py":307
  *         """ Remove all tokens from the Petri net & reset the marking-related state of the observers"""
  *         for place in self._places.values():
  *             place.reset()             # <<<<<<<<<<<<<<
  * 
  *         # Reset the marking-related state
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_place, __pyx_n_s_reset); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 299, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_place, __pyx_n_s_reset); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 307, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_5))) {
@@ -7641,14 +7631,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
     }
     __pyx_t_6 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 299, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 307, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":302
+  /* "petsi/_structure.py":310
  * 
  *         # Reset the marking-related state
  *         for observer in self._observers.values():             # <<<<<<<<<<<<<<
@@ -7656,13 +7646,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
  * 
  */
   __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_observers); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   if (unlikely(__pyx_t_6 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 302, __pyx_L1_error)
+    __PYX_ERR(0, 310, __pyx_L1_error)
   }
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_t_6, 0, __pyx_n_s_values, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 302, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_dict_iterator(__pyx_t_6, 0, __pyx_n_s_values, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 310, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -7671,19 +7661,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_2, &__pyx_t_3, NULL, &__pyx_t_5, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 302, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 310, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_observer, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "petsi/_structure.py":303
+    /* "petsi/_structure.py":311
  *         # Reset the marking-related state
  *         for observer in self._observers.values():
  *             observer.reset()             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_reset); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 303, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_reset); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_6))) {
@@ -7697,14 +7687,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
     }
     __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 303, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 311, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":296
+  /* "petsi/_structure.py":304
  *                             input_place=self._places[place_name])
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -7730,7 +7720,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Net_36reset(CYTHON_UNUSED PyObjec
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":312
+/* "petsi/_structure.py":320
  *     _net: Net
  * 
  *     def __init__(self, name: str, ordinal: int, net: Net):             # <<<<<<<<<<<<<<
@@ -7775,17 +7765,17 @@ static int __pyx_pw_5petsi_10_structure_9TokenType_1__init__(PyObject *__pyx_v_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ordinal)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 312, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 320, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_net)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 312, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 320, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 312, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 320, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -7800,13 +7790,13 @@ static int __pyx_pw_5petsi_10_structure_9TokenType_1__init__(PyObject *__pyx_v_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 312, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 320, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.TokenType.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 312, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 320, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_9TokenType___init__(((struct __pyx_obj_5petsi_10_structure_TokenType *)__pyx_v_self), __pyx_v_name, __pyx_v_ordinal, __pyx_v_net);
 
   /* function exit code */
@@ -7827,7 +7817,7 @@ static int __pyx_pf_5petsi_10_structure_9TokenType___init__(struct __pyx_obj_5pe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":313
+  /* "petsi/_structure.py":321
  * 
  *     def __init__(self, name: str, ordinal: int, net: Net):
  *         self._name = name             # <<<<<<<<<<<<<<
@@ -7840,17 +7830,17 @@ static int __pyx_pf_5petsi_10_structure_9TokenType___init__(struct __pyx_obj_5pe
   __Pyx_DECREF(__pyx_v_self->_name);
   __pyx_v_self->_name = ((PyObject*)__pyx_v_name);
 
-  /* "petsi/_structure.py":314
+  /* "petsi/_structure.py":322
  *     def __init__(self, name: str, ordinal: int, net: Net):
  *         self._name = name
  *         self.ordinal = ordinal             # <<<<<<<<<<<<<<
  *         self._net = net
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_unsigned_int(__pyx_v_ordinal); if (unlikely((__pyx_t_1 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 314, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_unsigned_int(__pyx_v_ordinal); if (unlikely((__pyx_t_1 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 322, __pyx_L1_error)
   __pyx_v_self->ordinal = __pyx_t_1;
 
-  /* "petsi/_structure.py":315
+  /* "petsi/_structure.py":323
  *         self._name = name
  *         self.ordinal = ordinal
  *         self._net = net             # <<<<<<<<<<<<<<
@@ -7863,7 +7853,7 @@ static int __pyx_pf_5petsi_10_structure_9TokenType___init__(struct __pyx_obj_5pe
   __Pyx_DECREF(__pyx_v_self->_net);
   __pyx_v_self->_net = __pyx_v_net;
 
-  /* "petsi/_structure.py":312
+  /* "petsi/_structure.py":320
  *     _net: Net
  * 
  *     def __init__(self, name: str, ordinal: int, net: Net):             # <<<<<<<<<<<<<<
@@ -7882,7 +7872,7 @@ static int __pyx_pf_5petsi_10_structure_9TokenType___init__(struct __pyx_obj_5pe
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":318
+/* "petsi/_structure.py":326
  * 
  *     @property
  *     def name(self): return self._name             # <<<<<<<<<<<<<<
@@ -7919,7 +7909,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_4name___get__(struct __
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":321
+/* "petsi/_structure.py":329
  * 
  *     @property
  *     def net(self): return self._net             # <<<<<<<<<<<<<<
@@ -7956,7 +7946,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_3net___get__(struct __p
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":323
+/* "petsi/_structure.py":331
  *     def net(self): return self._net
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -7990,7 +7980,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_2__str__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__str__", 0);
 
-  /* "petsi/_structure.py":324
+  /* "petsi/_structure.py":332
  * 
  *     def __str__(self):
  *         return f"{self.__class__.__name__}('{self.name}')"             # <<<<<<<<<<<<<<
@@ -7998,16 +7988,16 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_2__str__(struct __pyx_o
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = 0;
   __pyx_t_3 = 127;
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_class); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_class); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_name_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_name_2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_FormatSimple(__pyx_t_5, __pyx_empty_unicode); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_3 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) > __pyx_t_3) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_4) : __pyx_t_3;
@@ -8019,9 +8009,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_2__str__(struct __pyx_o
   __pyx_t_2 += 2;
   __Pyx_GIVEREF(__pyx_kp_u__4);
   PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_kp_u__4);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_t_4, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_3 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) > __pyx_t_3) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) : __pyx_t_3;
@@ -8033,14 +8023,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_2__str__(struct __pyx_o
   __pyx_t_2 += 2;
   __Pyx_GIVEREF(__pyx_kp_u__5);
   PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_kp_u__5);
-  __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 4, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 324, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 4, __pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 332, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":323
+  /* "petsi/_structure.py":331
  *     def net(self): return self._net
  * 
  *     def __str__(self):             # <<<<<<<<<<<<<<
@@ -8459,7 +8449,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_9TokenType_6__setstate_cython__(st
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":332
+/* "petsi/_structure.py":341
  *     tags: "Dict[str, Any]"
  * 
  *     def __init__(self, typ: TokenType):             # <<<<<<<<<<<<<<
@@ -8496,7 +8486,7 @@ static int __pyx_pw_5petsi_10_structure_5Token_1__init__(PyObject *__pyx_v_self,
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 332, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 341, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -8507,13 +8497,13 @@ static int __pyx_pw_5petsi_10_structure_5Token_1__init__(PyObject *__pyx_v_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 332, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 341, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Token.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_typ), __pyx_ptype_5petsi_10_structure_TokenType, 1, "typ", 0))) __PYX_ERR(0, 332, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_typ), __pyx_ptype_5petsi_10_structure_TokenType, 1, "typ", 0))) __PYX_ERR(0, 341, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_5Token___init__(((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_v_self), __pyx_v_typ);
 
   /* function exit code */
@@ -8538,7 +8528,7 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":333
+  /* "petsi/_structure.py":342
  * 
  *     def __init__(self, typ: TokenType):
  *         self._typ = typ             # <<<<<<<<<<<<<<
@@ -8551,14 +8541,14 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
   __Pyx_DECREF(__pyx_v_self->_typ);
   __pyx_v_self->_typ = ((PyObject *)__pyx_v_typ);
 
-  /* "petsi/_structure.py":334
+  /* "petsi/_structure.py":343
  *     def __init__(self, typ: TokenType):
  *         self._typ = typ
  *         self._token_observers = set()             # <<<<<<<<<<<<<<
  *         self.tags = dict()
  *         for of in self.typ.net.observers:
  */
-  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 334, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 343, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_token_observers);
@@ -8566,14 +8556,14 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
   __pyx_v_self->_token_observers = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":335
+  /* "petsi/_structure.py":344
  *         self._typ = typ
  *         self._token_observers = set()
  *         self.tags = dict()             # <<<<<<<<<<<<<<
  *         for of in self.typ.net.observers:
  *             self.attach_observer(of)
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 335, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->tags);
@@ -8581,28 +8571,28 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
   __pyx_v_self->tags = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":336
+  /* "petsi/_structure.py":345
  *         self._token_observers = set()
  *         self.tags = dict()
  *         for of in self.typ.net.observers:             # <<<<<<<<<<<<<<
  *             self.attach_observer(of)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_net); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_net); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_observers_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_observers_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 336, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -8610,17 +8600,17 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 345, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 345, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 336, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -8630,7 +8620,7 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 336, __pyx_L1_error)
+          else __PYX_ERR(0, 345, __pyx_L1_error)
         }
         break;
       }
@@ -8639,18 +8629,18 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
     __Pyx_XDECREF_SET(__pyx_v_of, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":337
+    /* "petsi/_structure.py":346
  *         self.tags = dict()
  *         for of in self.typ.net.observers:
  *             self.attach_observer(of)             # <<<<<<<<<<<<<<
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_self->__pyx_vtab)->attach_observer(__pyx_v_self, __pyx_v_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 337, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_self->__pyx_vtab)->attach_observer(__pyx_v_self, __pyx_v_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":336
+    /* "petsi/_structure.py":345
  *         self._token_observers = set()
  *         self.tags = dict()
  *         for of in self.typ.net.observers:             # <<<<<<<<<<<<<<
@@ -8660,7 +8650,7 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":332
+  /* "petsi/_structure.py":341
  *     tags: "Dict[str, Any]"
  * 
  *     def __init__(self, typ: TokenType):             # <<<<<<<<<<<<<<
@@ -8682,12 +8672,12 @@ static int __pyx_pf_5petsi_10_structure_5Token___init__(struct __pyx_obj_5petsi_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":339
+/* "petsi/_structure.py":348
  *             self.attach_observer(of)
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):             # <<<<<<<<<<<<<<
+ *         """ Request a new observer from ``plugin`` and add it to the set of observers to notify about token events."""
  *         observer = plugin.observe_token(self)
- * 
  */
 
 static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx_obj_5petsi_10_structure_Token *__pyx_v_self, PyObject *__pyx_v_plugin) {
@@ -8705,14 +8695,14 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("attach_observer", 0);
 
-  /* "petsi/_structure.py":340
- * 
+  /* "petsi/_structure.py":350
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):
+ *         """ Request a new observer from ``plugin`` and add it to the set of observers to notify about token events."""
  *         observer = plugin.observe_token(self)             # <<<<<<<<<<<<<<
  * 
  *         if observer is not None:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_plugin, __pyx_n_s_observe_token); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 340, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_plugin, __pyx_n_s_observe_token); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8726,13 +8716,13 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 340, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_observer = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":342
+  /* "petsi/_structure.py":352
  *         observer = plugin.observe_token(self)
  * 
  *         if observer is not None:             # <<<<<<<<<<<<<<
@@ -8743,7 +8733,7 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "petsi/_structure.py":343
+    /* "petsi/_structure.py":353
  * 
  *         if observer is not None:
  *             self._token_observers.add(observer)             # <<<<<<<<<<<<<<
@@ -8752,18 +8742,18 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
  */
     if (unlikely(__pyx_v_self->_token_observers == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 343, __pyx_L1_error)
+      __PYX_ERR(0, 353, __pyx_L1_error)
     }
-    __pyx_t_6 = PySet_Add(__pyx_v_self->_token_observers, __pyx_v_observer); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 343, __pyx_L1_error)
+    __pyx_t_6 = PySet_Add(__pyx_v_self->_token_observers, __pyx_v_observer); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 353, __pyx_L1_error)
 
-    /* "petsi/_structure.py":344
+    /* "petsi/_structure.py":354
  *         if observer is not None:
  *             self._token_observers.add(observer)
  *             observer.report_construction()             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_report_construction); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_report_construction); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 354, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_3 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -8777,12 +8767,12 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
     }
     __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 354, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":342
+    /* "petsi/_structure.py":352
  *         observer = plugin.observe_token(self)
  * 
  *         if observer is not None:             # <<<<<<<<<<<<<<
@@ -8791,12 +8781,12 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
  */
   }
 
-  /* "petsi/_structure.py":339
+  /* "petsi/_structure.py":348
  *             self.attach_observer(of)
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):             # <<<<<<<<<<<<<<
+ *         """ Request a new observer from ``plugin`` and add it to the set of observers to notify about token events."""
  *         observer = plugin.observe_token(self)
- * 
  */
 
   /* function exit code */
@@ -8815,12 +8805,12 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_attach_observer(struct __pyx
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":347
+/* "petsi/_structure.py":357
  * 
  *     @property
- *     def typ(self): return self._typ             # <<<<<<<<<<<<<<
- * 
- *     def deposit_at(self, place):  # : "Place"
+ *     def typ(self):             # <<<<<<<<<<<<<<
+ *         """ The type of the token."""
+ *         return self._typ
  */
 
 /* Python wrapper */
@@ -8840,10 +8830,26 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Token_3typ___get__(struct __pyx_o
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__", 0);
+
+  /* "petsi/_structure.py":359
+ *     def typ(self):
+ *         """ The type of the token."""
+ *         return self._typ             # <<<<<<<<<<<<<<
+ * 
+ *     def deposit_at(self, place):  # : "Place"
+ */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_self->_typ);
   __pyx_r = __pyx_v_self->_typ;
   goto __pyx_L0;
+
+  /* "petsi/_structure.py":357
+ * 
+ *     @property
+ *     def typ(self):             # <<<<<<<<<<<<<<
+ *         """ The type of the token."""
+ *         return self._typ
+ */
 
   /* function exit code */
   __pyx_L0:;
@@ -8852,12 +8858,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Token_3typ___get__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":349
- *     def typ(self): return self._typ
+/* "petsi/_structure.py":361
+ *         return self._typ
  * 
  *     def deposit_at(self, place):  # : "Place"             # <<<<<<<<<<<<<<
+ *         """ Notify the observers about the arrival of the token at the given place."""
  *         for to in self._token_observers:
- *             to.report_arrival_at(place)
  */
 
 static PyObject *__pyx_f_5petsi_10_structure_5Token_deposit_at(struct __pyx_obj_5petsi_10_structure_Token *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v_place) {
@@ -8877,15 +8883,15 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_deposit_at(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("deposit_at", 0);
 
-  /* "petsi/_structure.py":350
- * 
+  /* "petsi/_structure.py":363
  *     def deposit_at(self, place):  # : "Place"
+ *         """ Notify the observers about the arrival of the token at the given place."""
  *         for to in self._token_observers:             # <<<<<<<<<<<<<<
  *             to.report_arrival_at(place)
  * 
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_token_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 350, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_token_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 363, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -8893,19 +8899,19 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_deposit_at(struct __pyx_obj_
   while (1) {
     __pyx_t_6 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, __pyx_t_4);
     if (unlikely(__pyx_t_6 == 0)) break;
-    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 350, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 363, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_to, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "petsi/_structure.py":351
- *     def deposit_at(self, place):  # : "Place"
+    /* "petsi/_structure.py":364
+ *         """ Notify the observers about the arrival of the token at the given place."""
  *         for to in self._token_observers:
  *             to.report_arrival_at(place)             # <<<<<<<<<<<<<<
  * 
  *     def remove_from(self, place):  # : "Place"
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_to, __pyx_n_s_report_arrival_at); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 351, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_to, __pyx_n_s_report_arrival_at); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -8919,19 +8925,19 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_deposit_at(struct __pyx_obj_
     }
     __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, ((PyObject *)__pyx_v_place)) : __Pyx_PyObject_CallOneArg(__pyx_t_7, ((PyObject *)__pyx_v_place));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 351, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 364, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":349
- *     def typ(self): return self._typ
+  /* "petsi/_structure.py":361
+ *         return self._typ
  * 
  *     def deposit_at(self, place):  # : "Place"             # <<<<<<<<<<<<<<
+ *         """ Notify the observers about the arrival of the token at the given place."""
  *         for to in self._token_observers:
- *             to.report_arrival_at(place)
  */
 
   /* function exit code */
@@ -8951,12 +8957,12 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_deposit_at(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":353
+/* "petsi/_structure.py":366
  *             to.report_arrival_at(place)
  * 
  *     def remove_from(self, place):  # : "Place"             # <<<<<<<<<<<<<<
+ *         """ Notify the observers about the departure of the token from the given place."""
  *         for to in self._token_observers:
- *             to.report_departure_from(place)
  */
 
 static PyObject *__pyx_f_5petsi_10_structure_5Token_remove_from(struct __pyx_obj_5petsi_10_structure_Token *__pyx_v_self, struct __pyx_obj_5petsi_10_structure_Place *__pyx_v_place) {
@@ -8976,15 +8982,15 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_remove_from(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove_from", 0);
 
-  /* "petsi/_structure.py":354
- * 
+  /* "petsi/_structure.py":368
  *     def remove_from(self, place):  # : "Place"
+ *         """ Notify the observers about the departure of the token from the given place."""
  *         for to in self._token_observers:             # <<<<<<<<<<<<<<
  *             to.report_departure_from(place)
  * 
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_token_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 354, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_token_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 368, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -8992,19 +8998,19 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_remove_from(struct __pyx_obj
   while (1) {
     __pyx_t_6 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, __pyx_t_4);
     if (unlikely(__pyx_t_6 == 0)) break;
-    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 354, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 368, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_to, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "petsi/_structure.py":355
- *     def remove_from(self, place):  # : "Place"
+    /* "petsi/_structure.py":369
+ *         """ Notify the observers about the departure of the token from the given place."""
  *         for to in self._token_observers:
  *             to.report_departure_from(place)             # <<<<<<<<<<<<<<
  * 
  *     def delete(self):
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_to, __pyx_n_s_report_departure_from); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 355, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_to, __pyx_n_s_report_departure_from); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -9018,19 +9024,19 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_remove_from(struct __pyx_obj
     }
     __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, ((PyObject *)__pyx_v_place)) : __Pyx_PyObject_CallOneArg(__pyx_t_7, ((PyObject *)__pyx_v_place));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 355, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 369, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":353
+  /* "petsi/_structure.py":366
  *             to.report_arrival_at(place)
  * 
  *     def remove_from(self, place):  # : "Place"             # <<<<<<<<<<<<<<
+ *         """ Notify the observers about the departure of the token from the given place."""
  *         for to in self._token_observers:
- *             to.report_departure_from(place)
  */
 
   /* function exit code */
@@ -9050,12 +9056,12 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_remove_from(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":357
+/* "petsi/_structure.py":371
  *             to.report_departure_from(place)
  * 
  *     def delete(self):             # <<<<<<<<<<<<<<
+ *         """ Notify the observers about the destruction of the token."""
  *         for to in self._token_observers:
- *             to.report_destruction()
  */
 
 static PyObject *__pyx_f_5petsi_10_structure_5Token_delete(struct __pyx_obj_5petsi_10_structure_Token *__pyx_v_self) {
@@ -9076,15 +9082,15 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_delete(struct __pyx_obj_5pet
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("delete", 0);
 
-  /* "petsi/_structure.py":358
- * 
+  /* "petsi/_structure.py":373
  *     def delete(self):
+ *         """ Notify the observers about the destruction of the token."""
  *         for to in self._token_observers:             # <<<<<<<<<<<<<<
  *             to.report_destruction()
  *         self._token_observers.clear()
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_token_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 358, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_token_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 373, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -9092,19 +9098,19 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_delete(struct __pyx_obj_5pet
   while (1) {
     __pyx_t_6 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, __pyx_t_4);
     if (unlikely(__pyx_t_6 == 0)) break;
-    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 358, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 373, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_to, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "petsi/_structure.py":359
- *     def delete(self):
+    /* "petsi/_structure.py":374
+ *         """ Notify the observers about the destruction of the token."""
  *         for to in self._token_observers:
  *             to.report_destruction()             # <<<<<<<<<<<<<<
  *         self._token_observers.clear()
  * 
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_to, __pyx_n_s_report_destruction); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 359, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_to, __pyx_n_s_report_destruction); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 374, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -9118,14 +9124,14 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_delete(struct __pyx_obj_5pet
     }
     __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_CallOneArg(__pyx_t_7, __pyx_t_8) : __Pyx_PyObject_CallNoArg(__pyx_t_7);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 359, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 374, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":360
+  /* "petsi/_structure.py":375
  *         for to in self._token_observers:
  *             to.report_destruction()
  *         self._token_observers.clear()             # <<<<<<<<<<<<<<
@@ -9134,16 +9140,16 @@ static PyObject *__pyx_f_5petsi_10_structure_5Token_delete(struct __pyx_obj_5pet
  */
   if (unlikely(__pyx_v_self->_token_observers == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "clear");
-    __PYX_ERR(0, 360, __pyx_L1_error)
+    __PYX_ERR(0, 375, __pyx_L1_error)
   }
-  __pyx_t_9 = PySet_Clear(__pyx_v_self->_token_observers); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 360, __pyx_L1_error)
+  __pyx_t_9 = PySet_Clear(__pyx_v_self->_token_observers); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 375, __pyx_L1_error)
 
-  /* "petsi/_structure.py":357
+  /* "petsi/_structure.py":371
  *             to.report_departure_from(place)
  * 
  *     def delete(self):             # <<<<<<<<<<<<<<
+ *         """ Notify the observers about the destruction of the token."""
  *         for to in self._token_observers:
- *             to.report_destruction()
  */
 
   /* function exit code */
@@ -9534,7 +9540,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Token_4__setstate_cython__(struct
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":381
+/* "petsi/_structure.py":396
  *     _transition_observers: "Set[Plugins.AbstractTransitionObserver]"
  * 
  *     def __init__(self, name: str, ordinal: int, priority: int, weight: float, distribution: "Callable[[], float]"):             # <<<<<<<<<<<<<<
@@ -9585,29 +9591,29 @@ static int __pyx_pw_5petsi_10_structure_10Transition_1__init__(PyObject *__pyx_v
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ordinal)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 1); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 1); __PYX_ERR(0, 396, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_priority)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 2); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 2); __PYX_ERR(0, 396, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_weight)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 3); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 3); __PYX_ERR(0, 396, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_distribution)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 4); __PYX_ERR(0, 381, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, 4); __PYX_ERR(0, 396, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 381, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 396, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 5) {
       goto __pyx_L5_argtuple_error;
@@ -9621,18 +9627,18 @@ static int __pyx_pw_5petsi_10_structure_10Transition_1__init__(PyObject *__pyx_v
     __pyx_v_name = ((PyObject*)values[0]);
     __pyx_v_ordinal = values[1];
     __pyx_v_priority = values[2];
-    __pyx_v_weight = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_weight == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 381, __pyx_L3_error)
+    __pyx_v_weight = __pyx_PyFloat_AsDouble(values[3]); if (unlikely((__pyx_v_weight == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 396, __pyx_L3_error)
     __pyx_v_distribution = values[4];
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 381, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 5, 5, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 396, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Transition.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 381, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 396, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_10Transition___init__(((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_self), __pyx_v_name, __pyx_v_ordinal, __pyx_v_priority, __pyx_v_weight, __pyx_v_distribution);
 
   /* function exit code */
@@ -9655,7 +9661,7 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":382
+  /* "petsi/_structure.py":397
  * 
  *     def __init__(self, name: str, ordinal: int, priority: int, weight: float, distribution: "Callable[[], float]"):
  *         self._name = name             # <<<<<<<<<<<<<<
@@ -9668,27 +9674,27 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
   __Pyx_DECREF(__pyx_v_self->_name);
   __pyx_v_self->_name = ((PyObject*)__pyx_v_name);
 
-  /* "petsi/_structure.py":383
+  /* "petsi/_structure.py":398
  *     def __init__(self, name: str, ordinal: int, priority: int, weight: float, distribution: "Callable[[], float]"):
  *         self._name = name
  *         self.ordinal = ordinal             # <<<<<<<<<<<<<<
  *         self.priority = priority
  *         self.weight = weight
  */
-  __pyx_t_1 = __Pyx_PyInt_As_unsigned_int(__pyx_v_ordinal); if (unlikely((__pyx_t_1 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 383, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_unsigned_int(__pyx_v_ordinal); if (unlikely((__pyx_t_1 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 398, __pyx_L1_error)
   __pyx_v_self->ordinal = __pyx_t_1;
 
-  /* "petsi/_structure.py":384
+  /* "petsi/_structure.py":399
  *         self._name = name
  *         self.ordinal = ordinal
  *         self.priority = priority             # <<<<<<<<<<<<<<
  *         self.weight = weight
  *         self._distribution = distribution
  */
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_priority); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 384, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_priority); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 399, __pyx_L1_error)
   __pyx_v_self->priority = __pyx_t_2;
 
-  /* "petsi/_structure.py":385
+  /* "petsi/_structure.py":400
  *         self.ordinal = ordinal
  *         self.priority = priority
  *         self.weight = weight             # <<<<<<<<<<<<<<
@@ -9697,7 +9703,7 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
  */
   __pyx_v_self->weight = __pyx_v_weight;
 
-  /* "petsi/_structure.py":386
+  /* "petsi/_structure.py":401
  *         self.priority = priority
  *         self.weight = weight
  *         self._distribution = distribution             # <<<<<<<<<<<<<<
@@ -9710,7 +9716,7 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
   __Pyx_DECREF(__pyx_v_self->_distribution);
   __pyx_v_self->_distribution = __pyx_v_distribution;
 
-  /* "petsi/_structure.py":387
+  /* "petsi/_structure.py":402
  *         self.weight = weight
  *         self._distribution = distribution
  *         self._disabled_arc_count = 0             # <<<<<<<<<<<<<<
@@ -9719,14 +9725,14 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
  */
   __pyx_v_self->_disabled_arc_count = 0;
 
-  /* "petsi/_structure.py":388
+  /* "petsi/_structure.py":403
  *         self._distribution = distribution
  *         self._disabled_arc_count = 0
  *         self._arcs = dict()             # <<<<<<<<<<<<<<
  *         self._transition_observers = set()
  * 
  */
-  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 388, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 403, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __Pyx_GOTREF(__pyx_v_self->_arcs);
@@ -9734,14 +9740,14 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
   __pyx_v_self->_arcs = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":389
+  /* "petsi/_structure.py":404
  *         self._disabled_arc_count = 0
  *         self._arcs = dict()
  *         self._transition_observers = set()             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_3 = PySet_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 389, __pyx_L1_error)
+  __pyx_t_3 = PySet_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 404, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_3);
   __Pyx_GOTREF(__pyx_v_self->_transition_observers);
@@ -9749,7 +9755,7 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
   __pyx_v_self->_transition_observers = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
 
-  /* "petsi/_structure.py":381
+  /* "petsi/_structure.py":396
  *     _transition_observers: "Set[Plugins.AbstractTransitionObserver]"
  * 
  *     def __init__(self, name: str, ordinal: int, priority: int, weight: float, distribution: "Callable[[], float]"):             # <<<<<<<<<<<<<<
@@ -9769,7 +9775,7 @@ static int __pyx_pf_5petsi_10_structure_10Transition___init__(struct __pyx_obj_5
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":392
+/* "petsi/_structure.py":407
  * 
  *     @property
  *     def name(self) -> str: return self._name             # <<<<<<<<<<<<<<
@@ -9806,7 +9812,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4name___get__(struct 
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":395
+/* "petsi/_structure.py":410
  * 
  *     @property
  *     def is_timed(self) -> bool:             # <<<<<<<<<<<<<<
@@ -9836,7 +9842,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8is_timed___get__(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":396
+  /* "petsi/_structure.py":411
  *     @property
  *     def is_timed(self) -> bool:
  *         return self.priority == 0             # <<<<<<<<<<<<<<
@@ -9844,13 +9850,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8is_timed___get__(str
  *     def accept(self, visitor: "PetsiVisitor"):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority == 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 396, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority == 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 411, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":395
+  /* "petsi/_structure.py":410
  * 
  *     @property
  *     def is_timed(self) -> bool:             # <<<<<<<<<<<<<<
@@ -9869,7 +9875,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8is_timed___get__(str
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":398
+/* "petsi/_structure.py":413
  *         return self.priority == 0
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
@@ -9908,14 +9914,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_2accept(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("accept", 0);
 
-  /* "petsi/_structure.py":399
+  /* "petsi/_structure.py":414
  * 
  *     def accept(self, visitor: "PetsiVisitor"):
  *         visitor.visit(self)             # <<<<<<<<<<<<<<
  * 
  *         for arc in self._arcs.values():
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 399, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -9929,12 +9935,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_2accept(struct __pyx_
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 399, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":401
+  /* "petsi/_structure.py":416
  *         visitor.visit(self)
  * 
  *         for arc in self._arcs.values():             # <<<<<<<<<<<<<<
@@ -9944,9 +9950,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_2accept(struct __pyx_
   __pyx_t_4 = 0;
   if (unlikely(__pyx_v_self->_arcs == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 401, __pyx_L1_error)
+    __PYX_ERR(0, 416, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_dict_iterator(__pyx_v_self->_arcs, 1, __pyx_n_s_values, (&__pyx_t_5), (&__pyx_t_6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 401, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_dict_iterator(__pyx_v_self->_arcs, 1, __pyx_n_s_values, (&__pyx_t_5), (&__pyx_t_6)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_2;
@@ -9954,19 +9960,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_2accept(struct __pyx_
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_5, &__pyx_t_4, NULL, &__pyx_t_2, NULL, __pyx_t_6);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 401, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 416, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF_SET(__pyx_v_arc, __pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "petsi/_structure.py":402
+    /* "petsi/_structure.py":417
  * 
  *         for arc in self._arcs.values():
  *             visitor.visit(arc)             # <<<<<<<<<<<<<<
  * 
  *     def get_duration(self):
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 402, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -9980,14 +9986,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_2accept(struct __pyx_
     }
     __pyx_t_2 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_8, __pyx_v_arc) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_arc);
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 402, __pyx_L1_error)
+    if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":398
+  /* "petsi/_structure.py":413
  *         return self.priority == 0
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
@@ -10012,7 +10018,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_2accept(struct __pyx_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":404
+/* "petsi/_structure.py":419
  *             visitor.visit(arc)
  * 
  *     def get_duration(self):             # <<<<<<<<<<<<<<
@@ -10032,7 +10038,7 @@ static double __pyx_f_5petsi_10_structure_10Transition_get_duration(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_duration", 0);
 
-  /* "petsi/_structure.py":405
+  /* "petsi/_structure.py":420
  * 
  *     def get_duration(self):
  *         return self._distribution()             # <<<<<<<<<<<<<<
@@ -10052,15 +10058,15 @@ static double __pyx_f_5petsi_10_structure_10Transition_get_duration(struct __pyx
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 405, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 405, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 420, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_4;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":404
+  /* "petsi/_structure.py":419
  *             visitor.visit(arc)
  * 
  *     def get_duration(self):             # <<<<<<<<<<<<<<
@@ -10080,7 +10086,7 @@ static double __pyx_f_5petsi_10_structure_10Transition_get_duration(struct __pyx
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":407
+/* "petsi/_structure.py":422
  *         return self._distribution()
  * 
  *     def attach_observer(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
@@ -10117,14 +10123,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("attach_observer", 0);
 
-  /* "petsi/_structure.py":408
+  /* "petsi/_structure.py":423
  * 
  *     def attach_observer(self, plugin: "Plugins.AbstractPlugin"):
  *         observer = plugin.observe_transition(self)             # <<<<<<<<<<<<<<
  * 
  *         if observer is not None:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_plugin, __pyx_n_s_observe_transition); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 408, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_plugin, __pyx_n_s_observe_transition); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -10138,13 +10144,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 408, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_observer = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":410
+  /* "petsi/_structure.py":425
  *         observer = plugin.observe_transition(self)
  * 
  *         if observer is not None:             # <<<<<<<<<<<<<<
@@ -10155,7 +10161,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "petsi/_structure.py":411
+    /* "petsi/_structure.py":426
  * 
  *         if observer is not None:
  *             self._transition_observers.add(observer)             # <<<<<<<<<<<<<<
@@ -10164,31 +10170,31 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
  */
     if (unlikely(__pyx_v_self->_transition_observers == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 411, __pyx_L1_error)
+      __PYX_ERR(0, 426, __pyx_L1_error)
     }
-    __pyx_t_6 = PySet_Add(__pyx_v_self->_transition_observers, __pyx_v_observer); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 411, __pyx_L1_error)
+    __pyx_t_6 = PySet_Add(__pyx_v_self->_transition_observers, __pyx_v_observer); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 426, __pyx_L1_error)
 
-    /* "petsi/_structure.py":413
+    /* "petsi/_structure.py":428
  *             self._transition_observers.add(observer)
  * 
  *             if self.is_enabled:             # <<<<<<<<<<<<<<
  *                 observer.got_enabled()
  *             else:
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 413, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 413, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 428, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (__pyx_t_5) {
 
-      /* "petsi/_structure.py":414
+      /* "petsi/_structure.py":429
  * 
  *             if self.is_enabled:
  *                 observer.got_enabled()             # <<<<<<<<<<<<<<
  *             else:
  *                 # if not self.is_timed:
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 414, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 429, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -10202,12 +10208,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
       }
       __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 414, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 429, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "petsi/_structure.py":413
+      /* "petsi/_structure.py":428
  *             self._transition_observers.add(observer)
  * 
  *             if self.is_enabled:             # <<<<<<<<<<<<<<
@@ -10217,7 +10223,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
       goto __pyx_L4;
     }
 
-    /* "petsi/_structure.py":417
+    /* "petsi/_structure.py":432
  *             else:
  *                 # if not self.is_timed:
  *                     observer.got_disabled()             # <<<<<<<<<<<<<<
@@ -10225,7 +10231,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
  *     def add_arc(self, arc: "Arc"):
  */
     /*else*/ {
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 432, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -10239,14 +10245,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
       }
       __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 417, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     }
     __pyx_L4:;
 
-    /* "petsi/_structure.py":410
+    /* "petsi/_structure.py":425
  *         observer = plugin.observe_transition(self)
  * 
  *         if observer is not None:             # <<<<<<<<<<<<<<
@@ -10255,7 +10261,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
  */
   }
 
-  /* "petsi/_structure.py":407
+  /* "petsi/_structure.py":422
  *         return self._distribution()
  * 
  *     def attach_observer(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
@@ -10279,7 +10285,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_4attach_observer(stru
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":419
+/* "petsi/_structure.py":434
  *                     observer.got_disabled()
  * 
  *     def add_arc(self, arc: "Arc"):             # <<<<<<<<<<<<<<
@@ -10297,7 +10303,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_10Transition_7add_arc(PyObject *__
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("add_arc (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arc), __pyx_ptype_5petsi_10_structure_Arc, 1, "arc", 0))) __PYX_ERR(0, 419, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arc), __pyx_ptype_5petsi_10_structure_Arc, 1, "arc", 0))) __PYX_ERR(0, 434, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_10Transition_6add_arc(((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Arc *)__pyx_v_arc));
 
   /* function exit code */
@@ -10324,32 +10330,32 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add_arc", 0);
 
-  /* "petsi/_structure.py":420
+  /* "petsi/_structure.py":435
  * 
  *     def add_arc(self, arc: "Arc"):
  *         if arc.name in self._arcs:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 420, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 435, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_self->_arcs == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 420, __pyx_L1_error)
+    __PYX_ERR(0, 435, __pyx_L1_error)
   }
-  __pyx_t_2 = (__Pyx_PyDict_ContainsTF(__pyx_t_1, __pyx_v_self->_arcs, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 420, __pyx_L1_error)
+  __pyx_t_2 = (__Pyx_PyDict_ContainsTF(__pyx_t_1, __pyx_v_self->_arcs, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 435, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_3 = (__pyx_t_2 != 0);
   if (unlikely(__pyx_t_3)) {
 
-    /* "petsi/_structure.py":421
+    /* "petsi/_structure.py":436
  *     def add_arc(self, arc: "Arc"):
  *         if arc.name in self._arcs:
  *             raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")             # <<<<<<<<<<<<<<
  * 
  *         self._arcs[arc.name] = arc
  */
-    __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_4 = 0;
     __pyx_t_5 = 127;
@@ -10357,9 +10363,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
     __pyx_t_4 += 18;
     __Pyx_GIVEREF(__pyx_kp_u_An_Arc_with_name);
     PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_An_Arc_with_name);
-    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc), __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc), __pyx_n_s_name); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_5;
@@ -10371,9 +10377,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
     __pyx_t_4 += 32;
     __Pyx_GIVEREF(__pyx_kp_u_already_exists_on_Transition);
     PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u_already_exists_on_Transition);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_5 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_5) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_5;
@@ -10385,17 +10391,17 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
     __pyx_t_4 += 1;
     __Pyx_GIVEREF(__pyx_kp_u_);
     PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_kp_u_);
-    __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyUnicode_Join(__pyx_t_1, 5, __pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 421, __pyx_L1_error)
+    __PYX_ERR(0, 436, __pyx_L1_error)
 
-    /* "petsi/_structure.py":420
+    /* "petsi/_structure.py":435
  * 
  *     def add_arc(self, arc: "Arc"):
  *         if arc.name in self._arcs:             # <<<<<<<<<<<<<<
@@ -10404,7 +10410,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
  */
   }
 
-  /* "petsi/_structure.py":423
+  /* "petsi/_structure.py":438
  *             raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")
  * 
  *         self._arcs[arc.name] = arc             # <<<<<<<<<<<<<<
@@ -10413,14 +10419,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
  */
   if (unlikely(__pyx_v_self->_arcs == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 423, __pyx_L1_error)
+    __PYX_ERR(0, 438, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 423, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (unlikely(PyDict_SetItem(__pyx_v_self->_arcs, __pyx_t_1, ((PyObject *)__pyx_v_arc)) < 0)) __PYX_ERR(0, 423, __pyx_L1_error)
+  if (unlikely(PyDict_SetItem(__pyx_v_self->_arcs, __pyx_t_1, ((PyObject *)__pyx_v_arc)) < 0)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":419
+  /* "petsi/_structure.py":434
  *                     observer.got_disabled()
  * 
  *     def add_arc(self, arc: "Arc"):             # <<<<<<<<<<<<<<
@@ -10443,7 +10449,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_6add_arc(struct __pyx
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":426
+/* "petsi/_structure.py":441
  * 
  *     @property
  *     def is_enabled(self) -> bool:             # <<<<<<<<<<<<<<
@@ -10473,7 +10479,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_10is_enabled___get__(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":427
+  /* "petsi/_structure.py":442
  *     @property
  *     def is_enabled(self) -> bool:
  *         return self._disabled_arc_count == 0             # <<<<<<<<<<<<<<
@@ -10481,13 +10487,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_10is_enabled___get__(
  *     @cython.locals(arc="Arc")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->_disabled_arc_count == 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 427, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->_disabled_arc_count == 0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":426
+  /* "petsi/_structure.py":441
  * 
  *     @property
  *     def is_enabled(self) -> bool:             # <<<<<<<<<<<<<<
@@ -10506,7 +10512,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_10is_enabled___get__(
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":430
+/* "petsi/_structure.py":445
  * 
  *     @cython.locals(arc="Arc")
  *     def fire(self):             # <<<<<<<<<<<<<<
@@ -10548,7 +10554,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fire", 0);
 
-  /* "petsi/_structure.py":431
+  /* "petsi/_structure.py":446
  *     @cython.locals(arc="Arc")
  *     def fire(self):
  *         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"             # <<<<<<<<<<<<<<
@@ -10557,12 +10563,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 431, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 446, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 431, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 446, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (unlikely(!__pyx_t_2)) {
-      __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 431, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 446, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __pyx_t_3 = 0;
       __pyx_t_4 = 127;
@@ -10570,7 +10576,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
       __pyx_t_3 += 12;
       __Pyx_GIVEREF(__pyx_kp_u_Transition);
       PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_u_Transition);
-      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_v_self->_name, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 431, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_FormatSimple(__pyx_v_self->_name, __pyx_empty_unicode); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 446, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_4 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) > __pyx_t_4) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_5) : __pyx_t_4;
       __pyx_t_3 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_5);
@@ -10581,17 +10587,17 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
       __pyx_t_3 += 33;
       __Pyx_GIVEREF(__pyx_kp_u_is_disabled_it_cannot_be_fired);
       PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_u_is_disabled_it_cannot_be_fired);
-      __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 3, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 431, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyUnicode_Join(__pyx_t_1, 3, __pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 446, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       PyErr_SetObject(PyExc_AssertionError, __pyx_t_5);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __PYX_ERR(0, 431, __pyx_L1_error)
+      __PYX_ERR(0, 446, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "petsi/_structure.py":432
+  /* "petsi/_structure.py":447
  *     def fire(self):
  *         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
  *         for transition_observer in self._transition_observers:             # <<<<<<<<<<<<<<
@@ -10599,7 +10605,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
  *         for arc in self._arcs.values():
  */
   __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_6), (&__pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 432, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_6), (&__pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 447, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5);
   __pyx_t_5 = __pyx_t_1;
@@ -10607,19 +10613,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
   while (1) {
     __pyx_t_8 = __Pyx_set_iter_next(__pyx_t_5, __pyx_t_6, &__pyx_t_3, &__pyx_t_1, __pyx_t_7);
     if (unlikely(__pyx_t_8 == 0)) break;
-    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 432, __pyx_L1_error)
+    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 447, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_transition_observer, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":433
+    /* "petsi/_structure.py":448
  *         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
  *         for transition_observer in self._transition_observers:
  *             transition_observer.before_firing()             # <<<<<<<<<<<<<<
  *         for arc in self._arcs.values():
  *             arc.flow()
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_before_firing); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 433, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_before_firing); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 448, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_10 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -10633,14 +10639,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
     }
     __pyx_t_1 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 433, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 448, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":434
+  /* "petsi/_structure.py":449
  *         for transition_observer in self._transition_observers:
  *             transition_observer.before_firing()
  *         for arc in self._arcs.values():             # <<<<<<<<<<<<<<
@@ -10650,9 +10656,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
   __pyx_t_6 = 0;
   if (unlikely(__pyx_v_self->_arcs == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 434, __pyx_L1_error)
+    __PYX_ERR(0, 449, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_dict_iterator(__pyx_v_self->_arcs, 1, __pyx_n_s_values, (&__pyx_t_3), (&__pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_dict_iterator(__pyx_v_self->_arcs, 1, __pyx_n_s_values, (&__pyx_t_3), (&__pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 449, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5);
   __pyx_t_5 = __pyx_t_1;
@@ -10660,26 +10666,26 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
   while (1) {
     __pyx_t_8 = __Pyx_dict_iter_next(__pyx_t_5, __pyx_t_3, &__pyx_t_6, NULL, &__pyx_t_1, NULL, __pyx_t_7);
     if (unlikely(__pyx_t_8 == 0)) break;
-    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 434, __pyx_L1_error)
+    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 449, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Arc))))) __PYX_ERR(0, 434, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Arc))))) __PYX_ERR(0, 449, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_arc, ((struct __pyx_obj_5petsi_10_structure_Arc *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":435
+    /* "petsi/_structure.py":450
  *             transition_observer.before_firing()
  *         for arc in self._arcs.values():
  *             arc.flow()             # <<<<<<<<<<<<<<
  *         for transition_observer in self._transition_observers:
  *             transition_observer.after_firing()
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Arc *)__pyx_v_arc->__pyx_vtab)->flow(__pyx_v_arc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 435, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Arc *)__pyx_v_arc->__pyx_vtab)->flow(__pyx_v_arc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 450, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":436
+  /* "petsi/_structure.py":451
  *         for arc in self._arcs.values():
  *             arc.flow()
  *         for transition_observer in self._transition_observers:             # <<<<<<<<<<<<<<
@@ -10687,7 +10693,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
  * 
  */
   __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_6), (&__pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 436, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_6), (&__pyx_t_7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5);
   __pyx_t_5 = __pyx_t_1;
@@ -10695,19 +10701,19 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
   while (1) {
     __pyx_t_8 = __Pyx_set_iter_next(__pyx_t_5, __pyx_t_6, &__pyx_t_3, &__pyx_t_1, __pyx_t_7);
     if (unlikely(__pyx_t_8 == 0)) break;
-    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 436, __pyx_L1_error)
+    if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 451, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_XDECREF_SET(__pyx_v_transition_observer, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":437
+    /* "petsi/_structure.py":452
  *             arc.flow()
  *         for transition_observer in self._transition_observers:
  *             transition_observer.after_firing()             # <<<<<<<<<<<<<<
  * 
  *     @cython.cfunc
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_after_firing); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 437, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_after_firing); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_10 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_9))) {
@@ -10721,14 +10727,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
     }
     __pyx_t_1 = (__pyx_t_10) ? __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_10) : __Pyx_PyObject_CallNoArg(__pyx_t_9);
     __Pyx_XDECREF(__pyx_t_10); __pyx_t_10 = 0;
-    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 437, __pyx_L1_error)
+    if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 452, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":430
+  /* "petsi/_structure.py":445
  * 
  *     @cython.locals(arc="Arc")
  *     def fire(self):             # <<<<<<<<<<<<<<
@@ -10754,7 +10760,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_8fire(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":441
+/* "petsi/_structure.py":456
  *     @cython.cfunc
  *     @cython.locals(old_disabled_arc_count=int)
  *     def increment_disabled_arc_count(self):             # <<<<<<<<<<<<<<
@@ -10781,7 +10787,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("increment_disabled_arc_count", 0);
 
-  /* "petsi/_structure.py":442
+  /* "petsi/_structure.py":457
  *     @cython.locals(old_disabled_arc_count=int)
  *     def increment_disabled_arc_count(self):
  *         old_disabled_arc_count = self._disabled_arc_count             # <<<<<<<<<<<<<<
@@ -10791,7 +10797,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
   __pyx_t_1 = __pyx_v_self->_disabled_arc_count;
   __pyx_v_old_disabled_arc_count = __pyx_t_1;
 
-  /* "petsi/_structure.py":443
+  /* "petsi/_structure.py":458
  *     def increment_disabled_arc_count(self):
  *         old_disabled_arc_count = self._disabled_arc_count
  *         self._disabled_arc_count += 1             # <<<<<<<<<<<<<<
@@ -10800,7 +10806,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
  */
   __pyx_v_self->_disabled_arc_count = (__pyx_v_self->_disabled_arc_count + 1);
 
-  /* "petsi/_structure.py":445
+  /* "petsi/_structure.py":460
  *         self._disabled_arc_count += 1
  * 
  *         if old_disabled_arc_count == 0:             # <<<<<<<<<<<<<<
@@ -10810,7 +10816,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
   __pyx_t_2 = ((__pyx_v_old_disabled_arc_count == 0) != 0);
   if (__pyx_t_2) {
 
-    /* "petsi/_structure.py":446
+    /* "petsi/_structure.py":461
  * 
  *         if old_disabled_arc_count == 0:
  *             for transition_observer in self._transition_observers:             # <<<<<<<<<<<<<<
@@ -10818,7 +10824,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
  * 
  */
     __pyx_t_4 = 0;
-    __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_5), (&__pyx_t_1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 446, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_5), (&__pyx_t_1)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 461, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_3);
     __pyx_t_3 = __pyx_t_6;
@@ -10826,19 +10832,19 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
     while (1) {
       __pyx_t_7 = __Pyx_set_iter_next(__pyx_t_3, __pyx_t_5, &__pyx_t_4, &__pyx_t_6, __pyx_t_1);
       if (unlikely(__pyx_t_7 == 0)) break;
-      if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 446, __pyx_L1_error)
+      if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 461, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_XDECREF_SET(__pyx_v_transition_observer, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "petsi/_structure.py":447
+      /* "petsi/_structure.py":462
  *         if old_disabled_arc_count == 0:
  *             for transition_observer in self._transition_observers:
  *                 transition_observer.got_disabled()             # <<<<<<<<<<<<<<
  * 
  *     @cython.cfunc
  */
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 447, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 462, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -10852,14 +10858,14 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
       }
       __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 447, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 462, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "petsi/_structure.py":445
+    /* "petsi/_structure.py":460
  *         self._disabled_arc_count += 1
  * 
  *         if old_disabled_arc_count == 0:             # <<<<<<<<<<<<<<
@@ -10868,7 +10874,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
  */
   }
 
-  /* "petsi/_structure.py":441
+  /* "petsi/_structure.py":456
  *     @cython.cfunc
  *     @cython.locals(old_disabled_arc_count=int)
  *     def increment_disabled_arc_count(self):             # <<<<<<<<<<<<<<
@@ -10893,7 +10899,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":450
+/* "petsi/_structure.py":465
  * 
  *     @cython.cfunc
  *     def decrement_disabled_arc_count(self):             # <<<<<<<<<<<<<<
@@ -10919,7 +10925,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("decrement_disabled_arc_count", 0);
 
-  /* "petsi/_structure.py":451
+  /* "petsi/_structure.py":466
  *     @cython.cfunc
  *     def decrement_disabled_arc_count(self):
  *         self._disabled_arc_count -= 1             # <<<<<<<<<<<<<<
@@ -10928,7 +10934,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
  */
   __pyx_v_self->_disabled_arc_count = (__pyx_v_self->_disabled_arc_count - 1);
 
-  /* "petsi/_structure.py":453
+  /* "petsi/_structure.py":468
  *         self._disabled_arc_count -= 1
  * 
  *         if self._disabled_arc_count == 0:             # <<<<<<<<<<<<<<
@@ -10938,7 +10944,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
   __pyx_t_1 = ((__pyx_v_self->_disabled_arc_count == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "petsi/_structure.py":454
+    /* "petsi/_structure.py":469
  * 
  *         if self._disabled_arc_count == 0:
  *             for transition_observer in self._transition_observers:             # <<<<<<<<<<<<<<
@@ -10946,7 +10952,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
  * 
  */
     __pyx_t_3 = 0;
-    __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_4), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 454, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_transition_observers, 1, (&__pyx_t_4), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 469, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_2);
     __pyx_t_2 = __pyx_t_6;
@@ -10954,19 +10960,19 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
     while (1) {
       __pyx_t_7 = __Pyx_set_iter_next(__pyx_t_2, __pyx_t_4, &__pyx_t_3, &__pyx_t_6, __pyx_t_5);
       if (unlikely(__pyx_t_7 == 0)) break;
-      if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 454, __pyx_L1_error)
+      if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 469, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_XDECREF_SET(__pyx_v_transition_observer, __pyx_t_6);
       __pyx_t_6 = 0;
 
-      /* "petsi/_structure.py":455
+      /* "petsi/_structure.py":470
  *         if self._disabled_arc_count == 0:
  *             for transition_observer in self._transition_observers:
  *                 transition_observer.got_enabled()             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 455, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition_observer, __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 470, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __pyx_t_9 = NULL;
       if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -10980,14 +10986,14 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
       }
       __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_CallOneArg(__pyx_t_8, __pyx_t_9) : __Pyx_PyObject_CallNoArg(__pyx_t_8);
       __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 455, __pyx_L1_error)
+      if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 470, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_structure.py":453
+    /* "petsi/_structure.py":468
  *         self._disabled_arc_count -= 1
  * 
  *         if self._disabled_arc_count == 0:             # <<<<<<<<<<<<<<
@@ -10996,7 +11002,7 @@ static PyObject *__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc
  */
   }
 
-  /* "petsi/_structure.py":450
+  /* "petsi/_structure.py":465
  * 
  *     @cython.cfunc
  *     def decrement_disabled_arc_count(self):             # <<<<<<<<<<<<<<
@@ -11589,7 +11595,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_10Transition_12__setstate_cython__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":461
+/* "petsi/_structure.py":476
  *     @property
  *     @abstractmethod
  *     def is_true(self) -> bool: pass             # <<<<<<<<<<<<<<
@@ -11623,7 +11629,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_9Condition_is_true(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":468
+/* "petsi/_structure.py":483
  *     new_value: "Any"
  * 
  *     def __init__(self, key: str, new_value: "Any"):             # <<<<<<<<<<<<<<
@@ -11669,17 +11675,17 @@ static PyObject *__pyx_pw_5petsi_10_structure_8UpdateOp_1__init__(PyObject *__py
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_key)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 468, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 483, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_new_value)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 468, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 483, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 468, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 483, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -11694,13 +11700,13 @@ static PyObject *__pyx_pw_5petsi_10_structure_8UpdateOp_1__init__(PyObject *__py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 468, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 483, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.UpdateOp.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyUnicode_Type), 1, "key", 1))) __PYX_ERR(0, 468, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_key), (&PyUnicode_Type), 1, "key", 1))) __PYX_ERR(0, 483, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_8UpdateOp___init__(__pyx_self, __pyx_v_self, __pyx_v_key, __pyx_v_new_value);
 
   /* function exit code */
@@ -11720,25 +11726,25 @@ static PyObject *__pyx_pf_5petsi_10_structure_8UpdateOp___init__(CYTHON_UNUSED P
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":469
+  /* "petsi/_structure.py":484
  * 
  *     def __init__(self, key: str, new_value: "Any"):
  *         self.key = key             # <<<<<<<<<<<<<<
  *         self.new_value = new_value
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_key, __pyx_v_key) < 0) __PYX_ERR(0, 469, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_key, __pyx_v_key) < 0) __PYX_ERR(0, 484, __pyx_L1_error)
 
-  /* "petsi/_structure.py":470
+  /* "petsi/_structure.py":485
  *     def __init__(self, key: str, new_value: "Any"):
  *         self.key = key
  *         self.new_value = new_value             # <<<<<<<<<<<<<<
  * 
  *     def apply(self, t: Token): pass
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_new_value, __pyx_v_new_value) < 0) __PYX_ERR(0, 470, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_new_value, __pyx_v_new_value) < 0) __PYX_ERR(0, 485, __pyx_L1_error)
 
-  /* "petsi/_structure.py":468
+  /* "petsi/_structure.py":483
  *     new_value: "Any"
  * 
  *     def __init__(self, key: str, new_value: "Any"):             # <<<<<<<<<<<<<<
@@ -11758,7 +11764,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_8UpdateOp___init__(CYTHON_UNUSED P
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":472
+/* "petsi/_structure.py":487
  *         self.new_value = new_value
  * 
  *     def apply(self, t: Token): pass             # <<<<<<<<<<<<<<
@@ -11801,11 +11807,11 @@ static PyObject *__pyx_pw_5petsi_10_structure_8UpdateOp_3apply(PyObject *__pyx_s
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_t)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("apply", 1, 2, 2, 1); __PYX_ERR(0, 472, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("apply", 1, 2, 2, 1); __PYX_ERR(0, 487, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "apply") < 0)) __PYX_ERR(0, 472, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "apply") < 0)) __PYX_ERR(0, 487, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -11818,13 +11824,13 @@ static PyObject *__pyx_pw_5petsi_10_structure_8UpdateOp_3apply(PyObject *__pyx_s
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("apply", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 472, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("apply", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 487, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.UpdateOp.apply", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_t), __pyx_ptype_5petsi_10_structure_Token, 1, "t", 0))) __PYX_ERR(0, 472, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_t), __pyx_ptype_5petsi_10_structure_Token, 1, "t", 0))) __PYX_ERR(0, 487, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_8UpdateOp_2apply(__pyx_self, __pyx_v_self, __pyx_v_t);
 
   /* function exit code */
@@ -11848,7 +11854,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_8UpdateOp_2apply(CYTHON_UNUSED PyO
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":485
+/* "petsi/_structure.py":500
  *     _output_place: "Place" = cython.declare("Place")
  * 
  *     def __init__(self, name: str, transition: Transition, **kwargs):             # <<<<<<<<<<<<<<
@@ -11893,11 +11899,11 @@ static int __pyx_pw_5petsi_10_structure_3Arc_1__init__(PyObject *__pyx_v_self, P
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 485, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 500, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 485, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 500, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -11910,15 +11916,15 @@ static int __pyx_pw_5petsi_10_structure_3Arc_1__init__(PyObject *__pyx_v_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 485, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 500, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("petsi._structure.Arc.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 485, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 485, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 500, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 500, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_3Arc___init__(((struct __pyx_obj_5petsi_10_structure_Arc *)__pyx_v_self), __pyx_v_name, __pyx_v_transition, __pyx_v_kwargs);
 
   /* function exit code */
@@ -11942,14 +11948,14 @@ static int __pyx_pf_5petsi_10_structure_3Arc___init__(struct __pyx_obj_5petsi_10
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":486
+  /* "petsi/_structure.py":501
  * 
  *     def __init__(self, name: str, transition: Transition, **kwargs):
  *         super().__init__(**kwargs)             # <<<<<<<<<<<<<<
  *         self._name = name
  *         self._transition = transition
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Arc));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Arc));
@@ -11957,18 +11963,18 @@ static int __pyx_pf_5petsi_10_structure_3Arc___init__(struct __pyx_obj_5petsi_10
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 486, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 501, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":487
+  /* "petsi/_structure.py":502
  *     def __init__(self, name: str, transition: Transition, **kwargs):
  *         super().__init__(**kwargs)
  *         self._name = name             # <<<<<<<<<<<<<<
@@ -11981,7 +11987,7 @@ static int __pyx_pf_5petsi_10_structure_3Arc___init__(struct __pyx_obj_5petsi_10
   __Pyx_DECREF(__pyx_v_self->_name);
   __pyx_v_self->_name = __pyx_v_name;
 
-  /* "petsi/_structure.py":488
+  /* "petsi/_structure.py":503
  *         super().__init__(**kwargs)
  *         self._name = name
  *         self._transition = transition             # <<<<<<<<<<<<<<
@@ -11994,14 +12000,14 @@ static int __pyx_pf_5petsi_10_structure_3Arc___init__(struct __pyx_obj_5petsi_10
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_transition));
   __pyx_v_self->_transition = __pyx_v_transition;
 
-  /* "petsi/_structure.py":489
+  /* "petsi/_structure.py":504
  *         self._name = name
  *         self._transition = transition
  *         self._transition.add_arc(self)             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->_transition), __pyx_n_s_add_arc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 489, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->_transition), __pyx_n_s_add_arc); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 504, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_1))) {
@@ -12015,12 +12021,12 @@ static int __pyx_pf_5petsi_10_structure_3Arc___init__(struct __pyx_obj_5petsi_10
   }
   __pyx_t_2 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_1, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 489, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 504, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":485
+  /* "petsi/_structure.py":500
  *     _output_place: "Place" = cython.declare("Place")
  * 
  *     def __init__(self, name: str, transition: Transition, **kwargs):             # <<<<<<<<<<<<<<
@@ -12042,7 +12048,7 @@ static int __pyx_pf_5petsi_10_structure_3Arc___init__(struct __pyx_obj_5petsi_10
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":492
+/* "petsi/_structure.py":507
  * 
  *     @property
  *     def name(self): return self._name             # <<<<<<<<<<<<<<
@@ -12079,7 +12085,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_4name___get__(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":495
+/* "petsi/_structure.py":510
  * 
  *     @property
  *     def transition(self):return self._transition             # <<<<<<<<<<<<<<
@@ -12116,7 +12122,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_10transition___get__(struct _
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":498
+/* "petsi/_structure.py":513
  * 
  *     @property
  *     def typ(self) -> TokenType:             # <<<<<<<<<<<<<<
@@ -12145,7 +12151,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_3typ___get__(CYTHON_UNUSED st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":499
+  /* "petsi/_structure.py":514
  *     @property
  *     def typ(self) -> TokenType:
  *         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -12153,9 +12159,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_3typ___get__(CYTHON_UNUSED st
  *     def accept(self, visitor: "PetsiVisitor"):
  */
   __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-  __PYX_ERR(0, 499, __pyx_L1_error)
+  __PYX_ERR(0, 514, __pyx_L1_error)
 
-  /* "petsi/_structure.py":498
+  /* "petsi/_structure.py":513
  * 
  *     @property
  *     def typ(self) -> TokenType:             # <<<<<<<<<<<<<<
@@ -12172,7 +12178,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_3typ___get__(CYTHON_UNUSED st
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":501
+/* "petsi/_structure.py":516
  *         raise NotImplementedError
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
@@ -12205,14 +12211,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_2accept(struct __pyx_obj_5pet
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("accept", 0);
 
-  /* "petsi/_structure.py":502
+  /* "petsi/_structure.py":517
  * 
  *     def accept(self, visitor: "PetsiVisitor"):
  *         visitor.visit(self)             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 502, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -12226,12 +12232,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_2accept(struct __pyx_obj_5pet
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 502, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 517, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":501
+  /* "petsi/_structure.py":516
  *         raise NotImplementedError
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
@@ -12254,7 +12260,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_2accept(struct __pyx_obj_5pet
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":505
+/* "petsi/_structure.py":520
  * 
  *     @property
  *     def is_enabled(self) -> bool:             # <<<<<<<<<<<<<<
@@ -12283,7 +12289,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_10is_enabled___get__(CYTHON_U
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":506
+  /* "petsi/_structure.py":521
  *     @property
  *     def is_enabled(self) -> bool:
  *         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -12291,9 +12297,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_10is_enabled___get__(CYTHON_U
  *     @cython.cfunc
  */
   __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-  __PYX_ERR(0, 506, __pyx_L1_error)
+  __PYX_ERR(0, 521, __pyx_L1_error)
 
-  /* "petsi/_structure.py":505
+  /* "petsi/_structure.py":520
  * 
  *     @property
  *     def is_enabled(self) -> bool:             # <<<<<<<<<<<<<<
@@ -12310,7 +12316,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_10is_enabled___get__(CYTHON_U
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":509
+/* "petsi/_structure.py":524
  * 
  *     @cython.cfunc
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -12326,7 +12332,7 @@ static PyObject *__pyx_f_5petsi_10_structure_3Arc_flow(CYTHON_UNUSED struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("flow", 0);
 
-  /* "petsi/_structure.py":511
+  /* "petsi/_structure.py":526
  *     def flow(self):
  *         """ Move the token among places, according to the type of the arc"""
  *         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -12334,9 +12340,9 @@ static PyObject *__pyx_f_5petsi_10_structure_3Arc_flow(CYTHON_UNUSED struct __py
  * 
  */
   __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-  __PYX_ERR(0, 511, __pyx_L1_error)
+  __PYX_ERR(0, 526, __pyx_L1_error)
 
-  /* "petsi/_structure.py":509
+  /* "petsi/_structure.py":524
  * 
  *     @cython.cfunc
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -12682,7 +12688,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_3Arc_6__setstate_cython__(struct _
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":529
+/* "petsi/_structure.py":546
  *     _is_enabled: bool = cython.declare(cython.bint)
  * 
  *     def __init__(self, input_place: "Place", transition: Transition, **kwargs):             # <<<<<<<<<<<<<<
@@ -12727,11 +12733,11 @@ static int __pyx_pw_5petsi_10_structure_16PresenceObserver_1__init__(PyObject *_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 529, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, 1); __PYX_ERR(0, 546, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 529, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 546, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -12744,15 +12750,15 @@ static int __pyx_pw_5petsi_10_structure_16PresenceObserver_1__init__(PyObject *_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 529, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 546, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("petsi._structure.PresenceObserver.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place), __pyx_ptype_5petsi_10_structure_Place, 1, "input_place", 0))) __PYX_ERR(0, 529, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 529, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place), __pyx_ptype_5petsi_10_structure_Place, 1, "input_place", 0))) __PYX_ERR(0, 546, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 546, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_v_self), __pyx_v_input_place, __pyx_v_transition, __pyx_v_kwargs);
 
   /* function exit code */
@@ -12779,16 +12785,16 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":530
+  /* "petsi/_structure.py":547
  * 
  *     def __init__(self, input_place: "Place", transition: Transition, **kwargs):
  *         input_place.accept_arc(self, transition.is_timed)             # <<<<<<<<<<<<<<
  *         super().__init__(transition=transition, **kwargs)
  *         self._input_place = input_place
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_accept_arc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 530, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_accept_arc); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_transition), __pyx_n_s_is_timed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 530, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_transition), __pyx_n_s_is_timed); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 547, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   __pyx_t_5 = 0;
@@ -12805,7 +12811,7 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, ((PyObject *)__pyx_v_self), __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -12814,14 +12820,14 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
     PyObject *__pyx_temp[3] = {__pyx_t_4, ((PyObject *)__pyx_v_self), __pyx_t_3};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_5, 2+__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else
   #endif
   {
-    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 530, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2+__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 547, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     if (__pyx_t_4) {
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -12832,21 +12838,21 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_6, 1+__pyx_t_5, __pyx_t_3);
     __pyx_t_3 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 530, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 547, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":531
+  /* "petsi/_structure.py":548
  *     def __init__(self, input_place: "Place", transition: Transition, **kwargs):
  *         input_place.accept_arc(self, transition.is_timed)
  *         super().__init__(transition=transition, **kwargs)             # <<<<<<<<<<<<<<
  *         self._input_place = input_place
  *         self._is_enabled = True
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
@@ -12854,25 +12860,25 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 531, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_transition, ((PyObject *)__pyx_v_transition)) < 0) __PYX_ERR(0, 531, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_6, __pyx_n_s_transition, ((PyObject *)__pyx_v_transition)) < 0) __PYX_ERR(0, 548, __pyx_L1_error)
   __pyx_t_2 = __pyx_t_6;
   __pyx_t_6 = 0;
-  if (__Pyx_MergeKeywords(__pyx_t_2, __pyx_v_kwargs) < 0) __PYX_ERR(0, 531, __pyx_L1_error)
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 531, __pyx_L1_error)
+  if (__Pyx_MergeKeywords(__pyx_t_2, __pyx_v_kwargs) < 0) __PYX_ERR(0, 548, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_t_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 548, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":532
+  /* "petsi/_structure.py":549
  *         input_place.accept_arc(self, transition.is_timed)
  *         super().__init__(transition=transition, **kwargs)
  *         self._input_place = input_place             # <<<<<<<<<<<<<<
@@ -12885,7 +12891,7 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   __Pyx_DECREF(((PyObject *)__pyx_v_self->__pyx_base._input_place));
   __pyx_v_self->__pyx_base._input_place = __pyx_v_input_place;
 
-  /* "petsi/_structure.py":533
+  /* "petsi/_structure.py":550
  *         super().__init__(transition=transition, **kwargs)
  *         self._input_place = input_place
  *         self._is_enabled = True             # <<<<<<<<<<<<<<
@@ -12894,14 +12900,14 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
  */
   __pyx_v_self->_is_enabled = 1;
 
-  /* "petsi/_structure.py":534
+  /* "petsi/_structure.py":551
  *         self._input_place = input_place
  *         self._is_enabled = True
  *         self._input_place.attach_presence_observer(self)             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._input_place), __pyx_n_s_attach_presence_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 534, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._input_place), __pyx_n_s_attach_presence_observer); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -12915,12 +12921,12 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   }
   __pyx_t_6 = (__pyx_t_1) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_1, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 534, __pyx_L1_error)
+  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 551, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":529
+  /* "petsi/_structure.py":546
  *     _is_enabled: bool = cython.declare(cython.bint)
  * 
  *     def __init__(self, input_place: "Place", transition: Transition, **kwargs):             # <<<<<<<<<<<<<<
@@ -12944,7 +12950,7 @@ static int __pyx_pf_5petsi_10_structure_16PresenceObserver___init__(struct __pyx
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":537
+/* "petsi/_structure.py":554
  * 
  *     @property
  *     def typ(self) -> TokenType: return self._input_place.typ             # <<<<<<<<<<<<<<
@@ -12974,7 +12980,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_16PresenceObserver_3typ___get__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._input_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 537, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._input_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 554, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -12991,7 +12997,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_16PresenceObserver_3typ___get__(st
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":540
+/* "petsi/_structure.py":557
  * 
  *     @property
  *     def input_place(self): return self._input_place             # <<<<<<<<<<<<<<
@@ -13028,7 +13034,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_16PresenceObserver_11input_place__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":543
+/* "petsi/_structure.py":560
  * 
  *     @property
  *     def is_enabled(self) -> bool: return self._is_enabled             # <<<<<<<<<<<<<<
@@ -13058,7 +13064,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_16PresenceObserver_10is_enabled___
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 543, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 560, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -13075,7 +13081,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_16PresenceObserver_10is_enabled___
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":547
+/* "petsi/_structure.py":564
  *     @cython.cfunc
  *     @cython.locals(was_enabled=cython.bint)
  *     def report_no_token(self):             # <<<<<<<<<<<<<<
@@ -13094,7 +13100,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_no_token", 0);
 
-  /* "petsi/_structure.py":548
+  /* "petsi/_structure.py":565
  *     @cython.locals(was_enabled=cython.bint)
  *     def report_no_token(self):
  *         was_enabled = self._is_enabled             # <<<<<<<<<<<<<<
@@ -13104,7 +13110,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token(
   __pyx_t_1 = __pyx_v_self->_is_enabled;
   __pyx_v_was_enabled = __pyx_t_1;
 
-  /* "petsi/_structure.py":549
+  /* "petsi/_structure.py":566
  *     def report_no_token(self):
  *         was_enabled = self._is_enabled
  *         self._is_enabled = False             # <<<<<<<<<<<<<<
@@ -13113,7 +13119,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token(
  */
   __pyx_v_self->_is_enabled = 0;
 
-  /* "petsi/_structure.py":551
+  /* "petsi/_structure.py":568
  *         self._is_enabled = False
  * 
  *         if was_enabled:             # <<<<<<<<<<<<<<
@@ -13123,18 +13129,18 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token(
   __pyx_t_1 = (__pyx_v_was_enabled != 0);
   if (__pyx_t_1) {
 
-    /* "petsi/_structure.py":552
+    /* "petsi/_structure.py":569
  * 
  *         if was_enabled:
  *             self._transition.increment_disabled_arc_count()             # <<<<<<<<<<<<<<
  * 
  *     @cython.cfunc
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_self->__pyx_base._transition->__pyx_vtab)->increment_disabled_arc_count(__pyx_v_self->__pyx_base._transition); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 552, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_self->__pyx_base._transition->__pyx_vtab)->increment_disabled_arc_count(__pyx_v_self->__pyx_base._transition); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 569, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_structure.py":551
+    /* "petsi/_structure.py":568
  *         self._is_enabled = False
  * 
  *         if was_enabled:             # <<<<<<<<<<<<<<
@@ -13143,7 +13149,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token(
  */
   }
 
-  /* "petsi/_structure.py":547
+  /* "petsi/_structure.py":564
  *     @cython.cfunc
  *     @cython.locals(was_enabled=cython.bint)
  *     def report_no_token(self):             # <<<<<<<<<<<<<<
@@ -13164,7 +13170,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token(
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":556
+/* "petsi/_structure.py":573
  *     @cython.cfunc
  *     @cython.locals(was_enabled=cython.bint)
  *     def report_some_token(self):             # <<<<<<<<<<<<<<
@@ -13183,7 +13189,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_some_toke
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_some_token", 0);
 
-  /* "petsi/_structure.py":557
+  /* "petsi/_structure.py":574
  *     @cython.locals(was_enabled=cython.bint)
  *     def report_some_token(self):
  *         was_enabled = self._is_enabled             # <<<<<<<<<<<<<<
@@ -13193,7 +13199,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_some_toke
   __pyx_t_1 = __pyx_v_self->_is_enabled;
   __pyx_v_was_enabled = __pyx_t_1;
 
-  /* "petsi/_structure.py":558
+  /* "petsi/_structure.py":575
  *     def report_some_token(self):
  *         was_enabled = self._is_enabled
  *         self._is_enabled = True             # <<<<<<<<<<<<<<
@@ -13202,7 +13208,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_some_toke
  */
   __pyx_v_self->_is_enabled = 1;
 
-  /* "petsi/_structure.py":560
+  /* "petsi/_structure.py":577
  *         self._is_enabled = True
  * 
  *         if not was_enabled:             # <<<<<<<<<<<<<<
@@ -13212,18 +13218,18 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_some_toke
   __pyx_t_1 = ((!(__pyx_v_was_enabled != 0)) != 0);
   if (__pyx_t_1) {
 
-    /* "petsi/_structure.py":561
+    /* "petsi/_structure.py":578
  * 
  *         if not was_enabled:
  *             self._transition.decrement_disabled_arc_count()             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_self->__pyx_base._transition->__pyx_vtab)->decrement_disabled_arc_count(__pyx_v_self->__pyx_base._transition); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 561, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_self->__pyx_base._transition->__pyx_vtab)->decrement_disabled_arc_count(__pyx_v_self->__pyx_base._transition); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 578, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_structure.py":560
+    /* "petsi/_structure.py":577
  *         self._is_enabled = True
  * 
  *         if not was_enabled:             # <<<<<<<<<<<<<<
@@ -13232,7 +13238,7 @@ static PyObject *__pyx_f_5petsi_10_structure_16PresenceObserver_report_some_toke
  */
   }
 
-  /* "petsi/_structure.py":556
+  /* "petsi/_structure.py":573
  *     @cython.cfunc
  *     @cython.locals(was_enabled=cython.bint)
  *     def report_some_token(self):             # <<<<<<<<<<<<<<
@@ -13587,7 +13593,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_16PresenceObserver_4__setstate_cyt
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":571
+/* "petsi/_structure.py":588
  * class ConstructorArc(Arc, ):  # TokenPlacer
  * 
  *     def __init__(self, output_place: "Place", **kwargs):             # <<<<<<<<<<<<<<
@@ -13627,7 +13633,7 @@ static int __pyx_pw_5petsi_10_structure_14ConstructorArc_1__init__(PyObject *__p
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 571, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 588, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -13638,14 +13644,14 @@ static int __pyx_pw_5petsi_10_structure_14ConstructorArc_1__init__(PyObject *__p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 571, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 588, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("petsi._structure.ConstructorArc.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place), __pyx_ptype_5petsi_10_structure_Place, 1, "output_place", 0))) __PYX_ERR(0, 571, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place), __pyx_ptype_5petsi_10_structure_Place, 1, "output_place", 0))) __PYX_ERR(0, 588, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_14ConstructorArc___init__(((struct __pyx_obj_5petsi_10_structure_ConstructorArc *)__pyx_v_self), __pyx_v_output_place, __pyx_v_kwargs);
 
   /* function exit code */
@@ -13668,14 +13674,14 @@ static int __pyx_pf_5petsi_10_structure_14ConstructorArc___init__(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":572
+  /* "petsi/_structure.py":589
  * 
  *     def __init__(self, output_place: "Place", **kwargs):
  *         super().__init__(**kwargs)             # <<<<<<<<<<<<<<
  *         self._output_place = output_place
  * 
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 589, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc));
@@ -13683,18 +13689,18 @@ static int __pyx_pf_5petsi_10_structure_14ConstructorArc___init__(struct __pyx_o
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 589, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 572, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 589, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 572, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 589, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":573
+  /* "petsi/_structure.py":590
  *     def __init__(self, output_place: "Place", **kwargs):
  *         super().__init__(**kwargs)
  *         self._output_place = output_place             # <<<<<<<<<<<<<<
@@ -13707,7 +13713,7 @@ static int __pyx_pf_5petsi_10_structure_14ConstructorArc___init__(struct __pyx_o
   __Pyx_DECREF(((PyObject *)__pyx_v_self->__pyx_base._output_place));
   __pyx_v_self->__pyx_base._output_place = __pyx_v_output_place;
 
-  /* "petsi/_structure.py":571
+  /* "petsi/_structure.py":588
  * class ConstructorArc(Arc, ):  # TokenPlacer
  * 
  *     def __init__(self, output_place: "Place", **kwargs):             # <<<<<<<<<<<<<<
@@ -13728,7 +13734,7 @@ static int __pyx_pf_5petsi_10_structure_14ConstructorArc___init__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":576
+/* "petsi/_structure.py":593
  * 
  *     @property
  *     def output_place(self): return self._output_place             # <<<<<<<<<<<<<<
@@ -13765,7 +13771,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_14ConstructorArc_12output_place___
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":580
+/* "petsi/_structure.py":597
  *     @cython.cfunc
  *     @cython.locals(token=Token)
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -13784,33 +13790,33 @@ static PyObject *__pyx_f_5petsi_10_structure_14ConstructorArc_flow(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("flow", 0);
 
-  /* "petsi/_structure.py":581
+  /* "petsi/_structure.py":598
  *     @cython.locals(token=Token)
  *     def flow(self):
  *         token = Token(self._output_place.typ)             # <<<<<<<<<<<<<<
  *         self._output_place.push(token)
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 581, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 598, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_5petsi_10_structure_Token), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 581, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_5petsi_10_structure_Token), __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 598, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":582
+  /* "petsi/_structure.py":599
  *     def flow(self):
  *         token = Token(self._output_place.typ)
  *         self._output_place.push(token)             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base._output_place->__pyx_vtab)->push(__pyx_v_self->__pyx_base._output_place, __pyx_v_token); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 582, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base._output_place->__pyx_vtab)->push(__pyx_v_self->__pyx_base._output_place, __pyx_v_token); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 599, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":580
+  /* "petsi/_structure.py":597
  *     @cython.cfunc
  *     @cython.locals(token=Token)
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -13833,7 +13839,7 @@ static PyObject *__pyx_f_5petsi_10_structure_14ConstructorArc_flow(struct __pyx_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":585
+/* "petsi/_structure.py":602
  * 
  *     @property
  *     def typ(self) -> TokenType:             # <<<<<<<<<<<<<<
@@ -13863,7 +13869,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_14ConstructorArc_3typ___get__(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":586
+  /* "petsi/_structure.py":603
  *     @property
  *     def typ(self) -> TokenType:
  *         return self._output_place.typ             # <<<<<<<<<<<<<<
@@ -13871,13 +13877,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_14ConstructorArc_3typ___get__(stru
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 586, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->__pyx_base._output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 603, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":585
+  /* "petsi/_structure.py":602
  * 
  *     @property
  *     def typ(self) -> TokenType:             # <<<<<<<<<<<<<<
@@ -13896,7 +13902,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_14ConstructorArc_3typ___get__(stru
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":589
+/* "petsi/_structure.py":606
  * 
  *     @property
  *     def is_enabled(self) -> bool: return True             # <<<<<<<<<<<<<<
@@ -14596,7 +14602,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_13TokenConsumer_2__setstate_cython
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":604
+/* "petsi/_structure.py":621
  *     @cython.cfunc
  *     @cython.locals(token=Token)
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -14614,30 +14620,30 @@ static PyObject *__pyx_f_5petsi_10_structure_13DestructorArc_flow(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("flow", 0);
 
-  /* "petsi/_structure.py":605
+  /* "petsi/_structure.py":622
  *     @cython.locals(token=Token)
  *     def flow(self):
  *         token = self._input_place.pop()             # <<<<<<<<<<<<<<
  *         token.delete()
  * 
  */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place->__pyx_vtab)->pop(__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 605, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place->__pyx_vtab)->pop(__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 622, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":606
+  /* "petsi/_structure.py":623
  *     def flow(self):
  *         token = self._input_place.pop()
  *         token.delete()             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_token->__pyx_vtab)->delete(__pyx_v_token); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 606, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_token->__pyx_vtab)->delete(__pyx_v_token); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 623, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":604
+  /* "petsi/_structure.py":621
  *     @cython.cfunc
  *     @cython.locals(token=Token)
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -14993,7 +14999,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_13DestructorArc_2__setstate_cython
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":612
+/* "petsi/_structure.py":629
  * class TransferArc(TokenConsumer):  # TokenPlacer,
  * 
  *     def __init__(self, name: str, input_place: "Place", output_place: "Place", **kwargs):             # <<<<<<<<<<<<<<
@@ -15041,17 +15047,17 @@ static int __pyx_pw_5petsi_10_structure_11TransferArc_1__init__(PyObject *__pyx_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_input_place)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 612, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 629, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_output_place)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 612, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 629, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 612, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 629, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -15066,16 +15072,16 @@ static int __pyx_pw_5petsi_10_structure_11TransferArc_1__init__(PyObject *__pyx_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 612, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 629, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("petsi._structure.TransferArc.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 612, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place), __pyx_ptype_5petsi_10_structure_Place, 1, "input_place", 0))) __PYX_ERR(0, 612, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place), __pyx_ptype_5petsi_10_structure_Place, 1, "output_place", 0))) __PYX_ERR(0, 612, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 629, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_input_place), __pyx_ptype_5petsi_10_structure_Place, 1, "input_place", 0))) __PYX_ERR(0, 629, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_output_place), __pyx_ptype_5petsi_10_structure_Place, 1, "output_place", 0))) __PYX_ERR(0, 629, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_11TransferArc___init__(((struct __pyx_obj_5petsi_10_structure_TransferArc *)__pyx_v_self), __pyx_v_name, __pyx_v_input_place, __pyx_v_output_place, __pyx_v_kwargs);
 
   /* function exit code */
@@ -15103,16 +15109,16 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":614
+  /* "petsi/_structure.py":631
  *     def __init__(self, name: str, input_place: "Place", output_place: "Place", **kwargs):
  *         # TODO: should the check happen before object construction?
  *         if input_place.typ is not output_place.typ:             # <<<<<<<<<<<<<<
  *             raise ValueError(f"Type mismatch on TransferArc('{name}'): "
  *                              f"type({input_place.name}) is '{input_place.typ.name}' whereas "
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 614, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 631, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = (__pyx_t_1 != __pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -15120,14 +15126,14 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
   __pyx_t_4 = (__pyx_t_3 != 0);
   if (unlikely(__pyx_t_4)) {
 
-    /* "petsi/_structure.py":615
+    /* "petsi/_structure.py":632
  *         # TODO: should the check happen before object construction?
  *         if input_place.typ is not output_place.typ:
  *             raise ValueError(f"Type mismatch on TransferArc('{name}'): "             # <<<<<<<<<<<<<<
  *                              f"type({input_place.name}) is '{input_place.typ.name}' whereas "
  *                              f"type({output_place.name}) is '{output_place.typ.name}'")
  */
-    __pyx_t_2 = PyTuple_New(11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 632, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_5 = 0;
     __pyx_t_6 = 127;
@@ -15135,7 +15141,7 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
     __pyx_t_5 += 30;
     __Pyx_GIVEREF(__pyx_kp_u_Type_mismatch_on_TransferArc);
     PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_Type_mismatch_on_TransferArc);
-    __pyx_t_1 = __Pyx_PyUnicode_Unicode(__pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 615, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_Unicode(__pyx_v_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 632, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_6;
     __pyx_t_5 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_1);
@@ -15147,16 +15153,16 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
     __Pyx_GIVEREF(__pyx_kp_u_type);
     PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u_type);
 
-    /* "petsi/_structure.py":616
+    /* "petsi/_structure.py":633
  *         if input_place.typ is not output_place.typ:
  *             raise ValueError(f"Type mismatch on TransferArc('{name}'): "
  *                              f"type({input_place.name}) is '{input_place.typ.name}' whereas "             # <<<<<<<<<<<<<<
  *                              f"type({output_place.name}) is '{output_place.typ.name}'")
  *         super().__init__(name=name, input_place=input_place, **kwargs)
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 616, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 616, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_6;
@@ -15168,12 +15174,12 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
     __pyx_t_5 += 6;
     __Pyx_GIVEREF(__pyx_kp_u_is);
     PyTuple_SET_ITEM(__pyx_t_2, 4, __pyx_kp_u_is);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 616, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_input_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 616, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_7, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 616, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 633, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_7) : __pyx_t_6;
@@ -15186,16 +15192,16 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
     __Pyx_GIVEREF(__pyx_kp_u_whereas_type);
     PyTuple_SET_ITEM(__pyx_t_2, 6, __pyx_kp_u_whereas_type);
 
-    /* "petsi/_structure.py":617
+    /* "petsi/_structure.py":634
  *             raise ValueError(f"Type mismatch on TransferArc('{name}'): "
  *                              f"type({input_place.name}) is '{input_place.typ.name}' whereas "
  *                              f"type({output_place.name}) is '{output_place.typ.name}'")             # <<<<<<<<<<<<<<
  *         super().__init__(name=name, input_place=input_place, **kwargs)
  *         self._output_place = output_place  # output_place=output_place,
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_output_place), __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 617, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_output_place), __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
-    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 617, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_6;
@@ -15207,12 +15213,12 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
     __pyx_t_5 += 6;
     __Pyx_GIVEREF(__pyx_kp_u_is);
     PyTuple_SET_ITEM(__pyx_t_2, 8, __pyx_kp_u_is);
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 617, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_output_place), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 617, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_name); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 617, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_7, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 634, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __pyx_t_6 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_6) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_6;
@@ -15225,24 +15231,24 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
     __Pyx_GIVEREF(__pyx_kp_u_);
     PyTuple_SET_ITEM(__pyx_t_2, 10, __pyx_kp_u_);
 
-    /* "petsi/_structure.py":615
+    /* "petsi/_structure.py":632
  *         # TODO: should the check happen before object construction?
  *         if input_place.typ is not output_place.typ:
  *             raise ValueError(f"Type mismatch on TransferArc('{name}'): "             # <<<<<<<<<<<<<<
  *                              f"type({input_place.name}) is '{input_place.typ.name}' whereas "
  *                              f"type({output_place.name}) is '{output_place.typ.name}'")
  */
-    __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_2, 11, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 615, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_2, 11, __pyx_t_5, __pyx_t_6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 632, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 615, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 632, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 615, __pyx_L1_error)
+    __PYX_ERR(0, 632, __pyx_L1_error)
 
-    /* "petsi/_structure.py":614
+    /* "petsi/_structure.py":631
  *     def __init__(self, name: str, input_place: "Place", output_place: "Place", **kwargs):
  *         # TODO: should the check happen before object construction?
  *         if input_place.typ is not output_place.typ:             # <<<<<<<<<<<<<<
@@ -15251,14 +15257,14 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
  */
   }
 
-  /* "petsi/_structure.py":618
+  /* "petsi/_structure.py":635
  *                              f"type({input_place.name}) is '{input_place.typ.name}' whereas "
  *                              f"type({output_place.name}) is '{output_place.typ.name}'")
  *         super().__init__(name=name, input_place=input_place, **kwargs)             # <<<<<<<<<<<<<<
  *         self._output_place = output_place  # output_place=output_place,
  * 
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc));
@@ -15266,26 +15272,26 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_init); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 618, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 618, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_input_place, ((PyObject *)__pyx_v_input_place)) < 0) __PYX_ERR(0, 618, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_name, __pyx_v_name) < 0) __PYX_ERR(0, 635, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_input_place, ((PyObject *)__pyx_v_input_place)) < 0) __PYX_ERR(0, 635, __pyx_L1_error)
   __pyx_t_1 = __pyx_t_7;
   __pyx_t_7 = 0;
-  if (__Pyx_MergeKeywords(__pyx_t_1, __pyx_v_kwargs) < 0) __PYX_ERR(0, 618, __pyx_L1_error)
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 618, __pyx_L1_error)
+  if (__Pyx_MergeKeywords(__pyx_t_1, __pyx_v_kwargs) < 0) __PYX_ERR(0, 635, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 635, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-  /* "petsi/_structure.py":619
+  /* "petsi/_structure.py":636
  *                              f"type({output_place.name}) is '{output_place.typ.name}'")
  *         super().__init__(name=name, input_place=input_place, **kwargs)
  *         self._output_place = output_place  # output_place=output_place,             # <<<<<<<<<<<<<<
@@ -15298,7 +15304,7 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
   __Pyx_DECREF(((PyObject *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._output_place));
   __pyx_v_self->__pyx_base.__pyx_base.__pyx_base._output_place = __pyx_v_output_place;
 
-  /* "petsi/_structure.py":612
+  /* "petsi/_structure.py":629
  * class TransferArc(TokenConsumer):  # TokenPlacer,
  * 
  *     def __init__(self, name: str, input_place: "Place", output_place: "Place", **kwargs):             # <<<<<<<<<<<<<<
@@ -15320,7 +15326,7 @@ static int __pyx_pf_5petsi_10_structure_11TransferArc___init__(struct __pyx_obj_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":622
+/* "petsi/_structure.py":639
  * 
  *     @property
  *     def output_place(self): return self._output_place             # <<<<<<<<<<<<<<
@@ -15357,7 +15363,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_11TransferArc_12output_place___get
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":626
+/* "petsi/_structure.py":643
  *     @cython.cfunc
  *     @cython.locals(token=Token)
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -15375,30 +15381,30 @@ static PyObject *__pyx_f_5petsi_10_structure_11TransferArc_flow(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("flow", 0);
 
-  /* "petsi/_structure.py":627
+  /* "petsi/_structure.py":644
  *     @cython.locals(token=Token)
  *     def flow(self):
  *         token = self._input_place.pop()             # <<<<<<<<<<<<<<
  *         self._output_place.push(token)
  * 
  */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place->__pyx_vtab)->pop(__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 627, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place->__pyx_vtab)->pop(__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._input_place)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 644, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":628
+  /* "petsi/_structure.py":645
  *     def flow(self):
  *         token = self._input_place.pop()
  *         self._output_place.push(token)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._output_place->__pyx_vtab)->push(__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._output_place, __pyx_v_token); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 628, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._output_place->__pyx_vtab)->push(__pyx_v_self->__pyx_base.__pyx_base.__pyx_base._output_place, __pyx_v_token); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 645, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":626
+  /* "petsi/_structure.py":643
  *     @cython.cfunc
  *     @cython.locals(token=Token)
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -15754,7 +15760,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_11TransferArc_4__setstate_cython__
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":634
+/* "petsi/_structure.py":651
  * class TestArc(PresenceObserver):
  *     @cython.cfunc
  *     def flow(self):             # <<<<<<<<<<<<<<
@@ -16108,7 +16114,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_7TestArc_2__setstate_cython__(stru
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":641
+/* "petsi/_structure.py":658
  * class InhibitorArc(TestArc):
  *     @cython.cfunc
  *     def report_some_token(self):             # <<<<<<<<<<<<<<
@@ -16125,18 +16131,18 @@ static PyObject *__pyx_f_5petsi_10_structure_12InhibitorArc_report_some_token(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_some_token", 0);
 
-  /* "petsi/_structure.py":643
+  /* "petsi/_structure.py":660
  *     def report_some_token(self):
  *         # Cannot use super() in a cython extension class
  *         TestArc.report_no_token(self)             # <<<<<<<<<<<<<<
  * 
  *     @cython.cfunc
  */
-  __pyx_t_1 = __pyx_vtabptr_5petsi_10_structure_TestArc->__pyx_base.report_no_token(((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 643, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_5petsi_10_structure_TestArc->__pyx_base.report_no_token(((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 660, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":641
+  /* "petsi/_structure.py":658
  * class InhibitorArc(TestArc):
  *     @cython.cfunc
  *     def report_some_token(self):             # <<<<<<<<<<<<<<
@@ -16157,7 +16163,7 @@ static PyObject *__pyx_f_5petsi_10_structure_12InhibitorArc_report_some_token(st
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":646
+/* "petsi/_structure.py":663
  * 
  *     @cython.cfunc
  *     def report_no_token(self):             # <<<<<<<<<<<<<<
@@ -16174,18 +16180,18 @@ static PyObject *__pyx_f_5petsi_10_structure_12InhibitorArc_report_no_token(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_no_token", 0);
 
-  /* "petsi/_structure.py":648
+  /* "petsi/_structure.py":665
  *     def report_no_token(self):
  *         # Cannot use super() in a cython extension class
  *         TestArc.report_some_token(self)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __pyx_vtabptr_5petsi_10_structure_TestArc->__pyx_base.report_some_token(((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 648, __pyx_L1_error)
+  __pyx_t_1 = __pyx_vtabptr_5petsi_10_structure_TestArc->__pyx_base.report_some_token(((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 665, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":646
+  /* "petsi/_structure.py":663
  * 
  *     @cython.cfunc
  *     def report_no_token(self):             # <<<<<<<<<<<<<<
@@ -16540,7 +16546,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_12InhibitorArc_2__setstate_cython_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":706
+/* "petsi/_structure.py":723
  *     _status: _Status
  * 
  *     def __init__(self, name: str, ordinal: int, typ:  TokenType, **kwargs):             # <<<<<<<<<<<<<<
@@ -16588,17 +16594,17 @@ static int __pyx_pw_5petsi_10_structure_5Place_1__init__(PyObject *__pyx_v_self,
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_ordinal)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 706, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 723, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_typ)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 706, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 723, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 706, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, __pyx_v_kwargs, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 723, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -16613,15 +16619,15 @@ static int __pyx_pw_5petsi_10_structure_5Place_1__init__(PyObject *__pyx_v_self,
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 706, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 723, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_DECREF(__pyx_v_kwargs); __pyx_v_kwargs = 0;
   __Pyx_AddTraceback("petsi._structure.Place.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 706, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_typ), __pyx_ptype_5petsi_10_structure_TokenType, 1, "typ", 0))) __PYX_ERR(0, 706, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_name), (&PyUnicode_Type), 1, "name", 1))) __PYX_ERR(0, 723, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_typ), __pyx_ptype_5petsi_10_structure_TokenType, 1, "typ", 0))) __PYX_ERR(0, 723, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_5Place___init__(((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v_self), __pyx_v_name, __pyx_v_ordinal, __pyx_v_typ, __pyx_v_kwargs);
 
   /* function exit code */
@@ -16646,14 +16652,14 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_structure.py":707
+  /* "petsi/_structure.py":724
  * 
  *     def __init__(self, name: str, ordinal: int, typ:  TokenType, **kwargs):
  *         super().__init__(**kwargs)             # <<<<<<<<<<<<<<
  *         self._name = name
  *         self.ordinal = ordinal
  */
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 707, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Place));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Place));
@@ -16661,18 +16667,18 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_1, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 707, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_1, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 707, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_init); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 707, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_empty_tuple, __pyx_v_kwargs); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 724, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":708
+  /* "petsi/_structure.py":725
  *     def __init__(self, name: str, ordinal: int, typ:  TokenType, **kwargs):
  *         super().__init__(**kwargs)
  *         self._name = name             # <<<<<<<<<<<<<<
@@ -16685,17 +16691,17 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __Pyx_DECREF(__pyx_v_self->_name);
   __pyx_v_self->_name = ((PyObject*)__pyx_v_name);
 
-  /* "petsi/_structure.py":709
+  /* "petsi/_structure.py":726
  *         super().__init__(**kwargs)
  *         self._name = name
  *         self.ordinal = ordinal             # <<<<<<<<<<<<<<
  *         self._typ = typ
  *         self._status = self._Status.UNDEFINED
  */
-  __pyx_t_3 = __Pyx_PyInt_As_unsigned_int(__pyx_v_ordinal); if (unlikely((__pyx_t_3 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 709, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_unsigned_int(__pyx_v_ordinal); if (unlikely((__pyx_t_3 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 726, __pyx_L1_error)
   __pyx_v_self->ordinal = __pyx_t_3;
 
-  /* "petsi/_structure.py":710
+  /* "petsi/_structure.py":727
  *         self._name = name
  *         self.ordinal = ordinal
  *         self._typ = typ             # <<<<<<<<<<<<<<
@@ -16708,16 +16714,16 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __Pyx_DECREF(__pyx_v_self->_typ);
   __pyx_v_self->_typ = ((PyObject *)__pyx_v_typ);
 
-  /* "petsi/_structure.py":711
+  /* "petsi/_structure.py":728
  *         self.ordinal = ordinal
  *         self._typ = typ
  *         self._status = self._Status.UNDEFINED             # <<<<<<<<<<<<<<
  *         self._tokens = collections.deque()
  *         self._place_observers = set()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 711, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 728, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UNDEFINED); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 711, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UNDEFINED); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 728, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -16726,16 +16732,16 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __pyx_v_self->_status = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":712
+  /* "petsi/_structure.py":729
  *         self._typ = typ
  *         self._status = self._Status.UNDEFINED
  *         self._tokens = collections.deque()             # <<<<<<<<<<<<<<
  *         self._place_observers = set()
  *         self._presence_observers = set()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_collections); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 712, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_collections); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 729, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_deque); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 712, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_deque); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 729, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -16750,7 +16756,7 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 712, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 729, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -16759,14 +16765,14 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __pyx_v_self->_tokens = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":713
+  /* "petsi/_structure.py":730
  *         self._status = self._Status.UNDEFINED
  *         self._tokens = collections.deque()
  *         self._place_observers = set()             # <<<<<<<<<<<<<<
  *         self._presence_observers = set()
  * 
  */
-  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 713, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 730, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_place_observers);
@@ -16774,14 +16780,14 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __pyx_v_self->_place_observers = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":714
+  /* "petsi/_structure.py":731
  *         self._tokens = collections.deque()
  *         self._place_observers = set()
  *         self._presence_observers = set()             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 714, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 731, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_presence_observers);
@@ -16789,7 +16795,7 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   __pyx_v_self->_presence_observers = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":706
+  /* "petsi/_structure.py":723
  *     _status: _Status
  * 
  *     def __init__(self, name: str, ordinal: int, typ:  TokenType, **kwargs):             # <<<<<<<<<<<<<<
@@ -16811,7 +16817,7 @@ static int __pyx_pf_5petsi_10_structure_5Place___init__(struct __pyx_obj_5petsi_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":717
+/* "petsi/_structure.py":734
  * 
  *     @property
  *     def name(self): return self._name             # <<<<<<<<<<<<<<
@@ -16848,7 +16854,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4name___get__(struct __pyx_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":719
+/* "petsi/_structure.py":736
  *     def name(self): return self._name
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
@@ -16881,14 +16887,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_2accept(struct __pyx_obj_5p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("accept", 0);
 
-  /* "petsi/_structure.py":720
+  /* "petsi/_structure.py":737
  * 
  *     def accept(self, visitor: "PetsiVisitor"):
  *         visitor.visit(self)             # <<<<<<<<<<<<<<
  * 
  *     def accept_arc(self, arc: Arc, is_timed: bool):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 720, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_visitor, __pyx_n_s_visit); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -16902,12 +16908,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_2accept(struct __pyx_obj_5p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 720, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 737, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":719
+  /* "petsi/_structure.py":736
  *     def name(self): return self._name
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
@@ -16930,7 +16936,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_2accept(struct __pyx_obj_5p
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":722
+/* "petsi/_structure.py":739
  *         visitor.visit(self)
  * 
  *     def accept_arc(self, arc: Arc, is_timed: bool):             # <<<<<<<<<<<<<<
@@ -16973,11 +16979,11 @@ static PyObject *__pyx_pw_5petsi_10_structure_5Place_5accept_arc(PyObject *__pyx
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_is_timed)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("accept_arc", 1, 2, 2, 1); __PYX_ERR(0, 722, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("accept_arc", 1, 2, 2, 1); __PYX_ERR(0, 739, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "accept_arc") < 0)) __PYX_ERR(0, 722, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "accept_arc") < 0)) __PYX_ERR(0, 739, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -16990,13 +16996,13 @@ static PyObject *__pyx_pw_5petsi_10_structure_5Place_5accept_arc(PyObject *__pyx
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("accept_arc", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 722, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("accept_arc", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 739, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.Place.accept_arc", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arc), __pyx_ptype_5petsi_10_structure_Arc, 1, "arc", 0))) __PYX_ERR(0, 722, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_arc), __pyx_ptype_5petsi_10_structure_Arc, 1, "arc", 0))) __PYX_ERR(0, 739, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_5Place_4accept_arc(((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v_self), __pyx_v_arc, __pyx_v_is_timed);
 
   /* function exit code */
@@ -17031,7 +17037,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("accept_arc", 0);
 
-  /* "petsi/_structure.py":723
+  /* "petsi/_structure.py":740
  * 
  *     def accept_arc(self, arc: Arc, is_timed: bool):
  *         arc_class = type(arc)             # <<<<<<<<<<<<<<
@@ -17041,28 +17047,28 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_arc))));
   __pyx_v_arc_class = ((PyTypeObject*)((PyObject *)Py_TYPE(((PyObject *)__pyx_v_arc))));
 
-  /* "petsi/_structure.py":724
+  /* "petsi/_structure.py":741
  *     def accept_arc(self, arc: Arc, is_timed: bool):
  *         arc_class = type(arc)
  *         for arc_type, status in self._state_table[self._status][is_timed]:             # <<<<<<<<<<<<<<
  *             if issubclass(arc_class, arc_type):
  *                 if status == self._Status.ERROR:
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_state_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_state_table); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 741, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_self->_status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 724, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_self->_status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 741, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_v_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_v_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 741, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (likely(PyList_CheckExact(__pyx_t_1)) || PyTuple_CheckExact(__pyx_t_1)) {
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
     __pyx_t_4 = NULL;
   } else {
-    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 724, __pyx_L1_error)
+    __pyx_t_3 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 741, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 724, __pyx_L1_error)
+    __pyx_t_4 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 741, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -17070,17 +17076,17 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 724, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 741, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 741, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_3 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 724, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_1); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 741, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 724, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 741, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -17090,7 +17096,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 724, __pyx_L1_error)
+          else __PYX_ERR(0, 741, __pyx_L1_error)
         }
         break;
       }
@@ -17102,7 +17108,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       if (unlikely(size != 2)) {
         if (size > 2) __Pyx_RaiseTooManyValuesError(2);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 724, __pyx_L1_error)
+        __PYX_ERR(0, 741, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -17115,15 +17121,15 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       __Pyx_INCREF(__pyx_t_5);
       __Pyx_INCREF(__pyx_t_6);
       #else
-      __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 724, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 741, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 724, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 741, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 724, __pyx_L1_error)
+      __pyx_t_7 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 741, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_8 = Py_TYPE(__pyx_t_7)->tp_iternext;
@@ -17131,7 +17137,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       __Pyx_GOTREF(__pyx_t_5);
       index = 1; __pyx_t_6 = __pyx_t_8(__pyx_t_7); if (unlikely(!__pyx_t_6)) goto __pyx_L5_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_6);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 724, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_8(__pyx_t_7), 2) < 0) __PYX_ERR(0, 741, __pyx_L1_error)
       __pyx_t_8 = NULL;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       goto __pyx_L6_unpacking_done;
@@ -17139,7 +17145,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __pyx_t_8 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 724, __pyx_L1_error)
+      __PYX_ERR(0, 741, __pyx_L1_error)
       __pyx_L6_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_arc_type, __pyx_t_5);
@@ -17147,36 +17153,36 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
     __Pyx_XDECREF_SET(__pyx_v_status, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "petsi/_structure.py":725
+    /* "petsi/_structure.py":742
  *         arc_class = type(arc)
  *         for arc_type, status in self._state_table[self._status][is_timed]:
  *             if issubclass(arc_class, arc_type):             # <<<<<<<<<<<<<<
  *                 if status == self._Status.ERROR:
  *                     break
  */
-    __pyx_t_9 = PyObject_IsSubclass(((PyObject *)__pyx_v_arc_class), __pyx_v_arc_type); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 725, __pyx_L1_error)
+    __pyx_t_9 = PyObject_IsSubclass(((PyObject *)__pyx_v_arc_class), __pyx_v_arc_type); if (unlikely(__pyx_t_9 == ((int)-1))) __PYX_ERR(0, 742, __pyx_L1_error)
     __pyx_t_10 = (__pyx_t_9 != 0);
     if (__pyx_t_10) {
 
-      /* "petsi/_structure.py":726
+      /* "petsi/_structure.py":743
  *         for arc_type, status in self._state_table[self._status][is_timed]:
  *             if issubclass(arc_class, arc_type):
  *                 if status == self._Status.ERROR:             # <<<<<<<<<<<<<<
  *                     break
  *                 self._status = status
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 726, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 726, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_1 = PyObject_RichCompare(__pyx_v_status, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 726, __pyx_L1_error)
+      __pyx_t_1 = PyObject_RichCompare(__pyx_v_status, __pyx_t_6, Py_EQ); __Pyx_XGOTREF(__pyx_t_1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 726, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 743, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (__pyx_t_10) {
 
-        /* "petsi/_structure.py":727
+        /* "petsi/_structure.py":744
  *             if issubclass(arc_class, arc_type):
  *                 if status == self._Status.ERROR:
  *                     break             # <<<<<<<<<<<<<<
@@ -17185,7 +17191,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
  */
         goto __pyx_L4_break;
 
-        /* "petsi/_structure.py":726
+        /* "petsi/_structure.py":743
  *         for arc_type, status in self._state_table[self._status][is_timed]:
  *             if issubclass(arc_class, arc_type):
  *                 if status == self._Status.ERROR:             # <<<<<<<<<<<<<<
@@ -17194,7 +17200,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
  */
       }
 
-      /* "petsi/_structure.py":728
+      /* "petsi/_structure.py":745
  *                 if status == self._Status.ERROR:
  *                     break
  *                 self._status = status             # <<<<<<<<<<<<<<
@@ -17207,7 +17213,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       __Pyx_DECREF(__pyx_v_self->_status);
       __pyx_v_self->_status = __pyx_v_status;
 
-      /* "petsi/_structure.py":729
+      /* "petsi/_structure.py":746
  *                     break
  *                 self._status = status
  *                 return             # <<<<<<<<<<<<<<
@@ -17219,7 +17225,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       goto __pyx_L0;
 
-      /* "petsi/_structure.py":725
+      /* "petsi/_structure.py":742
  *         arc_class = type(arc)
  *         for arc_type, status in self._state_table[self._status][is_timed]:
  *             if issubclass(arc_class, arc_type):             # <<<<<<<<<<<<<<
@@ -17228,7 +17234,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
  */
     }
 
-    /* "petsi/_structure.py":724
+    /* "petsi/_structure.py":741
  *     def accept_arc(self, arc: Arc, is_timed: bool):
  *         arc_class = type(arc)
  *         for arc_type, status in self._state_table[self._status][is_timed]:             # <<<<<<<<<<<<<<
@@ -17239,14 +17245,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __pyx_L4_break:;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":730
+  /* "petsi/_structure.py":747
  *                 self._status = status
  *                 return
  *         transition_kind = "a timed" if is_timed else "an immediate"             # <<<<<<<<<<<<<<
  *         raise ValueError(f"Connecting place '{self.name}' to {transition_kind} "
  *                          f"transition with a {arc_class.__name__} "
  */
-  __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_v_is_timed); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 730, __pyx_L1_error)
+  __pyx_t_10 = __Pyx_PyObject_IsTrue(__pyx_v_is_timed); if (unlikely(__pyx_t_10 < 0)) __PYX_ERR(0, 747, __pyx_L1_error)
   if (__pyx_t_10) {
     __Pyx_INCREF(__pyx_kp_u_a_timed);
     __pyx_t_2 = __pyx_kp_u_a_timed;
@@ -17257,14 +17263,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __pyx_v_transition_kind = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":731
+  /* "petsi/_structure.py":748
  *                 return
  *         transition_kind = "a timed" if is_timed else "an immediate"
  *         raise ValueError(f"Connecting place '{self.name}' to {transition_kind} "             # <<<<<<<<<<<<<<
  *                          f"transition with a {arc_class.__name__} "
  *                          f"is not allowed: the place is in {self._status.name} "
  */
-  __pyx_t_2 = PyTuple_New(11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(11); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = 0;
   __pyx_t_11 = 127;
@@ -17272,9 +17278,9 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __pyx_t_3 += 18;
   __Pyx_GIVEREF(__pyx_kp_u_Connecting_place);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_kp_u_Connecting_place);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_11;
@@ -17286,7 +17292,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __pyx_t_3 += 5;
   __Pyx_GIVEREF(__pyx_kp_u_to);
   PyTuple_SET_ITEM(__pyx_t_2, 2, __pyx_kp_u_to);
-  __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_transition_kind); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyUnicode_Unicode(__pyx_v_transition_kind); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_11;
   __pyx_t_3 += __Pyx_PyUnicode_GET_LENGTH(__pyx_t_6);
@@ -17298,16 +17304,16 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __Pyx_GIVEREF(__pyx_kp_u_transition_with_a);
   PyTuple_SET_ITEM(__pyx_t_2, 4, __pyx_kp_u_transition_with_a);
 
-  /* "petsi/_structure.py":732
+  /* "petsi/_structure.py":749
  *         transition_kind = "a timed" if is_timed else "an immediate"
  *         raise ValueError(f"Connecting place '{self.name}' to {transition_kind} "
  *                          f"transition with a {arc_class.__name__} "             # <<<<<<<<<<<<<<
  *                          f"is not allowed: the place is in {self._status.name} "
  *                          f"status, which, for this kind of transitions, does not "
  */
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc_class), __pyx_n_s_name_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 732, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_arc_class), __pyx_n_s_name_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 732, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 749, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_11;
@@ -17320,16 +17326,16 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __Pyx_GIVEREF(__pyx_kp_u_is_not_allowed_the_place_is_in);
   PyTuple_SET_ITEM(__pyx_t_2, 6, __pyx_kp_u_is_not_allowed_the_place_is_in);
 
-  /* "petsi/_structure.py":733
+  /* "petsi/_structure.py":750
  *         raise ValueError(f"Connecting place '{self.name}' to {transition_kind} "
  *                          f"transition with a {arc_class.__name__} "
  *                          f"is not allowed: the place is in {self._status.name} "             # <<<<<<<<<<<<<<
  *                          f"status, which, for this kind of transitions, does not "
  *                          f"allow adding {arc_type.__name__} arcs.")
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_status, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 733, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_status, __pyx_n_s_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 750, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 733, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_FormatSimple(__pyx_t_1, __pyx_empty_unicode); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 750, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_6) : __pyx_t_11;
@@ -17342,17 +17348,17 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __Pyx_GIVEREF(__pyx_kp_u_status_which_for_this_kind_of_t);
   PyTuple_SET_ITEM(__pyx_t_2, 8, __pyx_kp_u_status_which_for_this_kind_of_t);
 
-  /* "petsi/_structure.py":735
+  /* "petsi/_structure.py":752
  *                          f"is not allowed: the place is in {self._status.name} "
  *                          f"status, which, for this kind of transitions, does not "
  *                          f"allow adding {arc_type.__name__} arcs.")             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
-  if (unlikely(!__pyx_v_arc_type)) { __Pyx_RaiseUnboundLocalError("arc_type"); __PYX_ERR(0, 735, __pyx_L1_error) }
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_arc_type, __pyx_n_s_name_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 735, __pyx_L1_error)
+  if (unlikely(!__pyx_v_arc_type)) { __Pyx_RaiseUnboundLocalError("arc_type"); __PYX_ERR(0, 752, __pyx_L1_error) }
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_v_arc_type, __pyx_n_s_name_2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 752, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 735, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_FormatSimple(__pyx_t_6, __pyx_empty_unicode); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 752, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __pyx_t_11 = (__Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) > __pyx_t_11) ? __Pyx_PyUnicode_MAX_CHAR_VALUE(__pyx_t_1) : __pyx_t_11;
@@ -17365,24 +17371,24 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   __Pyx_GIVEREF(__pyx_kp_u_arcs);
   PyTuple_SET_ITEM(__pyx_t_2, 10, __pyx_kp_u_arcs);
 
-  /* "petsi/_structure.py":731
+  /* "petsi/_structure.py":748
  *                 return
  *         transition_kind = "a timed" if is_timed else "an immediate"
  *         raise ValueError(f"Connecting place '{self.name}' to {transition_kind} "             # <<<<<<<<<<<<<<
  *                          f"transition with a {arc_class.__name__} "
  *                          f"is not allowed: the place is in {self._status.name} "
  */
-  __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_2, 11, __pyx_t_3, __pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyUnicode_Join(__pyx_t_2, 11, __pyx_t_3, __pyx_t_11); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 731, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_ValueError, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 748, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_Raise(__pyx_t_2, 0, 0, 0);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __PYX_ERR(0, 731, __pyx_L1_error)
+  __PYX_ERR(0, 748, __pyx_L1_error)
 
-  /* "petsi/_structure.py":722
+  /* "petsi/_structure.py":739
  *         visitor.visit(self)
  * 
  *     def accept_arc(self, arc: Arc, is_timed: bool):             # <<<<<<<<<<<<<<
@@ -17409,7 +17415,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_4accept_arc(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":738
+/* "petsi/_structure.py":755
  * 
  *     @property
  *     def typ(self): return self._typ             # <<<<<<<<<<<<<<
@@ -17446,7 +17452,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_3typ___get__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":740
+/* "petsi/_structure.py":757
  *     def typ(self): return self._typ
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -17479,7 +17485,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_6reset(struct __pyx_obj_5pe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_structure.py":741
+  /* "petsi/_structure.py":758
  * 
  *     def reset(self):
  *         while not self.is_empty:             # <<<<<<<<<<<<<<
@@ -17487,26 +17493,26 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_6reset(struct __pyx_obj_5pe
  * 
  */
   while (1) {
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 741, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 758, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 741, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 758, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_3 = ((!__pyx_t_2) != 0);
     if (!__pyx_t_3) break;
 
-    /* "petsi/_structure.py":742
+    /* "petsi/_structure.py":759
  *     def reset(self):
  *         while not self.is_empty:
  *             self.pop()             # <<<<<<<<<<<<<<
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):
  */
-    __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->pop(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 742, __pyx_L1_error)
+    __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->pop(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 759, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "petsi/_structure.py":740
+  /* "petsi/_structure.py":757
  *     def typ(self): return self._typ
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -17527,7 +17533,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_6reset(struct __pyx_obj_5pe
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":744
+/* "petsi/_structure.py":761
  *             self.pop()
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):             # <<<<<<<<<<<<<<
@@ -17564,14 +17570,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8attach_observer(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("attach_observer", 0);
 
-  /* "petsi/_structure.py":745
+  /* "petsi/_structure.py":762
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):
  *         observer = plugin.observe_place(self)             # <<<<<<<<<<<<<<
  * 
  *         if observer is not None:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_plugin, __pyx_n_s_observe_place); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 745, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_plugin, __pyx_n_s_observe_place); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 762, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -17585,13 +17591,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8attach_observer(struct __p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_self)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_self));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 745, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 762, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_observer = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":747
+  /* "petsi/_structure.py":764
  *         observer = plugin.observe_place(self)
  * 
  *         if observer is not None:             # <<<<<<<<<<<<<<
@@ -17602,24 +17608,24 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8attach_observer(struct __p
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "petsi/_structure.py":748
+    /* "petsi/_structure.py":765
  * 
  *         if observer is not None:
  *             foreach(observer.report_arrival_of, self.tokens)             # <<<<<<<<<<<<<<
  *             self._place_observers.add(observer)
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_report_arrival_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_observer, __pyx_n_s_report_arrival_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 765, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_tokens); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_tokens); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 765, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_1, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 748, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_5petsi_10_structure_foreach(__pyx_t_1, __pyx_t_2, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 765, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "petsi/_structure.py":749
+    /* "petsi/_structure.py":766
  *         if observer is not None:
  *             foreach(observer.report_arrival_of, self.tokens)
  *             self._place_observers.add(observer)             # <<<<<<<<<<<<<<
@@ -17628,11 +17634,11 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8attach_observer(struct __p
  */
     if (unlikely(__pyx_v_self->_place_observers == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-      __PYX_ERR(0, 749, __pyx_L1_error)
+      __PYX_ERR(0, 766, __pyx_L1_error)
     }
-    __pyx_t_6 = PySet_Add(__pyx_v_self->_place_observers, __pyx_v_observer); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 749, __pyx_L1_error)
+    __pyx_t_6 = PySet_Add(__pyx_v_self->_place_observers, __pyx_v_observer); if (unlikely(__pyx_t_6 == ((int)-1))) __PYX_ERR(0, 766, __pyx_L1_error)
 
-    /* "petsi/_structure.py":747
+    /* "petsi/_structure.py":764
  *         observer = plugin.observe_place(self)
  * 
  *         if observer is not None:             # <<<<<<<<<<<<<<
@@ -17641,7 +17647,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8attach_observer(struct __p
  */
   }
 
-  /* "petsi/_structure.py":744
+  /* "petsi/_structure.py":761
  *             self.pop()
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):             # <<<<<<<<<<<<<<
@@ -17665,7 +17671,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8attach_observer(struct __p
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":751
+/* "petsi/_structure.py":768
  *             self._place_observers.add(observer)
  * 
  *     def attach_presence_observer(self, o: PresenceObserver):             # <<<<<<<<<<<<<<
@@ -17683,7 +17689,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_5Place_11attach_presence_observer(
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("attach_presence_observer (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_o), __pyx_ptype_5petsi_10_structure_PresenceObserver, 1, "o", 0))) __PYX_ERR(0, 751, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_o), __pyx_ptype_5petsi_10_structure_PresenceObserver, 1, "o", 0))) __PYX_ERR(0, 768, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_5Place_10attach_presence_observer(((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_v_o));
 
   /* function exit code */
@@ -17706,7 +17712,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_10attach_presence_observer(
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("attach_presence_observer", 0);
 
-  /* "petsi/_structure.py":752
+  /* "petsi/_structure.py":769
  * 
  *     def attach_presence_observer(self, o: PresenceObserver):
  *         self._presence_observers.add(o)             # <<<<<<<<<<<<<<
@@ -17715,35 +17721,35 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_10attach_presence_observer(
  */
   if (unlikely(__pyx_v_self->_presence_observers == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-    __PYX_ERR(0, 752, __pyx_L1_error)
+    __PYX_ERR(0, 769, __pyx_L1_error)
   }
-  __pyx_t_1 = PySet_Add(__pyx_v_self->_presence_observers, ((PyObject *)__pyx_v_o)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 752, __pyx_L1_error)
+  __pyx_t_1 = PySet_Add(__pyx_v_self->_presence_observers, ((PyObject *)__pyx_v_o)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 769, __pyx_L1_error)
 
-  /* "petsi/_structure.py":754
+  /* "petsi/_structure.py":771
  *         self._presence_observers.add(o)
  * 
  *         if self.is_empty:             # <<<<<<<<<<<<<<
  *             o.report_no_token()
  *         else:
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 754, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 771, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 754, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 771, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "petsi/_structure.py":755
+    /* "petsi/_structure.py":772
  * 
  *         if self.is_empty:
  *             o.report_no_token()             # <<<<<<<<<<<<<<
  *         else:
  *             o.report_some_token()
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_o->__pyx_base.__pyx_vtab)->report_no_token(__pyx_v_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 755, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_o->__pyx_base.__pyx_vtab)->report_no_token(__pyx_v_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 772, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_structure.py":754
+    /* "petsi/_structure.py":771
  *         self._presence_observers.add(o)
  * 
  *         if self.is_empty:             # <<<<<<<<<<<<<<
@@ -17753,7 +17759,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_10attach_presence_observer(
     goto __pyx_L3;
   }
 
-  /* "petsi/_structure.py":757
+  /* "petsi/_structure.py":774
  *             o.report_no_token()
  *         else:
  *             o.report_some_token()             # <<<<<<<<<<<<<<
@@ -17761,13 +17767,13 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_10attach_presence_observer(
  *     def pop(self) -> Token:
  */
   /*else*/ {
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_o->__pyx_base.__pyx_vtab)->report_some_token(__pyx_v_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 757, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_o->__pyx_base.__pyx_vtab)->report_some_token(__pyx_v_o); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 774, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "petsi/_structure.py":751
+  /* "petsi/_structure.py":768
  *             self._place_observers.add(observer)
  * 
  *     def attach_presence_observer(self, o: PresenceObserver):             # <<<<<<<<<<<<<<
@@ -17788,7 +17794,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_10attach_presence_observer(
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":759
+/* "petsi/_structure.py":776
  *             o.report_some_token()
  * 
  *     def pop(self) -> Token:             # <<<<<<<<<<<<<<
@@ -17816,38 +17822,38 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("pop", 0);
 
-  /* "petsi/_structure.py":760
+  /* "petsi/_structure.py":777
  * 
  *     def pop(self) -> Token:
  *         token: Token = self._pop()             # <<<<<<<<<<<<<<
  *         token.remove_from(self)
  * 
  */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->_pop(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 760, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->_pop(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 777, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":761
+  /* "petsi/_structure.py":778
  *     def pop(self) -> Token:
  *         token: Token = self._pop()
  *         token.remove_from(self)             # <<<<<<<<<<<<<<
  * 
- *         #foreach(lambda po: po.report_departure_of(token), self._place_observers)
+ *         for place_observer in self._place_observers:
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_token->__pyx_vtab)->remove_from(__pyx_v_token, __pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 761, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_token->__pyx_vtab)->remove_from(__pyx_v_token, __pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 778, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":764
+  /* "petsi/_structure.py":780
+ *         token.remove_from(self)
  * 
- *         #foreach(lambda po: po.report_departure_of(token), self._place_observers)
  *         for place_observer in self._place_observers:             # <<<<<<<<<<<<<<
  *             place_observer.report_departure_of(token)
  * 
  */
   __pyx_t_2 = 0;
-  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_place_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 764, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_place_observers, 1, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 780, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_5;
@@ -17855,19 +17861,19 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   while (1) {
     __pyx_t_6 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, __pyx_t_4);
     if (unlikely(__pyx_t_6 == 0)) break;
-    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 764, __pyx_L1_error)
+    if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 780, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF_SET(__pyx_v_place_observer, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "petsi/_structure.py":765
- *         #foreach(lambda po: po.report_departure_of(token), self._place_observers)
+    /* "petsi/_structure.py":781
+ * 
  *         for place_observer in self._place_observers:
  *             place_observer.report_departure_of(token)             # <<<<<<<<<<<<<<
  * 
- *         # foreach(lambda po: po.report_no_token(), self._presence_observers)
+ *         if self.is_empty:
  */
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_place_observer, __pyx_n_s_report_departure_of); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 765, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_v_place_observer, __pyx_n_s_report_departure_of); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 781, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __pyx_t_8 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_7))) {
@@ -17881,35 +17887,35 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
     }
     __pyx_t_5 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_7, __pyx_t_8, ((PyObject *)__pyx_v_token)) : __Pyx_PyObject_CallOneArg(__pyx_t_7, ((PyObject *)__pyx_v_token));
     __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 765, __pyx_L1_error)
+    if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 781, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":768
+  /* "petsi/_structure.py":783
+ *             place_observer.report_departure_of(token)
  * 
- *         # foreach(lambda po: po.report_no_token(), self._presence_observers)
  *         if self.is_empty:             # <<<<<<<<<<<<<<
  *             for presence_observer in self._presence_observers:
  *                 presence_observer.report_no_token()
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 768, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 783, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 768, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 783, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_9) {
 
-    /* "petsi/_structure.py":769
- *         # foreach(lambda po: po.report_no_token(), self._presence_observers)
+    /* "petsi/_structure.py":784
+ * 
  *         if self.is_empty:
  *             for presence_observer in self._presence_observers:             # <<<<<<<<<<<<<<
  *                 presence_observer.report_no_token()
  * 
  */
     __pyx_t_3 = 0;
-    __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_presence_observers, 1, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 769, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_set_iterator(__pyx_v_self->_presence_observers, 1, (&__pyx_t_2), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 784, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XDECREF(__pyx_t_1);
     __pyx_t_1 = __pyx_t_5;
@@ -17917,35 +17923,35 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
     while (1) {
       __pyx_t_6 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_2, &__pyx_t_3, &__pyx_t_5, __pyx_t_4);
       if (unlikely(__pyx_t_6 == 0)) break;
-      if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 769, __pyx_L1_error)
+      if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 784, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5petsi_10_structure_PresenceObserver))))) __PYX_ERR(0, 769, __pyx_L1_error)
+      if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_5petsi_10_structure_PresenceObserver))))) __PYX_ERR(0, 784, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v_presence_observer, ((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_t_5));
       __pyx_t_5 = 0;
 
-      /* "petsi/_structure.py":770
+      /* "petsi/_structure.py":785
  *         if self.is_empty:
  *             for presence_observer in self._presence_observers:
  *                 presence_observer.report_no_token()             # <<<<<<<<<<<<<<
  * 
  *         return token
  */
-      __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_presence_observer->__pyx_base.__pyx_vtab)->report_no_token(__pyx_v_presence_observer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 770, __pyx_L1_error)
+      __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_presence_observer->__pyx_base.__pyx_vtab)->report_no_token(__pyx_v_presence_observer); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 785, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":768
+    /* "petsi/_structure.py":783
+ *             place_observer.report_departure_of(token)
  * 
- *         # foreach(lambda po: po.report_no_token(), self._presence_observers)
  *         if self.is_empty:             # <<<<<<<<<<<<<<
  *             for presence_observer in self._presence_observers:
  *                 presence_observer.report_no_token()
  */
   }
 
-  /* "petsi/_structure.py":772
+  /* "petsi/_structure.py":787
  *                 presence_observer.report_no_token()
  * 
  *         return token             # <<<<<<<<<<<<<<
@@ -17957,7 +17963,7 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   __pyx_r = __pyx_v_token;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":759
+  /* "petsi/_structure.py":776
  *             o.report_some_token()
  * 
  *     def pop(self) -> Token:             # <<<<<<<<<<<<<<
@@ -17982,7 +17988,7 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":774
+/* "petsi/_structure.py":789
  *         return token
  * 
  *     def push(self, token):   # "Token"             # <<<<<<<<<<<<<<
@@ -18010,42 +18016,42 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("push", 0);
 
-  /* "petsi/_structure.py":775
+  /* "petsi/_structure.py":790
  * 
  *     def push(self, token):   # "Token"
  *         was_empty = self.is_empty             # <<<<<<<<<<<<<<
  * 
- *         # Move_to_place notifies observers. To show them a consistent picture,
+ *         # To show them a consistent picture, we first update the place,
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 775, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_is_empty); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 790, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 775, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 790, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_was_empty = __pyx_t_2;
 
-  /* "petsi/_structure.py":779
- *         # Move_to_place notifies observers. To show them a consistent picture,
- *         # we first update the place, only then call move_to_place
+  /* "petsi/_structure.py":794
+ *         # To show them a consistent picture, we first update the place,
+ *         # only then we notify the observers.
  *         self._push(token)             # <<<<<<<<<<<<<<
  *         token.deposit_at(self)
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->_push(__pyx_v_self, __pyx_v_token); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 779, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->_push(__pyx_v_self, __pyx_v_token); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 794, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":780
- *         # we first update the place, only then call move_to_place
+  /* "petsi/_structure.py":795
+ *         # only then we notify the observers.
  *         self._push(token)
  *         token.deposit_at(self)             # <<<<<<<<<<<<<<
  * 
  *         for place_observer in self._place_observers:
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_token->__pyx_vtab)->deposit_at(__pyx_v_token, __pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 780, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Token *)__pyx_v_token->__pyx_vtab)->deposit_at(__pyx_v_token, __pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 795, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":782
+  /* "petsi/_structure.py":797
  *         token.deposit_at(self)
  * 
  *         for place_observer in self._place_observers:             # <<<<<<<<<<<<<<
@@ -18053,7 +18059,7 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
  * 
  */
   __pyx_t_3 = 0;
-  __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_place_observers, 1, (&__pyx_t_4), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 782, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_place_observers, 1, (&__pyx_t_4), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 797, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_1);
   __pyx_t_1 = __pyx_t_6;
@@ -18061,19 +18067,19 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
   while (1) {
     __pyx_t_7 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_4, &__pyx_t_3, &__pyx_t_6, __pyx_t_5);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 782, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 797, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF_SET(__pyx_v_place_observer, __pyx_t_6);
     __pyx_t_6 = 0;
 
-    /* "petsi/_structure.py":783
+    /* "petsi/_structure.py":798
  * 
  *         for place_observer in self._place_observers:
  *             place_observer.report_arrival_of(token)             # <<<<<<<<<<<<<<
  * 
  *         if was_empty:
  */
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_place_observer, __pyx_n_s_report_arrival_of); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 783, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_v_place_observer, __pyx_n_s_report_arrival_of); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 798, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __pyx_t_9 = NULL;
     if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_8))) {
@@ -18087,14 +18093,14 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
     }
     __pyx_t_6 = (__pyx_t_9) ? __Pyx_PyObject_Call2Args(__pyx_t_8, __pyx_t_9, ((PyObject *)__pyx_v_token)) : __Pyx_PyObject_CallOneArg(__pyx_t_8, ((PyObject *)__pyx_v_token));
     __Pyx_XDECREF(__pyx_t_9); __pyx_t_9 = 0;
-    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 783, __pyx_L1_error)
+    if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 798, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":785
+  /* "petsi/_structure.py":800
  *             place_observer.report_arrival_of(token)
  * 
  *         if was_empty:             # <<<<<<<<<<<<<<
@@ -18104,7 +18110,7 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
   __pyx_t_2 = (__pyx_v_was_empty != 0);
   if (__pyx_t_2) {
 
-    /* "petsi/_structure.py":786
+    /* "petsi/_structure.py":801
  * 
  *         if was_empty:
  *             for presence_observer in self._presence_observers:             # <<<<<<<<<<<<<<
@@ -18112,7 +18118,7 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
  * 
  */
     __pyx_t_4 = 0;
-    __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_presence_observers, 1, (&__pyx_t_3), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 786, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_set_iterator(__pyx_v_self->_presence_observers, 1, (&__pyx_t_3), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 801, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_1);
     __pyx_t_1 = __pyx_t_6;
@@ -18120,26 +18126,26 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
     while (1) {
       __pyx_t_7 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_4, &__pyx_t_6, __pyx_t_5);
       if (unlikely(__pyx_t_7 == 0)) break;
-      if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 786, __pyx_L1_error)
+      if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 801, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5petsi_10_structure_PresenceObserver))))) __PYX_ERR(0, 786, __pyx_L1_error)
+      if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_5petsi_10_structure_PresenceObserver))))) __PYX_ERR(0, 801, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v_presence_observer, ((struct __pyx_obj_5petsi_10_structure_PresenceObserver *)__pyx_t_6));
       __pyx_t_6 = 0;
 
-      /* "petsi/_structure.py":787
+      /* "petsi/_structure.py":802
  *         if was_empty:
  *             for presence_observer in self._presence_observers:
  *                 presence_observer.report_some_token()             # <<<<<<<<<<<<<<
  * 
  *     def _is_empty(self):
  */
-      __pyx_t_6 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_presence_observer->__pyx_base.__pyx_vtab)->report_some_token(__pyx_v_presence_observer); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 787, __pyx_L1_error)
+      __pyx_t_6 = ((struct __pyx_vtabstruct_5petsi_10_structure_PresenceObserver *)__pyx_v_presence_observer->__pyx_base.__pyx_vtab)->report_some_token(__pyx_v_presence_observer); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 802, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_structure.py":785
+    /* "petsi/_structure.py":800
  *             place_observer.report_arrival_of(token)
  * 
  *         if was_empty:             # <<<<<<<<<<<<<<
@@ -18148,7 +18154,7 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
  */
   }
 
-  /* "petsi/_structure.py":774
+  /* "petsi/_structure.py":789
  *         return token
  * 
  *     def push(self, token):   # "Token"             # <<<<<<<<<<<<<<
@@ -18174,11 +18180,11 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place_push(struct __pyx_obj_5petsi
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":789
+/* "petsi/_structure.py":804
  *                 presence_observer.report_some_token()
  * 
  *     def _is_empty(self):             # <<<<<<<<<<<<<<
- *         return  len(self._tokens) == 0
+ *         return len(self._tokens) == 0
  * 
  */
 
@@ -18192,25 +18198,25 @@ static int __pyx_f_5petsi_10_structure_5Place__is_empty(struct __pyx_obj_5petsi_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_is_empty", 0);
 
-  /* "petsi/_structure.py":790
+  /* "petsi/_structure.py":805
  * 
  *     def _is_empty(self):
- *         return  len(self._tokens) == 0             # <<<<<<<<<<<<<<
+ *         return len(self._tokens) == 0             # <<<<<<<<<<<<<<
  * 
  *     @property
  */
   __pyx_t_1 = __pyx_v_self->_tokens;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 790, __pyx_L1_error)
+  __pyx_t_2 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 805, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = (__pyx_t_2 == 0);
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":789
+  /* "petsi/_structure.py":804
  *                 presence_observer.report_some_token()
  * 
  *     def _is_empty(self):             # <<<<<<<<<<<<<<
- *         return  len(self._tokens) == 0
+ *         return len(self._tokens) == 0
  * 
  */
 
@@ -18224,7 +18230,7 @@ static int __pyx_f_5petsi_10_structure_5Place__is_empty(struct __pyx_obj_5petsi_
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":793
+/* "petsi/_structure.py":808
  * 
  *     @property
  *     def is_empty(self):             # <<<<<<<<<<<<<<
@@ -18255,7 +18261,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8is_empty___get__(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":794
+  /* "petsi/_structure.py":809
  *     @property
  *     def is_empty(self):
  *         return self._is_empty()             # <<<<<<<<<<<<<<
@@ -18263,14 +18269,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8is_empty___get__(struct __
  *     @property
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->_is_empty(__pyx_v_self); if (unlikely(__pyx_t_1 == ((int)-123))) __PYX_ERR(0, 794, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 794, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Place *)__pyx_v_self->__pyx_vtab)->_is_empty(__pyx_v_self); if (unlikely(__pyx_t_1 == ((int)-123))) __PYX_ERR(0, 809, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyBool_FromLong(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 809, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":793
+  /* "petsi/_structure.py":808
  * 
  *     @property
  *     def is_empty(self):             # <<<<<<<<<<<<<<
@@ -18289,7 +18295,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_8is_empty___get__(struct __
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":797
+/* "petsi/_structure.py":812
  * 
  *     @property
  *     def tokens(self) -> "Iterator[Token]":             # <<<<<<<<<<<<<<
@@ -18320,7 +18326,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_6tokens___get__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "petsi/_structure.py":798
+  /* "petsi/_structure.py":813
  *     @property
  *     def tokens(self) -> "Iterator[Token]":
  *         return iter(self._tokens)             # <<<<<<<<<<<<<<
@@ -18330,14 +18336,14 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_6tokens___get__(struct __py
   __Pyx_XDECREF(__pyx_r);
   __pyx_t_1 = __pyx_v_self->_tokens;
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 798, __pyx_L1_error)
+  __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 813, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":797
+  /* "petsi/_structure.py":812
  * 
  *     @property
  *     def tokens(self) -> "Iterator[Token]":             # <<<<<<<<<<<<<<
@@ -18357,7 +18363,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_6tokens___get__(struct __py
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":800
+/* "petsi/_structure.py":815
  *         return iter(self._tokens)
  * 
  *     def _pop(self) -> Token:             # <<<<<<<<<<<<<<
@@ -18376,7 +18382,7 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_pop", 0);
 
-  /* "petsi/_structure.py":801
+  /* "petsi/_structure.py":816
  * 
  *     def _pop(self) -> Token:
  *         return self._tokens.popleft()             # <<<<<<<<<<<<<<
@@ -18384,7 +18390,7 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
  *     def _push(self, t):   # : Token
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_tokens, __pyx_n_s_popleft); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 801, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_tokens, __pyx_n_s_popleft); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 816, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -18398,15 +18404,15 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 801, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 816, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Token))))) __PYX_ERR(0, 801, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_10_structure_Token))))) __PYX_ERR(0, 816, __pyx_L1_error)
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_structure.py":800
+  /* "petsi/_structure.py":815
  *         return iter(self._tokens)
  * 
  *     def _pop(self) -> Token:             # <<<<<<<<<<<<<<
@@ -18427,7 +18433,7 @@ static struct __pyx_obj_5petsi_10_structure_Token *__pyx_f_5petsi_10_structure_5
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":803
+/* "petsi/_structure.py":818
  *         return self._tokens.popleft()
  * 
  *     def _push(self, t):   # : Token             # <<<<<<<<<<<<<<
@@ -18444,16 +18450,16 @@ static PyObject *__pyx_f_5petsi_10_structure_5Place__push(struct __pyx_obj_5pets
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_push", 0);
 
-  /* "petsi/_structure.py":804
+  /* "petsi/_structure.py":819
  * 
  *     def _push(self, t):   # : Token
  *         self._tokens.append(t)  # Appends to the right             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_Append(__pyx_v_self->_tokens, ((PyObject *)__pyx_v_t)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 804, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Append(__pyx_v_self->_tokens, ((PyObject *)__pyx_v_t)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 819, __pyx_L1_error)
 
-  /* "petsi/_structure.py":803
+  /* "petsi/_structure.py":818
  *         return self._tokens.popleft()
  * 
  *     def _push(self, t):   # : Token             # <<<<<<<<<<<<<<
@@ -19022,7 +19028,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_5Place_14__setstate_cython__(struc
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":813
+/* "petsi/_structure.py":828
  * class LIFOPlace(Place):
  *     @cython.ccall
  *     def _push(self, t: Token):             # <<<<<<<<<<<<<<
@@ -19051,7 +19057,7 @@ PyObject *__pyx_f_5petsi_10_structure_9LIFOPlace__push(struct __pyx_obj_5petsi_1
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_push); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 813, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_push); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 828, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_10_structure_9LIFOPlace_1_push)) {
         __Pyx_XDECREF(__pyx_r);
@@ -19068,7 +19074,7 @@ PyObject *__pyx_f_5petsi_10_structure_9LIFOPlace__push(struct __pyx_obj_5petsi_1
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, ((PyObject *)__pyx_v_t)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_t));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 813, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 828, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -19089,14 +19095,14 @@ PyObject *__pyx_f_5petsi_10_structure_9LIFOPlace__push(struct __pyx_obj_5petsi_1
     #endif
   }
 
-  /* "petsi/_structure.py":814
+  /* "petsi/_structure.py":829
  *     @cython.ccall
  *     def _push(self, t: Token):
  *         self._tokens.appendleft(t)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->__pyx_base._tokens, __pyx_n_s_appendleft); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 814, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->__pyx_base._tokens, __pyx_n_s_appendleft); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 829, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -19110,12 +19116,12 @@ PyObject *__pyx_f_5petsi_10_structure_9LIFOPlace__push(struct __pyx_obj_5petsi_1
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, ((PyObject *)__pyx_v_t)) : __Pyx_PyObject_CallOneArg(__pyx_t_2, ((PyObject *)__pyx_v_t));
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 814, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 829, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":813
+  /* "petsi/_structure.py":828
  * class LIFOPlace(Place):
  *     @cython.ccall
  *     def _push(self, t: Token):             # <<<<<<<<<<<<<<
@@ -19149,7 +19155,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_9LIFOPlace_1_push(PyObject *__pyx_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("_push (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_t), __pyx_ptype_5petsi_10_structure_Token, 1, "t", 0))) __PYX_ERR(0, 813, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_t), __pyx_ptype_5petsi_10_structure_Token, 1, "t", 0))) __PYX_ERR(0, 828, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_10_structure_9LIFOPlace__push(((struct __pyx_obj_5petsi_10_structure_LIFOPlace *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_v_t));
 
   /* function exit code */
@@ -19170,7 +19176,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_9LIFOPlace__push(struct __pyx_obj_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_push", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_10_structure_9LIFOPlace__push(__pyx_v_self, __pyx_v_t, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 813, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_10_structure_9LIFOPlace__push(__pyx_v_self, __pyx_v_t, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 828, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -19545,97 +19551,12 @@ static PyObject *__pyx_pf_5petsi_10_structure_9LIFOPlace_4__setstate_cython__(st
   return __pyx_r;
 }
 
-/* "petsi/_structure.py":819
- * class PetsiVisitor(ABC):
- *     @abstractmethod
- *     def visit(self, visitable: Union[Net, Transition, Place, Arc]):             # <<<<<<<<<<<<<<
- *         pass
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_5petsi_10_structure_12PetsiVisitor_1visit(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_5petsi_10_structure_12PetsiVisitor_1visit = {"visit", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_12PetsiVisitor_1visit, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_5petsi_10_structure_12PetsiVisitor_1visit(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
-  CYTHON_UNUSED PyObject *__pyx_v_self = 0;
-  CYTHON_UNUSED PyObject *__pyx_v_visitable = 0;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("visit (wrapper)", 0);
-  {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_self,&__pyx_n_s_visitable,0};
-    PyObject* values[2] = {0,0};
-    if (unlikely(__pyx_kwds)) {
-      Py_ssize_t kw_args;
-      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
-      switch (pos_args) {
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
-        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-        CYTHON_FALLTHROUGH;
-        case  0: break;
-        default: goto __pyx_L5_argtuple_error;
-      }
-      kw_args = PyDict_Size(__pyx_kwds);
-      switch (pos_args) {
-        case  0:
-        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_self)) != 0)) kw_args--;
-        else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_visitable)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("visit", 1, 2, 2, 1); __PYX_ERR(0, 819, __pyx_L3_error)
-        }
-      }
-      if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "visit") < 0)) __PYX_ERR(0, 819, __pyx_L3_error)
-      }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
-      goto __pyx_L5_argtuple_error;
-    } else {
-      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-    }
-    __pyx_v_self = values[0];
-    __pyx_v_visitable = values[1];
-  }
-  goto __pyx_L4_argument_unpacking_done;
-  __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("visit", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 819, __pyx_L3_error)
-  __pyx_L3_error:;
-  __Pyx_AddTraceback("petsi._structure.PetsiVisitor.visit", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-  __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_5petsi_10_structure_12PetsiVisitor_visit(__pyx_self, __pyx_v_self, __pyx_v_visitable);
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_5petsi_10_structure_12PetsiVisitor_visit(CYTHON_UNUSED PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *__pyx_v_visitable) {
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("visit", 0);
-
-  /* function exit code */
-  __pyx_r = Py_None; __Pyx_INCREF(Py_None);
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-/* "petsi/_structure.py":827
+/* "petsi/_structure.py":836
  * 
  * @cython.ccall
  * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):             # <<<<<<<<<<<<<<
- *     for x in iterator:
- *         f(x)
+ *     """ Call f on each element of the iterable.
+ *     :param f: A function accepting a single argument of the type of the elements of the iterable
  */
 
 static PyObject *__pyx_pw_5petsi_10_structure_1foreach(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
@@ -19654,9 +19575,9 @@ static PyObject *__pyx_f_5petsi_10_structure_foreach(PyObject *__pyx_v_f, PyObje
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("foreach", 0);
 
-  /* "petsi/_structure.py":828
- * @cython.ccall
- * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):
+  /* "petsi/_structure.py":842
+ *     :return: None
+ *     """
  *     for x in iterator:             # <<<<<<<<<<<<<<
  *         f(x)
  */
@@ -19664,26 +19585,26 @@ static PyObject *__pyx_f_5petsi_10_structure_foreach(PyObject *__pyx_v_f, PyObje
     __pyx_t_1 = __pyx_v_iterator; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_iterator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 828, __pyx_L1_error)
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_iterator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 842, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 828, __pyx_L1_error)
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 842, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 828, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 842, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 828, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 842, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       } else {
         if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 828, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 842, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 828, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 842, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       }
@@ -19693,7 +19614,7 @@ static PyObject *__pyx_f_5petsi_10_structure_foreach(PyObject *__pyx_v_f, PyObje
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 828, __pyx_L1_error)
+          else __PYX_ERR(0, 842, __pyx_L1_error)
         }
         break;
       }
@@ -19702,8 +19623,8 @@ static PyObject *__pyx_f_5petsi_10_structure_foreach(PyObject *__pyx_v_f, PyObje
     __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "petsi/_structure.py":829
- * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):
+    /* "petsi/_structure.py":843
+ *     """
  *     for x in iterator:
  *         f(x)             # <<<<<<<<<<<<<<
  */
@@ -19720,26 +19641,26 @@ static PyObject *__pyx_f_5petsi_10_structure_foreach(PyObject *__pyx_v_f, PyObje
     }
     __pyx_t_4 = (__pyx_t_6) ? __Pyx_PyObject_Call2Args(__pyx_t_5, __pyx_t_6, __pyx_v_x) : __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_x);
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 829, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 843, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "petsi/_structure.py":828
- * @cython.ccall
- * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):
+    /* "petsi/_structure.py":842
+ *     :return: None
+ *     """
  *     for x in iterator:             # <<<<<<<<<<<<<<
  *         f(x)
  */
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":827
+  /* "petsi/_structure.py":836
  * 
  * @cython.ccall
  * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):             # <<<<<<<<<<<<<<
- *     for x in iterator:
- *         f(x)
+ *     """ Call f on each element of the iterable.
+ *     :param f: A function accepting a single argument of the type of the elements of the iterable
  */
 
   /* function exit code */
@@ -19761,7 +19682,8 @@ static PyObject *__pyx_f_5petsi_10_structure_foreach(PyObject *__pyx_v_f, PyObje
 
 /* Python wrapper */
 static PyObject *__pyx_pw_5petsi_10_structure_1foreach(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_5petsi_10_structure_1foreach = {"foreach", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_1foreach, METH_VARARGS|METH_KEYWORDS, 0};
+static char __pyx_doc_5petsi_10_structure_foreach[] = " Call f on each element of the iterable.\n    :param f: A function accepting a single argument of the type of the elements of the iterable\n    :param iterator: An iterable providing elements accepted by the function\n    :return: None\n    ";
+static PyMethodDef __pyx_mdef_5petsi_10_structure_1foreach = {"foreach", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_5petsi_10_structure_1foreach, METH_VARARGS|METH_KEYWORDS, __pyx_doc_5petsi_10_structure_foreach};
 static PyObject *__pyx_pw_5petsi_10_structure_1foreach(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_f = 0;
   PyObject *__pyx_v_iterator = 0;
@@ -19794,11 +19716,11 @@ static PyObject *__pyx_pw_5petsi_10_structure_1foreach(PyObject *__pyx_self, PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_iterator)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("foreach", 1, 2, 2, 1); __PYX_ERR(0, 827, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("foreach", 1, 2, 2, 1); __PYX_ERR(0, 836, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "foreach") < 0)) __PYX_ERR(0, 827, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "foreach") < 0)) __PYX_ERR(0, 836, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -19811,7 +19733,7 @@ static PyObject *__pyx_pw_5petsi_10_structure_1foreach(PyObject *__pyx_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("foreach", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 827, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("foreach", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 836, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._structure.foreach", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -19833,7 +19755,7 @@ static PyObject *__pyx_pf_5petsi_10_structure_foreach(CYTHON_UNUSED PyObject *__
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("foreach", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_10_structure_foreach(__pyx_v_f, __pyx_v_iterator, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_10_structure_foreach(__pyx_v_f, __pyx_v_iterator, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -26246,7 +26168,7 @@ static PyMethodDef __pyx_methods_5petsi_10_structure_Token[] = {
 };
 
 static struct PyGetSetDef __pyx_getsets_5petsi_10_structure_Token[] = {
-  {(char *)"typ", __pyx_getprop_5petsi_10_structure_5Token_typ, 0, (char *)0, 0},
+  {(char *)"typ", __pyx_getprop_5petsi_10_structure_5Token_typ, 0, (char *)" The type of the token.", 0},
   {(char *)"token_id", __pyx_getprop_5petsi_10_structure_5Token_token_id, 0, (char *)0, 0},
   {0, 0, 0, 0, 0}
 };
@@ -26282,7 +26204,7 @@ static PyTypeObject __pyx_type_5petsi_10_structure_Token = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  0, /*tp_doc*/
+  " A typed token in a Petri net. ", /*tp_doc*/
   __pyx_tp_traverse_5petsi_10_structure_Token, /*tp_traverse*/
   __pyx_tp_clear_5petsi_10_structure_Token, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -27705,7 +27627,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_NotImplementedError, __pyx_k_NotImplementedError, sizeof(__pyx_k_NotImplementedError), 0, 0, 1, 1},
   {&__pyx_n_s_PetsiVisitor, __pyx_k_PetsiVisitor, sizeof(__pyx_k_PetsiVisitor), 0, 0, 1, 1},
   {&__pyx_n_u_PetsiVisitor, __pyx_k_PetsiVisitor, sizeof(__pyx_k_PetsiVisitor), 0, 1, 0, 1},
-  {&__pyx_n_s_PetsiVisitor_visit, __pyx_k_PetsiVisitor_visit, sizeof(__pyx_k_PetsiVisitor_visit), 0, 0, 1, 1},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_kp_u_Place, __pyx_k_Place, sizeof(__pyx_k_Place), 0, 1, 0, 0},
   {&__pyx_n_s_Place_2, __pyx_k_Place_2, sizeof(__pyx_k_Place_2), 0, 0, 1, 1},
@@ -27765,7 +27686,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_u_Type_mismatch_on_TransferArc, __pyx_k_Type_mismatch_on_TransferArc, sizeof(__pyx_k_Type_mismatch_on_TransferArc), 0, 1, 0, 0},
   {&__pyx_n_s_UNDEFINED, __pyx_k_UNDEFINED, sizeof(__pyx_k_UNDEFINED), 0, 0, 1, 1},
   {&__pyx_kp_u_UNDEFINED_STABLE_TRANSIENT_ERROR, __pyx_k_UNDEFINED_STABLE_TRANSIENT_ERROR, sizeof(__pyx_k_UNDEFINED_STABLE_TRANSIENT_ERROR), 0, 1, 0, 0},
-  {&__pyx_n_s_Union, __pyx_k_Union, sizeof(__pyx_k_Union), 0, 0, 1, 1},
   {&__pyx_kp_u_Unknown_queueing_policy, __pyx_k_Unknown_queueing_policy, sizeof(__pyx_k_Unknown_queueing_policy), 0, 1, 0, 0},
   {&__pyx_n_s_UpdateOp, __pyx_k_UpdateOp, sizeof(__pyx_k_UpdateOp), 0, 0, 1, 1},
   {&__pyx_n_s_UpdateOp___init, __pyx_k_UpdateOp___init, sizeof(__pyx_k_UpdateOp___init), 0, 0, 1, 1},
@@ -27773,6 +27693,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_ValuesView, __pyx_k_ValuesView, sizeof(__pyx_k_ValuesView), 0, 0, 1, 1},
   {&__pyx_kp_u_ValuesView_Plugins_AbstractPlugi, __pyx_k_ValuesView_Plugins_AbstractPlugi, sizeof(__pyx_k_ValuesView_Plugins_AbstractPlugi), 0, 1, 0, 0},
+  {&__pyx_n_s_Visitor, __pyx_k_Visitor, sizeof(__pyx_k_Visitor), 0, 0, 1, 1},
   {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
   {&__pyx_kp_u__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0, 0},
   {&__pyx_kp_u__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0, 0},
@@ -27810,7 +27731,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_before_firing, __pyx_k_before_firing, sizeof(__pyx_k_before_firing), 0, 0, 1, 1},
   {&__pyx_kp_u_black_dot, __pyx_k_black_dot, sizeof(__pyx_k_black_dot), 0, 1, 0, 0},
   {&__pyx_n_s_black_dot_2, __pyx_k_black_dot_2, sizeof(__pyx_k_black_dot_2), 0, 0, 1, 1},
-  {&__pyx_n_s_bound, __pyx_k_bound, sizeof(__pyx_k_bound), 0, 0, 1, 1},
   {&__pyx_n_s_class, __pyx_k_class, sizeof(__pyx_k_class), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_collections, __pyx_k_collections, sizeof(__pyx_k_collections), 0, 0, 1, 1},
@@ -27948,19 +27868,18 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_validate_transition_name, __pyx_k_validate_transition_name, sizeof(__pyx_k_validate_transition_name), 0, 0, 1, 1},
   {&__pyx_n_s_values, __pyx_k_values, sizeof(__pyx_k_values), 0, 0, 1, 1},
   {&__pyx_n_s_visit, __pyx_k_visit, sizeof(__pyx_k_visit), 0, 0, 1, 1},
-  {&__pyx_n_s_visitable, __pyx_k_visitable, sizeof(__pyx_k_visitable), 0, 0, 1, 1},
   {&__pyx_n_s_visitor, __pyx_k_visitor, sizeof(__pyx_k_visitor), 0, 0, 1, 1},
   {&__pyx_n_s_weight, __pyx_k_weight, sizeof(__pyx_k_weight), 0, 0, 1, 1},
   {&__pyx_kp_u_whereas_type, __pyx_k_whereas_type, sizeof(__pyx_k_whereas_type), 0, 1, 0, 0},
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_property = __Pyx_GetBuiltinName(__pyx_n_s_property); if (!__pyx_builtin_property) __PYX_ERR(0, 72, __pyx_L1_error)
-  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 89, __pyx_L1_error)
-  __pyx_builtin_map = __Pyx_GetBuiltinName(__pyx_n_s_map); if (!__pyx_builtin_map) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_builtin_property = __Pyx_GetBuiltinName(__pyx_n_s_property); if (!__pyx_builtin_property) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_builtin_map = __Pyx_GetBuiltinName(__pyx_n_s_map); if (!__pyx_builtin_map) __PYX_ERR(0, 94, __pyx_L1_error)
   __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 139, __pyx_L1_error)
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 486, __pyx_L1_error)
-  __pyx_builtin_NotImplementedError = __Pyx_GetBuiltinName(__pyx_n_s_NotImplementedError); if (!__pyx_builtin_NotImplementedError) __PYX_ERR(0, 499, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_builtin_NotImplementedError = __Pyx_GetBuiltinName(__pyx_n_s_NotImplementedError); if (!__pyx_builtin_NotImplementedError) __PYX_ERR(0, 514, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -27970,103 +27889,92 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "petsi/_structure.py":26
- * 
- * 
- * APetsiVisitor = TypeVar('APetsiVisitor', bound="PetsiVisitor")             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __pyx_tuple__7 = PyTuple_Pack(1, __pyx_n_u_APetsiVisitor); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__7);
-  __Pyx_GIVEREF(__pyx_tuple__7);
-
-  /* "petsi/_structure.py":38
+  /* "petsi/_structure.py":37
  *     _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
  * 
  *     def __init__(self, name: str):             # <<<<<<<<<<<<<<
  *         """ Create a Petri net.
  * 
  */
-  __pyx_tuple__8 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_name); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__8);
-  __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_init, 38, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_tuple__7 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_name); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__7);
+  __Pyx_GIVEREF(__pyx_tuple__7);
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_init, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 37, __pyx_L1_error)
 
-  /* "petsi/_structure.py":51
+  /* "petsi/_structure.py":50
  *         self._black_dot = self.add_type("black dot")
  * 
- *     def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:             # <<<<<<<<<<<<<<
+ *     def accept(self, visitor: "APetsiVisitor") -> "APetsiVisitor":             # <<<<<<<<<<<<<<
  *         """ Accept a :class:`PetsiVisitor`.
  * 
  */
-  __pyx_tuple__10 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_visitor, __pyx_n_s_place, __pyx_n_s_transition); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__10);
-  __Pyx_GIVEREF(__pyx_tuple__10);
-  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 51, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_tuple__9 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_visitor, __pyx_n_s_place, __pyx_n_s_transition); if (unlikely(!__pyx_tuple__9)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__9);
+  __Pyx_GIVEREF(__pyx_tuple__9);
+  __pyx_codeobj__10 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__9, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 50, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__10)) __PYX_ERR(0, 50, __pyx_L1_error)
 
-  /* "petsi/_structure.py":73
+  /* "petsi/_structure.py":72
  * 
  *     @property
  *     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":             # <<<<<<<<<<<<<<
  *         return self._observers.values()
  * 
  */
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__12);
-  __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_observers_2, 73, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_tuple__11 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__11);
+  __Pyx_GIVEREF(__pyx_tuple__11);
+  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_observers_2, 72, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(0, 72, __pyx_L1_error)
 
-  /* "petsi/_structure.py":76
+  /* "petsi/_structure.py":75
  *         return self._observers.values()
  * 
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
  *         """ Register the given plugin.
  * 
  */
-  __pyx_tuple__14 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_plugin); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 76, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__14);
-  __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_register_plugin, 76, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_plugin); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_register_plugin, 75, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 75, __pyx_L1_error)
 
-  /* "petsi/_structure.py":98
+  /* "petsi/_structure.py":97
  * 
  *     # All arcs connected to a place must have the type of the place
  *     def add_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
  *         """ Define a token type in the Petri net.
  * 
  */
-  __pyx_tuple__16 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_type_name, __pyx_n_s_typ); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_type, 98, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_type_name, __pyx_n_s_typ); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_type, 97, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(0, 97, __pyx_L1_error)
 
-  /* "petsi/_structure.py":115
+  /* "petsi/_structure.py":114
  *         return typ
  * 
  *     def token_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
  *         """ Get the token type with the given name.
  * 
  */
-  __pyx_tuple__18 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_type_name); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 115, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__18);
-  __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_token_type, 115, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_type_name); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__17);
+  __Pyx_GIVEREF(__pyx_tuple__17);
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_token_type, 114, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(0, 114, __pyx_L1_error)
 
-  /* "petsi/_structure.py":124
+  /* "petsi/_structure.py":123
  *         return self._types[type_name]
  * 
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":             # <<<<<<<<<<<<<<
  *         """ Add a place to the Petri-net with the given name, type and queueing policy.
  * 
  */
-  __pyx_tuple__20 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_type_name, __pyx_n_s_queueing_policy_name, __pyx_n_s_klass, __pyx_n_s_place); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 124, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__20);
-  __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(4, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_place, 124, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 124, __pyx_L1_error)
-  __pyx_tuple__22 = PyTuple_Pack(2, ((PyObject*)__pyx_kp_u_black_dot), ((PyObject*)__pyx_n_u_FIFO)); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 124, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__22);
-  __Pyx_GIVEREF(__pyx_tuple__22);
+  __pyx_tuple__19 = PyTuple_Pack(6, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_type_name, __pyx_n_s_queueing_policy_name, __pyx_n_s_klass, __pyx_n_s_place); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__19);
+  __Pyx_GIVEREF(__pyx_tuple__19);
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(4, 0, 6, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_place, 123, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_tuple__21 = PyTuple_Pack(2, ((PyObject*)__pyx_kp_u_black_dot), ((PyObject*)__pyx_n_u_FIFO)); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__21);
+  __Pyx_GIVEREF(__pyx_tuple__21);
 
   /* "petsi/_structure.py":149
  *             return place
@@ -28075,10 +27983,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """ Get the place with the given name.
  * 
  */
-  __pyx_tuple__23 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_place_name); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__23);
-  __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_place, 149, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_place_name); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__22);
+  __Pyx_GIVEREF(__pyx_tuple__22);
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_place, 149, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 149, __pyx_L1_error)
 
   /* "petsi/_structure.py":158
  *         return self._places[place_name]
@@ -28087,10 +27995,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         foreach(lambda o: t.attach_observer(o),
  *                 self._observers.values())
  */
-  __pyx_tuple__25 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_t); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__25);
-  __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_transition_observers, 158, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_t); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__24);
+  __Pyx_GIVEREF(__pyx_tuple__24);
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_transition_observers, 158, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 158, __pyx_L1_error)
 
   /* "petsi/_structure.py":162
  *                 self._observers.values())
@@ -28099,10 +28007,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         if name in self._transitions:
  *             raise ValueError(f"A transition with name '{name}' already exists in net '{self.name}'.")
  */
-  __pyx_tuple__27 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_name); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(0, 162, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__27);
-  __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_validate_transition_name, 162, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_name); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__26);
+  __Pyx_GIVEREF(__pyx_tuple__26);
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_validate_transition_name, 162, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 162, __pyx_L1_error)
 
   /* "petsi/_structure.py":167
  * 
@@ -28111,116 +28019,116 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *         """ Create and add an immediate transition to the Petri net.
  * 
  */
-  __pyx_tuple__29 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_priority, __pyx_n_s_weight, __pyx_n_s_t); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 167, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__29);
-  __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_immediate_transition, 167, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_tuple__28 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_priority, __pyx_n_s_weight, __pyx_n_s_t); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__28);
+  __Pyx_GIVEREF(__pyx_tuple__28);
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(4, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_immediate_transition, 167, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(0, 167, __pyx_L1_error)
 
-  /* "petsi/_structure.py":191
+  /* "petsi/_structure.py":193
  *         return t
  * 
  *     def add_timed_transition(self, name: str, distribution: "Callable[[], float]") -> "Transition":             # <<<<<<<<<<<<<<
  *         """ Create and add a timed transition to the Petri net.
  * 
  */
-  __pyx_tuple__31 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_distribution, __pyx_n_s_t); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(0, 191, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__31);
-  __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_timed_transition, 191, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_tuple__30 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_distribution, __pyx_n_s_t); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__30);
+  __Pyx_GIVEREF(__pyx_tuple__30);
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_timed_transition, 193, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 193, __pyx_L1_error)
 
-  /* "petsi/_structure.py":208
+  /* "petsi/_structure.py":211
  *         return t
  * 
  *     def transition(self, transition_name: str) -> "Transition":             # <<<<<<<<<<<<<<
  *         """ Get the transition with the given name.
  * 
  */
-  __pyx_tuple__33 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(0, 208, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__33);
-  __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_transition, 208, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_tuple__32 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_transition, 211, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 211, __pyx_L1_error)
 
-  /* "petsi/_structure.py":217
+  /* "petsi/_structure.py":220
  *         return self._transitions[transition_name]
  * 
  *     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":             # <<<<<<<<<<<<<<
  *         """ Create a constructor arc.
  * 
  */
-  __pyx_tuple__35 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_transition_name, __pyx_n_s_output_place_name); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 217, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__35);
-  __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_constructor, 217, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __pyx_tuple__34 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_transition_name, __pyx_n_s_output_place_name); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__34);
+  __Pyx_GIVEREF(__pyx_tuple__34);
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_constructor, 220, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 220, __pyx_L1_error)
 
-  /* "petsi/_structure.py":232
+  /* "petsi/_structure.py":236
  *                               output_place=self._places[output_place_name])
  * 
  *     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> "DestructorArc":             # <<<<<<<<<<<<<<
  *         """ Create a destructor arc.
  * 
  */
-  __pyx_tuple__37 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_input_place_name, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 232, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__37);
-  __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_destructor, 232, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_tuple__36 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_input_place_name, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__36);
+  __Pyx_GIVEREF(__pyx_tuple__36);
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_destructor, 236, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 236, __pyx_L1_error)
 
-  /* "petsi/_structure.py":247
+  /* "petsi/_structure.py":252
  *                              input_place=self._places[input_place_name])
  * 
  *     def add_transfer(self, name: str, input_place_name: str, transition_name: str,             # <<<<<<<<<<<<<<
  *                      output_place_name: str) -> "TransferArc":
  *         """ Create a destructor arc.
  */
-  __pyx_tuple__39 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_input_place_name, __pyx_n_s_transition_name, __pyx_n_s_output_place_name); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 247, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__39);
-  __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_transfer, 247, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(5, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_input_place_name, __pyx_n_s_transition_name, __pyx_n_s_output_place_name); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__38);
+  __Pyx_GIVEREF(__pyx_tuple__38);
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(5, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_transfer, 252, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 252, __pyx_L1_error)
 
-  /* "petsi/_structure.py":264
+  /* "petsi/_structure.py":270
  *                            output_place=self._places[output_place_name])
  * 
  *     def add_test(self, name: str, place_name: str, transition_name: str, ) -> "TestArc":             # <<<<<<<<<<<<<<
  *         """ Create a test arc.
  * 
  */
-  __pyx_tuple__41 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_place_name, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__41);
-  __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_test, 264, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_place_name, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__40);
+  __Pyx_GIVEREF(__pyx_tuple__40);
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_test, 270, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 270, __pyx_L1_error)
 
-  /* "petsi/_structure.py":280
+  /* "petsi/_structure.py":287
  *                        input_place=self._places[place_name])
  * 
  *     def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> "InhibitorArc":             # <<<<<<<<<<<<<<
  *         """ Create an inhibitor arc.
  * 
  */
-  __pyx_tuple__43 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_place_name, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 280, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__43);
-  __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_inhibitor, 280, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_name, __pyx_n_s_place_name, __pyx_n_s_transition_name); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__42);
+  __Pyx_GIVEREF(__pyx_tuple__42);
+  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(4, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_inhibitor, 287, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 287, __pyx_L1_error)
 
-  /* "petsi/_structure.py":296
+  /* "petsi/_structure.py":304
  *                             input_place=self._places[place_name])
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         """ Remove all tokens from the Petri net & reset the marking-related state of the observers"""
  *         for place in self._places.values():
  */
-  __pyx_tuple__45 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_place, __pyx_n_s_observer); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 296, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__45);
-  __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_reset, 296, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 296, __pyx_L1_error)
+  __pyx_tuple__44 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_place, __pyx_n_s_observer); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__44);
+  __Pyx_GIVEREF(__pyx_tuple__44);
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_reset, 304, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 304, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__47 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__47);
-  __Pyx_GIVEREF(__pyx_tuple__47);
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__46);
+  __Pyx_GIVEREF(__pyx_tuple__46);
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28228,20 +28136,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenType__set_state(self, __pyx_state)
  */
-  __pyx_tuple__49 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__49);
-  __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__48 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__48);
+  __Pyx_GIVEREF(__pyx_tuple__48);
+  __pyx_codeobj__49 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__48, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__49)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__51 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__51);
-  __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__50);
+  __Pyx_GIVEREF(__pyx_tuple__50);
+  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28249,68 +28157,68 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Token__set_state(self, __pyx_state)
  */
-  __pyx_tuple__53 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__53);
-  __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__52 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__52);
+  __Pyx_GIVEREF(__pyx_tuple__52);
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_structure.py":398
+  /* "petsi/_structure.py":413
  *         return self.priority == 0
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
  *         visitor.visit(self)
  * 
  */
-  __pyx_tuple__55 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_visitor, __pyx_n_s_arc); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 398, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__55);
-  __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 398, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 398, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_visitor, __pyx_n_s_arc); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 413, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__54);
+  __Pyx_GIVEREF(__pyx_tuple__54);
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 413, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 413, __pyx_L1_error)
 
-  /* "petsi/_structure.py":407
+  /* "petsi/_structure.py":422
  *         return self._distribution()
  * 
  *     def attach_observer(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
  *         observer = plugin.observe_transition(self)
  * 
  */
-  __pyx_tuple__57 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_plugin, __pyx_n_s_observer); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 407, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__57);
-  __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_observer, 407, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_tuple__56 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_plugin, __pyx_n_s_observer); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 422, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__56);
+  __Pyx_GIVEREF(__pyx_tuple__56);
+  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_observer, 422, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 422, __pyx_L1_error)
 
-  /* "petsi/_structure.py":419
+  /* "petsi/_structure.py":434
  *                     observer.got_disabled()
  * 
  *     def add_arc(self, arc: "Arc"):             # <<<<<<<<<<<<<<
  *         if arc.name in self._arcs:
  *             raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")
  */
-  __pyx_tuple__59 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_arc); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 419, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__59);
-  __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_arc, 419, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 419, __pyx_L1_error)
+  __pyx_tuple__58 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_arc); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__58);
+  __Pyx_GIVEREF(__pyx_tuple__58);
+  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_add_arc, 434, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 434, __pyx_L1_error)
 
-  /* "petsi/_structure.py":430
+  /* "petsi/_structure.py":445
  * 
  *     @cython.locals(arc="Arc")
  *     def fire(self):             # <<<<<<<<<<<<<<
  *         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
  *         for transition_observer in self._transition_observers:
  */
-  __pyx_tuple__61 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_arc, __pyx_n_s_transition_observer); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 430, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__61);
-  __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_fire, 430, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 430, __pyx_L1_error)
+  __pyx_tuple__60 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_arc, __pyx_n_s_transition_observer); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 445, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__60);
+  __Pyx_GIVEREF(__pyx_tuple__60);
+  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_fire, 445, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 445, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__63 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__63);
-  __Pyx_GIVEREF(__pyx_tuple__63);
-  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__62 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__62);
+  __Pyx_GIVEREF(__pyx_tuple__62);
+  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28318,68 +28226,68 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Transition__set_state(self, __pyx_state)
  */
-  __pyx_tuple__65 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__65);
-  __Pyx_GIVEREF(__pyx_tuple__65);
-  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__64 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__64);
+  __Pyx_GIVEREF(__pyx_tuple__64);
+  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_structure.py":461
+  /* "petsi/_structure.py":476
  *     @property
  *     @abstractmethod
  *     def is_true(self) -> bool: pass             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__67 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(0, 461, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__67);
-  __Pyx_GIVEREF(__pyx_tuple__67);
-  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_is_true, 461, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_tuple__66 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(0, 476, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__66);
+  __Pyx_GIVEREF(__pyx_tuple__66);
+  __pyx_codeobj__67 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__66, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_is_true, 476, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__67)) __PYX_ERR(0, 476, __pyx_L1_error)
 
-  /* "petsi/_structure.py":468
+  /* "petsi/_structure.py":483
  *     new_value: "Any"
  * 
  *     def __init__(self, key: str, new_value: "Any"):             # <<<<<<<<<<<<<<
  *         self.key = key
  *         self.new_value = new_value
  */
-  __pyx_tuple__69 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_key, __pyx_n_s_new_value); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(0, 468, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__69);
-  __Pyx_GIVEREF(__pyx_tuple__69);
-  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_init, 468, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(0, 468, __pyx_L1_error)
+  __pyx_tuple__68 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_key, __pyx_n_s_new_value); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(0, 483, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__68);
+  __Pyx_GIVEREF(__pyx_tuple__68);
+  __pyx_codeobj__69 = (PyObject*)__Pyx_PyCode_New(3, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__68, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_init, 483, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__69)) __PYX_ERR(0, 483, __pyx_L1_error)
 
-  /* "petsi/_structure.py":472
+  /* "petsi/_structure.py":487
  *         self.new_value = new_value
  * 
  *     def apply(self, t: Token): pass             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__71 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_t); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(0, 472, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__71);
-  __Pyx_GIVEREF(__pyx_tuple__71);
-  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_apply, 472, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_tuple__70 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_t); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(0, 487, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__70);
+  __Pyx_GIVEREF(__pyx_tuple__70);
+  __pyx_codeobj__71 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__70, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_apply, 487, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__71)) __PYX_ERR(0, 487, __pyx_L1_error)
 
-  /* "petsi/_structure.py":501
+  /* "petsi/_structure.py":516
  *         raise NotImplementedError
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
  *         visitor.visit(self)
  * 
  */
-  __pyx_tuple__73 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_visitor); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(0, 501, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__73);
-  __Pyx_GIVEREF(__pyx_tuple__73);
-  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 501, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_tuple__72 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_visitor); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(0, 516, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__72);
+  __Pyx_GIVEREF(__pyx_tuple__72);
+  __pyx_codeobj__73 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__72, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 516, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__73)) __PYX_ERR(0, 516, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__75 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__75);
-  __Pyx_GIVEREF(__pyx_tuple__75);
-  __pyx_codeobj__76 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__75, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__76)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__74 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__74)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__74);
+  __Pyx_GIVEREF(__pyx_tuple__74);
+  __pyx_codeobj__75 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__74, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__75)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28387,20 +28295,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Arc__set_state(self, __pyx_state)
  */
-  __pyx_tuple__77 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__77);
-  __Pyx_GIVEREF(__pyx_tuple__77);
-  __pyx_codeobj__78 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__77, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__78)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__76 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__76)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__76);
+  __Pyx_GIVEREF(__pyx_tuple__76);
+  __pyx_codeobj__77 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__76, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__77)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__79 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__79)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__79);
-  __Pyx_GIVEREF(__pyx_tuple__79);
-  __pyx_codeobj__80 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__79, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__80)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__78 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__78)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__78);
+  __Pyx_GIVEREF(__pyx_tuple__78);
+  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__78, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28408,20 +28316,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_PresenceObserver__set_state(self, __pyx_state)
  */
-  __pyx_tuple__81 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__81)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__81);
-  __Pyx_GIVEREF(__pyx_tuple__81);
-  __pyx_codeobj__82 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__82)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__80 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__80);
+  __Pyx_GIVEREF(__pyx_tuple__80);
+  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__83 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__83)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__83);
-  __Pyx_GIVEREF(__pyx_tuple__83);
-  __pyx_codeobj__84 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__83, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__84)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__82 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__82);
+  __Pyx_GIVEREF(__pyx_tuple__82);
+  __pyx_codeobj__83 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__83)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28429,20 +28337,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ConstructorArc__set_state(self, __pyx_state)
  */
-  __pyx_tuple__85 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__85)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__85);
-  __Pyx_GIVEREF(__pyx_tuple__85);
-  __pyx_codeobj__86 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__85, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__86)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__84 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__84)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__84);
+  __Pyx_GIVEREF(__pyx_tuple__84);
+  __pyx_codeobj__85 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__84, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__85)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__87 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__87)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__87);
-  __Pyx_GIVEREF(__pyx_tuple__87);
-  __pyx_codeobj__88 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__87, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__88)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__86 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__86)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__86);
+  __Pyx_GIVEREF(__pyx_tuple__86);
+  __pyx_codeobj__87 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__86, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__87)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28450,20 +28358,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenConsumer__set_state(self, __pyx_state)
  */
-  __pyx_tuple__89 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__89)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__89);
-  __Pyx_GIVEREF(__pyx_tuple__89);
-  __pyx_codeobj__90 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__89, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__90)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__88 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__88)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__88);
+  __Pyx_GIVEREF(__pyx_tuple__88);
+  __pyx_codeobj__89 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__88, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__89)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__91 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__91)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__91);
-  __Pyx_GIVEREF(__pyx_tuple__91);
-  __pyx_codeobj__92 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__91, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__92)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__90 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__90)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__90);
+  __Pyx_GIVEREF(__pyx_tuple__90);
+  __pyx_codeobj__91 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__90, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__91)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28471,20 +28379,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_DestructorArc__set_state(self, __pyx_state)
  */
-  __pyx_tuple__93 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__93)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__93);
-  __Pyx_GIVEREF(__pyx_tuple__93);
-  __pyx_codeobj__94 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__93, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__94)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__92 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__92)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__92);
+  __Pyx_GIVEREF(__pyx_tuple__92);
+  __pyx_codeobj__93 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__92, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__93)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__95 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__95)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__95);
-  __Pyx_GIVEREF(__pyx_tuple__95);
-  __pyx_codeobj__96 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__95, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__96)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__94 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__94)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__94);
+  __Pyx_GIVEREF(__pyx_tuple__94);
+  __pyx_codeobj__95 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__94, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__95)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28492,20 +28400,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TransferArc__set_state(self, __pyx_state)
  */
-  __pyx_tuple__97 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__97)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__97);
-  __Pyx_GIVEREF(__pyx_tuple__97);
-  __pyx_codeobj__98 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__97, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__98)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__96 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__96)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__96);
+  __Pyx_GIVEREF(__pyx_tuple__96);
+  __pyx_codeobj__97 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__96, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__97)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__99 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__99)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__99);
-  __Pyx_GIVEREF(__pyx_tuple__99);
-  __pyx_codeobj__100 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__99, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__100)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__98 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__98)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__98);
+  __Pyx_GIVEREF(__pyx_tuple__98);
+  __pyx_codeobj__99 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__98, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__99)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28513,20 +28421,20 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TestArc__set_state(self, __pyx_state)
  */
-  __pyx_tuple__101 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__101)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__101);
-  __Pyx_GIVEREF(__pyx_tuple__101);
-  __pyx_codeobj__102 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__101, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__102)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__100 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__100)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__100);
+  __Pyx_GIVEREF(__pyx_tuple__100);
+  __pyx_codeobj__101 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__100, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__101)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__103 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__103)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__103);
-  __Pyx_GIVEREF(__pyx_tuple__103);
-  __pyx_codeobj__104 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__103, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__104)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__102 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__102)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__102);
+  __Pyx_GIVEREF(__pyx_tuple__102);
+  __pyx_codeobj__103 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__102, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__103)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28534,91 +28442,91 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_InhibitorArc__set_state(self, __pyx_state)
  */
-  __pyx_tuple__105 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__105)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__105);
-  __Pyx_GIVEREF(__pyx_tuple__105);
-  __pyx_codeobj__106 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__105, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__106)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__104 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__104)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__104);
+  __Pyx_GIVEREF(__pyx_tuple__104);
+  __pyx_codeobj__105 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__104, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__105)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_structure.py":660
+  /* "petsi/_structure.py":677
  *     _presence_observers: "Set[PresenceObserver]"
  * 
  *     _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")             # <<<<<<<<<<<<<<
  * 
  *     # ==== Invariants ======
  */
-  __pyx_tuple__107 = PyTuple_Pack(2, __pyx_n_u_Status, __pyx_kp_u_UNDEFINED_STABLE_TRANSIENT_ERROR); if (unlikely(!__pyx_tuple__107)) __PYX_ERR(0, 660, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__107);
-  __Pyx_GIVEREF(__pyx_tuple__107);
+  __pyx_tuple__106 = PyTuple_Pack(2, __pyx_n_u_Status, __pyx_kp_u_UNDEFINED_STABLE_TRANSIENT_ERROR); if (unlikely(!__pyx_tuple__106)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__106);
+  __Pyx_GIVEREF(__pyx_tuple__106);
 
-  /* "petsi/_structure.py":719
+  /* "petsi/_structure.py":736
  *     def name(self): return self._name
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
  *         visitor.visit(self)
  * 
  */
-  __pyx_tuple__108 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_visitor); if (unlikely(!__pyx_tuple__108)) __PYX_ERR(0, 719, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__108);
-  __Pyx_GIVEREF(__pyx_tuple__108);
-  __pyx_codeobj__109 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__108, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 719, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__109)) __PYX_ERR(0, 719, __pyx_L1_error)
+  __pyx_tuple__107 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_visitor); if (unlikely(!__pyx_tuple__107)) __PYX_ERR(0, 736, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__107);
+  __Pyx_GIVEREF(__pyx_tuple__107);
+  __pyx_codeobj__108 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__107, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept, 736, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__108)) __PYX_ERR(0, 736, __pyx_L1_error)
 
-  /* "petsi/_structure.py":722
+  /* "petsi/_structure.py":739
  *         visitor.visit(self)
  * 
  *     def accept_arc(self, arc: Arc, is_timed: bool):             # <<<<<<<<<<<<<<
  *         arc_class = type(arc)
  *         for arc_type, status in self._state_table[self._status][is_timed]:
  */
-  __pyx_tuple__110 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_arc, __pyx_n_s_is_timed, __pyx_n_s_arc_class, __pyx_n_s_arc_type, __pyx_n_s_status, __pyx_n_s_transition_kind); if (unlikely(!__pyx_tuple__110)) __PYX_ERR(0, 722, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__110);
-  __Pyx_GIVEREF(__pyx_tuple__110);
-  __pyx_codeobj__111 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__110, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept_arc, 722, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__111)) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_tuple__109 = PyTuple_Pack(7, __pyx_n_s_self, __pyx_n_s_arc, __pyx_n_s_is_timed, __pyx_n_s_arc_class, __pyx_n_s_arc_type, __pyx_n_s_status, __pyx_n_s_transition_kind); if (unlikely(!__pyx_tuple__109)) __PYX_ERR(0, 739, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__109);
+  __Pyx_GIVEREF(__pyx_tuple__109);
+  __pyx_codeobj__110 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__109, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_accept_arc, 739, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__110)) __PYX_ERR(0, 739, __pyx_L1_error)
 
-  /* "petsi/_structure.py":740
+  /* "petsi/_structure.py":757
  *     def typ(self): return self._typ
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         while not self.is_empty:
  *             self.pop()
  */
-  __pyx_tuple__112 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__112)) __PYX_ERR(0, 740, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__112);
-  __Pyx_GIVEREF(__pyx_tuple__112);
-  __pyx_codeobj__113 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__112, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_reset, 740, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__113)) __PYX_ERR(0, 740, __pyx_L1_error)
+  __pyx_tuple__111 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__111)) __PYX_ERR(0, 757, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__111);
+  __Pyx_GIVEREF(__pyx_tuple__111);
+  __pyx_codeobj__112 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__111, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_reset, 757, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__112)) __PYX_ERR(0, 757, __pyx_L1_error)
 
-  /* "petsi/_structure.py":744
+  /* "petsi/_structure.py":761
  *             self.pop()
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):             # <<<<<<<<<<<<<<
  *         observer = plugin.observe_place(self)
  * 
  */
-  __pyx_tuple__114 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_plugin, __pyx_n_s_observer); if (unlikely(!__pyx_tuple__114)) __PYX_ERR(0, 744, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__114);
-  __Pyx_GIVEREF(__pyx_tuple__114);
-  __pyx_codeobj__115 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__114, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_observer, 744, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__115)) __PYX_ERR(0, 744, __pyx_L1_error)
+  __pyx_tuple__113 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_plugin, __pyx_n_s_observer); if (unlikely(!__pyx_tuple__113)) __PYX_ERR(0, 761, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__113);
+  __Pyx_GIVEREF(__pyx_tuple__113);
+  __pyx_codeobj__114 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__113, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_observer, 761, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__114)) __PYX_ERR(0, 761, __pyx_L1_error)
 
-  /* "petsi/_structure.py":751
+  /* "petsi/_structure.py":768
  *             self._place_observers.add(observer)
  * 
  *     def attach_presence_observer(self, o: PresenceObserver):             # <<<<<<<<<<<<<<
  *         self._presence_observers.add(o)
  * 
  */
-  __pyx_tuple__116 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_o); if (unlikely(!__pyx_tuple__116)) __PYX_ERR(0, 751, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__116);
-  __Pyx_GIVEREF(__pyx_tuple__116);
-  __pyx_codeobj__117 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__116, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_presence_observer, 751, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__117)) __PYX_ERR(0, 751, __pyx_L1_error)
+  __pyx_tuple__115 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_o); if (unlikely(!__pyx_tuple__115)) __PYX_ERR(0, 768, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__115);
+  __Pyx_GIVEREF(__pyx_tuple__115);
+  __pyx_codeobj__116 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__115, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_attach_presence_observer, 768, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__116)) __PYX_ERR(0, 768, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__118 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__118)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__118);
-  __Pyx_GIVEREF(__pyx_tuple__118);
-  __pyx_codeobj__119 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__118, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__119)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__117 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__117)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__117);
+  __Pyx_GIVEREF(__pyx_tuple__117);
+  __pyx_codeobj__118 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__117, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__118)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28626,32 +28534,32 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Place__set_state(self, __pyx_state)
  */
-  __pyx_tuple__120 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__120)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__120);
-  __Pyx_GIVEREF(__pyx_tuple__120);
-  __pyx_codeobj__121 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__120, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__121)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__119 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__119)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__119);
+  __Pyx_GIVEREF(__pyx_tuple__119);
+  __pyx_codeobj__120 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__119, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__120)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_structure.py":813
+  /* "petsi/_structure.py":828
  * class LIFOPlace(Place):
  *     @cython.ccall
  *     def _push(self, t: Token):             # <<<<<<<<<<<<<<
  *         self._tokens.appendleft(t)
  * 
  */
-  __pyx_tuple__122 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_t); if (unlikely(!__pyx_tuple__122)) __PYX_ERR(0, 813, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__122);
-  __Pyx_GIVEREF(__pyx_tuple__122);
-  __pyx_codeobj__123 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__122, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_push, 813, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__123)) __PYX_ERR(0, 813, __pyx_L1_error)
+  __pyx_tuple__121 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_t); if (unlikely(!__pyx_tuple__121)) __PYX_ERR(0, 828, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__121);
+  __Pyx_GIVEREF(__pyx_tuple__121);
+  __pyx_codeobj__122 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__121, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_push, 828, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__122)) __PYX_ERR(0, 828, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__124 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__124)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__124);
-  __Pyx_GIVEREF(__pyx_tuple__124);
-  __pyx_codeobj__125 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__124, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__125)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__123 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__123)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__123);
+  __Pyx_GIVEREF(__pyx_tuple__123);
+  __pyx_codeobj__124 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__123, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__124)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -28659,103 +28567,91 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_LIFOPlace__set_state(self, __pyx_state)
  */
-  __pyx_tuple__126 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__126)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__126);
-  __Pyx_GIVEREF(__pyx_tuple__126);
-  __pyx_codeobj__127 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__126, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__127)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__125 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__125)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__125);
+  __Pyx_GIVEREF(__pyx_tuple__125);
+  __pyx_codeobj__126 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__125, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__126)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_structure.py":819
- * class PetsiVisitor(ABC):
- *     @abstractmethod
- *     def visit(self, visitable: Union[Net, Transition, Place, Arc]):             # <<<<<<<<<<<<<<
- *         pass
- * 
- */
-  __pyx_tuple__128 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_visitable); if (unlikely(!__pyx_tuple__128)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__128);
-  __Pyx_GIVEREF(__pyx_tuple__128);
-  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_visit, 819, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 819, __pyx_L1_error)
-
-  /* "petsi/_structure.py":823
+  /* "petsi/_structure.py":832
  * 
  * 
  * _ForeachArgumentType = TypeVar("_ForeachArgumentType")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__130 = PyTuple_Pack(1, __pyx_n_u_ForeachArgumentType); if (unlikely(!__pyx_tuple__130)) __PYX_ERR(0, 823, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__130);
-  __Pyx_GIVEREF(__pyx_tuple__130);
+  __pyx_tuple__127 = PyTuple_Pack(1, __pyx_n_u_ForeachArgumentType); if (unlikely(!__pyx_tuple__127)) __PYX_ERR(0, 832, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__127);
+  __Pyx_GIVEREF(__pyx_tuple__127);
 
-  /* "petsi/_structure.py":827
+  /* "petsi/_structure.py":836
  * 
  * @cython.ccall
  * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):             # <<<<<<<<<<<<<<
- *     for x in iterator:
- *         f(x)
+ *     """ Call f on each element of the iterable.
+ *     :param f: A function accepting a single argument of the type of the elements of the iterable
  */
-  __pyx_tuple__131 = PyTuple_Pack(2, __pyx_n_s_f, __pyx_n_s_iterator); if (unlikely(!__pyx_tuple__131)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__131);
-  __Pyx_GIVEREF(__pyx_tuple__131);
-  __pyx_codeobj__132 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__131, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_foreach, 827, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__132)) __PYX_ERR(0, 827, __pyx_L1_error)
+  __pyx_tuple__128 = PyTuple_Pack(2, __pyx_n_s_f, __pyx_n_s_iterator); if (unlikely(!__pyx_tuple__128)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__128);
+  __Pyx_GIVEREF(__pyx_tuple__128);
+  __pyx_codeobj__129 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__128, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__structure_py, __pyx_n_s_foreach, 836, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__129)) __PYX_ERR(0, 836, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_TokenType(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__133 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__133)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__133);
-  __Pyx_GIVEREF(__pyx_tuple__133);
-  __pyx_codeobj__134 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__133, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenType, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__134)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__135 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__135)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__135);
-  __Pyx_GIVEREF(__pyx_tuple__135);
-  __pyx_codeobj__136 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__135, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Token, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__136)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__137 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__137)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__137);
-  __Pyx_GIVEREF(__pyx_tuple__137);
-  __pyx_codeobj__138 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__137, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Transition, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__138)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__139 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__139)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__139);
-  __Pyx_GIVEREF(__pyx_tuple__139);
-  __pyx_codeobj__140 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__139, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Arc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__140)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__141 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__141)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__141);
-  __Pyx_GIVEREF(__pyx_tuple__141);
-  __pyx_codeobj__142 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__141, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_PresenceObserver, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__142)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__143 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__143)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__143);
-  __Pyx_GIVEREF(__pyx_tuple__143);
-  __pyx_codeobj__144 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__143, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_ConstructorArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__144)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__145 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__145)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__145);
-  __Pyx_GIVEREF(__pyx_tuple__145);
-  __pyx_codeobj__146 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__145, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenConsumer, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__146)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__147 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__147)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__147);
-  __Pyx_GIVEREF(__pyx_tuple__147);
-  __pyx_codeobj__148 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__147, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_DestructorArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__148)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__149 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__149)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__149);
-  __Pyx_GIVEREF(__pyx_tuple__149);
-  __pyx_codeobj__150 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__149, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TransferArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__150)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__151 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__151)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__151);
-  __Pyx_GIVEREF(__pyx_tuple__151);
-  __pyx_codeobj__152 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__151, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TestArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__152)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__153 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__153)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__153);
-  __Pyx_GIVEREF(__pyx_tuple__153);
-  __pyx_codeobj__154 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__153, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_InhibitorArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__154)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__155 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__155)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__155);
-  __Pyx_GIVEREF(__pyx_tuple__155);
-  __pyx_codeobj__156 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__155, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Place, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__156)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__157 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__157)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__157);
-  __Pyx_GIVEREF(__pyx_tuple__157);
-  __pyx_codeobj__158 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__157, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_LIFOPlace, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__158)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__130 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__130)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__130);
+  __Pyx_GIVEREF(__pyx_tuple__130);
+  __pyx_codeobj__131 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__130, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenType, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__131)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__132 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__132)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__132);
+  __Pyx_GIVEREF(__pyx_tuple__132);
+  __pyx_codeobj__133 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__132, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Token, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__133)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__134 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__134)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__134);
+  __Pyx_GIVEREF(__pyx_tuple__134);
+  __pyx_codeobj__135 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__134, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Transition, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__135)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__136 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__136)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__136);
+  __Pyx_GIVEREF(__pyx_tuple__136);
+  __pyx_codeobj__137 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__136, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Arc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__137)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__138 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__138)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__138);
+  __Pyx_GIVEREF(__pyx_tuple__138);
+  __pyx_codeobj__139 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__138, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_PresenceObserver, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__139)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__140 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__140)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__140);
+  __Pyx_GIVEREF(__pyx_tuple__140);
+  __pyx_codeobj__141 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__140, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_ConstructorArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__141)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__142 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__142)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__142);
+  __Pyx_GIVEREF(__pyx_tuple__142);
+  __pyx_codeobj__143 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__142, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenConsumer, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__143)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__144 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__144)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__144);
+  __Pyx_GIVEREF(__pyx_tuple__144);
+  __pyx_codeobj__145 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__144, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_DestructorArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__145)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__146 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__146)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__146);
+  __Pyx_GIVEREF(__pyx_tuple__146);
+  __pyx_codeobj__147 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__146, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TransferArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__147)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__148 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__148)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__148);
+  __Pyx_GIVEREF(__pyx_tuple__148);
+  __pyx_codeobj__149 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__148, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TestArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__149)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__150 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__150)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__150);
+  __Pyx_GIVEREF(__pyx_tuple__150);
+  __pyx_codeobj__151 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__150, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_InhibitorArc, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__151)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__152 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__152)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__152);
+  __Pyx_GIVEREF(__pyx_tuple__152);
+  __pyx_codeobj__153 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__152, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Place, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__153)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__154 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__154)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__154);
+  __Pyx_GIVEREF(__pyx_tuple__154);
+  __pyx_codeobj__155 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__154, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_LIFOPlace, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__155)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -28824,194 +28720,194 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_5petsi_10_structure_Place._is_empty = (int (*)(struct __pyx_obj_5petsi_10_structure_Place *))__pyx_f_5petsi_10_structure_5Place__is_empty;
   __pyx_vtable_5petsi_10_structure_Place._pop = (struct __pyx_obj_5petsi_10_structure_Token *(*)(struct __pyx_obj_5petsi_10_structure_Place *))__pyx_f_5petsi_10_structure_5Place__pop;
   __pyx_vtable_5petsi_10_structure_Place._push = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Place *, struct __pyx_obj_5petsi_10_structure_Token *))__pyx_f_5petsi_10_structure_5Place__push;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 651, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 668, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_Place.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_Place.tp_dictoffset && __pyx_type_5petsi_10_structure_Place.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_Place.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Place.tp_dict, __pyx_vtabptr_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 651, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Place_2, (PyObject *)&__pyx_type_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 651, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 651, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Place.tp_dict, __pyx_vtabptr_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 668, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Place_2, (PyObject *)&__pyx_type_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 668, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Place) < 0) __PYX_ERR(0, 668, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_Place = &__pyx_type_5petsi_10_structure_Place;
   __pyx_vtabptr_5petsi_10_structure_Transition = &__pyx_vtable_5petsi_10_structure_Transition;
   __pyx_vtable_5petsi_10_structure_Transition.get_duration = (double (*)(struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_10_structure_10Transition_get_duration;
   __pyx_vtable_5petsi_10_structure_Transition.increment_disabled_arc_count = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_10_structure_10Transition_increment_disabled_arc_count;
   __pyx_vtable_5petsi_10_structure_Transition.decrement_disabled_arc_count = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_10_structure_10Transition_decrement_disabled_arc_count;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_Transition.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_Transition.tp_dictoffset && __pyx_type_5petsi_10_structure_Transition.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_Transition.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Transition.tp_dict, __pyx_vtabptr_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Transition_2, (PyObject *)&__pyx_type_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 369, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Transition.tp_dict, __pyx_vtabptr_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Transition_2, (PyObject *)&__pyx_type_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Transition) < 0) __PYX_ERR(0, 384, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_Transition = &__pyx_type_5petsi_10_structure_Transition;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TokenType) < 0) __PYX_ERR(0, 306, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TokenType) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_TokenType.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_TokenType.tp_dictoffset && __pyx_type_5petsi_10_structure_TokenType.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_TokenType.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenType, (PyObject *)&__pyx_type_5petsi_10_structure_TokenType) < 0) __PYX_ERR(0, 306, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TokenType) < 0) __PYX_ERR(0, 306, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenType, (PyObject *)&__pyx_type_5petsi_10_structure_TokenType) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TokenType) < 0) __PYX_ERR(0, 314, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_TokenType = &__pyx_type_5petsi_10_structure_TokenType;
   __pyx_vtabptr_5petsi_10_structure_Token = &__pyx_vtable_5petsi_10_structure_Token;
   __pyx_vtable_5petsi_10_structure_Token.attach_observer = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Token *, PyObject *))__pyx_f_5petsi_10_structure_5Token_attach_observer;
   __pyx_vtable_5petsi_10_structure_Token.deposit_at = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Token *, struct __pyx_obj_5petsi_10_structure_Place *))__pyx_f_5petsi_10_structure_5Token_deposit_at;
   __pyx_vtable_5petsi_10_structure_Token.remove_from = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Token *, struct __pyx_obj_5petsi_10_structure_Place *))__pyx_f_5petsi_10_structure_5Token_remove_from;
   __pyx_vtable_5petsi_10_structure_Token.delete = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Token *))__pyx_f_5petsi_10_structure_5Token_delete;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_Token.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_Token.tp_dictoffset && __pyx_type_5petsi_10_structure_Token.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_Token.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Token.tp_dict, __pyx_vtabptr_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Token, (PyObject *)&__pyx_type_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 327, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Token.tp_dict, __pyx_vtabptr_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Token, (PyObject *)&__pyx_type_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Token) < 0) __PYX_ERR(0, 335, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_Token = &__pyx_type_5petsi_10_structure_Token;
   __pyx_vtabptr_5petsi_10_structure_Arc = &__pyx_vtable_5petsi_10_structure_Arc;
   __pyx_vtable_5petsi_10_structure_Arc.flow = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Arc *))__pyx_f_5petsi_10_structure_3Arc_flow;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_Arc.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_Arc.tp_dictoffset && __pyx_type_5petsi_10_structure_Arc.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_Arc.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Arc.tp_dict, __pyx_vtabptr_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Arc, (PyObject *)&__pyx_type_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_Arc.tp_dict, __pyx_vtabptr_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Arc, (PyObject *)&__pyx_type_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_Arc) < 0) __PYX_ERR(0, 491, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_Arc = &__pyx_type_5petsi_10_structure_Arc;
   __pyx_vtabptr_5petsi_10_structure_PresenceObserver = &__pyx_vtable_5petsi_10_structure_PresenceObserver;
   __pyx_vtable_5petsi_10_structure_PresenceObserver.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_Arc;
   __pyx_vtable_5petsi_10_structure_PresenceObserver.report_no_token = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_PresenceObserver *))__pyx_f_5petsi_10_structure_16PresenceObserver_report_no_token;
   __pyx_vtable_5petsi_10_structure_PresenceObserver.report_some_token = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_PresenceObserver *))__pyx_f_5petsi_10_structure_16PresenceObserver_report_some_token;
   __pyx_type_5petsi_10_structure_PresenceObserver.tp_base = __pyx_ptype_5petsi_10_structure_Arc;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 515, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 532, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_PresenceObserver.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_PresenceObserver.tp_dictoffset && __pyx_type_5petsi_10_structure_PresenceObserver.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_PresenceObserver.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_PresenceObserver.tp_dict, __pyx_vtabptr_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 515, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PresenceObserver, (PyObject *)&__pyx_type_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 515, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 515, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_PresenceObserver.tp_dict, __pyx_vtabptr_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 532, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PresenceObserver, (PyObject *)&__pyx_type_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 532, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_PresenceObserver) < 0) __PYX_ERR(0, 532, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_PresenceObserver = &__pyx_type_5petsi_10_structure_PresenceObserver;
   __pyx_vtabptr_5petsi_10_structure_ConstructorArc = &__pyx_vtable_5petsi_10_structure_ConstructorArc;
   __pyx_vtable_5petsi_10_structure_ConstructorArc.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_Arc;
   __pyx_vtable_5petsi_10_structure_ConstructorArc.__pyx_base.flow = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Arc *))__pyx_f_5petsi_10_structure_14ConstructorArc_flow;
   __pyx_type_5petsi_10_structure_ConstructorArc.tp_base = __pyx_ptype_5petsi_10_structure_Arc;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 569, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 586, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_ConstructorArc.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_ConstructorArc.tp_dictoffset && __pyx_type_5petsi_10_structure_ConstructorArc.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_ConstructorArc.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_ConstructorArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 569, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ConstructorArc, (PyObject *)&__pyx_type_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 569, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 569, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_ConstructorArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 586, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_ConstructorArc, (PyObject *)&__pyx_type_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 586, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_ConstructorArc) < 0) __PYX_ERR(0, 586, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_ConstructorArc = &__pyx_type_5petsi_10_structure_ConstructorArc;
   __pyx_vtabptr_5petsi_10_structure_TokenConsumer = &__pyx_vtable_5petsi_10_structure_TokenConsumer;
   __pyx_vtable_5petsi_10_structure_TokenConsumer.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_PresenceObserver;
   __pyx_type_5petsi_10_structure_TokenConsumer.tp_base = __pyx_ptype_5petsi_10_structure_PresenceObserver;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 593, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_TokenConsumer.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_TokenConsumer.tp_dictoffset && __pyx_type_5petsi_10_structure_TokenConsumer.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_TokenConsumer.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_TokenConsumer.tp_dict, __pyx_vtabptr_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 593, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenConsumer, (PyObject *)&__pyx_type_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 593, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 593, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_TokenConsumer.tp_dict, __pyx_vtabptr_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenConsumer, (PyObject *)&__pyx_type_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TokenConsumer) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_TokenConsumer = &__pyx_type_5petsi_10_structure_TokenConsumer;
   __pyx_vtabptr_5petsi_10_structure_DestructorArc = &__pyx_vtable_5petsi_10_structure_DestructorArc;
   __pyx_vtable_5petsi_10_structure_DestructorArc.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_TokenConsumer;
   __pyx_vtable_5petsi_10_structure_DestructorArc.__pyx_base.__pyx_base.__pyx_base.flow = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Arc *))__pyx_f_5petsi_10_structure_13DestructorArc_flow;
   __pyx_type_5petsi_10_structure_DestructorArc.tp_base = __pyx_ptype_5petsi_10_structure_TokenConsumer;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 600, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 617, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_DestructorArc.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_DestructorArc.tp_dictoffset && __pyx_type_5petsi_10_structure_DestructorArc.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_DestructorArc.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_DestructorArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 600, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_DestructorArc, (PyObject *)&__pyx_type_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 600, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 600, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_DestructorArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 617, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_DestructorArc, (PyObject *)&__pyx_type_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 617, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_DestructorArc) < 0) __PYX_ERR(0, 617, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_DestructorArc = &__pyx_type_5petsi_10_structure_DestructorArc;
   __pyx_vtabptr_5petsi_10_structure_TransferArc = &__pyx_vtable_5petsi_10_structure_TransferArc;
   __pyx_vtable_5petsi_10_structure_TransferArc.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_TokenConsumer;
   __pyx_vtable_5petsi_10_structure_TransferArc.__pyx_base.__pyx_base.__pyx_base.flow = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Arc *))__pyx_f_5petsi_10_structure_11TransferArc_flow;
   __pyx_type_5petsi_10_structure_TransferArc.tp_base = __pyx_ptype_5petsi_10_structure_TokenConsumer;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 627, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_TransferArc.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_TransferArc.tp_dictoffset && __pyx_type_5petsi_10_structure_TransferArc.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_TransferArc.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_TransferArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TransferArc, (PyObject *)&__pyx_type_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 610, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_TransferArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 627, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TransferArc, (PyObject *)&__pyx_type_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 627, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TransferArc) < 0) __PYX_ERR(0, 627, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_TransferArc = &__pyx_type_5petsi_10_structure_TransferArc;
   __pyx_vtabptr_5petsi_10_structure_TestArc = &__pyx_vtable_5petsi_10_structure_TestArc;
   __pyx_vtable_5petsi_10_structure_TestArc.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_PresenceObserver;
   __pyx_vtable_5petsi_10_structure_TestArc.__pyx_base.__pyx_base.flow = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Arc *))__pyx_f_5petsi_10_structure_7TestArc_flow;
   __pyx_type_5petsi_10_structure_TestArc.tp_base = __pyx_ptype_5petsi_10_structure_PresenceObserver;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 632, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_TestArc.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_TestArc.tp_dictoffset && __pyx_type_5petsi_10_structure_TestArc.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_TestArc.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_TestArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 632, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TestArc, (PyObject *)&__pyx_type_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 632, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 632, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_TestArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TestArc, (PyObject *)&__pyx_type_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_TestArc) < 0) __PYX_ERR(0, 649, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_TestArc = &__pyx_type_5petsi_10_structure_TestArc;
   __pyx_vtabptr_5petsi_10_structure_InhibitorArc = &__pyx_vtable_5petsi_10_structure_InhibitorArc;
   __pyx_vtable_5petsi_10_structure_InhibitorArc.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_TestArc;
   __pyx_vtable_5petsi_10_structure_InhibitorArc.__pyx_base.__pyx_base.report_no_token = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_PresenceObserver *))__pyx_f_5petsi_10_structure_12InhibitorArc_report_no_token;
   __pyx_vtable_5petsi_10_structure_InhibitorArc.__pyx_base.__pyx_base.report_some_token = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_PresenceObserver *))__pyx_f_5petsi_10_structure_12InhibitorArc_report_some_token;
   __pyx_type_5petsi_10_structure_InhibitorArc.tp_base = __pyx_ptype_5petsi_10_structure_TestArc;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 639, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 656, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_InhibitorArc.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_InhibitorArc.tp_dictoffset && __pyx_type_5petsi_10_structure_InhibitorArc.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_InhibitorArc.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_InhibitorArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 639, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_InhibitorArc, (PyObject *)&__pyx_type_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 639, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 639, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_InhibitorArc.tp_dict, __pyx_vtabptr_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 656, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_InhibitorArc, (PyObject *)&__pyx_type_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 656, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_InhibitorArc) < 0) __PYX_ERR(0, 656, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_InhibitorArc = &__pyx_type_5petsi_10_structure_InhibitorArc;
   __pyx_vtabptr_5petsi_10_structure_LIFOPlace = &__pyx_vtable_5petsi_10_structure_LIFOPlace;
   __pyx_vtable_5petsi_10_structure_LIFOPlace.__pyx_base = *__pyx_vtabptr_5petsi_10_structure_Place;
   __pyx_vtable_5petsi_10_structure_LIFOPlace.__pyx_base._push = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_Place *, struct __pyx_obj_5petsi_10_structure_Token *))__pyx_f_5petsi_10_structure_9LIFOPlace__push__pyx_wrap_1;
   __pyx_vtable_5petsi_10_structure_LIFOPlace._push = (PyObject *(*)(struct __pyx_obj_5petsi_10_structure_LIFOPlace *, struct __pyx_obj_5petsi_10_structure_Token *, int __pyx_skip_dispatch))__pyx_f_5petsi_10_structure_9LIFOPlace__push;
   __pyx_type_5petsi_10_structure_LIFOPlace.tp_base = __pyx_ptype_5petsi_10_structure_Place;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 811, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 826, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure_LIFOPlace.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_10_structure_LIFOPlace.tp_dictoffset && __pyx_type_5petsi_10_structure_LIFOPlace.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_10_structure_LIFOPlace.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_LIFOPlace.tp_dict, __pyx_vtabptr_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 811, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_LIFOPlace, (PyObject *)&__pyx_type_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 811, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 811, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_10_structure_LIFOPlace.tp_dict, __pyx_vtabptr_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 826, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_LIFOPlace, (PyObject *)&__pyx_type_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 826, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_10_structure_LIFOPlace) < 0) __PYX_ERR(0, 826, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_LIFOPlace = &__pyx_type_5petsi_10_structure_LIFOPlace;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure___pyx_scope_struct__register_plugin) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure___pyx_scope_struct__register_plugin) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure___pyx_scope_struct__register_plugin.tp_print = 0;
   #endif
@@ -29019,7 +28915,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_5petsi_10_structure___pyx_scope_struct__register_plugin.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_5petsi_10_structure___pyx_scope_struct__register_plugin = &__pyx_type_5petsi_10_structure___pyx_scope_struct__register_plugin;
-  if (PyType_Ready(&__pyx_type_5petsi_10_structure___pyx_scope_struct_1_add_place) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_10_structure___pyx_scope_struct_1_add_place) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_10_structure___pyx_scope_struct_1_add_place.tp_print = 0;
   #endif
@@ -29168,8 +29064,6 @@ static CYTHON_SMALL_CODE int __pyx_pymod_exec__structure(PyObject *__pyx_pyinit_
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
   PyObject *__pyx_t_8 = NULL;
-  PyObject *__pyx_t_9 = NULL;
-  PyObject *__pyx_t_10 = NULL;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -29294,7 +29188,7 @@ if (!__Pyx_RefNanny) {
  * import collections
  * from abc import ABC, abstractmethod             # <<<<<<<<<<<<<<
  * from enum import Enum
- * from typing import TYPE_CHECKING, Union, TypeVar, Callable, Any, Iterable
+ * from typing import TYPE_CHECKING, TypeVar, Callable, Any, Iterable
  */
   __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -29321,7 +29215,7 @@ if (!__Pyx_RefNanny) {
  * import collections
  * from abc import ABC, abstractmethod
  * from enum import Enum             # <<<<<<<<<<<<<<
- * from typing import TYPE_CHECKING, Union, TypeVar, Callable, Any, Iterable
+ * from typing import TYPE_CHECKING, TypeVar, Callable, Any, Iterable
  * 
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
@@ -29341,40 +29235,33 @@ if (!__Pyx_RefNanny) {
   /* "petsi/_structure.py":12
  * from abc import ABC, abstractmethod
  * from enum import Enum
- * from typing import TYPE_CHECKING, Union, TypeVar, Callable, Any, Iterable             # <<<<<<<<<<<<<<
+ * from typing import TYPE_CHECKING, TypeVar, Callable, Any, Iterable             # <<<<<<<<<<<<<<
  * 
  * from more_itertools import flatten
  */
-  __pyx_t_1 = PyList_New(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_TYPE_CHECKING);
   __Pyx_GIVEREF(__pyx_n_s_TYPE_CHECKING);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_TYPE_CHECKING);
-  __Pyx_INCREF(__pyx_n_s_Union);
-  __Pyx_GIVEREF(__pyx_n_s_Union);
-  PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_Union);
   __Pyx_INCREF(__pyx_n_s_TypeVar);
   __Pyx_GIVEREF(__pyx_n_s_TypeVar);
-  PyList_SET_ITEM(__pyx_t_1, 2, __pyx_n_s_TypeVar);
+  PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_TypeVar);
   __Pyx_INCREF(__pyx_n_s_Callable);
   __Pyx_GIVEREF(__pyx_n_s_Callable);
-  PyList_SET_ITEM(__pyx_t_1, 3, __pyx_n_s_Callable);
+  PyList_SET_ITEM(__pyx_t_1, 2, __pyx_n_s_Callable);
   __Pyx_INCREF(__pyx_n_s_Any);
   __Pyx_GIVEREF(__pyx_n_s_Any);
-  PyList_SET_ITEM(__pyx_t_1, 4, __pyx_n_s_Any);
+  PyList_SET_ITEM(__pyx_t_1, 3, __pyx_n_s_Any);
   __Pyx_INCREF(__pyx_n_s_Iterable);
   __Pyx_GIVEREF(__pyx_n_s_Iterable);
-  PyList_SET_ITEM(__pyx_t_1, 5, __pyx_n_s_Iterable);
+  PyList_SET_ITEM(__pyx_t_1, 4, __pyx_n_s_Iterable);
   __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_TYPE_CHECKING, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Union); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Union, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_TypeVar); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -29395,7 +29282,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "petsi/_structure.py":14
- * from typing import TYPE_CHECKING, Union, TypeVar, Callable, Any, Iterable
+ * from typing import TYPE_CHECKING, TypeVar, Callable, Any, Iterable
  * 
  * from more_itertools import flatten             # <<<<<<<<<<<<<<
  * import cython
@@ -29440,8 +29327,8 @@ if (!__Pyx_RefNanny) {
  * from . import Plugins
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
- *     from typing import Any, TYPE_CHECKING, Set, Dict, \
- *         Deque, Callable, ValuesView, Iterator
+ *     from .Visitor import APetsiVisitor, PetsiVisitor
+ * 
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -29452,252 +29339,255 @@ if (!__Pyx_RefNanny) {
     /* "petsi/_structure.py":22
  * 
  * if TYPE_CHECKING:
+ *     from .Visitor import APetsiVisitor, PetsiVisitor             # <<<<<<<<<<<<<<
+ * 
+ *     from typing import Any, TYPE_CHECKING, Set, Dict, \
+ */
+    __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_INCREF(__pyx_n_s_APetsiVisitor);
+    __Pyx_GIVEREF(__pyx_n_s_APetsiVisitor);
+    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_APetsiVisitor);
+    __Pyx_INCREF(__pyx_n_s_PetsiVisitor);
+    __Pyx_GIVEREF(__pyx_n_s_PetsiVisitor);
+    PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_PetsiVisitor);
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_Visitor, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_APetsiVisitor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_APetsiVisitor, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_PetsiVisitor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_PetsiVisitor, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+    /* "petsi/_structure.py":24
+ *     from .Visitor import APetsiVisitor, PetsiVisitor
+ * 
  *     from typing import Any, TYPE_CHECKING, Set, Dict, \             # <<<<<<<<<<<<<<
  *         Deque, Callable, ValuesView, Iterator
  * 
  */
-    __pyx_t_2 = PyList_New(8); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_1 = PyList_New(8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_n_s_Any);
     __Pyx_GIVEREF(__pyx_n_s_Any);
-    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Any);
+    PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Any);
     __Pyx_INCREF(__pyx_n_s_TYPE_CHECKING);
     __Pyx_GIVEREF(__pyx_n_s_TYPE_CHECKING);
-    PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_TYPE_CHECKING);
+    PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_TYPE_CHECKING);
     __Pyx_INCREF(__pyx_n_s_Set);
     __Pyx_GIVEREF(__pyx_n_s_Set);
-    PyList_SET_ITEM(__pyx_t_2, 2, __pyx_n_s_Set);
+    PyList_SET_ITEM(__pyx_t_1, 2, __pyx_n_s_Set);
     __Pyx_INCREF(__pyx_n_s_Dict);
     __Pyx_GIVEREF(__pyx_n_s_Dict);
-    PyList_SET_ITEM(__pyx_t_2, 3, __pyx_n_s_Dict);
+    PyList_SET_ITEM(__pyx_t_1, 3, __pyx_n_s_Dict);
     __Pyx_INCREF(__pyx_n_s_Deque);
     __Pyx_GIVEREF(__pyx_n_s_Deque);
-    PyList_SET_ITEM(__pyx_t_2, 4, __pyx_n_s_Deque);
+    PyList_SET_ITEM(__pyx_t_1, 4, __pyx_n_s_Deque);
     __Pyx_INCREF(__pyx_n_s_Callable);
     __Pyx_GIVEREF(__pyx_n_s_Callable);
-    PyList_SET_ITEM(__pyx_t_2, 5, __pyx_n_s_Callable);
+    PyList_SET_ITEM(__pyx_t_1, 5, __pyx_n_s_Callable);
     __Pyx_INCREF(__pyx_n_s_ValuesView);
     __Pyx_GIVEREF(__pyx_n_s_ValuesView);
-    PyList_SET_ITEM(__pyx_t_2, 6, __pyx_n_s_ValuesView);
+    PyList_SET_ITEM(__pyx_t_1, 6, __pyx_n_s_ValuesView);
     __Pyx_INCREF(__pyx_n_s_Iterator);
     __Pyx_GIVEREF(__pyx_n_s_Iterator);
-    PyList_SET_ITEM(__pyx_t_2, 7, __pyx_n_s_Iterator);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Any); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
+    PyList_SET_ITEM(__pyx_t_1, 7, __pyx_n_s_Iterator);
+    __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Any, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_TYPE_CHECKING, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Set); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Set, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Dict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Dict, __pyx_t_2) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Deque); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Deque, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Callable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Callable, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_ValuesView); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_ValuesView, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Iterator); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Iterator, __pyx_t_2) < 0) __PYX_ERR(0, 23, __pyx_L1_error)
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Any); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Any, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_TYPE_CHECKING, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Set); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Set, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Dict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Dict, __pyx_t_1) < 0) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Deque); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Deque, __pyx_t_1) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Callable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Callable, __pyx_t_1) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_ValuesView); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_ValuesView, __pyx_t_1) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Iterator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Iterator, __pyx_t_1) < 0) __PYX_ERR(0, 25, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
     /* "petsi/_structure.py":21
  * from . import Plugins
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
- *     from typing import Any, TYPE_CHECKING, Set, Dict, \
- *         Deque, Callable, ValuesView, Iterator
+ *     from .Visitor import APetsiVisitor, PetsiVisitor
+ * 
  */
   }
 
-  /* "petsi/_structure.py":26
- * 
- * 
- * APetsiVisitor = TypeVar('APetsiVisitor', bound="PetsiVisitor")             # <<<<<<<<<<<<<<
- * 
- * 
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_TypeVar); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_bound, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__7, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_APetsiVisitor, __pyx_t_4) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-  /* "petsi/_structure.py":29
+  /* "petsi/_structure.py":28
  * 
  * 
  * class Net:             # <<<<<<<<<<<<<<
  *     """ Represents a Petri net."""
  *     name: str
  */
-  __pyx_t_4 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Net, __pyx_n_s_Net, (PyObject *) NULL, __pyx_n_s_petsi__structure, __pyx_kp_s_Represents_a_Petri_net); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_Net, __pyx_n_s_Net, (PyObject *) NULL, __pyx_n_s_petsi__structure, __pyx_kp_s_Represents_a_Petri_net); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
-  /* "petsi/_structure.py":38
+  /* "petsi/_structure.py":37
  *     _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
  * 
  *     def __init__(self, name: str):             # <<<<<<<<<<<<<<
  *         """ Create a Petri net.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_1__init__, 0, __pyx_n_s_Net___init, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_init, __pyx_t_1) < 0) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_1__init__, 0, __pyx_n_s_Net___init, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_4) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":51
+  /* "petsi/_structure.py":50
  *         self._black_dot = self.add_type("black dot")
  * 
- *     def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:             # <<<<<<<<<<<<<<
+ *     def accept(self, visitor: "APetsiVisitor") -> "APetsiVisitor":             # <<<<<<<<<<<<<<
  *         """ Accept a :class:`PetsiVisitor`.
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_visitor, __pyx_n_u_APetsiVisitor) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_u_APetsiVisitor) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_3accept, 0, __pyx_n_s_Net_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__10)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_APetsiVisitor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_visitor, __pyx_t_2) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_APetsiVisitor); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_t_2) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_3accept, 0, __pyx_n_s_Net_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__11)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_4);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_accept, __pyx_t_1) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_accept, __pyx_t_2) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":73
+  /* "petsi/_structure.py":72
  * 
  *     @property
  *     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":             # <<<<<<<<<<<<<<
  *         return self._observers.values()
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_kp_u_ValuesView_Plugins_AbstractPlugi) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_5observers, 0, __pyx_n_s_Net_observers, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 73, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_kp_u_ValuesView_Plugins_AbstractPlugi) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_5observers, 0, __pyx_n_s_Net_observers, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__12)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 72, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":72
+  /* "petsi/_structure.py":71
  *         return visitor
  * 
  *     @property             # <<<<<<<<<<<<<<
  *     def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":
  *         return self._observers.values()
  */
-  __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_property, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_builtin_property, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_observers_2, __pyx_t_1) < 0) __PYX_ERR(0, 72, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_observers_2, __pyx_t_2) < 0) __PYX_ERR(0, 73, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":76
+  /* "petsi/_structure.py":75
  *         return self._observers.values()
  * 
  *     def register_plugin(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
  *         """ Register the given plugin.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 76, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plugin, __pyx_kp_u_Plugins_AbstractPlugin) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_7register_plugin, 0, __pyx_n_s_Net_register_plugin, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 76, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_register_plugin, __pyx_t_1) < 0) __PYX_ERR(0, 76, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_plugin, __pyx_kp_u_Plugins_AbstractPlugin) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_7register_plugin, 0, __pyx_n_s_Net_register_plugin, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_register_plugin, __pyx_t_4) < 0) __PYX_ERR(0, 75, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":98
+  /* "petsi/_structure.py":97
  * 
  *     # All arcs connected to a place must have the type of the place
  *     def add_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
  *         """ Define a token type in the Petri net.
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_type_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_u_TokenType) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_9add_type, 0, __pyx_n_s_Net_add_type, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_type_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_TokenType) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_9add_type, 0, __pyx_n_s_Net_add_type, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_4);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_type, __pyx_t_1) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_type, __pyx_t_2) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":115
+  /* "petsi/_structure.py":114
  *         return typ
  * 
  *     def token_type(self, type_name: str) -> "TokenType":             # <<<<<<<<<<<<<<
  *         """ Get the token type with the given name.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 115, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_type_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_TokenType) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_11token_type, 0, __pyx_n_s_Net_token_type, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_token_type, __pyx_t_1) < 0) __PYX_ERR(0, 115, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_type_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_TokenType) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_11token_type, 0, __pyx_n_s_Net_token_type, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_token_type, __pyx_t_4) < 0) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":124
+  /* "petsi/_structure.py":123
  *         return self._types[type_name]
  * 
  *     def add_place(self, name, type_name: str = "black dot", queueing_policy_name: str = "FIFO") -> "Place":             # <<<<<<<<<<<<<<
  *         """ Add a place to the Petri-net with the given name, type and queueing policy.
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 124, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_type_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_queueing_policy_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_return, __pyx_n_u_Place_2) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_13add_place, 0, __pyx_n_s_Net_add_place, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_type_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_queueing_policy_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_Place_2) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_13add_place, 0, __pyx_n_s_Net_add_place, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 124, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_2, __pyx_tuple__22);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_1, __pyx_tuple__21);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_4);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_place, __pyx_t_1) < 0) __PYX_ERR(0, 123, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_place, __pyx_t_2) < 0) __PYX_ERR(0, 124, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "petsi/_structure.py":149
  *             return place
@@ -29706,16 +29596,16 @@ if (!__Pyx_RefNanny) {
  *         """ Get the place with the given name.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 149, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_Place_2) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15place, 0, __pyx_n_s_Net_place, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_place, __pyx_t_1) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_Place_2) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_15place, 0, __pyx_n_s_Net_place, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 149, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_place, __pyx_t_4) < 0) __PYX_ERR(0, 149, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "petsi/_structure.py":158
  *         return self._places[place_name]
@@ -29724,15 +29614,15 @@ if (!__Pyx_RefNanny) {
  *         foreach(lambda o: t.attach_observer(o),
  *                 self._observers.values())
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 158, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_t, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_17_attach_transition_observers, 0, __pyx_n_s_Net__attach_transition_observers_2, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_t, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_17_attach_transition_observers, 0, __pyx_n_s_Net__attach_transition_observers_2, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_4);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_attach_transition_observers, __pyx_t_1) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_attach_transition_observers, __pyx_t_2) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "petsi/_structure.py":162
  *                 self._observers.values())
@@ -29741,10 +29631,10 @@ if (!__Pyx_RefNanny) {
  *         if name in self._transitions:
  *             raise ValueError(f"A transition with name '{name}' already exists in net '{self.name}'.")
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_19_validate_transition_name, 0, __pyx_n_s_Net__validate_transition_name, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_validate_transition_name, __pyx_t_2) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_19_validate_transition_name, 0, __pyx_n_s_Net__validate_transition_name, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_validate_transition_name, __pyx_t_1) < 0) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "petsi/_structure.py":167
  * 
@@ -29753,203 +29643,203 @@ if (!__Pyx_RefNanny) {
  *         """ Create and add an immediate transition to the Petri net.
  * 
  */
-  __pyx_t_2 = PyFloat_FromDouble(((double)1.0)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(((double)1.0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_int_1));
   __Pyx_GIVEREF(((PyObject *)__pyx_int_1));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_int_1));
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
-  __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_priority, __pyx_n_u_int) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_weight, __pyx_n_u_float) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_21add_immediate_transition, 0, __pyx_n_s_Net_add_immediate_transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_int_1));
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_priority, __pyx_n_u_int) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_weight, __pyx_n_u_float) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_21add_immediate_transition, 0, __pyx_n_s_Net_add_immediate_transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
+  __Pyx_CyFunction_SetDefaultsTuple(__pyx_t_5, __pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_immediate_transition, __pyx_t_5) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_immediate_transition, __pyx_t_5) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":191
+  /* "petsi/_structure.py":193
  *         return t
  * 
  *     def add_timed_transition(self, name: str, distribution: "Callable[[], float]") -> "Transition":             # <<<<<<<<<<<<<<
  *         """ Create and add a timed transition to the Petri net.
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 191, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_distribution, __pyx_kp_u_Callable_float) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_23add_timed_transition, 0, __pyx_n_s_Net_add_timed_transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 191, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_distribution, __pyx_kp_u_Callable_float) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_23add_timed_transition, 0, __pyx_n_s_Net_add_timed_transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_timed_transition, __pyx_t_2) < 0) __PYX_ERR(0, 191, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_timed_transition, __pyx_t_1) < 0) __PYX_ERR(0, 193, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":208
+  /* "petsi/_structure.py":211
  *         return t
  * 
  *     def transition(self, transition_name: str) -> "Transition":             # <<<<<<<<<<<<<<
  *         """ Get the transition with the given name.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 208, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_25transition, 0, __pyx_n_s_Net_transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 208, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_Transition_2) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_25transition, 0, __pyx_n_s_Net_transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__33)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_transition, __pyx_t_5) < 0) __PYX_ERR(0, 208, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_transition, __pyx_t_5) < 0) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":217
+  /* "petsi/_structure.py":220
  *         return self._transitions[transition_name]
  * 
  *     def add_constructor(self, name: str, transition_name: str, output_place_name: str) -> "ConstructorArc":             # <<<<<<<<<<<<<<
  *         """ Create a constructor arc.
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 217, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 220, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 217, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 217, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_output_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 217, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_ConstructorArc) < 0) __PYX_ERR(0, 217, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_27add_constructor, 0, __pyx_n_s_Net_add_constructor, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 217, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_output_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_ConstructorArc) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_27add_constructor, 0, __pyx_n_s_Net_add_constructor, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_constructor, __pyx_t_2) < 0) __PYX_ERR(0, 217, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_constructor, __pyx_t_1) < 0) __PYX_ERR(0, 220, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":232
+  /* "petsi/_structure.py":236
  *                               output_place=self._places[output_place_name])
  * 
  *     def add_destructor(self, name: str, input_place_name: str, transition_name: str) -> "DestructorArc":             # <<<<<<<<<<<<<<
  *         """ Create a destructor arc.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 232, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_input_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_DestructorArc) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_29add_destructor, 0, __pyx_n_s_Net_add_destructor, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 232, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 236, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_input_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_DestructorArc) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_29add_destructor, 0, __pyx_n_s_Net_add_destructor, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__37)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_destructor, __pyx_t_5) < 0) __PYX_ERR(0, 232, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_destructor, __pyx_t_5) < 0) __PYX_ERR(0, 236, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":247
+  /* "petsi/_structure.py":252
  *                              input_place=self._places[input_place_name])
  * 
  *     def add_transfer(self, name: str, input_place_name: str, transition_name: str,             # <<<<<<<<<<<<<<
  *                      output_place_name: str) -> "TransferArc":
  *         """ Create a destructor arc.
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 247, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_input_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_output_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_TransferArc) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_31add_transfer, 0, __pyx_n_s_Net_add_transfer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 247, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_input_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_output_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_TransferArc) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_31add_transfer, 0, __pyx_n_s_Net_add_transfer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_transfer, __pyx_t_2) < 0) __PYX_ERR(0, 247, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_transfer, __pyx_t_1) < 0) __PYX_ERR(0, 252, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":264
+  /* "petsi/_structure.py":270
  *                            output_place=self._places[output_place_name])
  * 
  *     def add_test(self, name: str, place_name: str, transition_name: str, ) -> "TestArc":             # <<<<<<<<<<<<<<
  *         """ Create a test arc.
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 264, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_TestArc) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_33add_test, 0, __pyx_n_s_Net_add_test, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 264, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 270, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_n_u_TestArc) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_33add_test, 0, __pyx_n_s_Net_add_test, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_test, __pyx_t_5) < 0) __PYX_ERR(0, 264, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_test, __pyx_t_5) < 0) __PYX_ERR(0, 270, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":280
+  /* "petsi/_structure.py":287
  *                        input_place=self._places[place_name])
  * 
  *     def add_inhibitor(self, name: str, place_name: str, transition_name: str, ) -> "InhibitorArc":             # <<<<<<<<<<<<<<
  *         """ Create an inhibitor arc.
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 280, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 287, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_InhibitorArc) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_35add_inhibitor, 0, __pyx_n_s_Net_add_inhibitor, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 280, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_place_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_transition_name, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, __pyx_n_u_InhibitorArc) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_35add_inhibitor, 0, __pyx_n_s_Net_add_inhibitor, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__43)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_add_inhibitor, __pyx_t_2) < 0) __PYX_ERR(0, 280, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_add_inhibitor, __pyx_t_1) < 0) __PYX_ERR(0, 287, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":296
+  /* "petsi/_structure.py":304
  *                             input_place=self._places[place_name])
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         """ Remove all tokens from the Petri net & reset the marking-related state of the observers"""
  *         for place in self._places.values():
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_37reset, 0, __pyx_n_s_Net_reset, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__46)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 296, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_reset, __pyx_t_2) < 0) __PYX_ERR(0, 296, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Net_37reset, 0, __pyx_n_s_Net_reset, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 304, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":29
+  /* "petsi/_structure.py":28
  * 
  * 
  * class Net:             # <<<<<<<<<<<<<<
  *     """ Represents a Petri net."""
  *     name: str
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Net, __pyx_empty_tuple, __pyx_t_4, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 29, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Net, __pyx_t_2) < 0) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_Net, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Net, __pyx_t_1) < 0) __PYX_ERR(0, 28, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9TokenType_5__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenType___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenType->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9TokenType_5__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenType___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenType->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TokenType);
 
   /* "(tree fragment)":16
@@ -29958,10 +29848,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenType__set_state(self, __pyx_state)
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9TokenType_7__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenType___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenType->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9TokenType_7__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenType___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__49)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenType->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TokenType);
 
   /* "(tree fragment)":1
@@ -29969,10 +29859,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Token_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Token___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Token->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Token_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Token___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__51)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Token->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Token);
 
   /* "(tree fragment)":16
@@ -29981,77 +29871,77 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Token__set_state(self, __pyx_state)
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Token_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Token___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Token->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Token_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Token___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Token->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Token);
 
-  /* "petsi/_structure.py":398
+  /* "petsi/_structure.py":413
  *         return self.priority == 0
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
  *         visitor.visit(self)
  * 
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 398, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_visitor, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 398, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_3accept, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 398, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 413, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_accept, __pyx_t_2) < 0) __PYX_ERR(0, 398, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_visitor, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 413, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_3accept, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 413, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_accept, __pyx_t_1) < 0) __PYX_ERR(0, 413, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Transition);
 
-  /* "petsi/_structure.py":407
+  /* "petsi/_structure.py":422
  *         return self._distribution()
  * 
  *     def attach_observer(self, plugin: "Plugins.AbstractPlugin"):             # <<<<<<<<<<<<<<
  *         observer = plugin.observe_transition(self)
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 407, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 422, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_plugin, __pyx_kp_u_Plugins_AbstractPlugin) < 0) __PYX_ERR(0, 422, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_5attach_observer, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_attach_observer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__57)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 422, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plugin, __pyx_kp_u_Plugins_AbstractPlugin) < 0) __PYX_ERR(0, 407, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_5attach_observer, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_attach_observer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 407, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_attach_observer, __pyx_t_2) < 0) __PYX_ERR(0, 422, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_attach_observer, __pyx_t_4) < 0) __PYX_ERR(0, 407, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Transition);
 
-  /* "petsi/_structure.py":419
+  /* "petsi/_structure.py":434
  *                     observer.got_disabled()
  * 
  *     def add_arc(self, arc: "Arc"):             # <<<<<<<<<<<<<<
  *         if arc.name in self._arcs:
  *             raise ValueError(f"An Arc with name '{arc.name}' already exists on Transition '{self.name}'")
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 419, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_arc, __pyx_n_u_Arc) < 0) __PYX_ERR(0, 419, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_7add_arc, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_add_arc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 419, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_add_arc, __pyx_t_2) < 0) __PYX_ERR(0, 419, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_arc, __pyx_n_u_Arc) < 0) __PYX_ERR(0, 434, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_7add_arc, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_add_arc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__59)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_add_arc, __pyx_t_1) < 0) __PYX_ERR(0, 434, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Transition);
 
-  /* "petsi/_structure.py":430
+  /* "petsi/_structure.py":445
  * 
  *     @cython.locals(arc="Arc")
  *     def fire(self):             # <<<<<<<<<<<<<<
  *         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
  *         for transition_observer in self._transition_observers:
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_9fire, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_fire, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 430, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_fire, __pyx_t_2) < 0) __PYX_ERR(0, 430, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_9fire, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition_fire, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__61)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 445, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_fire, __pyx_t_1) < 0) __PYX_ERR(0, 445, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Transition);
 
   /* "(tree fragment)":1
@@ -30059,10 +29949,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_11__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_11__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__63)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Transition);
 
   /* "(tree fragment)":16
@@ -30071,52 +29961,52 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Transition__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_13__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_10Transition_13__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Transition___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__65)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Transition->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Transition);
 
-  /* "petsi/_structure.py":458
+  /* "petsi/_structure.py":473
  * 
  * 
  * class Condition(ABC):             # <<<<<<<<<<<<<<
  *     @property
  *     @abstractmethod
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ABC); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 458, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ABC); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 458, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
-  __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_CalculateMetaclass(NULL, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 458, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_Py3MetaclassPrepare(__pyx_t_2, __pyx_t_4, __pyx_n_s_Condition, __pyx_n_s_Condition, (PyObject *) NULL, __pyx_n_s_petsi__structure, (PyObject *) NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 458, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 473, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_Condition, __pyx_n_s_Condition, (PyObject *) NULL, __pyx_n_s_petsi__structure, (PyObject *) NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
 
-  /* "petsi/_structure.py":460
+  /* "petsi/_structure.py":475
  * class Condition(ABC):
  *     @property
  *     @abstractmethod             # <<<<<<<<<<<<<<
  *     def is_true(self) -> bool: pass
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_abstractmethod); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 460, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_abstractmethod); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 475, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
 
-  /* "petsi/_structure.py":461
+  /* "petsi/_structure.py":476
  *     @property
  *     @abstractmethod
  *     def is_true(self) -> bool: pass             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 461, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 476, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 461, __pyx_L1_error)
-  __pyx_t_8 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9Condition_1is_true, 0, __pyx_n_s_Condition_is_true, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__68)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 461, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_7, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
+  __pyx_t_8 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9Condition_1is_true, 0, __pyx_n_s_Condition_is_true, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__67)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 476, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_8, __pyx_t_7);
   __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
@@ -30130,115 +30020,115 @@ if (!__Pyx_RefNanny) {
       __Pyx_DECREF_SET(__pyx_t_6, function);
     }
   }
-  __pyx_t_1 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_8);
+  __pyx_t_4 = (__pyx_t_7) ? __Pyx_PyObject_Call2Args(__pyx_t_6, __pyx_t_7, __pyx_t_8) : __Pyx_PyObject_CallOneArg(__pyx_t_6, __pyx_t_8);
   __Pyx_XDECREF(__pyx_t_7); __pyx_t_7 = 0;
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 460, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 475, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":459
+  /* "petsi/_structure.py":474
  * 
  * class Condition(ABC):
  *     @property             # <<<<<<<<<<<<<<
  *     @abstractmethod
  *     def is_true(self) -> bool: pass
  */
-  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_property, __pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 459, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_CallOneArg(__pyx_builtin_property, __pyx_t_4); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 474, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_5, __pyx_n_s_is_true, __pyx_t_6) < 0) __PYX_ERR(0, 461, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_5, __pyx_n_s_is_true, __pyx_t_6) < 0) __PYX_ERR(0, 476, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":458
+  /* "petsi/_structure.py":473
  * 
  * 
  * class Condition(ABC):             # <<<<<<<<<<<<<<
  *     @property
  *     @abstractmethod
  */
-  __pyx_t_6 = __Pyx_Py3ClassCreate(__pyx_t_2, __pyx_n_s_Condition, __pyx_t_4, __pyx_t_5, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 458, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_Condition, __pyx_t_2, __pyx_t_5, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Condition, __pyx_t_6) < 0) __PYX_ERR(0, 458, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Condition, __pyx_t_6) < 0) __PYX_ERR(0, 473, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":464
+  /* "petsi/_structure.py":479
  * 
  * 
  * class UpdateOp:             # <<<<<<<<<<<<<<
  *     key: str
  *     new_value: "Any"
  */
-  __pyx_t_4 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_UpdateOp, __pyx_n_s_UpdateOp, (PyObject *) NULL, __pyx_n_s_petsi__structure, (PyObject *) NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 464, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_2 = __Pyx_Py3MetaclassPrepare((PyObject *) NULL, __pyx_empty_tuple, __pyx_n_s_UpdateOp, __pyx_n_s_UpdateOp, (PyObject *) NULL, __pyx_n_s_petsi__structure, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 479, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
 
-  /* "petsi/_structure.py":468
+  /* "petsi/_structure.py":483
  *     new_value: "Any"
  * 
  *     def __init__(self, key: str, new_value: "Any"):             # <<<<<<<<<<<<<<
  *         self.key = key
  *         self.new_value = new_value
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 468, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_key, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 468, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_new_value, __pyx_n_u_Any) < 0) __PYX_ERR(0, 468, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_8UpdateOp_1__init__, 0, __pyx_n_s_UpdateOp___init, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__70)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 468, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 483, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_key, __pyx_n_u_unicode) < 0) __PYX_ERR(0, 483, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_new_value, __pyx_n_u_Any) < 0) __PYX_ERR(0, 483, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_8UpdateOp_1__init__, 0, __pyx_n_s_UpdateOp___init, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__69)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_init, __pyx_t_5) < 0) __PYX_ERR(0, 468, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_init, __pyx_t_5) < 0) __PYX_ERR(0, 483, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "petsi/_structure.py":472
+  /* "petsi/_structure.py":487
  *         self.new_value = new_value
  * 
  *     def apply(self, t: Token): pass             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 472, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 487, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_t, __pyx_n_u_Token) < 0) __PYX_ERR(0, 472, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_8UpdateOp_3apply, 0, __pyx_n_s_UpdateOp_apply, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 472, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_t, __pyx_n_u_Token) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_8UpdateOp_3apply, 0, __pyx_n_s_UpdateOp_apply, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__71)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 487, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_4, __pyx_n_s_apply, __pyx_t_2) < 0) __PYX_ERR(0, 472, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_apply, __pyx_t_1) < 0) __PYX_ERR(0, 487, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":464
+  /* "petsi/_structure.py":479
  * 
  * 
  * class UpdateOp:             # <<<<<<<<<<<<<<
  *     key: str
  *     new_value: "Any"
  */
-  __pyx_t_2 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_UpdateOp, __pyx_empty_tuple, __pyx_t_4, NULL, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 464, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_UpdateOp, __pyx_t_2) < 0) __PYX_ERR(0, 464, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Py3ClassCreate(((PyObject*)&__Pyx_DefaultClassType), __pyx_n_s_UpdateOp, __pyx_empty_tuple, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 479, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_UpdateOp, __pyx_t_1) < 0) __PYX_ERR(0, 479, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":501
+  /* "petsi/_structure.py":516
  *         raise NotImplementedError
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
  *         visitor.visit(self)
  * 
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 501, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_visitor, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Arc_3accept, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Arc_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 501, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 516, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Arc->tp_dict, __pyx_n_s_accept, __pyx_t_2) < 0) __PYX_ERR(0, 501, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_visitor, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 516, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Arc_3accept, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Arc_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__73)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 516, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Arc->tp_dict, __pyx_n_s_accept, __pyx_t_1) < 0) __PYX_ERR(0, 516, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Arc);
 
   /* "(tree fragment)":1
@@ -30246,10 +30136,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Arc_5__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Arc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__76)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Arc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Arc_5__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Arc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__75)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Arc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Arc);
 
   /* "(tree fragment)":16
@@ -30258,10 +30148,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Arc__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Arc_7__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Arc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__78)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Arc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3Arc_7__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Arc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__77)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Arc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Arc);
 
   /* "(tree fragment)":1
@@ -30269,10 +30159,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_16PresenceObserver_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PresenceObserver___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__80)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_16PresenceObserver_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PresenceObserver___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_PresenceObserver);
 
   /* "(tree fragment)":16
@@ -30281,10 +30171,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_PresenceObserver__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_16PresenceObserver_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PresenceObserver___setstate_cyth, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__82)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_16PresenceObserver_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_PresenceObserver___setstate_cyth, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__81)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_PresenceObserver);
 
   /* "(tree fragment)":1
@@ -30292,10 +30182,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_14ConstructorArc_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ConstructorArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__84)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_14ConstructorArc_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ConstructorArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_ConstructorArc);
 
   /* "(tree fragment)":16
@@ -30304,10 +30194,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_ConstructorArc__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_14ConstructorArc_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ConstructorArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__86)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_14ConstructorArc_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_ConstructorArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__85)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_ConstructorArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_ConstructorArc);
 
   /* "(tree fragment)":1
@@ -30315,10 +30205,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13TokenConsumer_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenConsumer___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__88)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13TokenConsumer_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenConsumer___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__87)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TokenConsumer);
 
   /* "(tree fragment)":16
@@ -30327,10 +30217,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenConsumer__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13TokenConsumer_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenConsumer___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__90)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13TokenConsumer_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenConsumer___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__89)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TokenConsumer);
 
   /* "(tree fragment)":1
@@ -30338,10 +30228,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13DestructorArc_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_DestructorArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__92)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_DestructorArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13DestructorArc_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_DestructorArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__91)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_DestructorArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_DestructorArc);
 
   /* "(tree fragment)":16
@@ -30350,10 +30240,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_DestructorArc__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13DestructorArc_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_DestructorArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__94)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_DestructorArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13DestructorArc_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_DestructorArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__93)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_DestructorArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_DestructorArc);
 
   /* "(tree fragment)":1
@@ -30361,10 +30251,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_11TransferArc_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransferArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__96)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_11TransferArc_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransferArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__95)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TransferArc);
 
   /* "(tree fragment)":16
@@ -30373,10 +30263,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TransferArc__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_11TransferArc_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransferArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__98)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_11TransferArc_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransferArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__97)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TransferArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TransferArc);
 
   /* "(tree fragment)":1
@@ -30384,10 +30274,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_7TestArc_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TestArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__100)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TestArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_7TestArc_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TestArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__99)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TestArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TestArc);
 
   /* "(tree fragment)":16
@@ -30396,10 +30286,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TestArc__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_7TestArc_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TestArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__102)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TestArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_7TestArc_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TestArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__101)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_TestArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_TestArc);
 
   /* "(tree fragment)":1
@@ -30407,10 +30297,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_12InhibitorArc_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_InhibitorArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__104)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_InhibitorArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_12InhibitorArc_1__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_InhibitorArc___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__103)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_InhibitorArc->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_InhibitorArc);
 
   /* "(tree fragment)":16
@@ -30419,561 +30309,561 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_InhibitorArc__set_state(self, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_12InhibitorArc_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_InhibitorArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__106)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_InhibitorArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_12InhibitorArc_3__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_InhibitorArc___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__105)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_InhibitorArc->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_InhibitorArc);
 
-  /* "petsi/_structure.py":660
+  /* "petsi/_structure.py":677
  *     _presence_observers: "Set[PresenceObserver]"
  * 
  *     _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")             # <<<<<<<<<<<<<<
  * 
  *     # ==== Invariants ======
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Enum); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 660, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Enum); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__106, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 677, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_tuple__107, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 660, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_Status, __pyx_t_2) < 0) __PYX_ERR(0, 677, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_Status, __pyx_t_4) < 0) __PYX_ERR(0, 660, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":672
+  /* "petsi/_structure.py":689
  *     # arc and if the transition is timed
  *     _state_table = {
  *         _Status.UNDEFINED: {             # <<<<<<<<<<<<<<
  *             True:  [  # The order of the items is important!
  *                 (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 672, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 672, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_UNDEFINED); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 672, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 689, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_UNDEFINED); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":673
+  /* "petsi/_structure.py":690
  *     _state_table = {
  *         _Status.UNDEFINED: {
  *             True:  [  # The order of the items is important!             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),     # Only those that are not TokenConsumers
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 673, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 690, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
 
-  /* "petsi/_structure.py":674
+  /* "petsi/_structure.py":691
  *         _Status.UNDEFINED: {
  *             True:  [  # The order of the items is important!
  *                 (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver             # <<<<<<<<<<<<<<
  *                 (PresenceObserver,  _Status.ERROR),     # Only those that are not TokenConsumers
  *             ],
  */
-  __Pyx_GetNameInClass(__pyx_t_6, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_6, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 691, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_STABLE); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 674, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_STABLE); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 691, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 674, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 691, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":675
+  /* "petsi/_structure.py":692
  *             True:  [  # The order of the items is important!
  *                 (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),     # Only those that are not TokenConsumers             # <<<<<<<<<<<<<<
  *             ],
  *             False: [
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 675, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 675, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 692, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 692, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 675, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 692, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(__pyx_t_8);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_8);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_8);
   __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":673
+  /* "petsi/_structure.py":690
  *     _state_table = {
  *         _Status.UNDEFINED: {
  *             True:  [  # The order of the items is important!             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.STABLE),    # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),     # Only those that are not TokenConsumers
  */
-  __pyx_t_8 = PyList_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 673, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 690, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_GIVEREF(__pyx_t_6);
   PyList_SET_ITEM(__pyx_t_8, 0, __pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyList_SET_ITEM(__pyx_t_8, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyList_SET_ITEM(__pyx_t_8, 1, __pyx_t_4);
   __pyx_t_6 = 0;
-  __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, Py_True, __pyx_t_8) < 0) __PYX_ERR(0, 673, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, Py_True, __pyx_t_8) < 0) __PYX_ERR(0, 690, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":678
+  /* "petsi/_structure.py":695
  *             ],
  *             False: [
  *                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver             # <<<<<<<<<<<<<<
  *                 (PresenceObserver,  _Status.UNDEFINED),  # Only those that are not TokenConsumers
  *             ]
  */
-  __Pyx_GetNameInClass(__pyx_t_8, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_8, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 695, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 678, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 695, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 678, __pyx_L1_error)
+  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 695, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   PyTuple_SET_ITEM(__pyx_t_8, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":679
+  /* "petsi/_structure.py":696
  *             False: [
  *                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.UNDEFINED),  # Only those that are not TokenConsumers             # <<<<<<<<<<<<<<
  *             ]
  *         },
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_UNDEFINED); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 679, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 696, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_UNDEFINED); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 696, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 679, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 696, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(__pyx_t_6);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":677
+  /* "petsi/_structure.py":694
  *                 (PresenceObserver,  _Status.ERROR),     # Only those that are not TokenConsumers
  *             ],
  *             False: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.UNDEFINED),  # Only those that are not TokenConsumers
  */
-  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 677, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 694, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_8);
   PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_8);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
   __pyx_t_8 = 0;
-  __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, Py_False, __pyx_t_6) < 0) __PYX_ERR(0, 673, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, Py_False, __pyx_t_6) < 0) __PYX_ERR(0, 690, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_t_5, __pyx_t_2) < 0) __PYX_ERR(0, 672, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_t_5, __pyx_t_1) < 0) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":682
+  /* "petsi/_structure.py":699
  *             ]
  *         },
  *         _Status.STABLE: {             # <<<<<<<<<<<<<<
  *             True: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  */
-  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 682, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_STABLE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 682, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 699, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_STABLE); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 699, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":683
+  /* "petsi/_structure.py":700
  *         },
  *         _Status.STABLE: {
  *             True: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 683, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 700, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
 
-  /* "petsi/_structure.py":684
+  /* "petsi/_structure.py":701
  *         _Status.STABLE: {
  *             True: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver             # <<<<<<<<<<<<<<
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  *             ],
  */
-  __Pyx_GetNameInClass(__pyx_t_6, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 684, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_6, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 701, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 684, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 701, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 684, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 701, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":685
+  /* "petsi/_structure.py":702
  *             True: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers             # <<<<<<<<<<<<<<
  *             ],
  *             False: [
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 685, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 685, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 702, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 702, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 685, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 702, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(__pyx_t_8);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_8);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_8);
   __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":683
+  /* "petsi/_structure.py":700
  *         },
  *         _Status.STABLE: {
  *             True: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  */
-  __pyx_t_8 = PyList_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 683, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_GIVEREF(__pyx_t_6);
   PyList_SET_ITEM(__pyx_t_8, 0, __pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyList_SET_ITEM(__pyx_t_8, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyList_SET_ITEM(__pyx_t_8, 1, __pyx_t_4);
   __pyx_t_6 = 0;
-  __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, Py_True, __pyx_t_8) < 0) __PYX_ERR(0, 683, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, Py_True, __pyx_t_8) < 0) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":688
+  /* "petsi/_structure.py":705
  *             ],
  *             False: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver             # <<<<<<<<<<<<<<
  *                 (PresenceObserver,  _Status.STABLE),  # Only those that are not TokenConsumers
  *             ]
  */
-  __Pyx_GetNameInClass(__pyx_t_8, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 688, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_8, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 705, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 688, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 705, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 688, __pyx_L1_error)
+  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 705, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   PyTuple_SET_ITEM(__pyx_t_8, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":689
+  /* "petsi/_structure.py":706
  *             False: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.STABLE),  # Only those that are not TokenConsumers             # <<<<<<<<<<<<<<
  *             ]
  *         },
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 689, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_STABLE); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 689, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 706, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_STABLE); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 706, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 689, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 706, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(__pyx_t_6);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":687
+  /* "petsi/_structure.py":704
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  *             ],
  *             False: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.STABLE),  # Only those that are not TokenConsumers
  */
-  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 687, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 704, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_8);
   PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_8);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
   __pyx_t_8 = 0;
-  __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, Py_False, __pyx_t_6) < 0) __PYX_ERR(0, 683, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, Py_False, __pyx_t_6) < 0) __PYX_ERR(0, 700, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_t_5, __pyx_t_2) < 0) __PYX_ERR(0, 672, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_t_5, __pyx_t_1) < 0) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":692
+  /* "petsi/_structure.py":709
  *             ]
  *         },
  *         _Status.TRANSIENT: {             # <<<<<<<<<<<<<<
  *             True: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  */
-  __Pyx_GetNameInClass(__pyx_t_2, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 692, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 692, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 709, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 709, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_structure.py":693
+  /* "petsi/_structure.py":710
  *         },
  *         _Status.TRANSIENT: {
  *             True: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 693, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 710, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
 
-  /* "petsi/_structure.py":694
+  /* "petsi/_structure.py":711
  *         _Status.TRANSIENT: {
  *             True: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver             # <<<<<<<<<<<<<<
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  *             ],
  */
-  __Pyx_GetNameInClass(__pyx_t_6, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 694, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_6, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 694, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 711, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 694, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 711, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   PyTuple_SET_ITEM(__pyx_t_6, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":695
+  /* "petsi/_structure.py":712
  *             True: [
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers             # <<<<<<<<<<<<<<
  *             ],
  *             False: [
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 695, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 695, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 712, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ERROR); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 712, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 695, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 712, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(__pyx_t_8);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_8);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_8);
   __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":693
+  /* "petsi/_structure.py":710
  *         },
  *         _Status.TRANSIENT: {
  *             True: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.ERROR),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  */
-  __pyx_t_8 = PyList_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 693, __pyx_L1_error)
+  __pyx_t_8 = PyList_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 710, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_GIVEREF(__pyx_t_6);
   PyList_SET_ITEM(__pyx_t_8, 0, __pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyList_SET_ITEM(__pyx_t_8, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyList_SET_ITEM(__pyx_t_8, 1, __pyx_t_4);
   __pyx_t_6 = 0;
-  __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, Py_True, __pyx_t_8) < 0) __PYX_ERR(0, 693, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, Py_True, __pyx_t_8) < 0) __PYX_ERR(0, 710, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
 
-  /* "petsi/_structure.py":698
+  /* "petsi/_structure.py":715
  *             ],
  *             False: [
  *                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver             # <<<<<<<<<<<<<<
  *                 (PresenceObserver,  _Status.TRANSIENT),  # Only those that are not TokenConsumers
  *             ]
  */
-  __Pyx_GetNameInClass(__pyx_t_8, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 698, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_8, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 715, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 698, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 715, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 698, __pyx_L1_error)
+  __pyx_t_8 = PyTuple_New(2); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 715, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
   PyTuple_SET_ITEM(__pyx_t_8, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_TokenConsumer));
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_1);
-  __pyx_t_1 = 0;
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_8, 1, __pyx_t_4);
+  __pyx_t_4 = 0;
 
-  /* "petsi/_structure.py":699
+  /* "petsi/_structure.py":716
  *             False: [
  *                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.TRANSIENT),  # Only those that are not TokenConsumers             # <<<<<<<<<<<<<<
  *             ]
  *         }
  */
-  __Pyx_GetNameInClass(__pyx_t_1, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 699, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 699, __pyx_L1_error)
+  __Pyx_GetNameInClass(__pyx_t_4, (PyObject *)__pyx_ptype_5petsi_10_structure_Place, __pyx_n_s_Status); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 716, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_TRANSIENT); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 716, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 699, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 716, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
-  PyTuple_SET_ITEM(__pyx_t_1, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
+  PyTuple_SET_ITEM(__pyx_t_4, 0, ((PyObject *)__pyx_ptype_5petsi_10_structure_PresenceObserver));
   __Pyx_GIVEREF(__pyx_t_6);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_6);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_6);
   __pyx_t_6 = 0;
 
-  /* "petsi/_structure.py":697
+  /* "petsi/_structure.py":714
  *                 (PresenceObserver,  _Status.ERROR),  # Only those that are not TokenConsumers
  *             ],
  *             False: [             # <<<<<<<<<<<<<<
  *                 (TokenConsumer,     _Status.TRANSIENT),  # May also be a PresenceObserver
  *                 (PresenceObserver,  _Status.TRANSIENT),  # Only those that are not TokenConsumers
  */
-  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 697, __pyx_L1_error)
+  __pyx_t_6 = PyList_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 714, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_GIVEREF(__pyx_t_8);
   PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_8);
-  __Pyx_GIVEREF(__pyx_t_1);
-  PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_1);
+  __Pyx_GIVEREF(__pyx_t_4);
+  PyList_SET_ITEM(__pyx_t_6, 1, __pyx_t_4);
   __pyx_t_8 = 0;
-  __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_2, Py_False, __pyx_t_6) < 0) __PYX_ERR(0, 693, __pyx_L1_error)
+  __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_1, Py_False, __pyx_t_6) < 0) __PYX_ERR(0, 710, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_t_5, __pyx_t_2) < 0) __PYX_ERR(0, 672, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_t_5, __pyx_t_1) < 0) __PYX_ERR(0, 689, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_state_table, __pyx_t_2) < 0) __PYX_ERR(0, 688, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_state_table, __pyx_t_4) < 0) __PYX_ERR(0, 671, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":719
+  /* "petsi/_structure.py":736
  *     def name(self): return self._name
  * 
  *     def accept(self, visitor: "PetsiVisitor"):             # <<<<<<<<<<<<<<
  *         visitor.visit(self)
  * 
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 719, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_visitor, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 719, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_3accept, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__109)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 719, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 736, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_accept, __pyx_t_2) < 0) __PYX_ERR(0, 719, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_visitor, __pyx_n_u_PetsiVisitor) < 0) __PYX_ERR(0, 736, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_3accept, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_accept, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__108)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 736, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_accept, __pyx_t_1) < 0) __PYX_ERR(0, 736, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":722
+  /* "petsi/_structure.py":739
  *         visitor.visit(self)
  * 
  *     def accept_arc(self, arc: Arc, is_timed: bool):             # <<<<<<<<<<<<<<
  *         arc_class = type(arc)
  *         for arc_type, status in self._state_table[self._status][is_timed]:
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 722, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 739, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_arc, __pyx_n_u_Arc) < 0) __PYX_ERR(0, 739, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_is_timed, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 739, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_5accept_arc, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_accept_arc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__110)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 739, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_arc, __pyx_n_u_Arc) < 0) __PYX_ERR(0, 722, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_is_timed, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 722, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_5accept_arc, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_accept_arc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__111)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 722, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_2);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_accept_arc, __pyx_t_2) < 0) __PYX_ERR(0, 739, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_accept_arc, __pyx_t_4) < 0) __PYX_ERR(0, 722, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":740
+  /* "petsi/_structure.py":757
  *     def typ(self): return self._typ
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         while not self.is_empty:
  *             self.pop()
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_7reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_reset, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__113)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 740, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 740, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_7reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_reset, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__112)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 757, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_reset, __pyx_t_2) < 0) __PYX_ERR(0, 757, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":744
+  /* "petsi/_structure.py":761
  *             self.pop()
  * 
  *     def attach_observer(self, plugin: Plugins.AbstractPlugin):             # <<<<<<<<<<<<<<
  *         observer = plugin.observe_place(self)
  * 
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 744, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Plugins); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 744, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 761, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_AbstractPlugin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 744, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Plugins); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 761, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_AbstractPlugin); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 761, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_plugin, __pyx_t_5) < 0) __PYX_ERR(0, 744, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_plugin, __pyx_t_5) < 0) __PYX_ERR(0, 761, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_9attach_observer, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_attach_observer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__115)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 744, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_9attach_observer, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_attach_observer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__114)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 761, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_attach_observer, __pyx_t_5) < 0) __PYX_ERR(0, 744, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_attach_observer, __pyx_t_5) < 0) __PYX_ERR(0, 761, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":751
+  /* "petsi/_structure.py":768
  *             self._place_observers.add(observer)
  * 
  *     def attach_presence_observer(self, o: PresenceObserver):             # <<<<<<<<<<<<<<
  *         self._presence_observers.add(o)
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 751, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 768, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_o, __pyx_n_u_PresenceObserver) < 0) __PYX_ERR(0, 751, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_11attach_presence_observer, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_attach_presence_observer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__117)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 751, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_o, __pyx_n_u_PresenceObserver) < 0) __PYX_ERR(0, 768, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_11attach_presence_observer, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place_attach_presence_observer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__116)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 768, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_attach_presence_observer, __pyx_t_4) < 0) __PYX_ERR(0, 751, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_attach_presence_observer, __pyx_t_2) < 0) __PYX_ERR(0, 768, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
   /* "(tree fragment)":1
@@ -30981,10 +30871,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__119)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__118)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_2) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
   /* "(tree fragment)":16
@@ -30993,36 +30883,36 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_Place__set_state(self, __pyx_state)
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__121)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5Place_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Place___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__120)); if (unlikely(!__pyx_t_2)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_Place->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_2) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_Place);
 
-  /* "petsi/_structure.py":807
+  /* "petsi/_structure.py":822
  * 
  * 
  * FIFOPlace = Place             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_FIFOPlace, ((PyObject *)__pyx_ptype_5petsi_10_structure_Place)) < 0) __PYX_ERR(0, 807, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_FIFOPlace, ((PyObject *)__pyx_ptype_5petsi_10_structure_Place)) < 0) __PYX_ERR(0, 822, __pyx_L1_error)
 
-  /* "petsi/_structure.py":813
+  /* "petsi/_structure.py":828
  * class LIFOPlace(Place):
  *     @cython.ccall
  *     def _push(self, t: Token):             # <<<<<<<<<<<<<<
  *         self._tokens.appendleft(t)
  * 
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 813, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_t, __pyx_n_u_Token) < 0) __PYX_ERR(0, 813, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9LIFOPlace_1_push, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_LIFOPlace__push, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__123)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 813, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 828, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_t, __pyx_n_u_Token) < 0) __PYX_ERR(0, 828, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9LIFOPlace_1_push, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_LIFOPlace__push, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__122)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 828, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_LIFOPlace->tp_dict, __pyx_n_s_push, __pyx_t_5) < 0) __PYX_ERR(0, 813, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_LIFOPlace->tp_dict, __pyx_n_s_push, __pyx_t_5) < 0) __PYX_ERR(0, 828, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_LIFOPlace);
 
@@ -31031,7 +30921,7 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9LIFOPlace_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_LIFOPlace___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__125)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9LIFOPlace_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_LIFOPlace___reduce_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__124)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_LIFOPlace->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -31043,187 +30933,87 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_LIFOPlace__set_state(self, __pyx_state)
  */
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9LIFOPlace_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_LIFOPlace___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__127)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9LIFOPlace_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_LIFOPlace___setstate_cython, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__126)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_10_structure_LIFOPlace->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_5) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_5petsi_10_structure_LIFOPlace);
 
-  /* "petsi/_structure.py":817
- * 
- * 
- * class PetsiVisitor(ABC):             # <<<<<<<<<<<<<<
- *     @abstractmethod
- *     def visit(self, visitable: Union[Net, Transition, Place, Arc]):
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_ABC); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 817, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 817, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GIVEREF(__pyx_t_5);
-  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
-  __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CalculateMetaclass(NULL, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 817, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_Py3MetaclassPrepare(__pyx_t_5, __pyx_t_4, __pyx_n_s_PetsiVisitor, __pyx_n_s_PetsiVisitor, (PyObject *) NULL, __pyx_n_s_petsi__structure, (PyObject *) NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 817, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-
-  /* "petsi/_structure.py":818
- * 
- * class PetsiVisitor(ABC):
- *     @abstractmethod             # <<<<<<<<<<<<<<
- *     def visit(self, visitable: Union[Net, Transition, Place, Arc]):
- *         pass
- */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_abstractmethod); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 818, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-
-  /* "petsi/_structure.py":819
- * class PetsiVisitor(ABC):
- *     @abstractmethod
- *     def visit(self, visitable: Union[Net, Transition, Place, Arc]):             # <<<<<<<<<<<<<<
- *         pass
- * 
- */
-  __pyx_t_8 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_8);
-  __Pyx_GetModuleGlobalName(__pyx_t_7, __pyx_n_s_Union); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_7);
-  __Pyx_GetModuleGlobalName(__pyx_t_9, __pyx_n_s_Net); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = PyTuple_New(4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_10);
-  __Pyx_GIVEREF(__pyx_t_9);
-  PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_9);
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Transition));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Transition));
-  PyTuple_SET_ITEM(__pyx_t_10, 1, ((PyObject *)__pyx_ptype_5petsi_10_structure_Transition));
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Place));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Place));
-  PyTuple_SET_ITEM(__pyx_t_10, 2, ((PyObject *)__pyx_ptype_5petsi_10_structure_Place));
-  __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Arc));
-  __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_10_structure_Arc));
-  PyTuple_SET_ITEM(__pyx_t_10, 3, ((PyObject *)__pyx_ptype_5petsi_10_structure_Arc));
-  __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyObject_GetItem(__pyx_t_7, __pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-  __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-  if (PyDict_SetItem(__pyx_t_8, __pyx_n_s_visitable, __pyx_t_9) < 0) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_12PetsiVisitor_1visit, 0, __pyx_n_s_PetsiVisitor_visit, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__129)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_9);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_9, __pyx_t_8);
-  __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __pyx_t_8 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_8)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_8);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-    }
-  }
-  __pyx_t_6 = (__pyx_t_8) ? __Pyx_PyObject_Call2Args(__pyx_t_1, __pyx_t_8, __pyx_t_9) : __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
-  __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-  if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 818, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (__Pyx_SetNameInClass(__pyx_t_2, __pyx_n_s_visit, __pyx_t_6) < 0) __PYX_ERR(0, 819, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-  /* "petsi/_structure.py":817
- * 
- * 
- * class PetsiVisitor(ABC):             # <<<<<<<<<<<<<<
- *     @abstractmethod
- *     def visit(self, visitable: Union[Net, Transition, Place, Arc]):
- */
-  __pyx_t_6 = __Pyx_Py3ClassCreate(__pyx_t_5, __pyx_n_s_PetsiVisitor, __pyx_t_4, __pyx_t_2, NULL, 0, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 817, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_6);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_PetsiVisitor, __pyx_t_6) < 0) __PYX_ERR(0, 817, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-  /* "petsi/_structure.py":823
+  /* "petsi/_structure.py":832
  * 
  * 
  * _ForeachArgumentType = TypeVar("_ForeachArgumentType")             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_TypeVar); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 823, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_tuple__130, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 823, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_TypeVar); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 832, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ForeachArgumentType, __pyx_t_5) < 0) __PYX_ERR(0, 823, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_tuple__127, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 832, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ForeachArgumentType, __pyx_t_2) < 0) __PYX_ERR(0, 832, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_structure.py":827
+  /* "petsi/_structure.py":836
  * 
  * @cython.ccall
  * def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):             # <<<<<<<<<<<<<<
- *     for x in iterator:
- *         f(x)
+ *     """ Call f on each element of the iterable.
+ *     :param f: A function accepting a single argument of the type of the elements of the iterable
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 827, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_Callable); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 836, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_Callable); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_ForeachArgumentType); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 827, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ForeachArgumentType); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_6 = PyList_New(1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 836, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
-  __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Any); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyList_SET_ITEM(__pyx_t_6, 0, __pyx_t_1);
+  __pyx_t_1 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Any); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_6);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_6);
-  __Pyx_GIVEREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_2);
+  PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_1);
   __pyx_t_6 = 0;
-  __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_4, __pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_f, __pyx_t_2) < 0) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Iterable); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_ForeachArgumentType); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 827, __pyx_L1_error)
+  __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_PyObject_GetItem(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_iterator, __pyx_t_4) < 0) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_1foreach, 0, __pyx_n_s_foreach, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__132)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 827, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_foreach, __pyx_t_4) < 0) __PYX_ERR(0, 827, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_f, __pyx_t_1) < 0) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_Iterable); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_ForeachArgumentType); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_iterator, __pyx_t_5) < 0) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_1foreach, 0, __pyx_n_s_foreach, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__129)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_2);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_foreach, __pyx_t_5) < 0) __PYX_ERR(0, 836, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_TokenType(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3__pyx_unpickle_TokenType, 0, __pyx_n_s_pyx_unpickle_TokenType, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__134)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenType, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_3__pyx_unpickle_TokenType, 0, __pyx_n_s_pyx_unpickle_TokenType, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__131)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenType, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_TokenType__set_state(<TokenType> __pyx_result, __pyx_state)
@@ -31232,20 +31022,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._name = __pyx_state[0]; __pyx_result._net = __pyx_state[1]; __pyx_result.ordinal = __pyx_state[2]
  *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5__pyx_unpickle_Token, 0, __pyx_n_s_pyx_unpickle_Token, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__136)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Token, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_5__pyx_unpickle_Token, 0, __pyx_n_s_pyx_unpickle_Token, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__133)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Token, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Transition(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_7__pyx_unpickle_Transition, 0, __pyx_n_s_pyx_unpickle_Transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__138)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Transition, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_7__pyx_unpickle_Transition, 0, __pyx_n_s_pyx_unpickle_Transition, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__135)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Transition, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_Transition__set_state(<Transition> __pyx_result, __pyx_state)
@@ -31254,20 +31044,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._arcs = __pyx_state[0]; __pyx_result._disabled_arc_count = __pyx_state[1]; __pyx_result._distribution = __pyx_state[2]; __pyx_result._name = __pyx_state[3]; __pyx_result._transition_observers = __pyx_state[4]; __pyx_result.ordinal = __pyx_state[5]; __pyx_result.priority = __pyx_state[6]; __pyx_result.weight = __pyx_state[7]
  *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9__pyx_unpickle_Arc, 0, __pyx_n_s_pyx_unpickle_Arc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__140)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Arc, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_9__pyx_unpickle_Arc, 0, __pyx_n_s_pyx_unpickle_Arc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__137)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Arc, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_PresenceObserver(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_11__pyx_unpickle_PresenceObserver, 0, __pyx_n_s_pyx_unpickle_PresenceObserver, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__142)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_PresenceObserver, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_11__pyx_unpickle_PresenceObserver, 0, __pyx_n_s_pyx_unpickle_PresenceObserver, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__139)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_PresenceObserver, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_PresenceObserver__set_state(<PresenceObserver> __pyx_result, __pyx_state)
@@ -31276,20 +31066,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._input_place = __pyx_state[0]; __pyx_result._is_enabled = __pyx_state[1]; __pyx_result._name = __pyx_state[2]; __pyx_result._output_place = __pyx_state[3]; __pyx_result._transition = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13__pyx_unpickle_ConstructorArc, 0, __pyx_n_s_pyx_unpickle_ConstructorArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__144)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_ConstructorArc, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_13__pyx_unpickle_ConstructorArc, 0, __pyx_n_s_pyx_unpickle_ConstructorArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__141)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_ConstructorArc, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_TokenConsumer(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_15__pyx_unpickle_TokenConsumer, 0, __pyx_n_s_pyx_unpickle_TokenConsumer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__146)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenConsumer, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_15__pyx_unpickle_TokenConsumer, 0, __pyx_n_s_pyx_unpickle_TokenConsumer, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__143)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenConsumer, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_TokenConsumer__set_state(<TokenConsumer> __pyx_result, __pyx_state)
@@ -31298,20 +31088,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._input_place = __pyx_state[0]; __pyx_result._is_enabled = __pyx_state[1]; __pyx_result._name = __pyx_state[2]; __pyx_result._output_place = __pyx_state[3]; __pyx_result._transition = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_17__pyx_unpickle_DestructorArc, 0, __pyx_n_s_pyx_unpickle_DestructorArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__148)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_DestructorArc, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_17__pyx_unpickle_DestructorArc, 0, __pyx_n_s_pyx_unpickle_DestructorArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__145)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_DestructorArc, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_TransferArc(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_19__pyx_unpickle_TransferArc, 0, __pyx_n_s_pyx_unpickle_TransferArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__150)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TransferArc, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_19__pyx_unpickle_TransferArc, 0, __pyx_n_s_pyx_unpickle_TransferArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__147)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TransferArc, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_TransferArc__set_state(<TransferArc> __pyx_result, __pyx_state)
@@ -31320,20 +31110,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._input_place = __pyx_state[0]; __pyx_result._is_enabled = __pyx_state[1]; __pyx_result._name = __pyx_state[2]; __pyx_result._output_place = __pyx_state[3]; __pyx_result._transition = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_21__pyx_unpickle_TestArc, 0, __pyx_n_s_pyx_unpickle_TestArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__152)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TestArc, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_21__pyx_unpickle_TestArc, 0, __pyx_n_s_pyx_unpickle_TestArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__149)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TestArc, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_InhibitorArc(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_23__pyx_unpickle_InhibitorArc, 0, __pyx_n_s_pyx_unpickle_InhibitorArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__154)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_InhibitorArc, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_23__pyx_unpickle_InhibitorArc, 0, __pyx_n_s_pyx_unpickle_InhibitorArc, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__151)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_InhibitorArc, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_InhibitorArc__set_state(<InhibitorArc> __pyx_result, __pyx_state)
@@ -31342,30 +31132,30 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._input_place = __pyx_state[0]; __pyx_result._is_enabled = __pyx_state[1]; __pyx_result._name = __pyx_state[2]; __pyx_result._output_place = __pyx_state[3]; __pyx_result._transition = __pyx_state[4]
  *     if len(__pyx_state) > 5 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_25__pyx_unpickle_Place, 0, __pyx_n_s_pyx_unpickle_Place, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__156)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Place, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_25__pyx_unpickle_Place, 0, __pyx_n_s_pyx_unpickle_Place, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__153)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Place, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_LIFOPlace(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_27__pyx_unpickle_LIFOPlace, 0, __pyx_n_s_pyx_unpickle_LIFOPlace, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__158)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_LIFOPlace, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_10_structure_27__pyx_unpickle_LIFOPlace, 0, __pyx_n_s_pyx_unpickle_LIFOPlace, NULL, __pyx_n_s_petsi__structure, __pyx_d, ((PyObject *)__pyx_codeobj__155)); if (unlikely(!__pyx_t_5)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_LIFOPlace, __pyx_t_5) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /* "petsi/_structure.py":1
  * # cython: language_level=3             # <<<<<<<<<<<<<<
  * # cython: profile=False
  * 
  */
-  __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_4);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_4) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_5) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
   /*--- Wrapped vars code ---*/
 
@@ -31378,8 +31168,6 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
-  __Pyx_XDECREF(__pyx_t_9);
-  __Pyx_XDECREF(__pyx_t_10);
   if (__pyx_m) {
     if (__pyx_d) {
       __Pyx_AddTraceback("init petsi._structure", __pyx_clineno, __pyx_lineno, __pyx_filename);

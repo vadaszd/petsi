@@ -1,19 +1,46 @@
+""" A Petri net visitor that generates a `graphviz` representation of the net.
+
+.. figure:: ../Simple Loopback Petri Net.png
+    :alt: A simple Petri net
+
+    The generated `graphviz` representation of a simple example Petri net.
+
+"""
+
 from dataclasses import dataclass, field
 from functools import singledispatchmethod, reduce
 from typing import Union, Tuple, Optional
-
-from ._structure import PetsiVisitor, Net, Transition, Place, Arc, TestArc, InhibitorArc
 from graphviz import Digraph
+
+from .Visitor import PetsiVisitor
+from ._structure import Net, Transition, Place, Arc, TestArc, InhibitorArc
+
 
 @dataclass
 class Visualizer(PetsiVisitor):
+    """ A Petri net visitor converting the net to a :class:`~graphviz.Digraph` object.
 
+    """
     figsize: Optional[Tuple[float, float]]
     dot: Digraph = field(default_factory=Digraph, init=False)
 
     @singledispatchmethod
     def visit(self, visitable: Union[Net, Transition, Place, Arc]):
-        pass
+        """ A generic ``visit`` method.
+
+        The implementation uses the :class:`functools.singledispatchmethod` for dispatching
+        control based on the type of the visited object.
+
+        `Transitions <petsi._structure.Transition>`_ are represented by a box-shaped `graphviz` node.
+        Timed transitions have rounded corners.
+        Oval nodes represent `places <petsi._structure.Place>`_.
+
+        Arcs are shown as edges between places and transitions.
+        Edges normally have an arrow shaped head pointing into the direction of token flow.
+        Transfer arcs are represented by two edges, one from the input place to the transition
+        and another from the transition to the output place.
+        An edge without arrowhead indicates a test arc. A dot arrowhead turns the test arc into an inhibitor.
+        """
 
     @visit.register
     def _(self, visitable: Net):

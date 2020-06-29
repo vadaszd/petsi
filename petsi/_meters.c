@@ -936,7 +936,7 @@ struct __pyx_obj_5petsi_10_structure_Place {
  * 
  * cdef class _PriorityLevel:             # <<<<<<<<<<<<<<
  *     cdef int priority
- *     cdef set transitions    #: Set["Structure.Transition"]
+ *     cdef set transitions    #: Set["_structure.Transition"]
  */
 struct __pyx_obj_5petsi_9_autofire__PriorityLevel {
   PyObject_HEAD
@@ -1124,7 +1124,7 @@ struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver {
 };
 
 
-/* "petsi/_meters.py":15
+/* "petsi/_meters.py":16
  *         self.reset()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -1137,7 +1137,7 @@ struct __pyx_obj_5petsi_7_meters___pyx_scope_struct__reset {
 };
 
 
-/* "petsi/_meters.py":17
+/* "petsi/_meters.py":18
  *     def reset(self):
  *         self._arrays.clear()
  *         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())             # <<<<<<<<<<<<<<
@@ -1213,7 +1213,7 @@ static struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtabptr_5petsi_1
  * 
  * cdef class _PriorityLevel:             # <<<<<<<<<<<<<<
  *     cdef int priority
- *     cdef set transitions    #: Set["Structure.Transition"]
+ *     cdef set transitions    #: Set["_structure.Transition"]
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel {
@@ -1276,7 +1276,7 @@ struct __pyx_vtabstruct_5petsi_9_autofire_AutoFirePluginTransitionObserver {
 static struct __pyx_vtabstruct_5petsi_9_autofire_AutoFirePluginTransitionObserver *__pyx_vtabptr_5petsi_9_autofire_AutoFirePluginTransitionObserver;
 
 
-/* "petsi/_meters.py":30
+/* "petsi/_meters.py":34
  * 
  * 
  * class TokenCounterCollector(GenericCollector):             # <<<<<<<<<<<<<<
@@ -1290,12 +1290,12 @@ struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterCollector {
 static struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterCollector *__pyx_vtabptr_5petsi_7_meters_TokenCounterCollector;
 
 
-/* "petsi/_meters.py":51
+/* "petsi/_meters.py":55
  * 
  * 
  * class TokenCounterPluginPlaceObserver:             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _place: "Structure.Place", _clock: Clock,
+ *     def __init__(self, _plugin: "Plugins.Plugin", _place: "_structure.Place", _clock: Clock,
  */
 
 struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver {
@@ -1306,7 +1306,7 @@ struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver {
 static struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver *__pyx_vtabptr_5petsi_7_meters_TokenCounterPluginPlaceObserver;
 
 
-/* "petsi/_meters.py":85
+/* "petsi/_meters.py":89
  * 
  * 
  * class SojournTimeCollector(GenericCollector):             # <<<<<<<<<<<<<<
@@ -1320,12 +1320,12 @@ struct __pyx_vtabstruct_5petsi_7_meters_SojournTimeCollector {
 static struct __pyx_vtabstruct_5petsi_7_meters_SojournTimeCollector *__pyx_vtabptr_5petsi_7_meters_SojournTimeCollector;
 
 
-/* "petsi/_meters.py":113
+/* "petsi/_meters.py":117
  * 
  * 
  * class SojournTimePluginTokenObserver:  # Cython does not cope with base classes here             # <<<<<<<<<<<<<<
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
+ *     def __init__(self, _plugin: "Plugins.Plugin", _token: "_structure.Token",
  */
 
 struct __pyx_vtabstruct_5petsi_7_meters_SojournTimePluginTokenObserver {
@@ -1337,7 +1337,7 @@ struct __pyx_vtabstruct_5petsi_7_meters_SojournTimePluginTokenObserver {
 static struct __pyx_vtabstruct_5petsi_7_meters_SojournTimePluginTokenObserver *__pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver;
 
 
-/* "petsi/_meters.py":154
+/* "petsi/_meters.py":158
  * 
  * 
  * class FiringCollector(GenericCollector):             # <<<<<<<<<<<<<<
@@ -1351,7 +1351,7 @@ struct __pyx_vtabstruct_5petsi_7_meters_FiringCollector {
 static struct __pyx_vtabstruct_5petsi_7_meters_FiringCollector *__pyx_vtabptr_5petsi_7_meters_FiringCollector;
 
 
-/* "petsi/_meters.py":173
+/* "petsi/_meters.py":177
  * 
  * 
  * class TransitionIntervalPluginTransitionObserver:             # <<<<<<<<<<<<<<
@@ -2306,7 +2306,7 @@ static const char __pyx_k_I[] = "I";
 static const char __pyx_k_Q[] = "Q";
 static const char __pyx_k_d[] = "d";
 static const char __pyx_k_p[] = "p";
-static const char __pyx_k__20[] = "_";
+static const char __pyx_k__21[] = "_";
 static const char __pyx_k_new[] = "__new__";
 static const char __pyx_k_typ[] = "typ";
 static const char __pyx_k_Dict[] = "Dict";
@@ -2320,6 +2320,7 @@ static const char __pyx_k_send[] = "send";
 static const char __pyx_k_test[] = "__test__";
 static const char __pyx_k_Clock[] = "Clock";
 static const char __pyx_k_array[] = "array";
+static const char __pyx_k_bound[] = "bound";
 static const char __pyx_k_clock[] = "_clock";
 static const char __pyx_k_close[] = "close";
 static const char __pyx_k_count[] = "count";
@@ -2342,6 +2343,7 @@ static const char __pyx_k_typing[] = "typing";
 static const char __pyx_k_update[] = "update";
 static const char __pyx_k_values[] = "values";
 static const char __pyx_k_Plugins[] = "Plugins";
+static const char __pyx_k_TypeVar[] = "TypeVar";
 static const char __pyx_k_genexpr[] = "genexpr";
 static const char __pyx_k_ordinal[] = "ordinal";
 static const char __pyx_k_place_2[] = "place";
@@ -2354,10 +2356,11 @@ static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_token_id[] = "_token_id";
 static const char __pyx_k_FrozenSet[] = "FrozenSet";
-static const char __pyx_k_Structure[] = "Structure";
 static const char __pyx_k_collector[] = "_collector";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
+static const char __pyx_k_structure[] = "_structure";
+static const char __pyx_k_ACollector[] = "ACollector";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_start_time[] = "start_time";
@@ -2381,9 +2384,9 @@ static const char __pyx_k_before_firing[] = "before_firing";
 static const char __pyx_k_petsi__meters[] = "petsi._meters";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_FiringCollector[] = "FiringCollector";
-static const char __pyx_k_Structure_Place[] = "Structure.Place";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
+static const char __pyx_k_structure_Place[] = "_structure.Place";
 static const char __pyx_k_GenericCollector[] = "GenericCollector";
 static const char __pyx_k_get_observations[] = "get_observations";
 static const char __pyx_k_petsi__meters_py[] = "petsi/_meters.py";
@@ -2450,6 +2453,7 @@ static const char __pyx_k_TransitionIntervalPluginTransiti_6[] = "TransitionInte
 static const char __pyx_k_TransitionIntervalPluginTransiti_7[] = "TransitionIntervalPluginTransitionObserver.__reduce_cython__";
 static const char __pyx_k_TransitionIntervalPluginTransiti_8[] = "TransitionIntervalPluginTransitionObserver.__setstate_cython__";
 static PyObject *__pyx_n_s_;
+static PyObject *__pyx_n_s_ACollector;
 static PyObject *__pyx_n_s_Clock;
 static PyObject *__pyx_n_s_Dict;
 static PyObject *__pyx_n_s_FiringCollector;
@@ -2488,8 +2492,6 @@ static PyObject *__pyx_n_s_SojournTimePluginTokenObserver_r_2;
 static PyObject *__pyx_n_s_SojournTimePluginTokenObserver_r_3;
 static PyObject *__pyx_n_s_SojournTimePluginTokenObserver_r_4;
 static PyObject *__pyx_n_s_SojournTimePluginTokenObserver_r_5;
-static PyObject *__pyx_n_s_Structure;
-static PyObject *__pyx_kp_s_Structure_Place;
 static PyObject *__pyx_n_s_TYPE_CHECKING;
 static PyObject *__pyx_n_s_TokenCounterCollector;
 static PyObject *__pyx_n_s_TokenCounterCollector___reduce_c;
@@ -2509,13 +2511,15 @@ static PyObject *__pyx_n_s_TransitionIntervalPluginTransiti_5;
 static PyObject *__pyx_n_s_TransitionIntervalPluginTransiti_6;
 static PyObject *__pyx_n_s_TransitionIntervalPluginTransiti_7;
 static PyObject *__pyx_n_s_TransitionIntervalPluginTransiti_8;
-static PyObject *__pyx_n_s__20;
+static PyObject *__pyx_n_s_TypeVar;
+static PyObject *__pyx_n_s__21;
 static PyObject *__pyx_n_s_after_firing;
 static PyObject *__pyx_n_s_append;
 static PyObject *__pyx_n_s_args;
 static PyObject *__pyx_n_s_array;
 static PyObject *__pyx_n_s_autofire;
 static PyObject *__pyx_n_s_before_firing;
+static PyObject *__pyx_n_s_bound;
 static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_clock;
 static PyObject *__pyx_n_s_close;
@@ -2581,6 +2585,8 @@ static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_start_time;
 static PyObject *__pyx_n_s_state;
 static PyObject *__pyx_kp_s_stringsource;
+static PyObject *__pyx_n_s_structure;
+static PyObject *__pyx_kp_s_structure_Place;
 static PyObject *__pyx_n_s_super;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_throw;
@@ -2669,83 +2675,84 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_tuple__10;
 static PyObject *__pyx_tuple__12;
-static PyObject *__pyx_tuple__14;
-static PyObject *__pyx_tuple__16;
-static PyObject *__pyx_tuple__18;
-static PyObject *__pyx_tuple__21;
-static PyObject *__pyx_tuple__23;
-static PyObject *__pyx_tuple__25;
-static PyObject *__pyx_tuple__27;
-static PyObject *__pyx_tuple__29;
-static PyObject *__pyx_tuple__31;
-static PyObject *__pyx_tuple__33;
-static PyObject *__pyx_tuple__35;
-static PyObject *__pyx_tuple__37;
-static PyObject *__pyx_tuple__39;
-static PyObject *__pyx_tuple__41;
-static PyObject *__pyx_tuple__43;
-static PyObject *__pyx_tuple__45;
-static PyObject *__pyx_tuple__47;
-static PyObject *__pyx_tuple__49;
-static PyObject *__pyx_tuple__51;
-static PyObject *__pyx_tuple__53;
-static PyObject *__pyx_tuple__55;
-static PyObject *__pyx_tuple__57;
-static PyObject *__pyx_tuple__59;
-static PyObject *__pyx_tuple__61;
-static PyObject *__pyx_tuple__63;
-static PyObject *__pyx_tuple__65;
-static PyObject *__pyx_tuple__67;
-static PyObject *__pyx_tuple__69;
-static PyObject *__pyx_tuple__71;
-static PyObject *__pyx_tuple__73;
-static PyObject *__pyx_tuple__75;
-static PyObject *__pyx_tuple__77;
-static PyObject *__pyx_tuple__79;
-static PyObject *__pyx_tuple__81;
+static PyObject *__pyx_tuple__13;
+static PyObject *__pyx_tuple__15;
+static PyObject *__pyx_tuple__17;
+static PyObject *__pyx_tuple__19;
+static PyObject *__pyx_tuple__22;
+static PyObject *__pyx_tuple__24;
+static PyObject *__pyx_tuple__26;
+static PyObject *__pyx_tuple__28;
+static PyObject *__pyx_tuple__30;
+static PyObject *__pyx_tuple__32;
+static PyObject *__pyx_tuple__34;
+static PyObject *__pyx_tuple__36;
+static PyObject *__pyx_tuple__38;
+static PyObject *__pyx_tuple__40;
+static PyObject *__pyx_tuple__42;
+static PyObject *__pyx_tuple__44;
+static PyObject *__pyx_tuple__46;
+static PyObject *__pyx_tuple__48;
+static PyObject *__pyx_tuple__50;
+static PyObject *__pyx_tuple__52;
+static PyObject *__pyx_tuple__54;
+static PyObject *__pyx_tuple__56;
+static PyObject *__pyx_tuple__58;
+static PyObject *__pyx_tuple__60;
+static PyObject *__pyx_tuple__62;
+static PyObject *__pyx_tuple__64;
+static PyObject *__pyx_tuple__66;
+static PyObject *__pyx_tuple__68;
+static PyObject *__pyx_tuple__70;
+static PyObject *__pyx_tuple__72;
+static PyObject *__pyx_tuple__74;
+static PyObject *__pyx_tuple__76;
+static PyObject *__pyx_tuple__78;
+static PyObject *__pyx_tuple__80;
+static PyObject *__pyx_tuple__82;
 static PyObject *__pyx_codeobj__3;
 static PyObject *__pyx_codeobj__5;
 static PyObject *__pyx_codeobj__7;
 static PyObject *__pyx_codeobj__9;
 static PyObject *__pyx_codeobj__11;
-static PyObject *__pyx_codeobj__13;
-static PyObject *__pyx_codeobj__15;
-static PyObject *__pyx_codeobj__17;
-static PyObject *__pyx_codeobj__19;
-static PyObject *__pyx_codeobj__22;
-static PyObject *__pyx_codeobj__24;
-static PyObject *__pyx_codeobj__26;
-static PyObject *__pyx_codeobj__28;
-static PyObject *__pyx_codeobj__30;
-static PyObject *__pyx_codeobj__32;
-static PyObject *__pyx_codeobj__34;
-static PyObject *__pyx_codeobj__36;
-static PyObject *__pyx_codeobj__38;
-static PyObject *__pyx_codeobj__40;
-static PyObject *__pyx_codeobj__42;
-static PyObject *__pyx_codeobj__44;
-static PyObject *__pyx_codeobj__46;
-static PyObject *__pyx_codeobj__48;
-static PyObject *__pyx_codeobj__50;
-static PyObject *__pyx_codeobj__52;
-static PyObject *__pyx_codeobj__54;
-static PyObject *__pyx_codeobj__56;
-static PyObject *__pyx_codeobj__58;
-static PyObject *__pyx_codeobj__60;
-static PyObject *__pyx_codeobj__62;
-static PyObject *__pyx_codeobj__64;
-static PyObject *__pyx_codeobj__66;
-static PyObject *__pyx_codeobj__68;
-static PyObject *__pyx_codeobj__70;
-static PyObject *__pyx_codeobj__72;
-static PyObject *__pyx_codeobj__74;
-static PyObject *__pyx_codeobj__76;
-static PyObject *__pyx_codeobj__78;
-static PyObject *__pyx_codeobj__80;
-static PyObject *__pyx_codeobj__82;
+static PyObject *__pyx_codeobj__14;
+static PyObject *__pyx_codeobj__16;
+static PyObject *__pyx_codeobj__18;
+static PyObject *__pyx_codeobj__20;
+static PyObject *__pyx_codeobj__23;
+static PyObject *__pyx_codeobj__25;
+static PyObject *__pyx_codeobj__27;
+static PyObject *__pyx_codeobj__29;
+static PyObject *__pyx_codeobj__31;
+static PyObject *__pyx_codeobj__33;
+static PyObject *__pyx_codeobj__35;
+static PyObject *__pyx_codeobj__37;
+static PyObject *__pyx_codeobj__39;
+static PyObject *__pyx_codeobj__41;
+static PyObject *__pyx_codeobj__43;
+static PyObject *__pyx_codeobj__45;
+static PyObject *__pyx_codeobj__47;
+static PyObject *__pyx_codeobj__49;
+static PyObject *__pyx_codeobj__51;
+static PyObject *__pyx_codeobj__53;
+static PyObject *__pyx_codeobj__55;
+static PyObject *__pyx_codeobj__57;
+static PyObject *__pyx_codeobj__59;
+static PyObject *__pyx_codeobj__61;
+static PyObject *__pyx_codeobj__63;
+static PyObject *__pyx_codeobj__65;
+static PyObject *__pyx_codeobj__67;
+static PyObject *__pyx_codeobj__69;
+static PyObject *__pyx_codeobj__71;
+static PyObject *__pyx_codeobj__73;
+static PyObject *__pyx_codeobj__75;
+static PyObject *__pyx_codeobj__77;
+static PyObject *__pyx_codeobj__79;
+static PyObject *__pyx_codeobj__81;
+static PyObject *__pyx_codeobj__83;
 /* Late includes */
 
-/* "petsi/_meters.py":10
+/* "petsi/_meters.py":11
  * 
  * class GenericCollector:
  *     def __init__(self, required_observations):             # <<<<<<<<<<<<<<
@@ -2782,7 +2789,7 @@ static int __pyx_pw_5petsi_7_meters_16GenericCollector_1__init__(PyObject *__pyx
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 10, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 11, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2793,7 +2800,7 @@ static int __pyx_pw_5petsi_7_meters_16GenericCollector_1__init__(PyObject *__pyx
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 10, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 11, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._meters.GenericCollector.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2818,24 +2825,24 @@ static int __pyx_pf_5petsi_7_meters_16GenericCollector___init__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_meters.py":11
+  /* "petsi/_meters.py":12
  * class GenericCollector:
  *     def __init__(self, required_observations):
  *         self.required_observations = required_observations             # <<<<<<<<<<<<<<
  *         self._arrays = dict()
  *         self.reset()
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_required_observations); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_required_observations); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 12, __pyx_L1_error)
   __pyx_v_self->required_observations = __pyx_t_1;
 
-  /* "petsi/_meters.py":12
+  /* "petsi/_meters.py":13
  *     def __init__(self, required_observations):
  *         self.required_observations = required_observations
  *         self._arrays = dict()             # <<<<<<<<<<<<<<
  *         self.reset()
  * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_arrays);
@@ -2843,14 +2850,14 @@ static int __pyx_pf_5petsi_7_meters_16GenericCollector___init__(struct __pyx_obj
   __pyx_v_self->_arrays = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "petsi/_meters.py":13
+  /* "petsi/_meters.py":14
  *         self.required_observations = required_observations
  *         self._arrays = dict()
  *         self.reset()             # <<<<<<<<<<<<<<
  * 
  *     def reset(self):
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -2864,12 +2871,12 @@ static int __pyx_pf_5petsi_7_meters_16GenericCollector___init__(struct __pyx_obj
   }
   __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_meters.py":10
+  /* "petsi/_meters.py":11
  * 
  * class GenericCollector:
  *     def __init__(self, required_observations):             # <<<<<<<<<<<<<<
@@ -2891,7 +2898,7 @@ static int __pyx_pf_5petsi_7_meters_16GenericCollector___init__(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":15
+/* "petsi/_meters.py":16
  *         self.reset()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -2914,7 +2921,7 @@ static PyObject *__pyx_pw_5petsi_7_meters_16GenericCollector_3reset(PyObject *__
 }
 static PyObject *__pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "petsi/_meters.py":17
+/* "petsi/_meters.py":18
  *     def reset(self):
  *         self._arrays.clear()
  *         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())             # <<<<<<<<<<<<<<
@@ -2934,7 +2941,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_5reset_genexpr(PyOb
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5petsi_7_meters___pyx_scope_struct_1_genexpr *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 17, __pyx_L1_error)
+    __PYX_ERR(0, 18, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -2942,7 +2949,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_5reset_genexpr(PyOb
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_reset_locals_genexpr, __pyx_n_s_petsi__meters); if (unlikely(!gen)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_reset_locals_genexpr, __pyx_n_s_petsi__meters); if (unlikely(!gen)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2982,16 +2989,16 @@ static PyObject *__pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator(_
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 18, __pyx_L1_error)
   __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 17, __pyx_L1_error) }
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self), __pyx_n_s_type_codes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self)) { __Pyx_RaiseClosureNameError("self"); __PYX_ERR(0, 18, __pyx_L1_error) }
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_cur_scope->__pyx_outer_scope->__pyx_v_self), __pyx_n_s_type_codes); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (unlikely(__pyx_t_5 == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-    __PYX_ERR(0, 17, __pyx_L1_error)
+    __PYX_ERR(0, 18, __pyx_L1_error)
   }
-  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_dict_iterator(__pyx_t_5, 0, __pyx_n_s_items, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_XDECREF(__pyx_t_1);
@@ -3000,7 +3007,7 @@ static PyObject *__pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator(_
   while (1) {
     __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_6, &__pyx_t_5, NULL, __pyx_t_4);
     if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (unlikely(__pyx_t_7 == -1)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_field_name);
@@ -3011,9 +3018,9 @@ static PyObject *__pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator(_
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_type_code, __pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_7cpython_5array_array), __pyx_cur_scope->__pyx_v_type_code); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_7cpython_5array_array), __pyx_cur_scope->__pyx_v_type_code); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 17, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 18, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_field_name);
     __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_field_name);
@@ -3041,7 +3048,7 @@ static PyObject *__pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator(_
     __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
     __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
     __pyx_t_4 = __pyx_cur_scope->__pyx_t_3;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 17, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 18, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
@@ -3065,7 +3072,7 @@ static PyObject *__pyx_gb_5petsi_7_meters_16GenericCollector_5reset_2generator(_
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":15
+/* "petsi/_meters.py":16
  *         self.reset()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -3090,7 +3097,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_2reset(struct __pyx
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_5petsi_7_meters___pyx_scope_struct__reset *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 15, __pyx_L1_error)
+    __PYX_ERR(0, 16, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -3098,7 +3105,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_2reset(struct __pyx
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
 
-  /* "petsi/_meters.py":16
+  /* "petsi/_meters.py":17
  * 
  *     def reset(self):
  *         self._arrays.clear()             # <<<<<<<<<<<<<<
@@ -3107,20 +3114,20 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_2reset(struct __pyx
  */
   if (unlikely(__pyx_cur_scope->__pyx_v_self->_arrays == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "clear");
-    __PYX_ERR(0, 16, __pyx_L1_error)
+    __PYX_ERR(0, 17, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyDict_Clear(__pyx_cur_scope->__pyx_v_self->_arrays); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_Clear(__pyx_cur_scope->__pyx_v_self->_arrays); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 17, __pyx_L1_error)
 
-  /* "petsi/_meters.py":17
+  /* "petsi/_meters.py":18
  *     def reset(self):
  *         self._arrays.clear()
  *         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())             # <<<<<<<<<<<<<<
  *         # noinspection PyAttributeOutsideInit
  *         self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_arrays, __pyx_n_s_update); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_self->_arrays, __pyx_n_s_update); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __pyx_pf_5petsi_7_meters_16GenericCollector_5reset_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_4 = __pyx_pf_5petsi_7_meters_16GenericCollector_5reset_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -3135,12 +3142,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_2reset(struct __pyx
   __pyx_t_2 = (__pyx_t_5) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_5, __pyx_t_4) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_meters.py":19
+  /* "petsi/_meters.py":20
  *         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())
  *         # noinspection PyAttributeOutsideInit
  *         self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations             # <<<<<<<<<<<<<<
@@ -3149,24 +3156,24 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_2reset(struct __pyx
  */
   if (unlikely(__pyx_cur_scope->__pyx_v_self->_arrays == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 19, __pyx_L1_error)
+    __PYX_ERR(0, 20, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_PyDict_Values(__pyx_cur_scope->__pyx_v_self->_arrays); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_Values(__pyx_cur_scope->__pyx_v_self->_arrays); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_3 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyIter_Next(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyIter_Next(__pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 19, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_cur_scope->__pyx_v_self->_any_array);
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope->__pyx_v_self->_any_array));
   __pyx_cur_scope->__pyx_v_self->_any_array = ((arrayobject *)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "petsi/_meters.py":15
+  /* "petsi/_meters.py":16
  *         self.reset()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -3191,7 +3198,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_2reset(struct __pyx
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":21
+/* "petsi/_meters.py":22
  *         self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
  * 
  *     def get_observations(self) -> Dict[str, array]:             # <<<<<<<<<<<<<<
@@ -3225,7 +3232,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_4get_observations(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_observations", 0);
 
-  /* "petsi/_meters.py":22
+  /* "petsi/_meters.py":23
  * 
  *     def get_observations(self) -> Dict[str, array]:
  *         data = self._arrays.copy()             # <<<<<<<<<<<<<<
@@ -3234,21 +3241,21 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_4get_observations(s
  */
   if (unlikely(__pyx_v_self->_arrays == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "copy");
-    __PYX_ERR(0, 22, __pyx_L1_error)
+    __PYX_ERR(0, 23, __pyx_L1_error)
   }
-  __pyx_t_1 = PyDict_Copy(__pyx_v_self->_arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  __pyx_t_1 = PyDict_Copy(__pyx_v_self->_arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_data = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":23
+  /* "petsi/_meters.py":24
  *     def get_observations(self) -> Dict[str, array]:
  *         data = self._arrays.copy()
  *         self.reset()             # <<<<<<<<<<<<<<
  *         return data
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3262,12 +3269,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_4get_observations(s
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 24, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":24
+  /* "petsi/_meters.py":25
  *         data = self._arrays.copy()
  *         self.reset()
  *         return data             # <<<<<<<<<<<<<<
@@ -3279,7 +3286,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_4get_observations(s
   __pyx_r = __pyx_v_data;
   goto __pyx_L0;
 
-  /* "petsi/_meters.py":21
+  /* "petsi/_meters.py":22
  *         self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
  * 
  *     def get_observations(self) -> Dict[str, array]:             # <<<<<<<<<<<<<<
@@ -3301,7 +3308,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_4get_observations(s
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":26
+/* "petsi/_meters.py":27
  *         return data
  * 
  *     def need_more_observations(self) -> bool:             # <<<<<<<<<<<<<<
@@ -3333,7 +3340,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_6need_more_observat
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("need_more_observations", 0);
 
-  /* "petsi/_meters.py":27
+  /* "petsi/_meters.py":28
  * 
  *     def need_more_observations(self) -> bool:
  *         return len(self._any_array) < self.required_observations             # <<<<<<<<<<<<<<
@@ -3345,17 +3352,17 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_6need_more_observat
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 27, __pyx_L1_error)
+    __PYX_ERR(0, 28, __pyx_L1_error)
   }
-  __pyx_t_2 = Py_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_2 = Py_SIZE(__pyx_t_1); if (unlikely(__pyx_t_2 == ((Py_ssize_t)-1))) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_t_2 < __pyx_v_self->required_observations)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_t_2 < __pyx_v_self->required_observations)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_meters.py":26
+  /* "petsi/_meters.py":27
  *         return data
  * 
  *     def need_more_observations(self) -> bool:             # <<<<<<<<<<<<<<
@@ -3770,7 +3777,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_16GenericCollector_10__setstate_cython
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":37
+/* "petsi/_meters.py":41
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -3807,14 +3814,14 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_meters.py":38
+  /* "petsi/_meters.py":42
  * 
  *     def reset(self):
  *         super().reset()             # <<<<<<<<<<<<<<
  *         # noinspection PyAttributeOutsideInit
  *         self._start_time, self._place, self._count, self._duration = self._arrays.values()
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector));
@@ -3822,10 +3829,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -3840,12 +3847,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":40
+  /* "petsi/_meters.py":44
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  *         self._start_time, self._place, self._count, self._duration = self._arrays.values()             # <<<<<<<<<<<<<<
@@ -3854,9 +3861,9 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
  */
   if (unlikely(__pyx_v_self->__pyx_base._arrays == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 40, __pyx_L1_error)
+    __PYX_ERR(0, 44, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyDict_Values(__pyx_v_self->__pyx_base._arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_Values(__pyx_v_self->__pyx_base._arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
     PyObject* sequence = __pyx_t_1;
@@ -3864,7 +3871,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
     if (unlikely(size != 4)) {
       if (size > 4) __Pyx_RaiseTooManyValuesError(4);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 40, __pyx_L1_error)
+      __PYX_ERR(0, 44, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -3887,7 +3894,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
       Py_ssize_t i;
       PyObject** temps[4] = {&__pyx_t_2,&__pyx_t_3,&__pyx_t_4,&__pyx_t_5};
       for (i=0; i < 4; i++) {
-        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 40, __pyx_L1_error)
+        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 44, __pyx_L1_error)
         __Pyx_GOTREF(item);
         *(temps[i]) = item;
       }
@@ -3897,7 +3904,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
   } else {
     Py_ssize_t index = -1;
     PyObject** temps[4] = {&__pyx_t_2,&__pyx_t_3,&__pyx_t_4,&__pyx_t_5};
-    __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 40, __pyx_L1_error)
+    __pyx_t_6 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_7 = Py_TYPE(__pyx_t_6)->tp_iternext;
@@ -3906,7 +3913,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
       __Pyx_GOTREF(item);
       *(temps[index]) = item;
     }
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_6), 4) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_7(__pyx_t_6), 4) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
     __pyx_t_7 = NULL;
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     goto __pyx_L4_unpacking_done;
@@ -3914,13 +3921,13 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 40, __pyx_L1_error)
+    __PYX_ERR(0, 44, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 40, __pyx_L1_error)
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 40, __pyx_L1_error)
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 40, __pyx_L1_error)
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 40, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_start_time);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_start_time));
@@ -3942,7 +3949,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
   __pyx_v_self->_duration = ((arrayobject *)__pyx_t_5);
   __pyx_t_5 = 0;
 
-  /* "petsi/_meters.py":37
+  /* "petsi/_meters.py":41
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -3968,7 +3975,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_reset(struct _
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":44
+/* "petsi/_meters.py":48
  *     # cython crashes with argument annotations ....
  *     # def collect(self, start_time: float, place: int, count: int, duration: float):
  *     def collect(self, start_time, place, count, duration):             # <<<<<<<<<<<<<<
@@ -3986,55 +3993,55 @@ static PyObject *__pyx_f_5petsi_7_meters_21TokenCounterCollector_collect(struct 
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("collect", 0);
 
-  /* "petsi/_meters.py":45
+  /* "petsi/_meters.py":49
  *     # def collect(self, start_time: float, place: int, count: int, duration: float):
  *     def collect(self, start_time, place, count, duration):
  *         self._start_time.append(start_time)             # <<<<<<<<<<<<<<
  *         self._place.append(place)
  *         self._count.append(count)
  */
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_start_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_start_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_start_time), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_start_time), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":46
+  /* "petsi/_meters.py":50
  *     def collect(self, start_time, place, count, duration):
  *         self._start_time.append(start_time)
  *         self._place.append(place)             # <<<<<<<<<<<<<<
  *         self._count.append(count)
  *         self._duration.append(duration)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_place); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_place); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_place), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_place), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":47
+  /* "petsi/_meters.py":51
  *         self._start_time.append(start_time)
  *         self._place.append(place)
  *         self._count.append(count)             # <<<<<<<<<<<<<<
  *         self._duration.append(duration)
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_PY_LONG_LONG(__pyx_v_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_PY_LONG_LONG(__pyx_v_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_count), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_count), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":48
+  /* "petsi/_meters.py":52
  *         self._place.append(place)
  *         self._count.append(count)
  *         self._duration.append(duration)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_duration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_duration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_duration), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_duration), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 52, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":44
+  /* "petsi/_meters.py":48
  *     # cython crashes with argument annotations ....
  *     # def collect(self, start_time: float, place: int, count: int, duration: float):
  *     def collect(self, start_time, place, count, duration):             # <<<<<<<<<<<<<<
@@ -4409,10 +4416,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_21TokenCounterCollector_4__setstate_cy
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":53
+/* "petsi/_meters.py":57
  * class TokenCounterPluginPlaceObserver:
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _place: "Structure.Place", _clock: Clock,             # <<<<<<<<<<<<<<
+ *     def __init__(self, _plugin: "Plugins.Plugin", _place: "_structure.Place", _clock: Clock,             # <<<<<<<<<<<<<<
  *                  _collector: TokenCounterCollector):
  *         self._plugin = _plugin
  */
@@ -4457,23 +4464,23 @@ static int __pyx_pw_5petsi_7_meters_31TokenCounterPluginPlaceObserver_1__init__(
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_place)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 1); __PYX_ERR(0, 53, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 1); __PYX_ERR(0, 57, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_clock)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 2); __PYX_ERR(0, 53, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 2); __PYX_ERR(0, 57, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_collector)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 3); __PYX_ERR(0, 53, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 3); __PYX_ERR(0, 57, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 53, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 57, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -4490,14 +4497,14 @@ static int __pyx_pw_5petsi_7_meters_31TokenCounterPluginPlaceObserver_1__init__(
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 53, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 57, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._meters.TokenCounterPluginPlaceObserver.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__clock), __pyx_ptype_5petsi_9_autofire_Clock, 1, "_clock", 0))) __PYX_ERR(0, 53, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__collector), __pyx_ptype_5petsi_7_meters_TokenCounterCollector, 1, "_collector", 0))) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__clock), __pyx_ptype_5petsi_9_autofire_Clock, 1, "_clock", 0))) __PYX_ERR(0, 57, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__collector), __pyx_ptype_5petsi_7_meters_TokenCounterCollector, 1, "_collector", 0))) __PYX_ERR(0, 58, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(((struct __pyx_obj_5petsi_7_meters_TokenCounterPluginPlaceObserver *)__pyx_v_self), __pyx_v__plugin, __pyx_v__place, __pyx_v__clock, __pyx_v__collector);
 
   /* function exit code */
@@ -4518,8 +4525,8 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_meters.py":55
- *     def __init__(self, _plugin: "Plugins.Plugin", _place: "Structure.Place", _clock: Clock,
+  /* "petsi/_meters.py":59
+ *     def __init__(self, _plugin: "Plugins.Plugin", _place: "_structure.Place", _clock: Clock,
  *                  _collector: TokenCounterCollector):
  *         self._plugin = _plugin             # <<<<<<<<<<<<<<
  *         self._place = _place
@@ -4531,14 +4538,14 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
   __Pyx_DECREF(__pyx_v_self->_plugin);
   __pyx_v_self->_plugin = __pyx_v__plugin;
 
-  /* "petsi/_meters.py":56
+  /* "petsi/_meters.py":60
  *                  _collector: TokenCounterCollector):
  *         self._plugin = _plugin
  *         self._place = _place             # <<<<<<<<<<<<<<
  *         self._clock = _clock
  *         self._collector = _collector
  */
-  if (!(likely(((__pyx_v__place) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__place, __pyx_ptype_5petsi_10_structure_Place))))) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (!(likely(((__pyx_v__place) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__place, __pyx_ptype_5petsi_10_structure_Place))))) __PYX_ERR(0, 60, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__place;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -4547,7 +4554,7 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
   __pyx_v_self->_place = ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":57
+  /* "petsi/_meters.py":61
  *         self._plugin = _plugin
  *         self._place = _place
  *         self._clock = _clock             # <<<<<<<<<<<<<<
@@ -4560,7 +4567,7 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_clock));
   __pyx_v_self->_clock = __pyx_v__clock;
 
-  /* "petsi/_meters.py":58
+  /* "petsi/_meters.py":62
  *         self._place = _place
  *         self._clock = _clock
  *         self._collector = _collector             # <<<<<<<<<<<<<<
@@ -4573,7 +4580,7 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_collector));
   __pyx_v_self->_collector = __pyx_v__collector;
 
-  /* "petsi/_meters.py":59
+  /* "petsi/_meters.py":63
  *         self._clock = _clock
  *         self._collector = _collector
  *         self._num_tokens = 0             # <<<<<<<<<<<<<<
@@ -4582,7 +4589,7 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
  */
   __pyx_v_self->_num_tokens = 0;
 
-  /* "petsi/_meters.py":60
+  /* "petsi/_meters.py":64
  *         self._collector = _collector
  *         self._num_tokens = 0
  *         self._time_of_last_token_move = 0.0             # <<<<<<<<<<<<<<
@@ -4591,10 +4598,10 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
  */
   __pyx_v_self->_time_of_last_token_move = 0.0;
 
-  /* "petsi/_meters.py":53
+  /* "petsi/_meters.py":57
  * class TokenCounterPluginPlaceObserver:
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _place: "Structure.Place", _clock: Clock,             # <<<<<<<<<<<<<<
+ *     def __init__(self, _plugin: "Plugins.Plugin", _place: "_structure.Place", _clock: Clock,             # <<<<<<<<<<<<<<
  *                  _collector: TokenCounterCollector):
  *         self._plugin = _plugin
  */
@@ -4611,7 +4618,7 @@ static int __pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver___init__(s
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":63
+/* "petsi/_meters.py":67
  *         # self._time_having: List[float] = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -4638,7 +4645,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_2res
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_meters.py":64
+  /* "petsi/_meters.py":68
  * 
  *     def reset(self):
  *         self._num_tokens = 0             # <<<<<<<<<<<<<<
@@ -4647,7 +4654,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_2res
  */
   __pyx_v_self->_num_tokens = 0;
 
-  /* "petsi/_meters.py":65
+  /* "petsi/_meters.py":69
  *     def reset(self):
  *         self._num_tokens = 0
  *         self._time_of_last_token_move = 0.0             # <<<<<<<<<<<<<<
@@ -4656,7 +4663,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_2res
  */
   __pyx_v_self->_time_of_last_token_move = 0.0;
 
-  /* "petsi/_meters.py":63
+  /* "petsi/_meters.py":67
  *         # self._time_having: List[float] = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -4671,7 +4678,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_2res
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":67
+/* "petsi/_meters.py":71
  *         self._time_of_last_token_move = 0.0
  * 
  *     def _update_num_tokens_by(self, delta: int):             # <<<<<<<<<<<<<<
@@ -4691,17 +4698,17 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__upda
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_update_num_tokens_by", 0);
 
-  /* "petsi/_meters.py":68
+  /* "petsi/_meters.py":72
  * 
  *     def _update_num_tokens_by(self, delta: int):
  *         now: float = self._clock.read()             # <<<<<<<<<<<<<<
  *         duration: float = now - self._time_of_last_token_move
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_1 == ((double)-999.0))) __PYX_ERR(0, 68, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_1 == ((double)-999.0))) __PYX_ERR(0, 72, __pyx_L1_error)
   __pyx_v_now = __pyx_t_1;
 
-  /* "petsi/_meters.py":69
+  /* "petsi/_meters.py":73
  *     def _update_num_tokens_by(self, delta: int):
  *         now: float = self._clock.read()
  *         duration: float = now - self._time_of_last_token_move             # <<<<<<<<<<<<<<
@@ -4710,18 +4717,18 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__upda
  */
   __pyx_v_duration = (__pyx_v_now - __pyx_v_self->_time_of_last_token_move);
 
-  /* "petsi/_meters.py":71
+  /* "petsi/_meters.py":75
  *         duration: float = now - self._time_of_last_token_move
  * 
  *         self._collector.collect(self._time_of_last_token_move, self._place.ordinal, self._num_tokens, duration)             # <<<<<<<<<<<<<<
  * 
  *         self._time_of_last_token_move = now
  */
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterCollector *)__pyx_v_self->_collector->__pyx_vtab)->collect(__pyx_v_self->_collector, __pyx_v_self->_time_of_last_token_move, __pyx_v_self->_place->ordinal, __pyx_v_self->_num_tokens, __pyx_v_duration); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterCollector *)__pyx_v_self->_collector->__pyx_vtab)->collect(__pyx_v_self->_collector, __pyx_v_self->_time_of_last_token_move, __pyx_v_self->_place->ordinal, __pyx_v_self->_num_tokens, __pyx_v_duration); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_meters.py":73
+  /* "petsi/_meters.py":77
  *         self._collector.collect(self._time_of_last_token_move, self._place.ordinal, self._num_tokens, duration)
  * 
  *         self._time_of_last_token_move = now             # <<<<<<<<<<<<<<
@@ -4730,7 +4737,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__upda
  */
   __pyx_v_self->_time_of_last_token_move = __pyx_v_now;
 
-  /* "petsi/_meters.py":74
+  /* "petsi/_meters.py":78
  * 
  *         self._time_of_last_token_move = now
  *         self._num_tokens += delta             # <<<<<<<<<<<<<<
@@ -4739,7 +4746,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__upda
  */
   __pyx_v_self->_num_tokens = (__pyx_v_self->_num_tokens + __pyx_v_delta);
 
-  /* "petsi/_meters.py":76
+  /* "petsi/_meters.py":80
  *         self._num_tokens += delta
  *         # Cannot go negative
  *         assert self._num_tokens >= 0             # <<<<<<<<<<<<<<
@@ -4750,12 +4757,12 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__upda
   if (unlikely(!Py_OptimizeFlag)) {
     if (unlikely(!((__pyx_v_self->_num_tokens >= 0) != 0))) {
       PyErr_SetNone(PyExc_AssertionError);
-      __PYX_ERR(0, 76, __pyx_L1_error)
+      __PYX_ERR(0, 80, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "petsi/_meters.py":67
+  /* "petsi/_meters.py":71
  *         self._time_of_last_token_move = 0.0
  * 
  *     def _update_num_tokens_by(self, delta: int):             # <<<<<<<<<<<<<<
@@ -4776,7 +4783,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__upda
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":78
+/* "petsi/_meters.py":82
  *         assert self._num_tokens >= 0
  * 
  *     def report_arrival_of(self, _):             # <<<<<<<<<<<<<<
@@ -4805,7 +4812,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_arrival_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_arrival_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_31TokenCounterPluginPlaceObserver_5report_arrival_of)) {
         __Pyx_XDECREF(__pyx_r);
@@ -4822,7 +4829,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v__) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v__);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 78, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 82, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -4843,18 +4850,18 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
     #endif
   }
 
-  /* "petsi/_meters.py":79
+  /* "petsi/_meters.py":83
  * 
  *     def report_arrival_of(self, _):
  *         self._update_num_tokens_by(+1)             # <<<<<<<<<<<<<<
  * 
  *     def report_departure_of(self, _):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver *)__pyx_v_self->__pyx_vtab)->_update_num_tokens_by(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver *)__pyx_v_self->__pyx_vtab)->_update_num_tokens_by(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":78
+  /* "petsi/_meters.py":82
  *         assert self._num_tokens >= 0
  * 
  *     def report_arrival_of(self, _):             # <<<<<<<<<<<<<<
@@ -4901,7 +4908,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_4rep
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_arrival_of", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_report_arrival_of(__pyx_v_self, __pyx_v__, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_report_arrival_of(__pyx_v_self, __pyx_v__, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4918,7 +4925,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_4rep
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":81
+/* "petsi/_meters.py":85
  *         self._update_num_tokens_by(+1)
  * 
  *     def report_departure_of(self, _):             # <<<<<<<<<<<<<<
@@ -4947,7 +4954,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_departure_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_departure_of); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_31TokenCounterPluginPlaceObserver_7report_departure_of)) {
         __Pyx_XDECREF(__pyx_r);
@@ -4964,7 +4971,7 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v__) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v__);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 81, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 85, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -4985,18 +4992,18 @@ static PyObject *__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_repor
     #endif
   }
 
-  /* "petsi/_meters.py":82
+  /* "petsi/_meters.py":86
  * 
  *     def report_departure_of(self, _):
  *         self._update_num_tokens_by(-1)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver *)__pyx_v_self->__pyx_vtab)->_update_num_tokens_by(__pyx_v_self, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_TokenCounterPluginPlaceObserver *)__pyx_v_self->__pyx_vtab)->_update_num_tokens_by(__pyx_v_self, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":81
+  /* "petsi/_meters.py":85
  *         self._update_num_tokens_by(+1)
  * 
  *     def report_departure_of(self, _):             # <<<<<<<<<<<<<<
@@ -5043,7 +5050,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_6rep
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_departure_of", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_report_departure_of(__pyx_v_self, __pyx_v__, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_report_departure_of(__pyx_v_self, __pyx_v__, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 85, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5409,7 +5416,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_31TokenCounterPluginPlaceObserver_10__
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":94
+/* "petsi/_meters.py":98
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -5448,14 +5455,14 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_meters.py":95
+  /* "petsi/_meters.py":99
  * 
  *     def reset(self):
  *         super().reset()             # <<<<<<<<<<<<<<
  *         # noinspection PyAttributeOutsideInit
  *         self._token_id, self._token_type, self._start_time, self._num_transitions, self._place, self._duration = \
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector));
@@ -5463,10 +5470,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 95, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -5481,12 +5488,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":98
+  /* "petsi/_meters.py":102
  *         # noinspection PyAttributeOutsideInit
  *         self._token_id, self._token_type, self._start_time, self._num_transitions, self._place, self._duration = \
  *             self._arrays.values()             # <<<<<<<<<<<<<<
@@ -5495,9 +5502,9 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
  */
   if (unlikely(__pyx_v_self->__pyx_base._arrays == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 98, __pyx_L1_error)
+    __PYX_ERR(0, 102, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyDict_Values(__pyx_v_self->__pyx_base._arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_Values(__pyx_v_self->__pyx_base._arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
     PyObject* sequence = __pyx_t_1;
@@ -5505,7 +5512,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
     if (unlikely(size != 6)) {
       if (size > 6) __Pyx_RaiseTooManyValuesError(6);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 97, __pyx_L1_error)
+      __PYX_ERR(0, 101, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -5534,7 +5541,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
       Py_ssize_t i;
       PyObject** temps[6] = {&__pyx_t_2,&__pyx_t_3,&__pyx_t_4,&__pyx_t_5,&__pyx_t_6,&__pyx_t_7};
       for (i=0; i < 6; i++) {
-        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 97, __pyx_L1_error)
+        PyObject* item = PySequence_ITEM(sequence, i); if (unlikely(!item)) __PYX_ERR(0, 101, __pyx_L1_error)
         __Pyx_GOTREF(item);
         *(temps[i]) = item;
       }
@@ -5544,7 +5551,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
   } else {
     Py_ssize_t index = -1;
     PyObject** temps[6] = {&__pyx_t_2,&__pyx_t_3,&__pyx_t_4,&__pyx_t_5,&__pyx_t_6,&__pyx_t_7};
-    __pyx_t_8 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 97, __pyx_L1_error)
+    __pyx_t_8 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 101, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_9 = Py_TYPE(__pyx_t_8)->tp_iternext;
@@ -5553,7 +5560,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
       __Pyx_GOTREF(item);
       *(temps[index]) = item;
     }
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 6) < 0) __PYX_ERR(0, 97, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_9(__pyx_t_8), 6) < 0) __PYX_ERR(0, 101, __pyx_L1_error)
     __pyx_t_9 = NULL;
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     goto __pyx_L4_unpacking_done;
@@ -5561,23 +5568,23 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_9 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 97, __pyx_L1_error)
+    __PYX_ERR(0, 101, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
 
-  /* "petsi/_meters.py":97
+  /* "petsi/_meters.py":101
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  *         self._token_id, self._token_type, self._start_time, self._num_transitions, self._place, self._duration = \             # <<<<<<<<<<<<<<
  *             self._arrays.values()
  * 
  */
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 97, __pyx_L1_error)
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 97, __pyx_L1_error)
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 97, __pyx_L1_error)
-  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 97, __pyx_L1_error)
-  if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 97, __pyx_L1_error)
-  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 97, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (!(likely(((__pyx_t_5) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_5, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (!(likely(((__pyx_t_6) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_6, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 101, __pyx_L1_error)
+  if (!(likely(((__pyx_t_7) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_7, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_token_id);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_token_id));
@@ -5609,7 +5616,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
   __pyx_v_self->_duration = ((arrayobject *)__pyx_t_7);
   __pyx_t_7 = 0;
 
-  /* "petsi/_meters.py":94
+  /* "petsi/_meters.py":98
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -5637,7 +5644,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_reset(struct __
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":103
+/* "petsi/_meters.py":107
  *     # def collect(self, token_id: int, token_type: int, start_time: float,
  *     #             num_transitions: int, place: int, duration: float):
  *     def collect(self, token_id, token_type, start_time,             # <<<<<<<<<<<<<<
@@ -5655,79 +5662,79 @@ static PyObject *__pyx_f_5petsi_7_meters_20SojournTimeCollector_collect(struct _
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("collect", 0);
 
-  /* "petsi/_meters.py":105
+  /* "petsi/_meters.py":109
  *     def collect(self, token_id, token_type, start_time,
  *                 num_transitions, place, duration):
  *         self._token_id.append(token_id)             # <<<<<<<<<<<<<<
  *         self._token_type.append(token_type)
  *         self._start_time.append(start_time)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_PY_LONG_LONG(__pyx_v_token_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_PY_LONG_LONG(__pyx_v_token_id); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_token_id), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 105, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_token_id), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 109, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":106
+  /* "petsi/_meters.py":110
  *                 num_transitions, place, duration):
  *         self._token_id.append(token_id)
  *         self._token_type.append(token_type)             # <<<<<<<<<<<<<<
  *         self._start_time.append(start_time)
  *         self._num_transitions.append(num_transitions)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_token_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_token_type); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_token_type), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 106, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_token_type), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 110, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":107
+  /* "petsi/_meters.py":111
  *         self._token_id.append(token_id)
  *         self._token_type.append(token_type)
  *         self._start_time.append(start_time)             # <<<<<<<<<<<<<<
  *         self._num_transitions.append(num_transitions)
  *         self._place.append(place)
  */
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_start_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_start_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_start_time), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 107, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_start_time), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 111, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":108
+  /* "petsi/_meters.py":112
  *         self._token_type.append(token_type)
  *         self._start_time.append(start_time)
  *         self._num_transitions.append(num_transitions)             # <<<<<<<<<<<<<<
  *         self._place.append(place)
  *         self._duration.append(duration)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_PY_LONG_LONG(__pyx_v_num_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_PY_LONG_LONG(__pyx_v_num_transitions); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_num_transitions), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_num_transitions), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 112, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":109
+  /* "petsi/_meters.py":113
  *         self._start_time.append(start_time)
  *         self._num_transitions.append(num_transitions)
  *         self._place.append(place)             # <<<<<<<<<<<<<<
  *         self._duration.append(duration)
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_place); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_place); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_place), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 109, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_place), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 113, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":110
+  /* "petsi/_meters.py":114
  *         self._num_transitions.append(num_transitions)
  *         self._place.append(place)
  *         self._duration.append(duration)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_duration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_duration); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_duration), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_duration), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 114, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":103
+  /* "petsi/_meters.py":107
  *     # def collect(self, token_id: int, token_type: int, start_time: float,
  *     #             num_transitions: int, place: int, duration: float):
  *     def collect(self, token_id, token_type, start_time,             # <<<<<<<<<<<<<<
@@ -6122,10 +6129,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_20SojournTimeCollector_4__setstate_cyt
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":115
+/* "petsi/_meters.py":119
  * class SojournTimePluginTokenObserver:  # Cython does not cope with base classes here
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",             # <<<<<<<<<<<<<<
+ *     def __init__(self, _plugin: "Plugins.Plugin", _token: "_structure.Token",             # <<<<<<<<<<<<<<
  *                  _places: Optional[FrozenSet[int]], _clock: Clock, _collector: SojournTimeCollector, _token_id: int):
  *         self._plugin = _plugin
  */
@@ -6176,35 +6183,35 @@ static int __pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_1__init__(P
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_token)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 1); __PYX_ERR(0, 115, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 1); __PYX_ERR(0, 119, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_places)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 2); __PYX_ERR(0, 115, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 2); __PYX_ERR(0, 119, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_clock)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 3); __PYX_ERR(0, 115, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 3); __PYX_ERR(0, 119, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  4:
         if (likely((values[4] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_collector)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 4); __PYX_ERR(0, 115, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 4); __PYX_ERR(0, 119, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  5:
         if (likely((values[5] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_token_id)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 5); __PYX_ERR(0, 115, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, 5); __PYX_ERR(0, 119, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 115, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 119, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 6) {
       goto __pyx_L5_argtuple_error;
@@ -6225,14 +6232,14 @@ static int __pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_1__init__(P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 115, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 6, 6, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 119, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._meters.SojournTimePluginTokenObserver.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__clock), __pyx_ptype_5petsi_9_autofire_Clock, 1, "_clock", 0))) __PYX_ERR(0, 116, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__collector), __pyx_ptype_5petsi_7_meters_SojournTimeCollector, 1, "_collector", 0))) __PYX_ERR(0, 116, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__clock), __pyx_ptype_5petsi_9_autofire_Clock, 1, "_clock", 0))) __PYX_ERR(0, 120, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__collector), __pyx_ptype_5petsi_7_meters_SojournTimeCollector, 1, "_collector", 0))) __PYX_ERR(0, 120, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), __pyx_v__plugin, __pyx_v__token, __pyx_v__places, __pyx_v__clock, __pyx_v__collector, __pyx_v__token_id);
 
   /* function exit code */
@@ -6254,8 +6261,8 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_meters.py":117
- *     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
+  /* "petsi/_meters.py":121
+ *     def __init__(self, _plugin: "Plugins.Plugin", _token: "_structure.Token",
  *                  _places: Optional[FrozenSet[int]], _clock: Clock, _collector: SojournTimeCollector, _token_id: int):
  *         self._plugin = _plugin             # <<<<<<<<<<<<<<
  *         self._token = _token
@@ -6267,14 +6274,14 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   __Pyx_DECREF(__pyx_v_self->_plugin);
   __pyx_v_self->_plugin = __pyx_v__plugin;
 
-  /* "petsi/_meters.py":118
+  /* "petsi/_meters.py":122
  *                  _places: Optional[FrozenSet[int]], _clock: Clock, _collector: SojournTimeCollector, _token_id: int):
  *         self._plugin = _plugin
  *         self._token = _token             # <<<<<<<<<<<<<<
  *         self._token_id = _token_id
  *         self._transition_count = 0
  */
-  if (!(likely(((__pyx_v__token) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__token, __pyx_ptype_5petsi_10_structure_Token))))) __PYX_ERR(0, 118, __pyx_L1_error)
+  if (!(likely(((__pyx_v__token) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__token, __pyx_ptype_5petsi_10_structure_Token))))) __PYX_ERR(0, 122, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__token;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -6283,17 +6290,17 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   __pyx_v_self->_token = ((struct __pyx_obj_5petsi_10_structure_Token *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":119
+  /* "petsi/_meters.py":123
  *         self._plugin = _plugin
  *         self._token = _token
  *         self._token_id = _token_id             # <<<<<<<<<<<<<<
  *         self._transition_count = 0
  *         self._places = _places
  */
-  __pyx_t_2 = __Pyx_PyInt_As_unsigned_PY_LONG_LONG(__pyx_v__token_id); if (unlikely((__pyx_t_2 == (unsigned PY_LONG_LONG)-1) && PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_unsigned_PY_LONG_LONG(__pyx_v__token_id); if (unlikely((__pyx_t_2 == (unsigned PY_LONG_LONG)-1) && PyErr_Occurred())) __PYX_ERR(0, 123, __pyx_L1_error)
   __pyx_v_self->_token_id = __pyx_t_2;
 
-  /* "petsi/_meters.py":120
+  /* "petsi/_meters.py":124
  *         self._token = _token
  *         self._token_id = _token_id
  *         self._transition_count = 0             # <<<<<<<<<<<<<<
@@ -6302,14 +6309,14 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
  */
   __pyx_v_self->_transition_count = 0;
 
-  /* "petsi/_meters.py":121
+  /* "petsi/_meters.py":125
  *         self._token_id = _token_id
  *         self._transition_count = 0
  *         self._places = _places             # <<<<<<<<<<<<<<
  *         self._clock = _clock
  *         self._collector = _collector
  */
-  if (!(likely(PyFrozenSet_CheckExact(__pyx_v__places))||((__pyx_v__places) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "frozenset", Py_TYPE(__pyx_v__places)->tp_name), 0))) __PYX_ERR(0, 121, __pyx_L1_error)
+  if (!(likely(PyFrozenSet_CheckExact(__pyx_v__places))||((__pyx_v__places) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "frozenset", Py_TYPE(__pyx_v__places)->tp_name), 0))) __PYX_ERR(0, 125, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__places;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -6318,7 +6325,7 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   __pyx_v_self->_places = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":122
+  /* "petsi/_meters.py":126
  *         self._transition_count = 0
  *         self._places = _places
  *         self._clock = _clock             # <<<<<<<<<<<<<<
@@ -6331,7 +6338,7 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_clock));
   __pyx_v_self->_clock = __pyx_v__clock;
 
-  /* "petsi/_meters.py":123
+  /* "petsi/_meters.py":127
  *         self._places = _places
  *         self._clock = _clock
  *         self._collector = _collector             # <<<<<<<<<<<<<<
@@ -6344,7 +6351,7 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_collector));
   __pyx_v_self->_collector = __pyx_v__collector;
 
-  /* "petsi/_meters.py":124
+  /* "petsi/_meters.py":128
  *         self._clock = _clock
  *         self._collector = _collector
  *         self._arrival_time = 0.0             # <<<<<<<<<<<<<<
@@ -6353,10 +6360,10 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
  */
   __pyx_v_self->_arrival_time = 0.0;
 
-  /* "petsi/_meters.py":115
+  /* "petsi/_meters.py":119
  * class SojournTimePluginTokenObserver:  # Cython does not cope with base classes here
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",             # <<<<<<<<<<<<<<
+ *     def __init__(self, _plugin: "Plugins.Plugin", _token: "_structure.Token",             # <<<<<<<<<<<<<<
  *                  _places: Optional[FrozenSet[int]], _clock: Clock, _collector: SojournTimeCollector, _token_id: int):
  *         self._plugin = _plugin
  */
@@ -6373,7 +6380,7 @@ static int __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver___init__(st
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":126
+/* "petsi/_meters.py":130
  *         self._arrival_time = 0.0
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -6407,7 +6414,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_2rese
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":130
+/* "petsi/_meters.py":134
  *         pass
  * 
  *     def report_construction(self):             # <<<<<<<<<<<<<<
@@ -6436,7 +6443,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_construction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_construction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_5report_construction)) {
         __Pyx_XDECREF(__pyx_r);
@@ -6453,7 +6460,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 130, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -6474,7 +6481,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     #endif
   }
 
-  /* "petsi/_meters.py":131
+  /* "petsi/_meters.py":135
  * 
  *     def report_construction(self):
  *         pass             # <<<<<<<<<<<<<<
@@ -6498,7 +6505,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":130
+/* "petsi/_meters.py":134
  *         pass
  * 
  *     def report_construction(self):             # <<<<<<<<<<<<<<
@@ -6529,7 +6536,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_4repo
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_construction", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_construction(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_construction(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6546,7 +6553,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_4repo
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":133
+/* "petsi/_meters.py":137
  *         pass
  * 
  *     def report_destruction(self):             # <<<<<<<<<<<<<<
@@ -6575,7 +6582,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_destruction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_destruction); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_7report_destruction)) {
         __Pyx_XDECREF(__pyx_r);
@@ -6592,7 +6599,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 133, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -6613,12 +6620,12 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     #endif
   }
 
-  /* "petsi/_meters.py":134
+  /* "petsi/_meters.py":138
  * 
  *     def report_destruction(self):
  *         pass             # <<<<<<<<<<<<<<
  * 
- *     def report_arrival_at(self, _: "Structure.Place"):
+ *     def report_arrival_at(self, _: "_structure.Place"):
  */
 
   /* function exit code */
@@ -6637,7 +6644,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":133
+/* "petsi/_meters.py":137
  *         pass
  * 
  *     def report_destruction(self):             # <<<<<<<<<<<<<<
@@ -6668,7 +6675,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_6repo
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_destruction", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_destruction(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_destruction(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6685,10 +6692,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_6repo
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":136
+/* "petsi/_meters.py":140
  *         pass
  * 
- *     def report_arrival_at(self, _: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_arrival_at(self, _: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Start timer for place"""
  *         # if self._places is None or p.ordinal in self._places:
  */
@@ -6715,7 +6722,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_arrival_at); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_arrival_at); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_9report_arrival_at)) {
         __Pyx_XDECREF(__pyx_r);
@@ -6732,7 +6739,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, ((PyObject *)__pyx_v__)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v__));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 140, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -6753,20 +6760,20 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     #endif
   }
 
-  /* "petsi/_meters.py":139
+  /* "petsi/_meters.py":143
  *         """ Start timer for place"""
  *         # if self._places is None or p.ordinal in self._places:
  *         self._arrival_time = self._clock.read()             # <<<<<<<<<<<<<<
  * 
- *     def report_departure_from(self, p: "Structure.Place"):
+ *     def report_departure_from(self, p: "_structure.Place"):
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 143, __pyx_L1_error)
   __pyx_v_self->_arrival_time = __pyx_t_5;
 
-  /* "petsi/_meters.py":136
+  /* "petsi/_meters.py":140
  *         pass
  * 
- *     def report_arrival_at(self, _: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_arrival_at(self, _: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Start timer for place"""
  *         # if self._places is None or p.ordinal in self._places:
  */
@@ -6798,7 +6805,7 @@ static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_9repo
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("report_arrival_at (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__), __pyx_ptype_5petsi_10_structure_Place, 1, "_", 0))) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__), __pyx_ptype_5petsi_10_structure_Place, 1, "_", 0))) __PYX_ERR(0, 140, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8report_arrival_at(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v__));
 
   /* function exit code */
@@ -6819,7 +6826,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8repo
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_arrival_at", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at(__pyx_v_self, __pyx_v__, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at(__pyx_v_self, __pyx_v__, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6836,10 +6843,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_8repo
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":141
+/* "petsi/_meters.py":145
  *         self._arrival_time = self._clock.read()
  * 
- *     def report_departure_from(self, p: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_departure_from(self, p: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Stop timer and compute the sojourn time.
  *             Select the bucket of the per visit histogram that belongs
  */
@@ -6872,7 +6879,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_departure_from); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_report_departure_from); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_11report_departure_from)) {
         __Pyx_XDECREF(__pyx_r);
@@ -6889,7 +6896,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, ((PyObject *)__pyx_v_p)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_p));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 141, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 145, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -6910,7 +6917,7 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     #endif
   }
 
-  /* "petsi/_meters.py":147
+  /* "petsi/_meters.py":151
  *             Add s.t. for the overall sojourn time of the token for this place
  *         """
  *         if self._places is None or p.ordinal in self._places:             # <<<<<<<<<<<<<<
@@ -6924,26 +6931,26 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
     __pyx_t_5 = __pyx_t_7;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_p->ordinal); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_int(__pyx_v_p->ordinal); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_v_self->_places, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 147, __pyx_L1_error)
+  __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_t_1, __pyx_v_self->_places, Py_EQ)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 151, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_6 = (__pyx_t_7 != 0);
   __pyx_t_5 = __pyx_t_6;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "petsi/_meters.py":148
+    /* "petsi/_meters.py":152
  *         """
  *         if self._places is None or p.ordinal in self._places:
  *             current_time: float = self._clock.read()             # <<<<<<<<<<<<<<
  *             sojourn_time: float = current_time - self._arrival_time
  *             self._collector.collect(self._token_id, self._token.typ.ordinal, self._arrival_time,
  */
-    __pyx_t_8 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_8 == ((double)-999.0))) __PYX_ERR(0, 148, __pyx_L1_error)
+    __pyx_t_8 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_8 == ((double)-999.0))) __PYX_ERR(0, 152, __pyx_L1_error)
     __pyx_v_current_time = __pyx_t_8;
 
-    /* "petsi/_meters.py":149
+    /* "petsi/_meters.py":153
  *         if self._places is None or p.ordinal in self._places:
  *             current_time: float = self._clock.read()
  *             sojourn_time: float = current_time - self._arrival_time             # <<<<<<<<<<<<<<
@@ -6952,33 +6959,33 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
  */
     __pyx_v_sojourn_time = (__pyx_v_current_time - __pyx_v_self->_arrival_time);
 
-    /* "petsi/_meters.py":150
+    /* "petsi/_meters.py":154
  *             current_time: float = self._clock.read()
  *             sojourn_time: float = current_time - self._arrival_time
  *             self._collector.collect(self._token_id, self._token.typ.ordinal, self._arrival_time,             # <<<<<<<<<<<<<<
  *                                     self._transition_count, p.ordinal, sojourn_time)
  * 
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->_token), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self->_token), __pyx_n_s_typ); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ordinal); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_ordinal); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_9 = __Pyx_PyInt_As_unsigned_int(__pyx_t_2); if (unlikely((__pyx_t_9 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 150, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_As_unsigned_int(__pyx_t_2); if (unlikely((__pyx_t_9 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 154, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_meters.py":151
+    /* "petsi/_meters.py":155
  *             sojourn_time: float = current_time - self._arrival_time
  *             self._collector.collect(self._token_id, self._token.typ.ordinal, self._arrival_time,
  *                                     self._transition_count, p.ordinal, sojourn_time)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_7_meters_SojournTimeCollector *)__pyx_v_self->_collector->__pyx_vtab)->collect(__pyx_v_self->_collector, __pyx_v_self->_token_id, __pyx_t_9, __pyx_v_self->_arrival_time, __pyx_v_self->_transition_count, __pyx_v_p->ordinal, __pyx_v_sojourn_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 150, __pyx_L1_error)
+    __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_7_meters_SojournTimeCollector *)__pyx_v_self->_collector->__pyx_vtab)->collect(__pyx_v_self->_collector, __pyx_v_self->_token_id, __pyx_t_9, __pyx_v_self->_arrival_time, __pyx_v_self->_transition_count, __pyx_v_p->ordinal, __pyx_v_sojourn_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_meters.py":147
+    /* "petsi/_meters.py":151
  *             Add s.t. for the overall sojourn time of the token for this place
  *         """
  *         if self._places is None or p.ordinal in self._places:             # <<<<<<<<<<<<<<
@@ -6987,10 +6994,10 @@ static PyObject *__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report
  */
   }
 
-  /* "petsi/_meters.py":141
+  /* "petsi/_meters.py":145
  *         self._arrival_time = self._clock.read()
  * 
- *     def report_departure_from(self, p: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_departure_from(self, p: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Stop timer and compute the sojourn time.
  *             Select the bucket of the per visit histogram that belongs
  */
@@ -7022,7 +7029,7 @@ static PyObject *__pyx_pw_5petsi_7_meters_30SojournTimePluginTokenObserver_11rep
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("report_departure_from (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_5petsi_10_structure_Place, 1, "p", 0))) __PYX_ERR(0, 141, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_p), __pyx_ptype_5petsi_10_structure_Place, 1, "p", 0))) __PYX_ERR(0, 145, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10report_departure_from(((struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Place *)__pyx_v_p));
 
   /* function exit code */
@@ -7043,7 +7050,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_10rep
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("report_departure_from", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from(__pyx_v_self, __pyx_v_p, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from(__pyx_v_self, __pyx_v_p, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7416,7 +7423,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_30SojournTimePluginTokenObserver_14__s
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":160
+/* "petsi/_meters.py":164
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -7452,14 +7459,14 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_meters.py":161
+  /* "petsi/_meters.py":165
  * 
  *     def reset(self):
  *         super().reset()             # <<<<<<<<<<<<<<
  *         # noinspection PyAttributeOutsideInit
  *         self._transition, self._firing_time, self._interval = self._arrays.values()
  */
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector));
@@ -7467,10 +7474,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
   __Pyx_INCREF(((PyObject *)__pyx_v_self));
   __Pyx_GIVEREF(((PyObject *)__pyx_v_self));
   PyTuple_SET_ITEM(__pyx_t_2, 1, ((PyObject *)__pyx_v_self));
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_super, __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_reset); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -7485,12 +7492,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 161, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":163
+  /* "petsi/_meters.py":167
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  *         self._transition, self._firing_time, self._interval = self._arrays.values()             # <<<<<<<<<<<<<<
@@ -7499,9 +7506,9 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
  */
   if (unlikely(__pyx_v_self->__pyx_base._arrays == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "values");
-    __PYX_ERR(0, 163, __pyx_L1_error)
+    __PYX_ERR(0, 167, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PyDict_Values(__pyx_v_self->__pyx_base._arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_Values(__pyx_v_self->__pyx_base._arrays); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
     PyObject* sequence = __pyx_t_1;
@@ -7509,7 +7516,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
     if (unlikely(size != 3)) {
       if (size > 3) __Pyx_RaiseTooManyValuesError(3);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 163, __pyx_L1_error)
+      __PYX_ERR(0, 167, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     if (likely(PyTuple_CheckExact(sequence))) {
@@ -7525,17 +7532,17 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
     __Pyx_INCREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_t_4);
     #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_4 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
     Py_ssize_t index = -1;
-    __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_5 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 167, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = Py_TYPE(__pyx_t_5)->tp_iternext;
@@ -7545,7 +7552,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
     __Pyx_GOTREF(__pyx_t_3);
     index = 2; __pyx_t_4 = __pyx_t_6(__pyx_t_5); if (unlikely(!__pyx_t_4)) goto __pyx_L3_unpacking_failed;
     __Pyx_GOTREF(__pyx_t_4);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_5), 3) < 0) __PYX_ERR(0, 163, __pyx_L1_error)
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_6(__pyx_t_5), 3) < 0) __PYX_ERR(0, 167, __pyx_L1_error)
     __pyx_t_6 = NULL;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     goto __pyx_L4_unpacking_done;
@@ -7553,12 +7560,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_6 = NULL;
     if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    __PYX_ERR(0, 163, __pyx_L1_error)
+    __PYX_ERR(0, 167, __pyx_L1_error)
     __pyx_L4_unpacking_done:;
   }
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 163, __pyx_L1_error)
-  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 163, __pyx_L1_error)
-  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 163, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (!(likely(((__pyx_t_4) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_4, __pyx_ptype_7cpython_5array_array))))) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_transition);
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_transition));
@@ -7575,7 +7582,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
   __pyx_v_self->_interval = ((arrayobject *)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "petsi/_meters.py":160
+  /* "petsi/_meters.py":164
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -7600,7 +7607,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_reset(struct __pyx_o
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":167
+/* "petsi/_meters.py":171
  *     # cython crashes with argument annotations ....
  *     # def collect(self, transition: int, firing_time: float, interval: float):
  *     def collect(self, transition, firing_time, interval):             # <<<<<<<<<<<<<<
@@ -7618,43 +7625,43 @@ static PyObject *__pyx_f_5petsi_7_meters_15FiringCollector_collect(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("collect", 0);
 
-  /* "petsi/_meters.py":168
+  /* "petsi/_meters.py":172
  *     # def collect(self, transition: int, firing_time: float, interval: float):
  *     def collect(self, transition, firing_time, interval):
  *         self._transition.append(transition)             # <<<<<<<<<<<<<<
  *         self._firing_time.append(firing_time)
  *         self._interval.append(interval)
  */
-  __pyx_t_1 = __Pyx_PyInt_From_unsigned_long(__pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_unsigned_long(__pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_transition), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_transition), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 172, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":169
+  /* "petsi/_meters.py":173
  *     def collect(self, transition, firing_time, interval):
  *         self._transition.append(transition)
  *         self._firing_time.append(firing_time)             # <<<<<<<<<<<<<<
  *         self._interval.append(interval)
  * 
  */
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_firing_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_firing_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_firing_time), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 169, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_firing_time), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":170
+  /* "petsi/_meters.py":174
  *         self._transition.append(transition)
  *         self._firing_time.append(firing_time)
  *         self._interval.append(interval)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_1 = PyFloat_FromDouble(__pyx_v_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_interval), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_Append(((PyObject *)__pyx_v_self->_interval), __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 174, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":167
+  /* "petsi/_meters.py":171
  *     # cython crashes with argument annotations ....
  *     # def collect(self, transition: int, firing_time: float, interval: float):
  *     def collect(self, transition, firing_time, interval):             # <<<<<<<<<<<<<<
@@ -8019,10 +8026,10 @@ static PyObject *__pyx_pf_5petsi_7_meters_15FiringCollector_4__setstate_cython__
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":178
+/* "petsi/_meters.py":182
  *     _collector: FiringCollector
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition", _clock: Clock,             # <<<<<<<<<<<<<<
+ *     def __init__(self, _plugin: "Plugins.Plugin", _transition: "_structure.Transition", _clock: Clock,             # <<<<<<<<<<<<<<
  *                  _collector: FiringCollector):
  *         self._plugin = _plugin
  */
@@ -8067,23 +8074,23 @@ static int __pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 1); __PYX_ERR(0, 178, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 1); __PYX_ERR(0, 182, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_clock)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 2); __PYX_ERR(0, 178, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 2); __PYX_ERR(0, 182, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  3:
         if (likely((values[3] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_collector)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 3); __PYX_ERR(0, 178, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, 3); __PYX_ERR(0, 182, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 178, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 182, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -8100,14 +8107,14 @@ static int __pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 178, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 182, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._meters.TransitionIntervalPluginTransitionObserver.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__clock), __pyx_ptype_5petsi_9_autofire_Clock, 1, "_clock", 0))) __PYX_ERR(0, 178, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__collector), __pyx_ptype_5petsi_7_meters_FiringCollector, 1, "_collector", 0))) __PYX_ERR(0, 179, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__clock), __pyx_ptype_5petsi_9_autofire_Clock, 1, "_clock", 0))) __PYX_ERR(0, 182, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__collector), __pyx_ptype_5petsi_7_meters_FiringCollector, 1, "_collector", 0))) __PYX_ERR(0, 183, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver___init__(((struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *)__pyx_v_self), __pyx_v__plugin, __pyx_v__transition, __pyx_v__clock, __pyx_v__collector);
 
   /* function exit code */
@@ -8128,8 +8135,8 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_meters.py":180
- *     def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition", _clock: Clock,
+  /* "petsi/_meters.py":184
+ *     def __init__(self, _plugin: "Plugins.Plugin", _transition: "_structure.Transition", _clock: Clock,
  *                  _collector: FiringCollector):
  *         self._plugin = _plugin             # <<<<<<<<<<<<<<
  *         self._transition = _transition
@@ -8141,14 +8148,14 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   __Pyx_DECREF(__pyx_v_self->_plugin);
   __pyx_v_self->_plugin = __pyx_v__plugin;
 
-  /* "petsi/_meters.py":181
+  /* "petsi/_meters.py":185
  *                  _collector: FiringCollector):
  *         self._plugin = _plugin
  *         self._transition = _transition             # <<<<<<<<<<<<<<
  *         self._clock = _clock
  *         self._collector = _collector
  */
-  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 181, __pyx_L1_error)
+  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 185, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__transition;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -8157,7 +8164,7 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   __pyx_v_self->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":182
+  /* "petsi/_meters.py":186
  *         self._plugin = _plugin
  *         self._transition = _transition
  *         self._clock = _clock             # <<<<<<<<<<<<<<
@@ -8170,7 +8177,7 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_clock));
   __pyx_v_self->_clock = __pyx_v__clock;
 
-  /* "petsi/_meters.py":183
+  /* "petsi/_meters.py":187
  *         self._transition = _transition
  *         self._clock = _clock
  *         self._collector = _collector             # <<<<<<<<<<<<<<
@@ -8183,21 +8190,21 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_collector));
   __pyx_v_self->_collector = __pyx_v__collector;
 
-  /* "petsi/_meters.py":184
+  /* "petsi/_meters.py":188
  *         self._clock = _clock
  *         self._collector = _collector
  *         self.reset()             # <<<<<<<<<<<<<<
  * 
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *)__pyx_v_self->__pyx_vtab)->reset(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *)__pyx_v_self->__pyx_vtab)->reset(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":178
+  /* "petsi/_meters.py":182
  *     _collector: FiringCollector
  * 
- *     def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition", _clock: Clock,             # <<<<<<<<<<<<<<
+ *     def __init__(self, _plugin: "Plugins.Plugin", _transition: "_structure.Transition", _clock: Clock,             # <<<<<<<<<<<<<<
  *                  _collector: FiringCollector):
  *         self._plugin = _plugin
  */
@@ -8214,7 +8221,7 @@ static int __pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":186
+/* "petsi/_meters.py":190
  *         self.reset()
  * 
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
@@ -8243,7 +8250,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_3got_enabled)) {
         __Pyx_XDECREF(__pyx_r);
@@ -8260,7 +8267,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 186, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -8320,7 +8327,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("got_enabled", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_enabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_enabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8337,7 +8344,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":188
+/* "petsi/_meters.py":192
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation
  * 
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
@@ -8366,7 +8373,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_5got_disabled)) {
         __Pyx_XDECREF(__pyx_r);
@@ -8383,7 +8390,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 188, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -8443,7 +8450,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("got_disabled", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_disabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_disabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8460,7 +8467,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":190
+/* "petsi/_meters.py":194
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
  * 
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
@@ -8489,7 +8496,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_before_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_before_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_7before_firing)) {
         __Pyx_XDECREF(__pyx_r);
@@ -8506,7 +8513,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 190, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 194, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -8566,7 +8573,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("before_firing", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_before_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_before_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8583,7 +8590,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":192
+/* "petsi/_meters.py":196
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation
  * 
  *     def after_firing(self, ):             # <<<<<<<<<<<<<<
@@ -8615,7 +8622,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_after_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_after_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_9after_firing)) {
         __Pyx_XDECREF(__pyx_r);
@@ -8632,7 +8639,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 196, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -8653,17 +8660,17 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     #endif
   }
 
-  /* "petsi/_meters.py":193
+  /* "petsi/_meters.py":197
  * 
  *     def after_firing(self, ):
  *         current_time = self._clock.read()             # <<<<<<<<<<<<<<
  *         interval = current_time - self._previous_firing_time
  *         self._collector.collect(self._transition.ordinal, self._clock.read(), interval, )
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 197, __pyx_L1_error)
   __pyx_v_current_time = __pyx_t_5;
 
-  /* "petsi/_meters.py":194
+  /* "petsi/_meters.py":198
  *     def after_firing(self, ):
  *         current_time = self._clock.read()
  *         interval = current_time - self._previous_firing_time             # <<<<<<<<<<<<<<
@@ -8672,19 +8679,19 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
  */
   __pyx_v_interval = (__pyx_v_current_time - __pyx_v_self->_previous_firing_time);
 
-  /* "petsi/_meters.py":195
+  /* "petsi/_meters.py":199
  *         current_time = self._clock.read()
  *         interval = current_time - self._previous_firing_time
  *         self._collector.collect(self._transition.ordinal, self._clock.read(), interval, )             # <<<<<<<<<<<<<<
  *         self._previous_firing_time = current_time
  * 
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 195, __pyx_L1_error)
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_FiringCollector *)__pyx_v_self->_collector->__pyx_vtab)->collect(__pyx_v_self->_collector, __pyx_v_self->_transition->ordinal, __pyx_t_5, __pyx_v_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_7_meters_FiringCollector *)__pyx_v_self->_collector->__pyx_vtab)->collect(__pyx_v_self->_collector, __pyx_v_self->_transition->ordinal, __pyx_t_5, __pyx_v_interval); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":196
+  /* "petsi/_meters.py":200
  *         interval = current_time - self._previous_firing_time
  *         self._collector.collect(self._transition.ordinal, self._clock.read(), interval, )
  *         self._previous_firing_time = current_time             # <<<<<<<<<<<<<<
@@ -8693,7 +8700,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
  */
   __pyx_v_self->_previous_firing_time = __pyx_v_current_time;
 
-  /* "petsi/_meters.py":192
+  /* "petsi/_meters.py":196
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation
  * 
  *     def after_firing(self, ):             # <<<<<<<<<<<<<<
@@ -8740,7 +8747,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("after_firing", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_after_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_after_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -8757,11 +8764,12 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   return __pyx_r;
 }
 
-/* "petsi/_meters.py":198
+/* "petsi/_meters.py":202
  *         self._previous_firing_time = current_time
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._previous_firing_time = self._clock.read()
+ * 
  */
 
 static PyObject *__pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_11reset(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
@@ -8786,7 +8794,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_11reset)) {
         __Pyx_XDECREF(__pyx_r);
@@ -8803,7 +8811,7 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 202, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -8824,19 +8832,21 @@ static PyObject *__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObs
     #endif
   }
 
-  /* "petsi/_meters.py":199
+  /* "petsi/_meters.py":203
  * 
  *     def reset(self):
  *         self._previous_firing_time = self._clock.read()             # <<<<<<<<<<<<<<
+ * 
  */
-  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 199, __pyx_L1_error)
+  __pyx_t_5 = ((struct __pyx_vtabstruct_5petsi_9_autofire_Clock *)__pyx_v_self->_clock->__pyx_vtab)->read(__pyx_v_self->_clock, 0); if (unlikely(__pyx_t_5 == ((double)-999.0))) __PYX_ERR(0, 203, __pyx_L1_error)
   __pyx_v_self->_previous_firing_time = __pyx_t_5;
 
-  /* "petsi/_meters.py":198
+  /* "petsi/_meters.py":202
  *         self._previous_firing_time = current_time
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._previous_firing_time = self._clock.read()
+ * 
  */
 
   /* function exit code */
@@ -8878,7 +8888,7 @@ static PyObject *__pyx_pf_5petsi_7_meters_42TransitionIntervalPluginTransitionOb
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_reset(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_reset(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -14433,6 +14443,7 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_, __pyx_k_, sizeof(__pyx_k_), 0, 0, 1, 1},
+  {&__pyx_n_s_ACollector, __pyx_k_ACollector, sizeof(__pyx_k_ACollector), 0, 0, 1, 1},
   {&__pyx_n_s_Clock, __pyx_k_Clock, sizeof(__pyx_k_Clock), 0, 0, 1, 1},
   {&__pyx_n_s_Dict, __pyx_k_Dict, sizeof(__pyx_k_Dict), 0, 0, 1, 1},
   {&__pyx_n_s_FiringCollector, __pyx_k_FiringCollector, sizeof(__pyx_k_FiringCollector), 0, 0, 1, 1},
@@ -14471,8 +14482,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_SojournTimePluginTokenObserver_r_3, __pyx_k_SojournTimePluginTokenObserver_r_3, sizeof(__pyx_k_SojournTimePluginTokenObserver_r_3), 0, 0, 1, 1},
   {&__pyx_n_s_SojournTimePluginTokenObserver_r_4, __pyx_k_SojournTimePluginTokenObserver_r_4, sizeof(__pyx_k_SojournTimePluginTokenObserver_r_4), 0, 0, 1, 1},
   {&__pyx_n_s_SojournTimePluginTokenObserver_r_5, __pyx_k_SojournTimePluginTokenObserver_r_5, sizeof(__pyx_k_SojournTimePluginTokenObserver_r_5), 0, 0, 1, 1},
-  {&__pyx_n_s_Structure, __pyx_k_Structure, sizeof(__pyx_k_Structure), 0, 0, 1, 1},
-  {&__pyx_kp_s_Structure_Place, __pyx_k_Structure_Place, sizeof(__pyx_k_Structure_Place), 0, 0, 1, 0},
   {&__pyx_n_s_TYPE_CHECKING, __pyx_k_TYPE_CHECKING, sizeof(__pyx_k_TYPE_CHECKING), 0, 0, 1, 1},
   {&__pyx_n_s_TokenCounterCollector, __pyx_k_TokenCounterCollector, sizeof(__pyx_k_TokenCounterCollector), 0, 0, 1, 1},
   {&__pyx_n_s_TokenCounterCollector___reduce_c, __pyx_k_TokenCounterCollector___reduce_c, sizeof(__pyx_k_TokenCounterCollector___reduce_c), 0, 0, 1, 1},
@@ -14492,13 +14501,15 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_TransitionIntervalPluginTransiti_6, __pyx_k_TransitionIntervalPluginTransiti_6, sizeof(__pyx_k_TransitionIntervalPluginTransiti_6), 0, 0, 1, 1},
   {&__pyx_n_s_TransitionIntervalPluginTransiti_7, __pyx_k_TransitionIntervalPluginTransiti_7, sizeof(__pyx_k_TransitionIntervalPluginTransiti_7), 0, 0, 1, 1},
   {&__pyx_n_s_TransitionIntervalPluginTransiti_8, __pyx_k_TransitionIntervalPluginTransiti_8, sizeof(__pyx_k_TransitionIntervalPluginTransiti_8), 0, 0, 1, 1},
-  {&__pyx_n_s__20, __pyx_k__20, sizeof(__pyx_k__20), 0, 0, 1, 1},
+  {&__pyx_n_s_TypeVar, __pyx_k_TypeVar, sizeof(__pyx_k_TypeVar), 0, 0, 1, 1},
+  {&__pyx_n_s__21, __pyx_k__21, sizeof(__pyx_k__21), 0, 0, 1, 1},
   {&__pyx_n_s_after_firing, __pyx_k_after_firing, sizeof(__pyx_k_after_firing), 0, 0, 1, 1},
   {&__pyx_n_s_append, __pyx_k_append, sizeof(__pyx_k_append), 0, 0, 1, 1},
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
   {&__pyx_n_s_array, __pyx_k_array, sizeof(__pyx_k_array), 0, 0, 1, 1},
   {&__pyx_n_s_autofire, __pyx_k_autofire, sizeof(__pyx_k_autofire), 0, 0, 1, 1},
   {&__pyx_n_s_before_firing, __pyx_k_before_firing, sizeof(__pyx_k_before_firing), 0, 0, 1, 1},
+  {&__pyx_n_s_bound, __pyx_k_bound, sizeof(__pyx_k_bound), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
   {&__pyx_n_s_clock, __pyx_k_clock, sizeof(__pyx_k_clock), 0, 0, 1, 1},
   {&__pyx_n_s_close, __pyx_k_close, sizeof(__pyx_k_close), 0, 0, 1, 1},
@@ -14564,6 +14575,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_start_time, __pyx_k_start_time, sizeof(__pyx_k_start_time), 0, 0, 1, 1},
   {&__pyx_n_s_state, __pyx_k_state, sizeof(__pyx_k_state), 0, 0, 1, 1},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
+  {&__pyx_n_s_structure, __pyx_k_structure, sizeof(__pyx_k_structure), 0, 0, 1, 1},
+  {&__pyx_kp_s_structure_Place, __pyx_k_structure_Place, sizeof(__pyx_k_structure_Place), 0, 0, 1, 0},
   {&__pyx_n_s_super, __pyx_k_super, sizeof(__pyx_k_super), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_throw, __pyx_k_throw, sizeof(__pyx_k_throw), 0, 0, 1, 1},
@@ -14583,7 +14596,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 38, __pyx_L1_error)
+  __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) __PYX_ERR(0, 42, __pyx_L1_error)
   __pyx_builtin_MemoryError = __Pyx_GetBuiltinName(__pyx_n_s_MemoryError); if (!__pyx_builtin_MemoryError) __PYX_ERR(3, 109, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -14594,41 +14607,41 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "petsi/_meters.py":15
+  /* "petsi/_meters.py":16
  *         self.reset()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._arrays.clear()
  *         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())
  */
-  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_genexpr, __pyx_n_s_genexpr); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
-  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 15, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_codeobj__3 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__2, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__3)) __PYX_ERR(0, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":21
+  /* "petsi/_meters.py":22
  *         self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
  * 
  *     def get_observations(self) -> Dict[str, array]:             # <<<<<<<<<<<<<<
  *         data = self._arrays.copy()
  *         self.reset()
  */
-  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_data); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_tuple__4 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_data); if (unlikely(!__pyx_tuple__4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__4);
   __Pyx_GIVEREF(__pyx_tuple__4);
-  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_get_observations, 21, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_codeobj__5 = (PyObject*)__Pyx_PyCode_New(1, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__4, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_get_observations, 22, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__5)) __PYX_ERR(0, 22, __pyx_L1_error)
 
-  /* "petsi/_meters.py":26
+  /* "petsi/_meters.py":27
  *         return data
  * 
  *     def need_more_observations(self) -> bool:             # <<<<<<<<<<<<<<
  *         return len(self._any_array) < self.required_observations
  * 
  */
-  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_tuple__6 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__6)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__6);
   __Pyx_GIVEREF(__pyx_tuple__6);
-  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_need_more_observations, 26, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_need_more_observations, 27, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(0, 27, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -14651,27 +14664,38 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__10);
   __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":37
+  /* "petsi/_meters.py":31
+ * 
+ * 
+ * ACollector = TypeVar("ACollector", bound=GenericCollector)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_n_s_ACollector); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__12);
+  __Pyx_GIVEREF(__pyx_tuple__12);
+
+  /* "petsi/_meters.py":41
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  */
-  __pyx_tuple__12 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__12)) __PYX_ERR(0, 37, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__12);
-  __Pyx_GIVEREF(__pyx_tuple__12);
-  __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 37, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(0, 37, __pyx_L1_error)
+  __pyx_tuple__13 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__13)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__13);
+  __Pyx_GIVEREF(__pyx_tuple__13);
+  __pyx_codeobj__14 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__13, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 41, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__14)) __PYX_ERR(0, 41, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__14 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__14);
-  __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__15 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__15)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__15);
+  __Pyx_GIVEREF(__pyx_tuple__15);
+  __pyx_codeobj__16 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__15, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__16)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -14679,56 +14703,56 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenCounterCollector__set_state(self, __pyx_state)
  */
-  __pyx_tuple__16 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__16);
-  __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__17 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__17)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__17);
+  __Pyx_GIVEREF(__pyx_tuple__17);
+  __pyx_codeobj__18 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__17, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__18)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":63
+  /* "petsi/_meters.py":67
  *         # self._time_having: List[float] = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._num_tokens = 0
  *         self._time_of_last_token_move = 0.0
  */
-  __pyx_tuple__18 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__18);
-  __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 63, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 63, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__19);
+  __Pyx_GIVEREF(__pyx_tuple__19);
+  __pyx_codeobj__20 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__19, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 67, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__20)) __PYX_ERR(0, 67, __pyx_L1_error)
 
-  /* "petsi/_meters.py":78
+  /* "petsi/_meters.py":82
  *         assert self._num_tokens >= 0
  * 
  *     def report_arrival_of(self, _):             # <<<<<<<<<<<<<<
  *         self._update_num_tokens_by(+1)
  * 
  */
-  __pyx_tuple__21 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s__20); if (unlikely(!__pyx_tuple__21)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__21);
-  __Pyx_GIVEREF(__pyx_tuple__21);
-  __pyx_codeobj__22 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__21, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_arrival_of, 78, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__22)) __PYX_ERR(0, 78, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s__21); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__22);
+  __Pyx_GIVEREF(__pyx_tuple__22);
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_arrival_of, 82, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 82, __pyx_L1_error)
 
-  /* "petsi/_meters.py":81
+  /* "petsi/_meters.py":85
  *         self._update_num_tokens_by(+1)
  * 
  *     def report_departure_of(self, _):             # <<<<<<<<<<<<<<
  *         self._update_num_tokens_by(-1)
  * 
  */
-  __pyx_tuple__23 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s__20); if (unlikely(!__pyx_tuple__23)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__23);
-  __Pyx_GIVEREF(__pyx_tuple__23);
-  __pyx_codeobj__24 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__23, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_departure_of, 81, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__24)) __PYX_ERR(0, 81, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s__21); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__24);
+  __Pyx_GIVEREF(__pyx_tuple__24);
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_departure_of, 85, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 85, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__25 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__25)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__25);
-  __Pyx_GIVEREF(__pyx_tuple__25);
-  __pyx_codeobj__26 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__25, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__26)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__26);
+  __Pyx_GIVEREF(__pyx_tuple__26);
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -14736,32 +14760,32 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenCounterPluginPlaceObserver__set_state(self, __pyx_state)
  */
-  __pyx_tuple__27 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__27)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__27);
-  __Pyx_GIVEREF(__pyx_tuple__27);
-  __pyx_codeobj__28 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__27, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__28)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__28 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__28)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__28);
+  __Pyx_GIVEREF(__pyx_tuple__28);
+  __pyx_codeobj__29 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__28, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__29)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":94
+  /* "petsi/_meters.py":98
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  */
-  __pyx_tuple__29 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__29)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__29);
-  __Pyx_GIVEREF(__pyx_tuple__29);
-  __pyx_codeobj__30 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__29, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 94, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__30)) __PYX_ERR(0, 94, __pyx_L1_error)
+  __pyx_tuple__30 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__30)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__30);
+  __Pyx_GIVEREF(__pyx_tuple__30);
+  __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 98, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(0, 98, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__31 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__31)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__31);
-  __Pyx_GIVEREF(__pyx_tuple__31);
-  __pyx_codeobj__32 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__31, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__32)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__32 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__32);
+  __Pyx_GIVEREF(__pyx_tuple__32);
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -14769,80 +14793,80 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_SojournTimeCollector__set_state(self, __pyx_state)
  */
-  __pyx_tuple__33 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__33)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__33);
-  __Pyx_GIVEREF(__pyx_tuple__33);
-  __pyx_codeobj__34 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__33, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__34)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__34 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__34);
+  __Pyx_GIVEREF(__pyx_tuple__34);
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":126
+  /* "petsi/_meters.py":130
  *         self._arrival_time = 0.0
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         # The observed token will anyway be removed, together with us...
  *         pass
  */
-  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 126, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__35);
-  __Pyx_GIVEREF(__pyx_tuple__35);
-  __pyx_codeobj__36 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__35, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 126, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__36)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__36);
+  __Pyx_GIVEREF(__pyx_tuple__36);
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 130, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 130, __pyx_L1_error)
 
-  /* "petsi/_meters.py":130
+  /* "petsi/_meters.py":134
  *         pass
  * 
  *     def report_construction(self):             # <<<<<<<<<<<<<<
  *         pass
  * 
  */
-  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 130, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__37);
-  __Pyx_GIVEREF(__pyx_tuple__37);
-  __pyx_codeobj__38 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__37, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_construction, 130, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__38)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__38);
+  __Pyx_GIVEREF(__pyx_tuple__38);
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_construction, 134, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 134, __pyx_L1_error)
 
-  /* "petsi/_meters.py":133
+  /* "petsi/_meters.py":137
  *         pass
  * 
  *     def report_destruction(self):             # <<<<<<<<<<<<<<
  *         pass
  * 
  */
-  __pyx_tuple__39 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 133, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__39);
-  __Pyx_GIVEREF(__pyx_tuple__39);
-  __pyx_codeobj__40 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__39, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_destruction, 133, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__40)) __PYX_ERR(0, 133, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__40);
+  __Pyx_GIVEREF(__pyx_tuple__40);
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_destruction, 137, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 137, __pyx_L1_error)
 
-  /* "petsi/_meters.py":136
+  /* "petsi/_meters.py":140
  *         pass
  * 
- *     def report_arrival_at(self, _: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_arrival_at(self, _: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Start timer for place"""
  *         # if self._places is None or p.ordinal in self._places:
  */
-  __pyx_tuple__41 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s__20); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__41);
-  __Pyx_GIVEREF(__pyx_tuple__41);
-  __pyx_codeobj__42 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__41, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_arrival_at, 136, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__42)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s__21); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__42);
+  __Pyx_GIVEREF(__pyx_tuple__42);
+  __pyx_codeobj__43 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__42, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_arrival_at, 140, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__43)) __PYX_ERR(0, 140, __pyx_L1_error)
 
-  /* "petsi/_meters.py":141
+  /* "petsi/_meters.py":145
  *         self._arrival_time = self._clock.read()
  * 
- *     def report_departure_from(self, p: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_departure_from(self, p: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Stop timer and compute the sojourn time.
  *             Select the bucket of the per visit histogram that belongs
  */
-  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_p); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 141, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__43);
-  __Pyx_GIVEREF(__pyx_tuple__43);
-  __pyx_codeobj__44 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__43, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_departure_from, 141, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__44)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_tuple__44 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_p); if (unlikely(!__pyx_tuple__44)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__44);
+  __Pyx_GIVEREF(__pyx_tuple__44);
+  __pyx_codeobj__45 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__44, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_report_departure_from, 145, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__45)) __PYX_ERR(0, 145, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__45 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__45);
-  __Pyx_GIVEREF(__pyx_tuple__45);
-  __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__46 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__46)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__46);
+  __Pyx_GIVEREF(__pyx_tuple__46);
+  __pyx_codeobj__47 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__46, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__47)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -14850,32 +14874,32 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_SojournTimePluginTokenObserver__set_state(self, __pyx_state)
  */
-  __pyx_tuple__47 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__47)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__47);
-  __Pyx_GIVEREF(__pyx_tuple__47);
-  __pyx_codeobj__48 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__47, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__48)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__48 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__48)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__48);
+  __Pyx_GIVEREF(__pyx_tuple__48);
+  __pyx_codeobj__49 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__48, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__49)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":160
+  /* "petsi/_meters.py":164
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  */
-  __pyx_tuple__49 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 160, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__49);
-  __Pyx_GIVEREF(__pyx_tuple__49);
-  __pyx_codeobj__50 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__49, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 160, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__50)) __PYX_ERR(0, 160, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__50);
+  __Pyx_GIVEREF(__pyx_tuple__50);
+  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 164, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 164, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__51 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__51)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__51);
-  __Pyx_GIVEREF(__pyx_tuple__51);
-  __pyx_codeobj__52 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__51, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__52)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__52 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__52);
+  __Pyx_GIVEREF(__pyx_tuple__52);
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -14883,79 +14907,80 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_FiringCollector__set_state(self, __pyx_state)
  */
-  __pyx_tuple__53 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__53)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__53);
-  __Pyx_GIVEREF(__pyx_tuple__53);
-  __pyx_codeobj__54 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__53, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__54)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__54);
+  __Pyx_GIVEREF(__pyx_tuple__54);
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(2, 16, __pyx_L1_error)
 
-  /* "petsi/_meters.py":186
+  /* "petsi/_meters.py":190
  *         self.reset()
  * 
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
  * 
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
  */
-  __pyx_tuple__55 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__55)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__55);
-  __Pyx_GIVEREF(__pyx_tuple__55);
-  __pyx_codeobj__56 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__55, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_got_enabled, 186, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__56)) __PYX_ERR(0, 186, __pyx_L1_error)
+  __pyx_tuple__56 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__56);
+  __Pyx_GIVEREF(__pyx_tuple__56);
+  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_got_enabled, 190, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 190, __pyx_L1_error)
 
-  /* "petsi/_meters.py":188
+  /* "petsi/_meters.py":192
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation
  * 
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
  * 
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation
  */
-  __pyx_tuple__57 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__57)) __PYX_ERR(0, 188, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__57);
-  __Pyx_GIVEREF(__pyx_tuple__57);
-  __pyx_codeobj__58 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__57, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_got_disabled, 188, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__58)) __PYX_ERR(0, 188, __pyx_L1_error)
+  __pyx_tuple__58 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__58);
+  __Pyx_GIVEREF(__pyx_tuple__58);
+  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_got_disabled, 192, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 192, __pyx_L1_error)
 
-  /* "petsi/_meters.py":190
+  /* "petsi/_meters.py":194
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
  * 
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
  * 
  *     def after_firing(self, ):
  */
-  __pyx_tuple__59 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__59)) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__59);
-  __Pyx_GIVEREF(__pyx_tuple__59);
-  __pyx_codeobj__60 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__59, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_before_firing, 190, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__60)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __pyx_tuple__60 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__60);
+  __Pyx_GIVEREF(__pyx_tuple__60);
+  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_before_firing, 194, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 194, __pyx_L1_error)
 
-  /* "petsi/_meters.py":192
+  /* "petsi/_meters.py":196
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation
  * 
  *     def after_firing(self, ):             # <<<<<<<<<<<<<<
  *         current_time = self._clock.read()
  *         interval = current_time - self._previous_firing_time
  */
-  __pyx_tuple__61 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__61)) __PYX_ERR(0, 192, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__61);
-  __Pyx_GIVEREF(__pyx_tuple__61);
-  __pyx_codeobj__62 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__61, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_after_firing, 192, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__62)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_tuple__62 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__62);
+  __Pyx_GIVEREF(__pyx_tuple__62);
+  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_after_firing, 196, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 196, __pyx_L1_error)
 
-  /* "petsi/_meters.py":198
+  /* "petsi/_meters.py":202
  *         self._previous_firing_time = current_time
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._previous_firing_time = self._clock.read()
+ * 
  */
-  __pyx_tuple__63 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__63)) __PYX_ERR(0, 198, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__63);
-  __Pyx_GIVEREF(__pyx_tuple__63);
-  __pyx_codeobj__64 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__63, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 198, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__64)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_tuple__64 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__64)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__64);
+  __Pyx_GIVEREF(__pyx_tuple__64);
+  __pyx_codeobj__65 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__64, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__meters_py, __pyx_n_s_reset, 202, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__65)) __PYX_ERR(0, 202, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_tuple__65 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__65)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__65);
-  __Pyx_GIVEREF(__pyx_tuple__65);
-  __pyx_codeobj__66 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__65, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__66)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__66 = PyTuple_Pack(4, __pyx_n_s_self, __pyx_n_s_state, __pyx_n_s_dict_2, __pyx_n_s_use_setstate); if (unlikely(!__pyx_tuple__66)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__66);
+  __Pyx_GIVEREF(__pyx_tuple__66);
+  __pyx_codeobj__67 = (PyObject*)__Pyx_PyCode_New(1, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__66, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_reduce_cython, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__67)) __PYX_ERR(2, 1, __pyx_L1_error)
 
   /* "(tree fragment)":16
  *     else:
@@ -14963,44 +14988,44 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TransitionIntervalPluginTransitionObserver__set_state(self, __pyx_state)
  */
-  __pyx_tuple__67 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__67)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__67);
-  __Pyx_GIVEREF(__pyx_tuple__67);
-  __pyx_codeobj__68 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__67, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__68)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __pyx_tuple__68 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_pyx_state); if (unlikely(!__pyx_tuple__68)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__68);
+  __Pyx_GIVEREF(__pyx_tuple__68);
+  __pyx_codeobj__69 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__68, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__69)) __PYX_ERR(2, 16, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_GenericCollector(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__69 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__69)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__69);
-  __Pyx_GIVEREF(__pyx_tuple__69);
-  __pyx_codeobj__70 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__69, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_GenericCollector, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__70)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__71 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__71)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__71);
-  __Pyx_GIVEREF(__pyx_tuple__71);
-  __pyx_codeobj__72 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__71, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenCounterColle, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__72)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__73 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__73)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__73);
-  __Pyx_GIVEREF(__pyx_tuple__73);
-  __pyx_codeobj__74 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__73, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenCounterPlugi, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__74)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__75 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__75)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__75);
-  __Pyx_GIVEREF(__pyx_tuple__75);
-  __pyx_codeobj__76 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__75, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SojournTimeCollec, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__76)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__77 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__77)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__77);
-  __Pyx_GIVEREF(__pyx_tuple__77);
-  __pyx_codeobj__78 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__77, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SojournTimePlugin, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__78)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__79 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__79)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__79);
-  __Pyx_GIVEREF(__pyx_tuple__79);
-  __pyx_codeobj__80 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__79, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_FiringCollector, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__80)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __pyx_tuple__81 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__81)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__81);
-  __Pyx_GIVEREF(__pyx_tuple__81);
-  __pyx_codeobj__82 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__81, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TransitionInterva, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__82)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__70 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__70)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__70);
+  __Pyx_GIVEREF(__pyx_tuple__70);
+  __pyx_codeobj__71 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__70, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_GenericCollector, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__71)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__72 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__72)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__72);
+  __Pyx_GIVEREF(__pyx_tuple__72);
+  __pyx_codeobj__73 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__72, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenCounterColle, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__73)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__74 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__74)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__74);
+  __Pyx_GIVEREF(__pyx_tuple__74);
+  __pyx_codeobj__75 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__74, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TokenCounterPlugi, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__75)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__76 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__76)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__76);
+  __Pyx_GIVEREF(__pyx_tuple__76);
+  __pyx_codeobj__77 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__76, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SojournTimeCollec, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__77)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__78 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__78)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__78);
+  __Pyx_GIVEREF(__pyx_tuple__78);
+  __pyx_codeobj__79 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__78, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_SojournTimePlugin, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__79)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__80 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__80)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__80);
+  __Pyx_GIVEREF(__pyx_tuple__80);
+  __pyx_codeobj__81 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__80, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_FiringCollector, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__81)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __pyx_tuple__82 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__82)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__82);
+  __Pyx_GIVEREF(__pyx_tuple__82);
+  __pyx_codeobj__83 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__82, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_TransitionInterva, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__83)) __PYX_ERR(2, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -15062,88 +15087,88 @@ static int __Pyx_modinit_type_init_code(void) {
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_GenericCollector) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_GenericCollector) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_GenericCollector.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_GenericCollector.tp_dictoffset && __pyx_type_5petsi_7_meters_GenericCollector.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_GenericCollector.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_GenericCollector, (PyObject *)&__pyx_type_5petsi_7_meters_GenericCollector) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_GenericCollector) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_GenericCollector, (PyObject *)&__pyx_type_5petsi_7_meters_GenericCollector) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_GenericCollector) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_GenericCollector = &__pyx_type_5petsi_7_meters_GenericCollector;
   __pyx_vtabptr_5petsi_7_meters_TokenCounterCollector = &__pyx_vtable_5petsi_7_meters_TokenCounterCollector;
   __pyx_vtable_5petsi_7_meters_TokenCounterCollector.collect = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TokenCounterCollector *, double, unsigned int, unsigned PY_LONG_LONG, double))__pyx_f_5petsi_7_meters_21TokenCounterCollector_collect;
   __pyx_type_5petsi_7_meters_TokenCounterCollector.tp_base = __pyx_ptype_5petsi_7_meters_GenericCollector;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_TokenCounterCollector.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_TokenCounterCollector.tp_dictoffset && __pyx_type_5petsi_7_meters_TokenCounterCollector.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_TokenCounterCollector.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_TokenCounterCollector.tp_dict, __pyx_vtabptr_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenCounterCollector, (PyObject *)&__pyx_type_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 30, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_TokenCounterCollector.tp_dict, __pyx_vtabptr_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenCounterCollector, (PyObject *)&__pyx_type_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_TokenCounterCollector) < 0) __PYX_ERR(0, 34, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_TokenCounterCollector = &__pyx_type_5petsi_7_meters_TokenCounterCollector;
   __pyx_vtabptr_5petsi_7_meters_TokenCounterPluginPlaceObserver = &__pyx_vtable_5petsi_7_meters_TokenCounterPluginPlaceObserver;
   __pyx_vtable_5petsi_7_meters_TokenCounterPluginPlaceObserver._update_num_tokens_by = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TokenCounterPluginPlaceObserver *, int))__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver__update_num_tokens_by;
   __pyx_vtable_5petsi_7_meters_TokenCounterPluginPlaceObserver.report_arrival_of = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TokenCounterPluginPlaceObserver *, PyObject *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_report_arrival_of;
   __pyx_vtable_5petsi_7_meters_TokenCounterPluginPlaceObserver.report_departure_of = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TokenCounterPluginPlaceObserver *, PyObject *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_31TokenCounterPluginPlaceObserver_report_departure_of;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver.tp_dictoffset && __pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver.tp_dict, __pyx_vtabptr_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenCounterPluginPlaceObserver, (PyObject *)&__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver.tp_dict, __pyx_vtabptr_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TokenCounterPluginPlaceObserver, (PyObject *)&__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver) < 0) __PYX_ERR(0, 55, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver = &__pyx_type_5petsi_7_meters_TokenCounterPluginPlaceObserver;
   __pyx_vtabptr_5petsi_7_meters_SojournTimeCollector = &__pyx_vtable_5petsi_7_meters_SojournTimeCollector;
   __pyx_vtable_5petsi_7_meters_SojournTimeCollector.collect = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimeCollector *, unsigned PY_LONG_LONG, unsigned int, double, unsigned PY_LONG_LONG, unsigned int, double))__pyx_f_5petsi_7_meters_20SojournTimeCollector_collect;
   __pyx_type_5petsi_7_meters_SojournTimeCollector.tp_base = __pyx_ptype_5petsi_7_meters_GenericCollector;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_SojournTimeCollector.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_SojournTimeCollector.tp_dictoffset && __pyx_type_5petsi_7_meters_SojournTimeCollector.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_SojournTimeCollector.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_SojournTimeCollector.tp_dict, __pyx_vtabptr_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SojournTimeCollector, (PyObject *)&__pyx_type_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_SojournTimeCollector.tp_dict, __pyx_vtabptr_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SojournTimeCollector, (PyObject *)&__pyx_type_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_SojournTimeCollector) < 0) __PYX_ERR(0, 89, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_SojournTimeCollector = &__pyx_type_5petsi_7_meters_SojournTimeCollector;
   __pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver = &__pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver;
   __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_construction = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_construction;
   __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_destruction = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_destruction;
   __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_arrival_at = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_10_structure_Place *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_arrival_at;
   __pyx_vtable_5petsi_7_meters_SojournTimePluginTokenObserver.report_departure_from = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_SojournTimePluginTokenObserver *, struct __pyx_obj_5petsi_10_structure_Place *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_30SojournTimePluginTokenObserver_report_departure_from;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_dictoffset && __pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_dict, __pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SojournTimePluginTokenObserver, (PyObject *)&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 113, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver.tp_dict, __pyx_vtabptr_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SojournTimePluginTokenObserver, (PyObject *)&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver) < 0) __PYX_ERR(0, 117, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver = &__pyx_type_5petsi_7_meters_SojournTimePluginTokenObserver;
   __pyx_vtabptr_5petsi_7_meters_FiringCollector = &__pyx_vtable_5petsi_7_meters_FiringCollector;
   __pyx_vtable_5petsi_7_meters_FiringCollector.collect = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_FiringCollector *, unsigned long, double, double))__pyx_f_5petsi_7_meters_15FiringCollector_collect;
   __pyx_type_5petsi_7_meters_FiringCollector.tp_base = __pyx_ptype_5petsi_7_meters_GenericCollector;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_FiringCollector.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_FiringCollector.tp_dictoffset && __pyx_type_5petsi_7_meters_FiringCollector.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_FiringCollector.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_FiringCollector.tp_dict, __pyx_vtabptr_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FiringCollector, (PyObject *)&__pyx_type_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_FiringCollector.tp_dict, __pyx_vtabptr_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FiringCollector, (PyObject *)&__pyx_type_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_FiringCollector) < 0) __PYX_ERR(0, 158, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_FiringCollector = &__pyx_type_5petsi_7_meters_FiringCollector;
   __pyx_vtabptr_5petsi_7_meters_TransitionIntervalPluginTransitionObserver = &__pyx_vtable_5petsi_7_meters_TransitionIntervalPluginTransitionObserver;
   __pyx_vtable_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.got_enabled = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_got_enabled;
@@ -15151,18 +15176,18 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.reset = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_reset;
   __pyx_vtable_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.after_firing = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_after_firing;
   __pyx_vtable_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.before_firing = (PyObject *(*)(struct __pyx_obj_5petsi_7_meters_TransitionIntervalPluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_before_firing;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.tp_dictoffset && __pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.tp_dict, __pyx_vtabptr_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TransitionIntervalPluginTransiti, (PyObject *)&__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver.tp_dict, __pyx_vtabptr_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_TransitionIntervalPluginTransiti, (PyObject *)&__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver) < 0) __PYX_ERR(0, 177, __pyx_L1_error)
   __pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver = &__pyx_type_5petsi_7_meters_TransitionIntervalPluginTransitionObserver;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters___pyx_scope_struct__reset) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters___pyx_scope_struct__reset) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters___pyx_scope_struct__reset.tp_print = 0;
   #endif
@@ -15170,7 +15195,7 @@ static int __Pyx_modinit_type_init_code(void) {
     __pyx_type_5petsi_7_meters___pyx_scope_struct__reset.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   __pyx_ptype_5petsi_7_meters___pyx_scope_struct__reset = &__pyx_type_5petsi_7_meters___pyx_scope_struct__reset;
-  if (PyType_Ready(&__pyx_type_5petsi_7_meters___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_7_meters___pyx_scope_struct_1_genexpr) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_7_meters___pyx_scope_struct_1_genexpr.tp_print = 0;
   #endif
@@ -15480,7 +15505,7 @@ if (!__Pyx_RefNanny) {
 
   /* "petsi/_meters.py":1
  * from array import array             # <<<<<<<<<<<<<<
- * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict
+ * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict, TypeVar
  * 
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
@@ -15495,11 +15520,11 @@ if (!__Pyx_RefNanny) {
 
   /* "petsi/_meters.py":2
  * from array import array
- * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict             # <<<<<<<<<<<<<<
+ * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict, TypeVar             # <<<<<<<<<<<<<<
  * 
- * if TYPE_CHECKING:
+ * 
  */
-  __pyx_t_2 = PyList_New(4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(5); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_TYPE_CHECKING);
   __Pyx_GIVEREF(__pyx_n_s_TYPE_CHECKING);
@@ -15513,6 +15538,9 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_Dict);
   __Pyx_GIVEREF(__pyx_n_s_Dict);
   PyList_SET_ITEM(__pyx_t_2, 3, __pyx_n_s_Dict);
+  __Pyx_INCREF(__pyx_n_s_TypeVar);
+  __Pyx_GIVEREF(__pyx_n_s_TypeVar);
+  PyList_SET_ITEM(__pyx_t_2, 4, __pyx_n_s_TypeVar);
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -15532,100 +15560,104 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_2);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_Dict, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_TypeVar); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 2, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_TypeVar, __pyx_t_2) < 0) __PYX_ERR(0, 2, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_meters.py":4
- * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict
+  /* "petsi/_meters.py":5
+ * 
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
  *     from ._autofire import Clock
- *     from . import Structure, Plugins
+ *     from . import _structure, Plugins
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_3) {
 
-    /* "petsi/_meters.py":5
+    /* "petsi/_meters.py":6
  * 
  * if TYPE_CHECKING:
  *     from ._autofire import Clock             # <<<<<<<<<<<<<<
- *     from . import Structure, Plugins
+ *     from . import _structure, Plugins
  * 
  */
-    __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_n_s_Clock);
     __Pyx_GIVEREF(__pyx_n_s_Clock);
     PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Clock);
-    __pyx_t_2 = __Pyx_Import(__pyx_n_s_autofire, __pyx_t_1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Import(__pyx_n_s_autofire, __pyx_t_1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_meters.py":6
+    /* "petsi/_meters.py":7
  * if TYPE_CHECKING:
  *     from ._autofire import Clock
- *     from . import Structure, Plugins             # <<<<<<<<<<<<<<
+ *     from . import _structure, Plugins             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx_n_s_Structure);
-    __Pyx_GIVEREF(__pyx_n_s_Structure);
-    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Structure);
+    __Pyx_INCREF(__pyx_n_s_structure);
+    __Pyx_GIVEREF(__pyx_n_s_structure);
+    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_structure);
     __Pyx_INCREF(__pyx_n_s_Plugins);
     __Pyx_GIVEREF(__pyx_n_s_Plugins);
     PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_Plugins);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Structure); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_structure); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Structure, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_structure, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Plugins); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Plugins); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Plugins, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Plugins, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_meters.py":4
- * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict
+    /* "petsi/_meters.py":5
+ * 
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
  *     from ._autofire import Clock
- *     from . import Structure, Plugins
+ *     from . import _structure, Plugins
  */
   }
 
-  /* "petsi/_meters.py":15
+  /* "petsi/_meters.py":16
  *         self.reset()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._arrays.clear()
  *         self._arrays.update((field_name, array(type_code)) for field_name, type_code in self._type_codes.items())
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_16GenericCollector_3reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_GenericCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_16GenericCollector_3reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_GenericCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__3)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_GenericCollector);
 
-  /* "petsi/_meters.py":21
+  /* "petsi/_meters.py":22
  *         self._any_array = next(iter(self._arrays.values()))    # for calculating the number of observations
  * 
  *     def get_observations(self) -> Dict[str, array]:             # <<<<<<<<<<<<<<
  *         data = self._arrays.copy()
  *         self.reset()
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_Dict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(((PyObject *)(&PyString_Type)));
   __Pyx_GIVEREF(((PyObject *)(&PyString_Type)));
@@ -15633,35 +15665,35 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(((PyObject *)__pyx_ptype_7cpython_5array_array));
   __Pyx_GIVEREF(((PyObject *)__pyx_ptype_7cpython_5array_array));
   PyTuple_SET_ITEM(__pyx_t_4, 1, ((PyObject *)__pyx_ptype_7cpython_5array_array));
-  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetItem(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_t_5) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_return, __pyx_t_5) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_16GenericCollector_5get_observations, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_GenericCollector_get_observation, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_16GenericCollector_5get_observations, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_GenericCollector_get_observation, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector->tp_dict, __pyx_n_s_get_observations, __pyx_t_5) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector->tp_dict, __pyx_n_s_get_observations, __pyx_t_5) < 0) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_GenericCollector);
 
-  /* "petsi/_meters.py":26
+  /* "petsi/_meters.py":27
  *         return data
  * 
  *     def need_more_observations(self) -> bool:             # <<<<<<<<<<<<<<
  *         return len(self._any_array) < self.required_observations
  * 
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 26, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_16GenericCollector_7need_more_observations, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_GenericCollector_need_more_obser, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_return, ((PyObject*)&PyBool_Type)) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_16GenericCollector_7need_more_observations, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_GenericCollector_need_more_obser, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector->tp_dict, __pyx_n_s_need_more_observations, __pyx_t_1) < 0) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector->tp_dict, __pyx_n_s_need_more_observations, __pyx_t_1) < 0) __PYX_ERR(0, 27, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_GenericCollector);
 
@@ -15690,32 +15722,51 @@ if (!__Pyx_RefNanny) {
 
   /* "petsi/_meters.py":31
  * 
+ * 
+ * ACollector = TypeVar("ACollector", bound=GenericCollector)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_TypeVar); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_bound, ((PyObject *)__pyx_ptype_5petsi_7_meters_GenericCollector)) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_tuple__12, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ACollector, __pyx_t_4) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+  /* "petsi/_meters.py":35
+ * 
  * class TokenCounterCollector(GenericCollector):
  *     _type_codes = dict(start_time='d',   # double             # <<<<<<<<<<<<<<
  *                        place='I',        # unsigned int (16 bits)
  *                        count='Q',        # unsigned long long (64 bits)
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 31, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_start_time, __pyx_n_s_d) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_place_2, __pyx_n_s_I) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_count, __pyx_n_s_Q) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_duration, __pyx_n_s_d) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_type_codes, __pyx_t_1) < 0) __PYX_ERR(0, 31, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_start_time, __pyx_n_s_d) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_place_2, __pyx_n_s_I) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_count, __pyx_n_s_Q) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_duration, __pyx_n_s_d) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_type_codes, __pyx_t_4) < 0) __PYX_ERR(0, 35, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterCollector);
 
-  /* "petsi/_meters.py":37
+  /* "petsi/_meters.py":41
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_21TokenCounterCollector_1reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_21TokenCounterCollector_1reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__14)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterCollector);
 
   /* "(tree fragment)":1
@@ -15723,10 +15774,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_21TokenCounterCollector_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterCollector___reduce_c, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_21TokenCounterCollector_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterCollector___reduce_c, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__16)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterCollector);
 
   /* "(tree fragment)":16
@@ -15735,49 +15786,49 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenCounterCollector__set_state(self, __pyx_state)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_21TokenCounterCollector_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterCollector___setstate, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_21TokenCounterCollector_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterCollector___setstate, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__18)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterCollector->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterCollector);
 
-  /* "petsi/_meters.py":63
+  /* "petsi/_meters.py":67
  *         # self._time_having: List[float] = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._num_tokens = 0
  *         self._time_of_last_token_move = 0.0
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_3reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_3reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__20)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 67, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver);
 
-  /* "petsi/_meters.py":78
+  /* "petsi/_meters.py":82
  *         assert self._num_tokens >= 0
  * 
  *     def report_arrival_of(self, _):             # <<<<<<<<<<<<<<
  *         self._update_num_tokens_by(+1)
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_5report_arrival_of, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__22)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_report_arrival_of, __pyx_t_1) < 0) __PYX_ERR(0, 78, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_5report_arrival_of, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_report_arrival_of, __pyx_t_4) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver);
 
-  /* "petsi/_meters.py":81
+  /* "petsi/_meters.py":85
  *         self._update_num_tokens_by(+1)
  * 
  *     def report_departure_of(self, _):             # <<<<<<<<<<<<<<
  *         self._update_num_tokens_by(-1)
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_7report_departure_of, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_4, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__24)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_report_departure_of, __pyx_t_1) < 0) __PYX_ERR(0, 81, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_7report_departure_of, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_4, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_report_departure_of, __pyx_t_4) < 0) __PYX_ERR(0, 85, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver);
 
   /* "(tree fragment)":1
@@ -15785,10 +15836,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_5, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__26)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_9__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_5, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver);
 
   /* "(tree fragment)":16
@@ -15797,42 +15848,42 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TokenCounterPluginPlaceObserver__set_state(self, __pyx_state)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_6, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__28)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_31TokenCounterPluginPlaceObserver_11__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TokenCounterPluginPlaceObserver_6, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__29)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TokenCounterPluginPlaceObserver);
 
-  /* "petsi/_meters.py":86
+  /* "petsi/_meters.py":90
  * 
  * class SojournTimeCollector(GenericCollector):
  *     _type_codes = dict(token_id='Q',     # unsigned long long (64 bits)             # <<<<<<<<<<<<<<
  *                        token_type='I',   # unsigned int (16 bits)
  *                        start_time='d',   # double
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_token_id_2, __pyx_n_s_Q) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_token_type, __pyx_n_s_I) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_start_time, __pyx_n_s_d) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transitions, __pyx_n_s_Q) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_place_2, __pyx_n_s_I) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_duration, __pyx_n_s_d) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_type_codes, __pyx_t_1) < 0) __PYX_ERR(0, 86, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_token_id_2, __pyx_n_s_Q) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_token_type, __pyx_n_s_I) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_start_time, __pyx_n_s_d) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_transitions, __pyx_n_s_Q) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_place_2, __pyx_n_s_I) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_duration, __pyx_n_s_d) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_type_codes, __pyx_t_4) < 0) __PYX_ERR(0, 90, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimeCollector);
 
-  /* "petsi/_meters.py":94
+  /* "petsi/_meters.py":98
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_20SojournTimeCollector_1reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimeCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__30)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 94, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_20SojournTimeCollector_1reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimeCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__31)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 98, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 98, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimeCollector);
 
   /* "(tree fragment)":1
@@ -15840,10 +15891,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_20SojournTimeCollector_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimeCollector___reduce_cy, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__32)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_20SojournTimeCollector_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimeCollector___reduce_cy, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__33)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimeCollector);
 
   /* "(tree fragment)":16
@@ -15852,85 +15903,85 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_SojournTimeCollector__set_state(self, __pyx_state)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_20SojournTimeCollector_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimeCollector___setstate, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__34)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_20SojournTimeCollector_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimeCollector___setstate, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimeCollector->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimeCollector);
 
-  /* "petsi/_meters.py":126
+  /* "petsi/_meters.py":130
  *         self._arrival_time = 0.0
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         # The observed token will anyway be removed, together with us...
  *         pass
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_3reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__36)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 126, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_3reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__37)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
-  /* "petsi/_meters.py":130
+  /* "petsi/_meters.py":134
  *         pass
  * 
  *     def report_construction(self):             # <<<<<<<<<<<<<<
  *         pass
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_5report_construction, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__38)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_construction, __pyx_t_1) < 0) __PYX_ERR(0, 130, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_5report_construction, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_construction, __pyx_t_4) < 0) __PYX_ERR(0, 134, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
-  /* "petsi/_meters.py":133
+  /* "petsi/_meters.py":137
  *         pass
  * 
  *     def report_destruction(self):             # <<<<<<<<<<<<<<
  *         pass
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_7report_destruction, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__40)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 133, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_destruction, __pyx_t_1) < 0) __PYX_ERR(0, 133, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_7report_destruction, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_destruction, __pyx_t_4) < 0) __PYX_ERR(0, 137, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
-  /* "petsi/_meters.py":136
+  /* "petsi/_meters.py":140
  *         pass
  * 
- *     def report_arrival_at(self, _: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_arrival_at(self, _: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Start timer for place"""
  *         # if self._places is None or p.ordinal in self._places:
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s__20, __pyx_kp_s_Structure_Place) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_9report_arrival_at, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_4, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__42)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 140, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s__21, __pyx_kp_s_structure_Place) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_9report_arrival_at, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_4, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__43)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_1);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_arrival_at, __pyx_t_5) < 0) __PYX_ERR(0, 136, __pyx_L1_error)
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_5, __pyx_t_4);
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_arrival_at, __pyx_t_5) < 0) __PYX_ERR(0, 140, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
-  /* "petsi/_meters.py":141
+  /* "petsi/_meters.py":145
  *         self._arrival_time = self._clock.read()
  * 
- *     def report_departure_from(self, p: "Structure.Place"):             # <<<<<<<<<<<<<<
+ *     def report_departure_from(self, p: "_structure.Place"):             # <<<<<<<<<<<<<<
  *         """ Stop timer and compute the sojourn time.
  *             Select the bucket of the per visit histogram that belongs
  */
-  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 141, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_p, __pyx_kp_s_Structure_Place) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_11report_departure_from, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_5, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__44)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 141, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_5);
+  if (PyDict_SetItem(__pyx_t_5, __pyx_n_s_p, __pyx_kp_s_structure_Place) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_11report_departure_from, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_r_5, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__45)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_4, __pyx_t_5);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_departure_from, __pyx_t_1) < 0) __PYX_ERR(0, 141, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_report_departure_from, __pyx_t_4) < 0) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
   /* "(tree fragment)":1
@@ -15938,10 +15989,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__46)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__47)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
   /* "(tree fragment)":16
@@ -15950,39 +16001,39 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_SojournTimePluginTokenObserver__set_state(self, __pyx_state)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__48)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_30SojournTimePluginTokenObserver_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_SojournTimePluginTokenObserver_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__49)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_SojournTimePluginTokenObserver);
 
-  /* "petsi/_meters.py":155
+  /* "petsi/_meters.py":159
  * 
  * class FiringCollector(GenericCollector):
  *     _type_codes = dict(transition='I',   # unsigned int (16 bits)             # <<<<<<<<<<<<<<
  *                        firing_time='d',  # double
  *                        interval='d',     # double
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition_2, __pyx_n_s_I) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_firing_time, __pyx_n_s_d) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_interval, __pyx_n_s_d) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_type_codes, __pyx_t_1) < 0) __PYX_ERR(0, 155, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_transition_2, __pyx_n_s_I) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_firing_time, __pyx_n_s_d) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_4, __pyx_n_s_interval, __pyx_n_s_d) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_type_codes, __pyx_t_4) < 0) __PYX_ERR(0, 159, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_FiringCollector);
 
-  /* "petsi/_meters.py":160
+  /* "petsi/_meters.py":164
  *                        )
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         super().reset()
  *         # noinspection PyAttributeOutsideInit
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_15FiringCollector_1reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FiringCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 160, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_15FiringCollector_1reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FiringCollector_reset, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__51)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 164, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 164, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_FiringCollector);
 
   /* "(tree fragment)":1
@@ -15990,10 +16041,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_15FiringCollector_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FiringCollector___reduce_cython, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__52)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_15FiringCollector_3__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FiringCollector___reduce_cython, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__53)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_FiringCollector);
 
   /* "(tree fragment)":16
@@ -16002,74 +16053,75 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_FiringCollector__set_state(self, __pyx_state)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_15FiringCollector_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FiringCollector___setstate_cytho, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__54)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_15FiringCollector_5__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FiringCollector___setstate_cytho, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__55)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_FiringCollector->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_FiringCollector);
 
-  /* "petsi/_meters.py":186
+  /* "petsi/_meters.py":190
  *         self.reset()
  * 
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
  * 
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_3got_enabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__56)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_got_enabled, __pyx_t_1) < 0) __PYX_ERR(0, 186, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_3got_enabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_2, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__57)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_got_enabled, __pyx_t_4) < 0) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
-  /* "petsi/_meters.py":188
+  /* "petsi/_meters.py":192
  *     def got_enabled(self, ): pass   # No actual base class, so need to provide an implementation
  * 
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
  * 
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_5got_disabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__58)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 188, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_got_disabled, __pyx_t_1) < 0) __PYX_ERR(0, 188, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_5got_disabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_3, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__59)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_got_disabled, __pyx_t_4) < 0) __PYX_ERR(0, 192, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
-  /* "petsi/_meters.py":190
+  /* "petsi/_meters.py":194
  *     def got_disabled(self, ): pass  # No actual base class, so need to provide an implementation
  * 
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation             # <<<<<<<<<<<<<<
  * 
  *     def after_firing(self, ):
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_7before_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_4, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__60)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_before_firing, __pyx_t_1) < 0) __PYX_ERR(0, 190, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_7before_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_4, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__61)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_before_firing, __pyx_t_4) < 0) __PYX_ERR(0, 194, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
-  /* "petsi/_meters.py":192
+  /* "petsi/_meters.py":196
  *     def before_firing(self): pass   # No actual base class, so need to provide an implementation
  * 
  *     def after_firing(self, ):             # <<<<<<<<<<<<<<
  *         current_time = self._clock.read()
  *         interval = current_time - self._previous_firing_time
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_9after_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_5, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__62)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_after_firing, __pyx_t_1) < 0) __PYX_ERR(0, 192, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_9after_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_5, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__63)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_after_firing, __pyx_t_4) < 0) __PYX_ERR(0, 196, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
-  /* "petsi/_meters.py":198
+  /* "petsi/_meters.py":202
  *         self._previous_firing_time = current_time
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         self._previous_firing_time = self._clock.read()
+ * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_11reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_6, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__64)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_11reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_6, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__65)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 202, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_reset, __pyx_t_4) < 0) __PYX_ERR(0, 202, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
   /* "(tree fragment)":1
@@ -16077,10 +16129,10 @@ if (!__Pyx_RefNanny) {
  *     cdef tuple state
  *     cdef object _dict
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_7, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__66)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_13__reduce_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_7, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__67)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_reduce_cython, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
   /* "(tree fragment)":16
@@ -16089,10 +16141,10 @@ if (!__Pyx_RefNanny) {
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_TransitionIntervalPluginTransitionObserver__set_state(self, __pyx_state)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_8, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__68)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_1) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_42TransitionIntervalPluginTransitionObserver_15__setstate_cython__, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_TransitionIntervalPluginTransiti_8, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__69)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver->tp_dict, __pyx_n_s_setstate_cython, __pyx_t_4) < 0) __PYX_ERR(2, 16, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   PyType_Modified(__pyx_ptype_5petsi_7_meters_TransitionIntervalPluginTransitionObserver);
 
   /* "(tree fragment)":1
@@ -16100,10 +16152,10 @@ if (!__Pyx_RefNanny) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_1__pyx_unpickle_GenericCollector, 0, __pyx_n_s_pyx_unpickle_GenericCollector, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__70)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_GenericCollector, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_1__pyx_unpickle_GenericCollector, 0, __pyx_n_s_pyx_unpickle_GenericCollector, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__71)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_GenericCollector, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_GenericCollector__set_state(<GenericCollector> __pyx_result, __pyx_state)
@@ -16112,20 +16164,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._any_array = __pyx_state[0]; __pyx_result._arrays = __pyx_state[1]; __pyx_result.required_observations = __pyx_state[2]
  *     if len(__pyx_state) > 3 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_3__pyx_unpickle_TokenCounterCollector, 0, __pyx_n_s_pyx_unpickle_TokenCounterColle, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__72)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenCounterColle, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_3__pyx_unpickle_TokenCounterCollector, 0, __pyx_n_s_pyx_unpickle_TokenCounterColle, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__73)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenCounterColle, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_TokenCounterPluginPlaceObserver(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_5__pyx_unpickle_TokenCounterPluginPlaceObserver, 0, __pyx_n_s_pyx_unpickle_TokenCounterPlugi, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__74)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenCounterPlugi, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_5__pyx_unpickle_TokenCounterPluginPlaceObserver, 0, __pyx_n_s_pyx_unpickle_TokenCounterPlugi, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__75)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TokenCounterPlugi, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_TokenCounterPluginPlaceObserver__set_state(<TokenCounterPluginPlaceObserver> __pyx_result, __pyx_state)
@@ -16134,20 +16186,20 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._clock = __pyx_state[0]; __pyx_result._collector = __pyx_state[1]; __pyx_result._num_tokens = __pyx_state[2]; __pyx_result._place = __pyx_state[3]; __pyx_result._plugin = __pyx_state[4]; __pyx_result._time_having = __pyx_state[5]; __pyx_result._time_of_last_token_move = __pyx_state[6]
  *     if len(__pyx_state) > 7 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_7__pyx_unpickle_SojournTimeCollector, 0, __pyx_n_s_pyx_unpickle_SojournTimeCollec, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__76)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SojournTimeCollec, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_7__pyx_unpickle_SojournTimeCollector, 0, __pyx_n_s_pyx_unpickle_SojournTimeCollec, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__77)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SojournTimeCollec, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_SojournTimePluginTokenObserver(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_9__pyx_unpickle_SojournTimePluginTokenObserver, 0, __pyx_n_s_pyx_unpickle_SojournTimePlugin, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__78)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SojournTimePlugin, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_9__pyx_unpickle_SojournTimePluginTokenObserver, 0, __pyx_n_s_pyx_unpickle_SojournTimePlugin, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__79)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SojournTimePlugin, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":11
  *         __pyx_unpickle_SojournTimePluginTokenObserver__set_state(<SojournTimePluginTokenObserver> __pyx_result, __pyx_state)
@@ -16156,30 +16208,30 @@ if (!__Pyx_RefNanny) {
  *     __pyx_result._arrival_time = __pyx_state[0]; __pyx_result._clock = __pyx_state[1]; __pyx_result._collector = __pyx_state[2]; __pyx_result._places = __pyx_state[3]; __pyx_result._plugin = __pyx_state[4]; __pyx_result._token = __pyx_state[5]; __pyx_result._token_id = __pyx_state[6]; __pyx_result._transition_count = __pyx_state[7]
  *     if len(__pyx_state) > 8 and hasattr(__pyx_result, '__dict__'):
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_11__pyx_unpickle_FiringCollector, 0, __pyx_n_s_pyx_unpickle_FiringCollector, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__80)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_FiringCollector, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_11__pyx_unpickle_FiringCollector, 0, __pyx_n_s_pyx_unpickle_FiringCollector, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__81)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_FiringCollector, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_TransitionIntervalPluginTransitionObserver(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_13__pyx_unpickle_TransitionIntervalPluginTransitionObserver, 0, __pyx_n_s_pyx_unpickle_TransitionInterva, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__82)); if (unlikely(!__pyx_t_1)) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TransitionInterva, __pyx_t_1) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_7_meters_13__pyx_unpickle_TransitionIntervalPluginTransitionObserver, 0, __pyx_n_s_pyx_unpickle_TransitionInterva, NULL, __pyx_n_s_petsi__meters, __pyx_d, ((PyObject *)__pyx_codeobj__83)); if (unlikely(!__pyx_t_4)) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_TransitionInterva, __pyx_t_4) < 0) __PYX_ERR(2, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "petsi/_meters.py":1
  * from array import array             # <<<<<<<<<<<<<<
- * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict
+ * from typing import TYPE_CHECKING, FrozenSet, Optional, Dict, TypeVar
  * 
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_4 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_4) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "cpython/array.pxd":161
  *     return extend_buffer(self, other.data.as_chars, Py_SIZE(other))

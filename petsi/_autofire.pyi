@@ -6,17 +6,17 @@ from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator, Callable, Op
 from Plugins import NoopPlaceObserver, NoopTokenObserver
 
 if TYPE_CHECKING:
-    from . import Structure, Plugins
+    from . import _structure, Plugins
 
 
 class _PriorityLevel:
     priority: int
-    transitions: Set["Structure.Transition"]
+    transitions: Set["_structure.Transition"]
 
     def __init__(self, priority: int): pass
-    def add(self, transition: "Structure.Transition"): pass
+    def add(self, transition: "_structure.Transition"): pass
 
-    def remove(self, transition: "Structure.Transition"): pass
+    def remove(self, transition: "_structure.Transition"): pass
 
     def __eq__(self, other: "_PriorityLevel") -> bool: pass
     def __ne__(self, other: "_PriorityLevel") -> bool: pass
@@ -39,7 +39,7 @@ class FireControl:
     _is_build_in_progress: bool
 
     _deadline_disambiguator: Iterator[int]
-    _transition_enabled_at_start_up: Dict["Structure.Transition", bool]
+    _transition_enabled_at_start_up: Dict["_structure.Transition", bool]
 
     # A heap of (priority, Transition set) tuples, ordered by negative priority.
     # This is needed as the head of the heap (in the Python implementation) is
@@ -58,7 +58,7 @@ class FireControl:
     _priority_levels: Dict[int, _PriorityLevel]
 
     # A heap of (deadline, Transition) tuples, ordered by deadline
-    _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
+    _timed_transitions: List[Tuple[float, int, "_structure.Transition"]]
 
     def get_clock(self) -> Clock: pass
 
@@ -77,13 +77,13 @@ class FireControl:
         :return: None
         """
 
-    def enable_transition(self, transition: "Structure.Transition"):
+    def enable_transition(self, transition: "_structure.Transition"):
         """ Callback method to indicate that a transition got enabled
         :param transition:
         :return:
         """
 
-    def disable_transition(self, transition: "Structure.Transition"):
+    def disable_transition(self, transition: "_structure.Transition"):
         """ Callback method to indicate that a transition got disabled
         :param transition:
         :return:
@@ -97,11 +97,11 @@ class FireControl:
                                 the transitison itself.
         """
 
-    def _enable_transition(self, transition: "Structure.Transition"): pass
-    def _disable_transition(self, transition: "Structure.Transition"): pass
-    def _next_timed_transition(self) -> "Structure.Transition": pass
-    def _schedule_timed_transition(self, transition: "Structure.Transition"): pass
-    def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"): pass
+    def _enable_transition(self, transition: "_structure.Transition"): pass
+    def _disable_transition(self, transition: "_structure.Transition"): pass
+    def _next_timed_transition(self) -> "_structure.Transition": pass
+    def _schedule_timed_transition(self, transition: "_structure.Transition"): pass
+    def _remove_timed_transition_from_schedule(self, transition: "_structure.Transition"): pass
 
     def fire_next(self):
         """ Select and fire the next transition
@@ -114,7 +114,7 @@ class AutoFirePluginTransitionObserver(Plugins.NoopTransitionObserver["AutoFireP
     _fire_control: "FireControl"
     _deadline: float
 
-    def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition",
+    def __init__(self, _plugin: "Plugins.Plugin", _transition: "_structure.Transition",
                      _fire_control: "FireControl"): pass
 
 

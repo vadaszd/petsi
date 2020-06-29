@@ -9,7 +9,7 @@
 import collections
 from abc import ABC, abstractmethod
 from enum import Enum
-from typing import TYPE_CHECKING, Union, TypeVar, Callable, Any, Iterable
+from typing import TYPE_CHECKING, TypeVar, Callable, Any, Iterable
 
 from more_itertools import flatten
 import cython
@@ -19,11 +19,10 @@ import cython
 from . import Plugins
 
 if TYPE_CHECKING:
+    from .Visitor import APetsiVisitor, PetsiVisitor
+
     from typing import Any, TYPE_CHECKING, Set, Dict, \
         Deque, Callable, ValuesView, Iterator
-
-
-APetsiVisitor = TypeVar('APetsiVisitor', bound="PetsiVisitor")
 
 
 class Net:
@@ -48,7 +47,7 @@ class Net:
         self._queuing_policies = dict(FIFO=FIFOPlace, LIFO=LIFOPlace)
         self._black_dot = self.add_type("black dot")
 
-    def accept(self, visitor: APetsiVisitor) -> APetsiVisitor:
+    def accept(self, visitor: "APetsiVisitor") -> "APetsiVisitor":
         """ Accept a :class:`PetsiVisitor`.
 
         The `visitor pattern <https://en.wikipedia.org/wiki/Visitor_pattern#Python_example>`_ can be used
@@ -128,6 +127,7 @@ class Net:
         :param type_name: The type of the place to add. Defaults to ``"black dot"``.
         :param queueing_policy_name:
         :return: The place added.
+        :raise ValueError: A place with the given name already exists or the given type does not exist.
         """
         if name in self._places:
             raise ValueError(f"Place '{name}' already exists in net '{self.name}'")
@@ -176,6 +176,8 @@ class Net:
                             :mod:`petsi.autofire` will fire a transtition randomly with
                             probability proportional to the weights of the enabled transitions.
         :return: The transition created.
+        :raise ValueError: The priority of immediate transition is not a positive integer or the weight of the
+                            transition is not a positive float or a transition with given name already exists.
         """
         if not isinstance(priority, int) or priority < 1:
             raise ValueError(f"The priority of immediate transition '{name}' must be a positive integer")
@@ -199,6 +201,7 @@ class Net:
                                 By constraints on constructing the Petri net it is guaranteed that once a
                                 timed transition is enabled, the only way to disable it is to fire it.
         :return: The transition created.
+        :raise ValueError: A transition with given name already exists.
         """
         self._validate_transition_name(name)
         self._transitions[name] = t = Transition(name, len(self._transitions), 0, 0.0, distribution)
@@ -224,6 +227,7 @@ class Net:
         :param transition_name: The name of the transition controlling the arc.
         :param output_place_name: The name of the place the arc deposits the created tokens at.
         :return: The created constructor arc.
+        :raise KeyError: The given transition or place does not exist.
         """
         return ConstructorArc(name=name,
                               transition=self._transitions[transition_name],
@@ -239,6 +243,7 @@ class Net:
         :param input_place_name: The name of the input place.
         :param transition_name: The name of the controlling transition.
         :return: The new destructor arc.
+        :raise KeyError: The given transition or place does not exist.
         """
         return DestructorArc(name=name,
                              transition=self._transitions[transition_name],
@@ -255,6 +260,7 @@ class Net:
         :param transition_name:  The name of the transition controlling the arc.
         :param output_place_name: The name of the output place.
         :return: The arc created.
+        :raise KeyError: The given transition or input or output place does not exist.
         """
         return TransferArc(name=name,
                            transition=self._transitions[transition_name],
@@ -272,6 +278,7 @@ class Net:
         :param place_name: The name of its input place.
         :param transition_name: The name of the transition controlling the arc.
         :return: The arc created.
+        :raise KeyError: The given transition or place does not exist.
         """
         return TestArc(name=name,
                        transition=self._transitions[transition_name],
@@ -288,6 +295,7 @@ class Net:
         :param place_name: The name of the input place.
         :param transition_name: The name of the controlling transition.
         :return: The arc created.
+        :raise KeyError: The given transition or place does not exist.
         """
         return InhibitorArc(name=name,
                             transition=self._transitions[transition_name],
@@ -325,6 +333,7 @@ class TokenType:
 
 
 class Token:
+    """ A typed token in a Petri net. """
     _typ: TokenType
     _token_observers: "Set[Plugins.AbstractTokenObserver]"
     tags: "Dict[str, Any]"
@@ -337,6 +346,7 @@ class Token:
             self.attach_observer(of)
 
     def attach_observer(self, plugin: Plugins.AbstractPlugin):
+        """ Request a new observer from ``plugin`` and add it to the set of observers to notify about token events."""
         observer = plugin.observe_token(self)
 
         if observer is not None:
@@ -344,17 +354,22 @@ class Token:
             observer.report_construction()
 
     @property
-    def typ(self): return self._typ
+    def typ(self):
+        """ The type of the token."""
+        return self._typ
 
     def deposit_at(self, place):  # : "Place"
+        """ Notify the observers about the arrival of the token at the given place."""
         for to in self._token_observers:
             to.report_arrival_at(place)
 
     def remove_from(self, place):  # : "Place"
+        """ Notify the observers about the departure of the token from the given place."""
         for to in self._token_observers:
             to.report_departure_from(place)
 
     def delete(self):
+        """ Notify the observers about the destruction of the token."""
         for to in self._token_observers:
             to.report_destruction()
         self._token_observers.clear()
@@ -511,6 +526,8 @@ class Arc:
         raise NotImplementedError
 
 
+# Cannot make this an abstract class: Cython would fail.
+# noinspection PyAbstractClass
 @cython.cclass
 class PresenceObserver(Arc):
     """ An Arc-mixin providing the feature of enabling/disabling a transition.
@@ -760,11 +777,9 @@ class Place:
         token: Token = self._pop()
         token.remove_from(self)
 
-        #foreach(lambda po: po.report_departure_of(token), self._place_observers)
         for place_observer in self._place_observers:
             place_observer.report_departure_of(token)
 
-        # foreach(lambda po: po.report_no_token(), self._presence_observers)
         if self.is_empty:
             for presence_observer in self._presence_observers:
                 presence_observer.report_no_token()
@@ -774,8 +789,8 @@ class Place:
     def push(self, token):   # "Token"
         was_empty = self.is_empty
 
-        # Move_to_place notifies observers. To show them a consistent picture,
-        # we first update the place, only then call move_to_place
+        # To show them a consistent picture, we first update the place,
+        # only then we notify the observers.
         self._push(token)
         token.deposit_at(self)
 
@@ -787,7 +802,7 @@ class Place:
                 presence_observer.report_some_token()
 
     def _is_empty(self):
-        return  len(self._tokens) == 0
+        return len(self._tokens) == 0
 
     @property
     def is_empty(self):
@@ -814,16 +829,15 @@ class LIFOPlace(Place):
         self._tokens.appendleft(t)
 
 
-class PetsiVisitor(ABC):
-    @abstractmethod
-    def visit(self, visitable: Union[Net, Transition, Place, Arc]):
-        pass
-
-
 _ForeachArgumentType = TypeVar("_ForeachArgumentType")
 
 
 @cython.ccall
 def foreach(f: Callable[[_ForeachArgumentType], Any], iterator: Iterable[_ForeachArgumentType]):
+    """ Call f on each element of the iterable.
+    :param f: A function accepting a single argument of the type of the elements of the iterable
+    :param iterator: An iterable providing elements accepted by the function
+    :return: None
+    """
     for x in iterator:
         f(x)

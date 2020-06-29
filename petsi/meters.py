@@ -1,21 +1,26 @@
+""" Plugins for collecting statistics on the activities in a Petri net.
+"""
+
 from array import array
 from dataclasses import dataclass, field
 from itertools import count
-from typing import TypeVar, Generic, Optional, FrozenSet, Dict, Callable, Iterator
+from typing import Generic, Optional, FrozenSet, Dict, Callable, Iterator, TYPE_CHECKING
 
 from .Plugins import APlaceObserver, ATransitionObserver, ATokenObserver, AbstractPlugin, NoopTransitionObserver, \
     NoopTokenObserver, NoopPlaceObserver
 from ._autofire import Clock
-from ._meters import GenericCollector, TokenCounterCollector, TokenCounterPluginPlaceObserver, SojournTimeCollector, \
+from ._meters import ACollector, TokenCounterCollector, TokenCounterPluginPlaceObserver, SojournTimeCollector, \
     SojournTimePluginTokenObserver, FiringCollector, TransitionIntervalPluginTransitionObserver
 
-ACollector = TypeVar("ACollector", bound=GenericCollector)
+if TYPE_CHECKING:
+    from ._structure import Token, Place
 
 
 @dataclass(eq=False)
 class _MeterPlugin(Generic[ACollector, APlaceObserver, ATransitionObserver, ATokenObserver],  #
                    AbstractPlugin[APlaceObserver, ATransitionObserver, ATokenObserver],
                    ):
+    """ Base class for plugins collecting observations."""
     _n: int                                     # number of observations to collect
     _places: Optional[FrozenSet[int]]           # Observe these places only
     _token_types: Optional[FrozenSet[int]]      # Observe these token types only
@@ -92,6 +97,7 @@ class SojournTimePlugin(
 class TransitionIntervalPlugin(
         _MeterPlugin[FiringCollector,
                      NoopPlaceObserver, TransitionIntervalPluginTransitionObserver, NoopTokenObserver]):
+    """ A PetSi plugin for collecting stats on the time intervals between firings of transitions."""
 
     def __post_init__(self):
         self._collector = FiringCollector(self._n)

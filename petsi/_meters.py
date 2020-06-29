@@ -1,9 +1,10 @@
 from array import array
-from typing import TYPE_CHECKING, FrozenSet, Optional, Dict
+from typing import TYPE_CHECKING, FrozenSet, Optional, Dict, TypeVar
+
 
 if TYPE_CHECKING:
     from ._autofire import Clock
-    from . import Structure, Plugins
+    from . import _structure, Plugins
 
 
 class GenericCollector:
@@ -25,6 +26,9 @@ class GenericCollector:
 
     def need_more_observations(self) -> bool:
         return len(self._any_array) < self.required_observations
+
+
+ACollector = TypeVar("ACollector", bound=GenericCollector)
 
 
 class TokenCounterCollector(GenericCollector):
@@ -50,7 +54,7 @@ class TokenCounterCollector(GenericCollector):
 
 class TokenCounterPluginPlaceObserver:
 
-    def __init__(self, _plugin: "Plugins.Plugin", _place: "Structure.Place", _clock: Clock,
+    def __init__(self, _plugin: "Plugins.Plugin", _place: "_structure.Place", _clock: Clock,
                  _collector: TokenCounterCollector):
         self._plugin = _plugin
         self._place = _place
@@ -112,7 +116,7 @@ class SojournTimeCollector(GenericCollector):
 
 class SojournTimePluginTokenObserver:  # Cython does not cope with base classes here
 
-    def __init__(self, _plugin: "Plugins.Plugin", _token: "Structure.Token",
+    def __init__(self, _plugin: "Plugins.Plugin", _token: "_structure.Token",
                  _places: Optional[FrozenSet[int]], _clock: Clock, _collector: SojournTimeCollector, _token_id: int):
         self._plugin = _plugin
         self._token = _token
@@ -133,12 +137,12 @@ class SojournTimePluginTokenObserver:  # Cython does not cope with base classes 
     def report_destruction(self):
         pass
 
-    def report_arrival_at(self, _: "Structure.Place"):
+    def report_arrival_at(self, _: "_structure.Place"):
         """ Start timer for place"""
         # if self._places is None or p.ordinal in self._places:
         self._arrival_time = self._clock.read()
 
-    def report_departure_from(self, p: "Structure.Place"):
+    def report_departure_from(self, p: "_structure.Place"):
         """ Stop timer and compute the sojourn time.
             Select the bucket of the per visit histogram that belongs
             to the place and increment it.
@@ -175,7 +179,7 @@ class TransitionIntervalPluginTransitionObserver:
     _previous_firing_time: float
     _collector: FiringCollector
 
-    def __init__(self, _plugin: "Plugins.Plugin", _transition: "Structure.Transition", _clock: Clock,
+    def __init__(self, _plugin: "Plugins.Plugin", _transition: "_structure.Transition", _clock: Clock,
                  _collector: FiringCollector):
         self._plugin = _plugin
         self._transition = _transition
@@ -197,3 +201,4 @@ class TransitionIntervalPluginTransitionObserver:
 
     def reset(self):
         self._previous_firing_time = self._clock.read()
+

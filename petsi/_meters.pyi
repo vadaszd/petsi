@@ -1,7 +1,7 @@
 from array import array
 from dataclasses import dataclass, field
 from functools import cached_property
-from typing import TYPE_CHECKING, List, Iterator, Sequence, FrozenSet, Optional, Dict
+from typing import TYPE_CHECKING, List, Iterator, Sequence, FrozenSet, Optional, Dict, TypeVar
 
 from . import Plugins
 from .Plugins import Plugin
@@ -26,6 +26,10 @@ class GenericCollector:
         pass
 
     def need_more_observations(self) -> bool: pass
+
+
+ACollector: TypeVar
+
 
 class TokenCounterCollector(GenericCollector):
     _start_time: array

@@ -921,7 +921,7 @@ struct __pyx_obj_5petsi_10_structure_Place {
  * 
  * cdef class _PriorityLevel:             # <<<<<<<<<<<<<<
  *     cdef int priority
- *     cdef set transitions    #: Set["Structure.Transition"]
+ *     cdef set transitions    #: Set["_structure.Transition"]
  */
 struct __pyx_obj_5petsi_9_autofire__PriorityLevel {
   PyObject_HEAD
@@ -1035,12 +1035,12 @@ struct __pyx_vtabstruct_5petsi_10_structure_Token {
 static struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtabptr_5petsi_10_structure_Token;
 
 
-/* "petsi/_autofire.py":18
+/* "petsi/_autofire.py":54
  * 
  * @cython.cclass
  * class _PriorityLevel:             # <<<<<<<<<<<<<<
  *     priority: int
- *     transitions: Set["Structure.Transition"]
+ *     transitions: Set["_structure.Transition"]
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel {
@@ -1050,11 +1050,11 @@ struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel {
 static struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *__pyx_vtabptr_5petsi_9_autofire__PriorityLevel;
 
 
-/* "petsi/_autofire.py":74
+/* "petsi/_autofire.py":110
  * 
  * 
  * class Clock:             # <<<<<<<<<<<<<<
- *     _fire_control: "FireControl"
+ *     """ A wrapper class for accessing the time of the Petri net.
  * 
  */
 
@@ -1064,12 +1064,12 @@ struct __pyx_vtabstruct_5petsi_9_autofire_Clock {
 static struct __pyx_vtabstruct_5petsi_9_autofire_Clock *__pyx_vtabptr_5petsi_9_autofire_Clock;
 
 
-/* "petsi/_autofire.py":84
+/* "petsi/_autofire.py":126
  * 
  * 
  * class FireControl:             # <<<<<<<<<<<<<<
+ *     """ Tracks all enabled transitions of the Petri net and selects and fires them according to the firing rules."""
  *     current_time: float
- *     _is_build_in_progress: bool
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire_FireControl {
@@ -1085,12 +1085,12 @@ struct __pyx_vtabstruct_5petsi_9_autofire_FireControl {
 static struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *__pyx_vtabptr_5petsi_9_autofire_FireControl;
 
 
-/* "petsi/_autofire.py":246
+/* "petsi/_autofire.py":290
  * 
  * 
  * class AutoFirePluginTransitionObserver:             # <<<<<<<<<<<<<<
- * 
- *     def __init__(self, _plugin: "Plugin", _transition: "Structure.Transition",
+ *     """ Observes a single ``Transition`` and forwards the enablement events to the shared ``FireControl`` instance."""
+ *     def __init__(self, _plugin: "Plugin", _transition: "_structure.Transition",
  */
 
 struct __pyx_vtabstruct_5petsi_9_autofire_AutoFirePluginTransitionObserver {
@@ -1813,13 +1813,13 @@ static const char __pyx_k_priority[] = "priority";
 static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_qualname[] = "__qualname__";
 static const char __pyx_k_setstate[] = "__setstate__";
-static const char __pyx_k_Structure[] = "Structure";
 static const char __pyx_k_fire_next[] = "fire_next";
 static const char __pyx_k_get_clock[] = "get_clock";
 static const char __pyx_k_itertools[] = "itertools";
 static const char __pyx_k_metaclass[] = "__metaclass__";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
+static const char __pyx_k_structure[] = "_structure";
 static const char __pyx_k_Clock_read[] = "Clock.read";
 static const char __pyx_k_is_enabled[] = "is_enabled";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
@@ -1855,7 +1855,7 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_disable_transition[] = "disable_transition";
 static const char __pyx_k_petsi__autofire_py[] = "petsi/_autofire.py";
 static const char __pyx_k_pyx_unpickle_Clock[] = "__pyx_unpickle_Clock";
-static const char __pyx_k_Structure_Transition[] = "Structure.Transition";
+static const char __pyx_k_structure_Transition[] = "_structure.Transition";
 static const char __pyx_k_Clock___reduce_cython[] = "Clock.__reduce_cython__";
 static const char __pyx_k_FireControl_fire_next[] = "FireControl.fire_next";
 static const char __pyx_k_FireControl_get_clock[] = "FireControl.get_clock";
@@ -1870,6 +1870,7 @@ static const char __pyx_k_PriorityLevel___reduce_cython[] = "_PriorityLevel.__re
 static const char __pyx_k_FireControl_disable_transition[] = "FireControl.disable_transition";
 static const char __pyx_k_init___locals_PriorityLevelDic[] = "__init__.<locals>.PriorityLevelDict";
 static const char __pyx_k_pyx_unpickle_AutoFirePluginTra[] = "__pyx_unpickle_AutoFirePluginTransitionObserver";
+static const char __pyx_k_A_Cython_module_for_selecting_a[] = " A Cython module for selecting and firing enabled transitions automatically.\n\n    Firing rules\n    ------------\n\n    The transitions are selected for firing based on the rules for Extended Stochastic Petri Nets:\n\n    #. Immediate transitions have a priority property grater than zero.\n    #. Timed transitions have priority zero.\n    #. Inside a :class:`petsi._autofire.Clock` instance we track \"simulation time\" (a.k.a. \"Petri net time\"),\n       initialized to zero when the Petri net is reset.\n    #. Whenever a timed transition is enabled, a sample is taken from its associated distribution.\n       The sample value will be the firing time (dead line) of the transition.\n       The underlying Petri net guarantees that a timed transition, once enabled, will not get disabled\n       without firing the transition.\n    #. No transition can fire if another transition with a higher priority is enabled.\n    #. If more than one transition is enabled on the highest priority level (immediate transitions), then:\n\n       a) If the priority level is positive, then a transition is chosen randomly, with probability proportional\n          to the weights of the enabled transitions.\n       b) On priority level 0 (timed transitions) the one with the shortest deadline is chosen.\n          The deadline is computed when the transition gets enabled. It is the current time plus\n          a sample taken from the duration distribution associated with the transition.\n\n    #. Firing a timed transition sets the Petri net time to the deadline of the fired transition.\n\n    The heart of the implementation of these rules is a :class:`FireControl` instance shared by all transitions\n    in the Petri net. The shared instance has a full picture of\n    - which transitions are enabled\n    - what the priorities of these transitions are\n    - what the deadlines of the enabled timed transitions are\n\n    :class:`~petsi._autofire.AutoFirePluginTransitionObserver` instances have th""e sole job of keeping the shared\n    ``FireControl`` up-to-date.\n";
 static const char __pyx_k_PriorityLevel___setstate_cython[] = "_PriorityLevel.__setstate_cython__";
 static const char __pyx_k_AutoFirePluginTransitionObserver[] = "AutoFirePluginTransitionObserver";
 static const char __pyx_k_FireControl__select_next_transit[] = "FireControl._select_next_transition";
@@ -1924,8 +1925,6 @@ static PyObject *__pyx_n_s_PriorityLevelDict;
 static PyObject *__pyx_n_s_PriorityLevel___reduce_cython;
 static PyObject *__pyx_n_s_PriorityLevel___setstate_cython;
 static PyObject *__pyx_n_s_Set;
-static PyObject *__pyx_n_s_Structure;
-static PyObject *__pyx_kp_u_Structure_Transition;
 static PyObject *__pyx_n_s_TYPE_CHECKING;
 static PyObject *__pyx_n_s_Tuple;
 static PyObject *__pyx_kp_u_Wow;
@@ -2002,6 +2001,8 @@ static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_n_s_start;
 static PyObject *__pyx_n_s_state;
 static PyObject *__pyx_kp_s_stringsource;
+static PyObject *__pyx_n_s_structure;
+static PyObject *__pyx_kp_u_structure_Transition;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_transition;
 static PyObject *__pyx_n_s_transition_2;
@@ -2109,8 +2110,8 @@ static PyObject *__pyx_codeobj__51;
 static PyObject *__pyx_codeobj__53;
 /* Late includes */
 
-/* "petsi/_autofire.py":22
- *     transitions: Set["Structure.Transition"]
+/* "petsi/_autofire.py":58
+ *     transitions: Set["_structure.Transition"]
  * 
  *     def __init__(self, priority: int):             # <<<<<<<<<<<<<<
  *         self.priority = priority
@@ -2146,7 +2147,7 @@ static int __pyx_pw_5petsi_9_autofire_14_PriorityLevel_1__init__(PyObject *__pyx
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 22, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 58, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2157,7 +2158,7 @@ static int __pyx_pw_5petsi_9_autofire_14_PriorityLevel_1__init__(PyObject *__pyx
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 22, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 58, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._autofire._PriorityLevel.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -2180,24 +2181,24 @@ static int __pyx_pf_5petsi_9_autofire_14_PriorityLevel___init__(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_autofire.py":23
+  /* "petsi/_autofire.py":59
  * 
  *     def __init__(self, priority: int):
  *         self.priority = priority             # <<<<<<<<<<<<<<
  *         self.transitions = set()
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_priority); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 23, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_priority); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 59, __pyx_L1_error)
   __pyx_v_self->priority = __pyx_t_1;
 
-  /* "petsi/_autofire.py":24
+  /* "petsi/_autofire.py":60
  *     def __init__(self, priority: int):
  *         self.priority = priority
  *         self.transitions = set()             # <<<<<<<<<<<<<<
  * 
- *     def add(self, transition: "Structure.Transition"):
+ *     def add(self, transition: "_structure.Transition"):
  */
-  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 24, __pyx_L1_error)
+  __pyx_t_2 = PySet_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 60, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->transitions);
@@ -2205,8 +2206,8 @@ static int __pyx_pf_5petsi_9_autofire_14_PriorityLevel___init__(struct __pyx_obj
   __pyx_v_self->transitions = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":22
- *     transitions: Set["Structure.Transition"]
+  /* "petsi/_autofire.py":58
+ *     transitions: Set["_structure.Transition"]
  * 
  *     def __init__(self, priority: int):             # <<<<<<<<<<<<<<
  *         self.priority = priority
@@ -2225,10 +2226,10 @@ static int __pyx_pf_5petsi_9_autofire_14_PriorityLevel___init__(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":26
+/* "petsi/_autofire.py":62
  *         self.transitions = set()
  * 
- *     def add(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def add(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         self.transitions.add(transition)
  * 
  */
@@ -2242,23 +2243,23 @@ static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("add", 0);
 
-  /* "petsi/_autofire.py":27
+  /* "petsi/_autofire.py":63
  * 
- *     def add(self, transition: "Structure.Transition"):
+ *     def add(self, transition: "_structure.Transition"):
  *         self.transitions.add(transition)             # <<<<<<<<<<<<<<
  * 
- *     def remove(self, transition: "Structure.Transition"):
+ *     def remove(self, transition: "_structure.Transition"):
  */
   if (unlikely(__pyx_v_self->transitions == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-    __PYX_ERR(0, 27, __pyx_L1_error)
+    __PYX_ERR(0, 63, __pyx_L1_error)
   }
-  __pyx_t_1 = PySet_Add(__pyx_v_self->transitions, ((PyObject *)__pyx_v_transition)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 27, __pyx_L1_error)
+  __pyx_t_1 = PySet_Add(__pyx_v_self->transitions, ((PyObject *)__pyx_v_transition)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 63, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":26
+  /* "petsi/_autofire.py":62
  *         self.transitions = set()
  * 
- *     def add(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def add(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         self.transitions.add(transition)
  * 
  */
@@ -2275,10 +2276,10 @@ static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_add(struct __pyx_obj
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":29
+/* "petsi/_autofire.py":65
  *         self.transitions.add(transition)
  * 
- *     def remove(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def remove(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         self.transitions.remove(transition)
  * 
  */
@@ -2292,23 +2293,23 @@ static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove(struct __pyx_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("remove", 0);
 
-  /* "petsi/_autofire.py":30
+  /* "petsi/_autofire.py":66
  * 
- *     def remove(self, transition: "Structure.Transition"):
+ *     def remove(self, transition: "_structure.Transition"):
  *         self.transitions.remove(transition)             # <<<<<<<<<<<<<<
  * 
  *     # These dunder methods cannot be cdef or cpdef (as per cython rules)
  */
   if (unlikely(__pyx_v_self->transitions == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "remove");
-    __PYX_ERR(0, 30, __pyx_L1_error)
+    __PYX_ERR(0, 66, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_PySet_Remove(__pyx_v_self->transitions, ((PyObject *)__pyx_v_transition)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PySet_Remove(__pyx_v_self->transitions, ((PyObject *)__pyx_v_transition)); if (unlikely(__pyx_t_1 == ((int)-1))) __PYX_ERR(0, 66, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":29
+  /* "petsi/_autofire.py":65
  *         self.transitions.add(transition)
  * 
- *     def remove(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def remove(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         self.transitions.remove(transition)
  * 
  */
@@ -2325,7 +2326,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove(struct __pyx_
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":38
+/* "petsi/_autofire.py":74
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
@@ -2342,7 +2343,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_14_PriorityLevel_3__eq__(PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__eq__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 38, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 74, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_14_PriorityLevel_2__eq__(((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_self), ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_other));
 
   /* function exit code */
@@ -2363,7 +2364,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_2__eq__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__eq__", 0);
 
-  /* "petsi/_autofire.py":41
+  /* "petsi/_autofire.py":77
  *         # if not isinstance(anything, _PriorityLevel):
  *         #     return NotImplemented
  *         return self.priority == other.priority             # <<<<<<<<<<<<<<
@@ -2371,13 +2372,13 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_2__eq__(struct __py
  *     @cython.locals(other="_PriorityLevel")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority == __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority == __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":38
+  /* "petsi/_autofire.py":74
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __eq__(self, other):             # <<<<<<<<<<<<<<
@@ -2396,7 +2397,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_2__eq__(struct __py
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":46
+/* "petsi/_autofire.py":82
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __ne__(self, other):             # <<<<<<<<<<<<<<
@@ -2413,7 +2414,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_14_PriorityLevel_5__ne__(PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__ne__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 82, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_14_PriorityLevel_4__ne__(((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_self), ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_other));
 
   /* function exit code */
@@ -2434,7 +2435,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_4__ne__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ne__", 0);
 
-  /* "petsi/_autofire.py":47
+  /* "petsi/_autofire.py":83
  *     @cython.exceptval(-99, check=True)
  *     def __ne__(self, other):
  *         return self.priority != other.priority             # <<<<<<<<<<<<<<
@@ -2442,13 +2443,13 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_4__ne__(struct __py
  *     @cython.locals(other="_PriorityLevel")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority != __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority != __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":46
+  /* "petsi/_autofire.py":82
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __ne__(self, other):             # <<<<<<<<<<<<<<
@@ -2467,7 +2468,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_4__ne__(struct __py
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":52
+/* "petsi/_autofire.py":88
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __lt__(self, other):             # <<<<<<<<<<<<<<
@@ -2484,7 +2485,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_14_PriorityLevel_7__lt__(PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__lt__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 52, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 88, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_14_PriorityLevel_6__lt__(((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_self), ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_other));
 
   /* function exit code */
@@ -2505,7 +2506,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_6__lt__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__lt__", 0);
 
-  /* "petsi/_autofire.py":53
+  /* "petsi/_autofire.py":89
  *     @cython.exceptval(-99, check=True)
  *     def __lt__(self, other):
  *         return self.priority > other.priority             # <<<<<<<<<<<<<<
@@ -2513,13 +2514,13 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_6__lt__(struct __py
  *     @cython.locals(other="_PriorityLevel")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority > __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority > __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":52
+  /* "petsi/_autofire.py":88
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __lt__(self, other):             # <<<<<<<<<<<<<<
@@ -2538,7 +2539,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_6__lt__(struct __py
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":58
+/* "petsi/_autofire.py":94
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __gt__(self, other):             # <<<<<<<<<<<<<<
@@ -2555,7 +2556,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_14_PriorityLevel_9__gt__(PyObject *_
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__gt__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 58, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 94, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_14_PriorityLevel_8__gt__(((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_self), ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_other));
 
   /* function exit code */
@@ -2576,7 +2577,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_8__gt__(struct __py
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__gt__", 0);
 
-  /* "petsi/_autofire.py":59
+  /* "petsi/_autofire.py":95
  *     @cython.exceptval(-99, check=True)
  *     def __gt__(self, other):
  *         return self.priority < other.priority             # <<<<<<<<<<<<<<
@@ -2584,13 +2585,13 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_8__gt__(struct __py
  *     @cython.locals(other="_PriorityLevel")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority < __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority < __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":58
+  /* "petsi/_autofire.py":94
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __gt__(self, other):             # <<<<<<<<<<<<<<
@@ -2609,7 +2610,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_8__gt__(struct __py
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":64
+/* "petsi/_autofire.py":100
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __le__(self, other):             # <<<<<<<<<<<<<<
@@ -2626,7 +2627,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_14_PriorityLevel_11__le__(PyObject *
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__le__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 64, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 100, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_14_PriorityLevel_10__le__(((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_self), ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_other));
 
   /* function exit code */
@@ -2647,7 +2648,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_10__le__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__le__", 0);
 
-  /* "petsi/_autofire.py":65
+  /* "petsi/_autofire.py":101
  *     @cython.exceptval(-99, check=True)
  *     def __le__(self, other):
  *         return self.priority >= other.priority             # <<<<<<<<<<<<<<
@@ -2655,13 +2656,13 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_10__le__(struct __p
  *     @cython.locals(other="_PriorityLevel")
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority >= __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 65, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority >= __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 101, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":64
+  /* "petsi/_autofire.py":100
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __le__(self, other):             # <<<<<<<<<<<<<<
@@ -2680,7 +2681,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_10__le__(struct __p
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":70
+/* "petsi/_autofire.py":106
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __ge__(self, other):             # <<<<<<<<<<<<<<
@@ -2697,7 +2698,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_14_PriorityLevel_13__ge__(PyObject *
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__ge__ (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 70, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_other), __pyx_ptype_5petsi_9_autofire__PriorityLevel, 1, "other", 0))) __PYX_ERR(0, 106, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_14_PriorityLevel_12__ge__(((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_self), ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_v_other));
 
   /* function exit code */
@@ -2718,7 +2719,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_12__ge__(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__ge__", 0);
 
-  /* "petsi/_autofire.py":71
+  /* "petsi/_autofire.py":107
  *     @cython.exceptval(-99, check=True)
  *     def __ge__(self, other):
  *         return self.priority <= other.priority             # <<<<<<<<<<<<<<
@@ -2726,13 +2727,13 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_12__ge__(struct __p
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority <= __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 71, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong((__pyx_v_self->priority <= __pyx_v_other->priority)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 107, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":70
+  /* "petsi/_autofire.py":106
  *     @cython.returns(cython.bint)
  *     @cython.exceptval(-99, check=True)
  *     def __ge__(self, other):             # <<<<<<<<<<<<<<
@@ -3051,7 +3052,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_14_PriorityLevel_16__setstate_cython
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":77
+/* "petsi/_autofire.py":118
  *     _fire_control: "FireControl"
  * 
  *     def __init__(self, fire_control):             # <<<<<<<<<<<<<<
@@ -3088,7 +3089,7 @@ static int __pyx_pw_5petsi_9_autofire_5Clock_1__init__(PyObject *__pyx_v_self, P
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 77, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 118, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -3099,7 +3100,7 @@ static int __pyx_pw_5petsi_9_autofire_5Clock_1__init__(PyObject *__pyx_v_self, P
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 77, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 118, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._autofire.Clock.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3121,14 +3122,14 @@ static int __pyx_pf_5petsi_9_autofire_5Clock___init__(struct __pyx_obj_5petsi_9_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_autofire.py":78
+  /* "petsi/_autofire.py":119
  * 
  *     def __init__(self, fire_control):
  *         self._fire_control = fire_control             # <<<<<<<<<<<<<<
  * 
  *     def read(self):
  */
-  if (!(likely(((__pyx_v_fire_control) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_fire_control, __pyx_ptype_5petsi_9_autofire_FireControl))))) __PYX_ERR(0, 78, __pyx_L1_error)
+  if (!(likely(((__pyx_v_fire_control) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_fire_control, __pyx_ptype_5petsi_9_autofire_FireControl))))) __PYX_ERR(0, 119, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_fire_control;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -3137,7 +3138,7 @@ static int __pyx_pf_5petsi_9_autofire_5Clock___init__(struct __pyx_obj_5petsi_9_
   __pyx_v_self->_fire_control = ((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":77
+  /* "petsi/_autofire.py":118
  *     _fire_control: "FireControl"
  * 
  *     def __init__(self, fire_control):             # <<<<<<<<<<<<<<
@@ -3157,12 +3158,12 @@ static int __pyx_pf_5petsi_9_autofire_5Clock___init__(struct __pyx_obj_5petsi_9_
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":80
+/* "petsi/_autofire.py":121
  *         self._fire_control = fire_control
  * 
  *     def read(self):             # <<<<<<<<<<<<<<
+ *         """ Get the current simulation time."""
  *         return self._fire_control.current_time
- * 
  */
 
 static PyObject *__pyx_pw_5petsi_9_autofire_5Clock_3read(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
@@ -3187,7 +3188,7 @@ static double __pyx_f_5petsi_9_autofire_5Clock_read(struct __pyx_obj_5petsi_9_au
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_read); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 80, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_read); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_5Clock_3read)) {
         __Pyx_INCREF(__pyx_t_1);
@@ -3203,10 +3204,10 @@ static double __pyx_f_5petsi_9_autofire_5Clock_read(struct __pyx_obj_5petsi_9_au
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
+        __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_2); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 121, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __pyx_r = __pyx_t_5;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -3225,9 +3226,9 @@ static double __pyx_f_5petsi_9_autofire_5Clock_read(struct __pyx_obj_5petsi_9_au
     #endif
   }
 
-  /* "petsi/_autofire.py":81
- * 
+  /* "petsi/_autofire.py":123
  *     def read(self):
+ *         """ Get the current simulation time."""
  *         return self._fire_control.current_time             # <<<<<<<<<<<<<<
  * 
  * 
@@ -3235,12 +3236,12 @@ static double __pyx_f_5petsi_9_autofire_5Clock_read(struct __pyx_obj_5petsi_9_au
   __pyx_r = __pyx_v_self->_fire_control->current_time;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":80
+  /* "petsi/_autofire.py":121
  *         self._fire_control = fire_control
  * 
  *     def read(self):             # <<<<<<<<<<<<<<
+ *         """ Get the current simulation time."""
  *         return self._fire_control.current_time
- * 
  */
 
   /* function exit code */
@@ -3258,7 +3259,8 @@ static double __pyx_f_5petsi_9_autofire_5Clock_read(struct __pyx_obj_5petsi_9_au
 
 /* Python wrapper */
 static PyObject *__pyx_pw_5petsi_9_autofire_5Clock_3read(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_5petsi_9_autofire_5Clock_3read = {"read", (PyCFunction)__pyx_pw_5petsi_9_autofire_5Clock_3read, METH_NOARGS, 0};
+static char __pyx_doc_5petsi_9_autofire_5Clock_2read[] = " Get the current simulation time.";
+static PyMethodDef __pyx_mdef_5petsi_9_autofire_5Clock_3read = {"read", (PyCFunction)__pyx_pw_5petsi_9_autofire_5Clock_3read, METH_NOARGS, __pyx_doc_5petsi_9_autofire_5Clock_2read};
 static PyObject *__pyx_pw_5petsi_9_autofire_5Clock_3read(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3280,8 +3282,8 @@ static PyObject *__pyx_pf_5petsi_9_autofire_5Clock_2read(struct __pyx_obj_5petsi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("read", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_5Clock_read(__pyx_v_self, 1); if (unlikely(__pyx_t_1 == ((double)-999.0))) __PYX_ERR(0, 80, __pyx_L1_error)
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_5Clock_read(__pyx_v_self, 1); if (unlikely(__pyx_t_1 == ((double)-999.0))) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -3593,17 +3595,18 @@ static PyObject *__pyx_pf_5petsi_9_autofire_5Clock_6__setstate_cython__(struct _
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":110
- *     _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
+/* "petsi/_autofire.py":153
+ *     _timed_transitions: List[Tuple[float, int, "_structure.Transition"]]
  * 
  *     def get_clock(self) -> Clock:             # <<<<<<<<<<<<<<
+ *         """ Obtain a Clock instance for reading the simulation time of this ``FireControl`` instance."""
  *         return Clock(self)
- * 
  */
 
 /* Python wrapper */
 static struct __pyx_obj_5petsi_9_autofire_Clock *__pyx_pw_5petsi_9_autofire_11FireControl_1get_clock(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_5petsi_9_autofire_11FireControl_1get_clock = {"get_clock", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_1get_clock, METH_NOARGS, 0};
+static char __pyx_doc_5petsi_9_autofire_11FireControl_get_clock[] = " Obtain a Clock instance for reading the simulation time of this ``FireControl`` instance.";
+static PyMethodDef __pyx_mdef_5petsi_9_autofire_11FireControl_1get_clock = {"get_clock", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_1get_clock, METH_NOARGS, __pyx_doc_5petsi_9_autofire_11FireControl_get_clock};
 static struct __pyx_obj_5petsi_9_autofire_Clock *__pyx_pw_5petsi_9_autofire_11FireControl_1get_clock(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   struct __pyx_obj_5petsi_9_autofire_Clock *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -3624,26 +3627,26 @@ static struct __pyx_obj_5petsi_9_autofire_Clock *__pyx_pf_5petsi_9_autofire_11Fi
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_clock", 0);
 
-  /* "petsi/_autofire.py":111
- * 
+  /* "petsi/_autofire.py":155
  *     def get_clock(self) -> Clock:
+ *         """ Obtain a Clock instance for reading the simulation time of this ``FireControl`` instance."""
  *         return Clock(self)             # <<<<<<<<<<<<<<
  * 
  *     def __init__(self):
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_5petsi_9_autofire_Clock), ((PyObject *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 111, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_5petsi_9_autofire_Clock), ((PyObject *)__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = ((struct __pyx_obj_5petsi_9_autofire_Clock *)__pyx_t_1);
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":110
- *     _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
+  /* "petsi/_autofire.py":153
+ *     _timed_transitions: List[Tuple[float, int, "_structure.Transition"]]
  * 
  *     def get_clock(self) -> Clock:             # <<<<<<<<<<<<<<
+ *         """ Obtain a Clock instance for reading the simulation time of this ``FireControl`` instance."""
  *         return Clock(self)
- * 
  */
 
   /* function exit code */
@@ -3657,7 +3660,7 @@ static struct __pyx_obj_5petsi_9_autofire_Clock *__pyx_pf_5petsi_9_autofire_11Fi
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":113
+/* "petsi/_autofire.py":157
  *         return Clock(self)
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -3681,7 +3684,7 @@ static int __pyx_pw_5petsi_9_autofire_11FireControl_3__init__(PyObject *__pyx_v_
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":122
+/* "petsi/_autofire.py":166
  * 
  *         class PriorityLevelDict(defaultdict):
  *             def __missing__(self, priority):             # <<<<<<<<<<<<<<
@@ -3724,11 +3727,11 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_8__init___17PriorityLe
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_priority)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__missing__", 1, 2, 2, 1); __PYX_ERR(0, 122, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__missing__", 1, 2, 2, 1); __PYX_ERR(0, 166, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__missing__") < 0)) __PYX_ERR(0, 122, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__missing__") < 0)) __PYX_ERR(0, 166, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -3741,7 +3744,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_8__init___17PriorityLe
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__missing__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 122, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__missing__", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 166, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._autofire.FireControl.__init__.PriorityLevelDict.__missing__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -3764,21 +3767,21 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8__init___17PriorityLe
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__missing__", 0);
 
-  /* "petsi/_autofire.py":123
+  /* "petsi/_autofire.py":167
  *         class PriorityLevelDict(defaultdict):
  *             def __missing__(self, priority):
  *                 priority_level = self[priority] = _PriorityLevel(priority)             # <<<<<<<<<<<<<<
  *                 return priority_level
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_5petsi_9_autofire__PriorityLevel), __pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_CallOneArg(((PyObject *)__pyx_ptype_5petsi_9_autofire__PriorityLevel), __pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_t_1);
   __pyx_v_priority_level = ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_t_1);
-  if (unlikely(PyObject_SetItem(__pyx_v_self, __pyx_v_priority, __pyx_t_1) < 0)) __PYX_ERR(0, 123, __pyx_L1_error)
+  if (unlikely(PyObject_SetItem(__pyx_v_self, __pyx_v_priority, __pyx_t_1) < 0)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":124
+  /* "petsi/_autofire.py":168
  *             def __missing__(self, priority):
  *                 priority_level = self[priority] = _PriorityLevel(priority)
  *                 return priority_level             # <<<<<<<<<<<<<<
@@ -3790,7 +3793,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8__init___17PriorityLe
   __pyx_r = ((PyObject *)__pyx_v_priority_level);
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":122
+  /* "petsi/_autofire.py":166
  * 
  *         class PriorityLevelDict(defaultdict):
  *             def __missing__(self, priority):             # <<<<<<<<<<<<<<
@@ -3810,7 +3813,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8__init___17PriorityLe
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":113
+/* "petsi/_autofire.py":157
  *         return Clock(self)
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -3831,14 +3834,14 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_autofire.py":114
+  /* "petsi/_autofire.py":158
  * 
  *     def __init__(self):
  *         self._deadline_disambiguator = count()             # <<<<<<<<<<<<<<
  *         self._transition_enabled_at_start_up = dict()
  *         self.current_time = 0.0
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_count); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -3852,7 +3855,7 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 114, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_GIVEREF(__pyx_t_1);
@@ -3861,14 +3864,14 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __pyx_v_self->_deadline_disambiguator = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":115
+  /* "petsi/_autofire.py":159
  *     def __init__(self):
  *         self._deadline_disambiguator = count()
  *         self._transition_enabled_at_start_up = dict()             # <<<<<<<<<<<<<<
  *         self.current_time = 0.0
  *         self._is_build_in_progress = True
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 115, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 159, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_transition_enabled_at_start_up);
@@ -3876,7 +3879,7 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __pyx_v_self->_transition_enabled_at_start_up = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":116
+  /* "petsi/_autofire.py":160
  *         self._deadline_disambiguator = count()
  *         self._transition_enabled_at_start_up = dict()
  *         self.current_time = 0.0             # <<<<<<<<<<<<<<
@@ -3885,7 +3888,7 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
  */
   __pyx_v_self->current_time = 0.0;
 
-  /* "petsi/_autofire.py":117
+  /* "petsi/_autofire.py":161
  *         self._transition_enabled_at_start_up = dict()
  *         self.current_time = 0.0
  *         self._is_build_in_progress = True             # <<<<<<<<<<<<<<
@@ -3894,14 +3897,14 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
  */
   __pyx_v_self->_is_build_in_progress = 1;
 
-  /* "petsi/_autofire.py":118
+  /* "petsi/_autofire.py":162
  *         self.current_time = 0.0
  *         self._is_build_in_progress = True
  *         self._active_priority_levels = list()             # <<<<<<<<<<<<<<
  *         self._active_priorities = set()
  * 
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 162, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_active_priority_levels);
@@ -3909,14 +3912,14 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __pyx_v_self->_active_priority_levels = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":119
+  /* "petsi/_autofire.py":163
  *         self._is_build_in_progress = True
  *         self._active_priority_levels = list()
  *         self._active_priorities = set()             # <<<<<<<<<<<<<<
  * 
  *         class PriorityLevelDict(defaultdict):
  */
-  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 119, __pyx_L1_error)
+  __pyx_t_1 = PySet_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->_active_priorities);
@@ -3924,45 +3927,45 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __pyx_v_self->_active_priorities = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":121
+  /* "petsi/_autofire.py":165
  *         self._active_priorities = set()
  * 
  *         class PriorityLevelDict(defaultdict):             # <<<<<<<<<<<<<<
  *             def __missing__(self, priority):
  *                 priority_level = self[priority] = _PriorityLevel(priority)
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_defaultdict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_defaultdict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CalculateMetaclass(NULL, __pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_PriorityLevelDict, __pyx_n_s_init___locals_PriorityLevelDic, (PyObject *) NULL, __pyx_n_s_petsi__autofire, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_Py3MetaclassPrepare(__pyx_t_1, __pyx_t_2, __pyx_n_s_PriorityLevelDict, __pyx_n_s_init___locals_PriorityLevelDic, (PyObject *) NULL, __pyx_n_s_petsi__autofire, (PyObject *) NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
 
-  /* "petsi/_autofire.py":122
+  /* "petsi/_autofire.py":166
  * 
  *         class PriorityLevelDict(defaultdict):
  *             def __missing__(self, priority):             # <<<<<<<<<<<<<<
  *                 priority_level = self[priority] = _PriorityLevel(priority)
  *                 return priority_level
  */
-  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_8__init___17PriorityLevelDict_1__missing__, 0, __pyx_n_s_init___locals_PriorityLevelDic_2, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_8__init___17PriorityLevelDict_1__missing__, 0, __pyx_n_s_init___locals_PriorityLevelDic_2, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_missing, __pyx_t_4) < 0) __PYX_ERR(0, 122, __pyx_L1_error)
+  if (__Pyx_SetNameInClass(__pyx_t_3, __pyx_n_s_missing, __pyx_t_4) < 0) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "petsi/_autofire.py":121
+  /* "petsi/_autofire.py":165
  *         self._active_priorities = set()
  * 
  *         class PriorityLevelDict(defaultdict):             # <<<<<<<<<<<<<<
  *             def __missing__(self, priority):
  *                 priority_level = self[priority] = _PriorityLevel(priority)
  */
-  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_PriorityLevelDict, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 121, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_Py3ClassCreate(__pyx_t_1, __pyx_n_s_PriorityLevelDict, __pyx_t_2, __pyx_t_3, NULL, 0, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v_PriorityLevelDict = __pyx_t_4;
   __pyx_t_4 = 0;
@@ -3970,14 +3973,14 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":126
+  /* "petsi/_autofire.py":170
  *                 return priority_level
  * 
  *         self._priority_levels = PriorityLevelDict()             # <<<<<<<<<<<<<<
  *         self._timed_transitions = list()
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_v_PriorityLevelDict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 126, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_v_PriorityLevelDict); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_priority_levels);
@@ -3985,14 +3988,14 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __pyx_v_self->_priority_levels = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":127
+  /* "petsi/_autofire.py":171
  * 
  *         self._priority_levels = PriorityLevelDict()
  *         self._timed_transitions = list()             # <<<<<<<<<<<<<<
  * 
  *     def reset(self):
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 127, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 171, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_GIVEREF(__pyx_t_2);
   __Pyx_GOTREF(__pyx_v_self->_timed_transitions);
@@ -4000,7 +4003,7 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   __pyx_v_self->_timed_transitions = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":113
+  /* "petsi/_autofire.py":157
  *         return Clock(self)
  * 
  *     def __init__(self):             # <<<<<<<<<<<<<<
@@ -4024,7 +4027,7 @@ static int __pyx_pf_5petsi_9_autofire_11FireControl_2__init__(struct __pyx_obj_5
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":129
+/* "petsi/_autofire.py":173
  *         self._timed_transitions = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -4058,7 +4061,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
 
-  /* "petsi/_autofire.py":132
+  /* "petsi/_autofire.py":176
  *         # This will cause start() to re-enable the initially enabled transitions
  *         # based on _transition_enabled_at_start_up
  *         self.current_time = 0.0             # <<<<<<<<<<<<<<
@@ -4067,7 +4070,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
  */
   __pyx_v_self->current_time = 0.0;
 
-  /* "petsi/_autofire.py":133
+  /* "petsi/_autofire.py":177
  *         # based on _transition_enabled_at_start_up
  *         self.current_time = 0.0
  *         self._is_build_in_progress = True             # <<<<<<<<<<<<<<
@@ -4076,14 +4079,14 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
  */
   __pyx_v_self->_is_build_in_progress = 1;
 
-  /* "petsi/_autofire.py":134
+  /* "petsi/_autofire.py":178
  *         self.current_time = 0.0
  *         self._is_build_in_progress = True
  *         self._active_priority_levels.clear()             # <<<<<<<<<<<<<<
  *         self._active_priorities.clear()
  *         self._priority_levels.clear()
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_active_priority_levels, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_active_priority_levels, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4097,12 +4100,12 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 134, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":135
+  /* "petsi/_autofire.py":179
  *         self._is_build_in_progress = True
  *         self._active_priority_levels.clear()
  *         self._active_priorities.clear()             # <<<<<<<<<<<<<<
@@ -4111,18 +4114,18 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
  */
   if (unlikely(__pyx_v_self->_active_priorities == Py_None)) {
     PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "clear");
-    __PYX_ERR(0, 135, __pyx_L1_error)
+    __PYX_ERR(0, 179, __pyx_L1_error)
   }
-  __pyx_t_4 = PySet_Clear(__pyx_v_self->_active_priorities); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 135, __pyx_L1_error)
+  __pyx_t_4 = PySet_Clear(__pyx_v_self->_active_priorities); if (unlikely(__pyx_t_4 == ((int)-1))) __PYX_ERR(0, 179, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":136
+  /* "petsi/_autofire.py":180
  *         self._active_priority_levels.clear()
  *         self._active_priorities.clear()
  *         self._priority_levels.clear()             # <<<<<<<<<<<<<<
  *         self._timed_transitions.clear()
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_priority_levels, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 136, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_priority_levels, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4136,19 +4139,19 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 136, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":137
+  /* "petsi/_autofire.py":181
  *         self._active_priorities.clear()
  *         self._priority_levels.clear()
  *         self._timed_transitions.clear()             # <<<<<<<<<<<<<<
  * 
  *     def start(self):
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_timed_transitions, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 137, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_self->_timed_transitions, __pyx_n_s_clear); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -4162,12 +4165,12 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":129
+  /* "petsi/_autofire.py":173
  *         self._timed_transitions = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
@@ -4190,7 +4193,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_4reset(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":139
+/* "petsi/_autofire.py":183
  *         self._timed_transitions.clear()
  * 
  *     def start(self):             # <<<<<<<<<<<<<<
@@ -4230,7 +4233,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("start", 0);
 
-  /* "petsi/_autofire.py":140
+  /* "petsi/_autofire.py":184
  * 
  *     def start(self):
  *         if self._is_build_in_progress:             # <<<<<<<<<<<<<<
@@ -4240,7 +4243,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
   __pyx_t_1 = (__pyx_v_self->_is_build_in_progress != 0);
   if (__pyx_t_1) {
 
-    /* "petsi/_autofire.py":141
+    /* "petsi/_autofire.py":185
  *     def start(self):
  *         if self._is_build_in_progress:
  *             self._is_build_in_progress = False             # <<<<<<<<<<<<<<
@@ -4249,7 +4252,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
  */
     __pyx_v_self->_is_build_in_progress = 0;
 
-    /* "petsi/_autofire.py":142
+    /* "petsi/_autofire.py":186
  *         if self._is_build_in_progress:
  *             self._is_build_in_progress = False
  *             for transition, is_enabled in self._transition_enabled_at_start_up.items():             # <<<<<<<<<<<<<<
@@ -4259,9 +4262,9 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
     __pyx_t_3 = 0;
     if (unlikely(__pyx_v_self->_transition_enabled_at_start_up == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "items");
-      __PYX_ERR(0, 142, __pyx_L1_error)
+      __PYX_ERR(0, 186, __pyx_L1_error)
     }
-    __pyx_t_6 = __Pyx_dict_iterator(__pyx_v_self->_transition_enabled_at_start_up, 1, __pyx_n_s_items, (&__pyx_t_4), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 142, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_dict_iterator(__pyx_v_self->_transition_enabled_at_start_up, 1, __pyx_n_s_items, (&__pyx_t_4), (&__pyx_t_5)); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_XDECREF(__pyx_t_2);
     __pyx_t_2 = __pyx_t_6;
@@ -4269,7 +4272,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
     while (1) {
       __pyx_t_8 = __Pyx_dict_iter_next(__pyx_t_2, __pyx_t_4, &__pyx_t_3, &__pyx_t_6, &__pyx_t_7, NULL, __pyx_t_5);
       if (unlikely(__pyx_t_8 == 0)) break;
-      if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 142, __pyx_L1_error)
+      if (unlikely(__pyx_t_8 == -1)) __PYX_ERR(0, 186, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_XDECREF_SET(__pyx_v_transition, __pyx_t_6);
@@ -4277,29 +4280,29 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
       __Pyx_XDECREF_SET(__pyx_v_is_enabled, __pyx_t_7);
       __pyx_t_7 = 0;
 
-      /* "petsi/_autofire.py":143
+      /* "petsi/_autofire.py":187
  *             self._is_build_in_progress = False
  *             for transition, is_enabled in self._transition_enabled_at_start_up.items():
  *                 if is_enabled:             # <<<<<<<<<<<<<<
  *                     self._enable_transition(transition)
  *                 else:
  */
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_is_enabled); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 143, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_is_enabled); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 187, __pyx_L1_error)
       if (__pyx_t_1) {
 
-        /* "petsi/_autofire.py":144
+        /* "petsi/_autofire.py":188
  *             for transition, is_enabled in self._transition_enabled_at_start_up.items():
  *                 if is_enabled:
  *                     self._enable_transition(transition)             # <<<<<<<<<<<<<<
  *                 else:
  *                     "Nothing to do, by default all transitions are treated as disabled."
  */
-        if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 144, __pyx_L1_error)
-        __pyx_t_7 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_enable_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 144, __pyx_L1_error)
+        if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 188, __pyx_L1_error)
+        __pyx_t_7 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_enable_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 188, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
 
-        /* "petsi/_autofire.py":143
+        /* "petsi/_autofire.py":187
  *             self._is_build_in_progress = False
  *             for transition, is_enabled in self._transition_enabled_at_start_up.items():
  *                 if is_enabled:             # <<<<<<<<<<<<<<
@@ -4309,12 +4312,12 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
         goto __pyx_L6;
       }
 
-      /* "petsi/_autofire.py":146
+      /* "petsi/_autofire.py":190
  *                     self._enable_transition(transition)
  *                 else:
  *                     "Nothing to do, by default all transitions are treated as disabled."             # <<<<<<<<<<<<<<
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):
+ *     def enable_transition(self, transition: "_structure.Transition"):
  */
       /*else*/ {
       }
@@ -4322,7 +4325,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_autofire.py":140
+    /* "petsi/_autofire.py":184
  * 
  *     def start(self):
  *         if self._is_build_in_progress:             # <<<<<<<<<<<<<<
@@ -4331,7 +4334,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
  */
   }
 
-  /* "petsi/_autofire.py":139
+  /* "petsi/_autofire.py":183
  *         self._timed_transitions.clear()
  * 
  *     def start(self):             # <<<<<<<<<<<<<<
@@ -4356,10 +4359,10 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_6start(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":148
+/* "petsi/_autofire.py":192
  *                     "Nothing to do, by default all transitions are treated as disabled."
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def enable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = True
  */
@@ -4386,7 +4389,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struc
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_enable_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_enable_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_11FireControl_9enable_transition)) {
         __Pyx_XDECREF(__pyx_r);
@@ -4403,7 +4406,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struc
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, ((PyObject *)__pyx_v_transition)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_transition));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -4424,9 +4427,9 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struc
     #endif
   }
 
-  /* "petsi/_autofire.py":149
+  /* "petsi/_autofire.py":193
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):
+ *     def enable_transition(self, transition: "_structure.Transition"):
  *         if self._is_build_in_progress:             # <<<<<<<<<<<<<<
  *             self._transition_enabled_at_start_up[transition] = True
  *         else:
@@ -4434,8 +4437,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struc
   __pyx_t_5 = (__pyx_v_self->_is_build_in_progress != 0);
   if (__pyx_t_5) {
 
-    /* "petsi/_autofire.py":150
- *     def enable_transition(self, transition: "Structure.Transition"):
+    /* "petsi/_autofire.py":194
+ *     def enable_transition(self, transition: "_structure.Transition"):
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = True             # <<<<<<<<<<<<<<
  *         else:
@@ -4443,13 +4446,13 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struc
  */
     if (unlikely(__pyx_v_self->_transition_enabled_at_start_up == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 150, __pyx_L1_error)
+      __PYX_ERR(0, 194, __pyx_L1_error)
     }
-    if (unlikely(PyDict_SetItem(__pyx_v_self->_transition_enabled_at_start_up, ((PyObject *)__pyx_v_transition), Py_True) < 0)) __PYX_ERR(0, 150, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_self->_transition_enabled_at_start_up, ((PyObject *)__pyx_v_transition), Py_True) < 0)) __PYX_ERR(0, 194, __pyx_L1_error)
 
-    /* "petsi/_autofire.py":149
+    /* "petsi/_autofire.py":193
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):
+ *     def enable_transition(self, transition: "_structure.Transition"):
  *         if self._is_build_in_progress:             # <<<<<<<<<<<<<<
  *             self._transition_enabled_at_start_up[transition] = True
  *         else:
@@ -4457,24 +4460,24 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_enable_transition(struc
     goto __pyx_L3;
   }
 
-  /* "petsi/_autofire.py":152
+  /* "petsi/_autofire.py":196
  *             self._transition_enabled_at_start_up[transition] = True
  *         else:
  *             self._enable_transition(transition)             # <<<<<<<<<<<<<<
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):
+ *     def disable_transition(self, transition: "_structure.Transition"):
  */
   /*else*/ {
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_enable_transition(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 152, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_enable_transition(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "petsi/_autofire.py":148
+  /* "petsi/_autofire.py":192
  *                     "Nothing to do, by default all transitions are treated as disabled."
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def enable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = True
  */
@@ -4505,7 +4508,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_9enable_transition(PyO
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("enable_transition (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 192, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition));
 
   /* function exit code */
@@ -4526,7 +4529,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("enable_transition", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_11FireControl_enable_transition(__pyx_v_self, __pyx_v_transition, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_11FireControl_enable_transition(__pyx_v_self, __pyx_v_transition, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4543,10 +4546,10 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_8enable_transition(str
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":154
+/* "petsi/_autofire.py":198
  *             self._enable_transition(transition)
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def disable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = False
  */
@@ -4573,7 +4576,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(stru
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_disable_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_disable_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_11FireControl_11disable_transition)) {
         __Pyx_XDECREF(__pyx_r);
@@ -4590,7 +4593,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(stru
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, ((PyObject *)__pyx_v_transition)) : __Pyx_PyObject_CallOneArg(__pyx_t_3, ((PyObject *)__pyx_v_transition));
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -4611,9 +4614,9 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(stru
     #endif
   }
 
-  /* "petsi/_autofire.py":155
+  /* "petsi/_autofire.py":199
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):
+ *     def disable_transition(self, transition: "_structure.Transition"):
  *         if self._is_build_in_progress:             # <<<<<<<<<<<<<<
  *             self._transition_enabled_at_start_up[transition] = False
  *         else:
@@ -4621,8 +4624,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(stru
   __pyx_t_5 = (__pyx_v_self->_is_build_in_progress != 0);
   if (__pyx_t_5) {
 
-    /* "petsi/_autofire.py":156
- *     def disable_transition(self, transition: "Structure.Transition"):
+    /* "petsi/_autofire.py":200
+ *     def disable_transition(self, transition: "_structure.Transition"):
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = False             # <<<<<<<<<<<<<<
  *         else:
@@ -4630,13 +4633,13 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(stru
  */
     if (unlikely(__pyx_v_self->_transition_enabled_at_start_up == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 156, __pyx_L1_error)
+      __PYX_ERR(0, 200, __pyx_L1_error)
     }
-    if (unlikely(PyDict_SetItem(__pyx_v_self->_transition_enabled_at_start_up, ((PyObject *)__pyx_v_transition), Py_False) < 0)) __PYX_ERR(0, 156, __pyx_L1_error)
+    if (unlikely(PyDict_SetItem(__pyx_v_self->_transition_enabled_at_start_up, ((PyObject *)__pyx_v_transition), Py_False) < 0)) __PYX_ERR(0, 200, __pyx_L1_error)
 
-    /* "petsi/_autofire.py":155
+    /* "petsi/_autofire.py":199
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):
+ *     def disable_transition(self, transition: "_structure.Transition"):
  *         if self._is_build_in_progress:             # <<<<<<<<<<<<<<
  *             self._transition_enabled_at_start_up[transition] = False
  *         else:
@@ -4644,24 +4647,24 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl_disable_transition(stru
     goto __pyx_L3;
   }
 
-  /* "petsi/_autofire.py":158
+  /* "petsi/_autofire.py":202
  *             self._transition_enabled_at_start_up[transition] = False
  *         else:
  *             self._disable_transition(transition)             # <<<<<<<<<<<<<<
  * 
- *     def _schedule_timed_transition(self, transition: "Structure.Transition"):
+ *     def _schedule_timed_transition(self, transition: "_structure.Transition"):
  */
   /*else*/ {
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_disable_transition(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 158, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_disable_transition(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 202, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "petsi/_autofire.py":154
+  /* "petsi/_autofire.py":198
  *             self._enable_transition(transition)
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def disable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = False
  */
@@ -4692,7 +4695,7 @@ static PyObject *__pyx_pw_5petsi_9_autofire_11FireControl_11disable_transition(P
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("disable_transition (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_transition), __pyx_ptype_5petsi_10_structure_Transition, 1, "transition", 0))) __PYX_ERR(0, 198, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(((struct __pyx_obj_5petsi_9_autofire_FireControl *)__pyx_v_self), ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition));
 
   /* function exit code */
@@ -4713,7 +4716,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(s
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("disable_transition", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_11FireControl_disable_transition(__pyx_v_self, __pyx_v_transition, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_11FireControl_disable_transition(__pyx_v_self, __pyx_v_transition, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4730,10 +4733,10 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_10disable_transition(s
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":160
+/* "petsi/_autofire.py":204
  *             self._disable_transition(transition)
  * 
- *     def _schedule_timed_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _schedule_timed_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         deadline: float = self.current_time + transition.get_duration()
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  */
@@ -4754,33 +4757,33 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_schedule_timed_transition", 0);
 
-  /* "petsi/_autofire.py":161
+  /* "petsi/_autofire.py":205
  * 
- *     def _schedule_timed_transition(self, transition: "Structure.Transition"):
+ *     def _schedule_timed_transition(self, transition: "_structure.Transition"):
  *         deadline: float = self.current_time + transition.get_duration()             # <<<<<<<<<<<<<<
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  * 
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_transition->__pyx_vtab)->get_duration(__pyx_v_transition); if (unlikely(__pyx_t_1 == ((double)-999.0) && PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_10_structure_Transition *)__pyx_v_transition->__pyx_vtab)->get_duration(__pyx_v_transition); if (unlikely(__pyx_t_1 == ((double)-999.0) && PyErr_Occurred())) __PYX_ERR(0, 205, __pyx_L1_error)
   __pyx_v_deadline = (__pyx_v_self->current_time + __pyx_t_1);
 
-  /* "petsi/_autofire.py":162
- *     def _schedule_timed_transition(self, transition: "Structure.Transition"):
+  /* "petsi/_autofire.py":206
+ *     def _schedule_timed_transition(self, transition: "_structure.Transition"):
  *         deadline: float = self.current_time + transition.get_duration()
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))             # <<<<<<<<<<<<<<
  * 
- *     def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):
+ *     def _remove_timed_transition_from_schedule(self, transition: "_structure.Transition"):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_heappush); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_heappush); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_deadline); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_deadline); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = __pyx_v_self->_deadline_disambiguator;
   __Pyx_INCREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyIter_Next(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyIter_Next(__pyx_t_5); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 162, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 206, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_4);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
@@ -4806,7 +4809,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_self->_timed_transitions, __pyx_t_5};
-    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -4815,14 +4818,14 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_self->_timed_transitions, __pyx_t_5};
-    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_7, 2+__pyx_t_7); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else
   #endif
   {
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_7); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 206, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_6) {
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -4833,17 +4836,17 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_7, __pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 162, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 206, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":160
+  /* "petsi/_autofire.py":204
  *             self._disable_transition(transition)
  * 
- *     def _schedule_timed_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _schedule_timed_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         deadline: float = self.current_time + transition.get_duration()
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  */
@@ -4865,10 +4868,10 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__schedule_timed_transit
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":164
+/* "petsi/_autofire.py":208
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  * 
- *     def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _remove_timed_transition_from_schedule(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         assert self._next_timed_transition() is transition, \
  *             "Wow... cancelling a timed Transition before firing it..."
  */
@@ -4885,34 +4888,34 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transitio
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_remove_timed_transition_from_schedule", 0);
 
-  /* "petsi/_autofire.py":165
+  /* "petsi/_autofire.py":209
  * 
- *     def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):
+ *     def _remove_timed_transition_from_schedule(self, transition: "_structure.Transition"):
  *         assert self._next_timed_transition() is transition, \             # <<<<<<<<<<<<<<
  *             "Wow... cancelling a timed Transition before firing it..."
  *         heappop(self._timed_transitions)
  */
   #ifndef CYTHON_WITHOUT_ASSERTIONS
   if (unlikely(!Py_OptimizeFlag)) {
-    __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_next_timed_transition(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
+    __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_next_timed_transition(__pyx_v_self)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 209, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_2 = (((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1) == __pyx_v_transition);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     if (unlikely(!(__pyx_t_2 != 0))) {
       PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_Wow_cancelling_a_timed_Transitio);
-      __PYX_ERR(0, 165, __pyx_L1_error)
+      __PYX_ERR(0, 209, __pyx_L1_error)
     }
   }
   #endif
 
-  /* "petsi/_autofire.py":167
+  /* "petsi/_autofire.py":211
  *         assert self._next_timed_transition() is transition, \
  *             "Wow... cancelling a timed Transition before firing it..."
  *         heappop(self._timed_transitions)             # <<<<<<<<<<<<<<
  * 
- *     def _enable_transition(self, transition: "Structure.Transition"):
+ *     def _enable_transition(self, transition: "_structure.Transition"):
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_heappop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_heappop); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
@@ -4926,15 +4929,15 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transitio
   }
   __pyx_t_1 = (__pyx_t_4) ? __Pyx_PyObject_Call2Args(__pyx_t_3, __pyx_t_4, __pyx_v_self->_timed_transitions) : __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_self->_timed_transitions);
   __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":164
+  /* "petsi/_autofire.py":208
  *         heappush(self._timed_transitions, (deadline, next(self._deadline_disambiguator), transition))
  * 
- *     def _remove_timed_transition_from_schedule(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _remove_timed_transition_from_schedule(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         assert self._next_timed_transition() is transition, \
  *             "Wow... cancelling a timed Transition before firing it..."
  */
@@ -4954,10 +4957,10 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__remove_timed_transitio
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":169
+/* "petsi/_autofire.py":213
  *         heappop(self._timed_transitions)
  * 
- *     def _enable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _enable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if transition.is_timed:
  *             self._schedule_timed_transition(transition)
  */
@@ -4980,33 +4983,33 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_enable_transition", 0);
 
-  /* "petsi/_autofire.py":170
+  /* "petsi/_autofire.py":214
  * 
- *     def _enable_transition(self, transition: "Structure.Transition"):
+ *     def _enable_transition(self, transition: "_structure.Transition"):
  *         if transition.is_timed:             # <<<<<<<<<<<<<<
  *             self._schedule_timed_transition(transition)
  *         else:
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_transition), __pyx_n_s_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_transition), __pyx_n_s_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 214, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "petsi/_autofire.py":171
- *     def _enable_transition(self, transition: "Structure.Transition"):
+    /* "petsi/_autofire.py":215
+ *     def _enable_transition(self, transition: "_structure.Transition"):
  *         if transition.is_timed:
  *             self._schedule_timed_transition(transition)             # <<<<<<<<<<<<<<
  *         else:
  *             priority: int = transition.priority
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_schedule_timed_transition(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_schedule_timed_transition(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":170
+    /* "petsi/_autofire.py":214
  * 
- *     def _enable_transition(self, transition: "Structure.Transition"):
+ *     def _enable_transition(self, transition: "_structure.Transition"):
  *         if transition.is_timed:             # <<<<<<<<<<<<<<
  *             self._schedule_timed_transition(transition)
  *         else:
@@ -5014,7 +5017,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
     goto __pyx_L3;
   }
 
-  /* "petsi/_autofire.py":173
+  /* "petsi/_autofire.py":217
  *             self._schedule_timed_transition(transition)
  *         else:
  *             priority: int = transition.priority             # <<<<<<<<<<<<<<
@@ -5025,56 +5028,56 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
     __pyx_t_3 = __pyx_v_transition->priority;
     __pyx_v_priority = __pyx_t_3;
 
-    /* "petsi/_autofire.py":174
+    /* "petsi/_autofire.py":218
  *         else:
  *             priority: int = transition.priority
  *             priority_level: _PriorityLevel = self._priority_levels[priority]             # <<<<<<<<<<<<<<
  *             priority_level.add(transition)
  *             if priority not in self._active_priorities:
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_self->_priority_levels, __pyx_v_priority, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 174, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_self->_priority_levels, __pyx_v_priority, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 218, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9_autofire__PriorityLevel))))) __PYX_ERR(0, 174, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9_autofire__PriorityLevel))))) __PYX_ERR(0, 218, __pyx_L1_error)
     __pyx_v_priority_level = ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":175
+    /* "petsi/_autofire.py":219
  *             priority: int = transition.priority
  *             priority_level: _PriorityLevel = self._priority_levels[priority]
  *             priority_level.add(transition)             # <<<<<<<<<<<<<<
  *             if priority not in self._active_priorities:
  *                 heappush(self._active_priority_levels, priority_level)
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *)__pyx_v_priority_level->__pyx_vtab)->add(__pyx_v_priority_level, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 175, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *)__pyx_v_priority_level->__pyx_vtab)->add(__pyx_v_priority_level, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 219, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":176
+    /* "petsi/_autofire.py":220
  *             priority_level: _PriorityLevel = self._priority_levels[priority]
  *             priority_level.add(transition)
  *             if priority not in self._active_priorities:             # <<<<<<<<<<<<<<
  *                 heappush(self._active_priority_levels, priority_level)
  *                 self._active_priorities.add(priority)
  */
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (unlikely(__pyx_v_self->_active_priorities == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 176, __pyx_L1_error)
+      __PYX_ERR(0, 220, __pyx_L1_error)
     }
-    __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_self->_active_priorities, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 176, __pyx_L1_error)
+    __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_self->_active_priorities, Py_NE)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 220, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_4 = (__pyx_t_2 != 0);
     if (__pyx_t_4) {
 
-      /* "petsi/_autofire.py":177
+      /* "petsi/_autofire.py":221
  *             priority_level.add(transition)
  *             if priority not in self._active_priorities:
  *                 heappush(self._active_priority_levels, priority_level)             # <<<<<<<<<<<<<<
  *                 self._active_priorities.add(priority)
  * 
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_heappush); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 177, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_5, __pyx_n_s_heappush); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 221, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_6 = NULL;
       __pyx_t_3 = 0;
@@ -5091,7 +5094,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
       #if CYTHON_FAST_PYCALL
       if (PyFunction_Check(__pyx_t_5)) {
         PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_self->_active_priority_levels, ((PyObject *)__pyx_v_priority_level)};
-        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_t_1);
       } else
@@ -5099,13 +5102,13 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
       #if CYTHON_FAST_PYCCALL
       if (__Pyx_PyFastCFunction_Check(__pyx_t_5)) {
         PyObject *__pyx_temp[3] = {__pyx_t_6, __pyx_v_self->_active_priority_levels, ((PyObject *)__pyx_v_priority_level)};
-        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_5, __pyx_temp+1-__pyx_t_3, 2+__pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_XDECREF(__pyx_t_6); __pyx_t_6 = 0;
         __Pyx_GOTREF(__pyx_t_1);
       } else
       #endif
       {
-        __pyx_t_7 = PyTuple_New(2+__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 177, __pyx_L1_error)
+        __pyx_t_7 = PyTuple_New(2+__pyx_t_3); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_7);
         if (__pyx_t_6) {
           __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
@@ -5116,30 +5119,30 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
         __Pyx_INCREF(((PyObject *)__pyx_v_priority_level));
         __Pyx_GIVEREF(((PyObject *)__pyx_v_priority_level));
         PyTuple_SET_ITEM(__pyx_t_7, 1+__pyx_t_3, ((PyObject *)__pyx_v_priority_level));
-        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 177, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 221, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "petsi/_autofire.py":178
+      /* "petsi/_autofire.py":222
  *             if priority not in self._active_priorities:
  *                 heappush(self._active_priority_levels, priority_level)
  *                 self._active_priorities.add(priority)             # <<<<<<<<<<<<<<
  * 
- *     def _disable_transition(self, transition: "Structure.Transition"):
+ *     def _disable_transition(self, transition: "_structure.Transition"):
  */
       if (unlikely(__pyx_v_self->_active_priorities == Py_None)) {
         PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "add");
-        __PYX_ERR(0, 178, __pyx_L1_error)
+        __PYX_ERR(0, 222, __pyx_L1_error)
       }
-      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 222, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_8 = PySet_Add(__pyx_v_self->_active_priorities, __pyx_t_1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 178, __pyx_L1_error)
+      __pyx_t_8 = PySet_Add(__pyx_v_self->_active_priorities, __pyx_t_1); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 222, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "petsi/_autofire.py":176
+      /* "petsi/_autofire.py":220
  *             priority_level: _PriorityLevel = self._priority_levels[priority]
  *             priority_level.add(transition)
  *             if priority not in self._active_priorities:             # <<<<<<<<<<<<<<
@@ -5150,10 +5153,10 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
   }
   __pyx_L3:;
 
-  /* "petsi/_autofire.py":169
+  /* "petsi/_autofire.py":213
  *         heappop(self._timed_transitions)
  * 
- *     def _enable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _enable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if transition.is_timed:
  *             self._schedule_timed_transition(transition)
  */
@@ -5175,10 +5178,10 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__enable_transition(stru
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":180
+/* "petsi/_autofire.py":224
  *                 self._active_priorities.add(priority)
  * 
- *     def _disable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _disable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if transition.is_timed:
  *             self._remove_timed_transition_from_schedule(transition)
  */
@@ -5196,33 +5199,33 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(str
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_disable_transition", 0);
 
-  /* "petsi/_autofire.py":181
+  /* "petsi/_autofire.py":225
  * 
- *     def _disable_transition(self, transition: "Structure.Transition"):
+ *     def _disable_transition(self, transition: "_structure.Transition"):
  *         if transition.is_timed:             # <<<<<<<<<<<<<<
  *             self._remove_timed_transition_from_schedule(transition)
  *         else:
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_transition), __pyx_n_s_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_transition), __pyx_n_s_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 225, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 225, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_2) {
 
-    /* "petsi/_autofire.py":182
- *     def _disable_transition(self, transition: "Structure.Transition"):
+    /* "petsi/_autofire.py":226
+ *     def _disable_transition(self, transition: "_structure.Transition"):
  *         if transition.is_timed:
  *             self._remove_timed_transition_from_schedule(transition)             # <<<<<<<<<<<<<<
  *         else:
  *             priority = transition.priority
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_remove_timed_transition_from_schedule(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_remove_timed_transition_from_schedule(__pyx_v_self, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 226, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":181
+    /* "petsi/_autofire.py":225
  * 
- *     def _disable_transition(self, transition: "Structure.Transition"):
+ *     def _disable_transition(self, transition: "_structure.Transition"):
  *         if transition.is_timed:             # <<<<<<<<<<<<<<
  *             self._remove_timed_transition_from_schedule(transition)
  *         else:
@@ -5230,7 +5233,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(str
     goto __pyx_L3;
   }
 
-  /* "petsi/_autofire.py":184
+  /* "petsi/_autofire.py":228
  *             self._remove_timed_transition_from_schedule(transition)
  *         else:
  *             priority = transition.priority             # <<<<<<<<<<<<<<
@@ -5241,7 +5244,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(str
     __pyx_t_3 = __pyx_v_transition->priority;
     __pyx_v_priority = __pyx_t_3;
 
-    /* "petsi/_autofire.py":185
+    /* "petsi/_autofire.py":229
  *         else:
  *             priority = transition.priority
  *             assert priority in self._active_priorities, "Wow... "             # <<<<<<<<<<<<<<
@@ -5250,51 +5253,51 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(str
  */
     #ifndef CYTHON_WITHOUT_ASSERTIONS
     if (unlikely(!Py_OptimizeFlag)) {
-      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 185, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (unlikely(__pyx_v_self->_active_priorities == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-        __PYX_ERR(0, 185, __pyx_L1_error)
+        __PYX_ERR(0, 229, __pyx_L1_error)
       }
-      __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_self->_active_priorities, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 185, __pyx_L1_error)
+      __pyx_t_2 = (__Pyx_PySet_ContainsTF(__pyx_t_1, __pyx_v_self->_active_priorities, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 229, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (unlikely(!(__pyx_t_2 != 0))) {
         PyErr_SetObject(PyExc_AssertionError, __pyx_kp_u_Wow);
-        __PYX_ERR(0, 185, __pyx_L1_error)
+        __PYX_ERR(0, 229, __pyx_L1_error)
       }
     }
     #endif
 
-    /* "petsi/_autofire.py":186
+    /* "petsi/_autofire.py":230
  *             priority = transition.priority
  *             assert priority in self._active_priorities, "Wow... "
  *             priority_level = self._priority_levels[priority]             # <<<<<<<<<<<<<<
  *             priority_level.remove(transition)
  *             # It would be too expensive to remove a just emptied priority_level from
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_self->_priority_levels, __pyx_v_priority, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_self->_priority_levels, __pyx_v_priority, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 230, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9_autofire__PriorityLevel))))) __PYX_ERR(0, 186, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9_autofire__PriorityLevel))))) __PYX_ERR(0, 230, __pyx_L1_error)
     __pyx_v_priority_level = ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":187
+    /* "petsi/_autofire.py":231
  *             assert priority in self._active_priorities, "Wow... "
  *             priority_level = self._priority_levels[priority]
  *             priority_level.remove(transition)             # <<<<<<<<<<<<<<
  *             # It would be too expensive to remove a just emptied priority_level from
  *             # the _active_priority_levels heap, so we do not do that. We wait until
  */
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *)__pyx_v_priority_level->__pyx_vtab)->remove(__pyx_v_priority_level, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 187, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire__PriorityLevel *)__pyx_v_priority_level->__pyx_vtab)->remove(__pyx_v_priority_level, __pyx_v_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 231, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
   __pyx_L3:;
 
-  /* "petsi/_autofire.py":180
+  /* "petsi/_autofire.py":224
  *                 self._active_priorities.add(priority)
  * 
- *     def _disable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def _disable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if transition.is_timed:
  *             self._remove_timed_transition_from_schedule(transition)
  */
@@ -5313,7 +5316,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__disable_transition(str
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":192
+/* "petsi/_autofire.py":236
  *             # it gets to the front of the heap and remove it then.
  * 
  *     def _next_timed_transition(self):             # <<<<<<<<<<<<<<
@@ -5331,7 +5334,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_f_5petsi_9_autofir
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_next_timed_transition", 0);
 
-  /* "petsi/_autofire.py":193
+  /* "petsi/_autofire.py":237
  * 
  *     def _next_timed_transition(self):
  *         return self._timed_transitions[0][-1]             # <<<<<<<<<<<<<<
@@ -5341,19 +5344,19 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_f_5petsi_9_autofir
   __Pyx_XDECREF(((PyObject *)__pyx_r));
   if (unlikely(__pyx_v_self->_timed_transitions == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 193, __pyx_L1_error)
+    __PYX_ERR(0, 237, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->_timed_transitions, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->_timed_transitions, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 193, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, -1L, long, 1, __Pyx_PyInt_From_long, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 237, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 193, __pyx_L1_error)
+  if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 237, __pyx_L1_error)
   __pyx_r = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2);
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":192
+  /* "petsi/_autofire.py":236
  *             # it gets to the front of the heap and remove it then.
  * 
  *     def _next_timed_transition(self):             # <<<<<<<<<<<<<<
@@ -5373,7 +5376,7 @@ static struct __pyx_obj_5petsi_10_structure_Transition *__pyx_f_5petsi_9_autofir
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":195
+/* "petsi/_autofire.py":239
  *         return self._timed_transitions[0][-1]
  * 
  *     def _select_next_transition(self):             # <<<<<<<<<<<<<<
@@ -5417,7 +5420,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_select_next_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_select_next_transition); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_11FireControl_13_select_next_transition)) {
         __Pyx_XDECREF(__pyx_r);
@@ -5434,10 +5437,10 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 195, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 239, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (!(likely(PyTuple_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 195, __pyx_L1_error)
+        if (!(likely(PyTuple_CheckExact(__pyx_t_2))||((__pyx_t_2) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_t_2)->tp_name), 0))) __PYX_ERR(0, 239, __pyx_L1_error)
         __pyx_r = ((PyObject*)__pyx_t_2);
         __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -5456,7 +5459,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     #endif
   }
 
-  /* "petsi/_autofire.py":202
+  /* "petsi/_autofire.py":246
  * 
  *         # First try to find an enabled immediate transition
  *         while len(self._active_priority_levels) > 0:             # <<<<<<<<<<<<<<
@@ -5468,14 +5471,14 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     __Pyx_INCREF(__pyx_t_1);
     if (unlikely(__pyx_t_1 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 202, __pyx_L1_error)
+      __PYX_ERR(0, 246, __pyx_L1_error)
     }
-    __pyx_t_5 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 202, __pyx_L1_error)
+    __pyx_t_5 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 246, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_6 = ((__pyx_t_5 > 0) != 0);
     if (!__pyx_t_6) break;
 
-    /* "petsi/_autofire.py":203
+    /* "petsi/_autofire.py":247
  *         # First try to find an enabled immediate transition
  *         while len(self._active_priority_levels) > 0:
  *             priority_level = self._active_priority_levels[0]             # <<<<<<<<<<<<<<
@@ -5484,15 +5487,15 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
  */
     if (unlikely(__pyx_v_self->_active_priority_levels == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 203, __pyx_L1_error)
+      __PYX_ERR(0, 247, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->_active_priority_levels, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 203, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->_active_priority_levels, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 247, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9_autofire__PriorityLevel))))) __PYX_ERR(0, 203, __pyx_L1_error)
+    if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5petsi_9_autofire__PriorityLevel))))) __PYX_ERR(0, 247, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_priority_level, ((struct __pyx_obj_5petsi_9_autofire__PriorityLevel *)__pyx_t_1));
     __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":204
+    /* "petsi/_autofire.py":248
  *         while len(self._active_priority_levels) > 0:
  *             priority_level = self._active_priority_levels[0]
  *             num_transitions = len(priority_level.transitions)             # <<<<<<<<<<<<<<
@@ -5503,13 +5506,13 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     __Pyx_INCREF(__pyx_t_1);
     if (unlikely(__pyx_t_1 == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 204, __pyx_L1_error)
+      __PYX_ERR(0, 248, __pyx_L1_error)
     }
-    __pyx_t_5 = PySet_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 204, __pyx_L1_error)
+    __pyx_t_5 = PySet_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_5 == ((Py_ssize_t)-1))) __PYX_ERR(0, 248, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_v_num_transitions = __pyx_t_5;
 
-    /* "petsi/_autofire.py":206
+    /* "petsi/_autofire.py":250
  *             num_transitions = len(priority_level.transitions)
  * 
  *             if num_transitions == 0:             # <<<<<<<<<<<<<<
@@ -5519,14 +5522,14 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     __pyx_t_6 = ((__pyx_v_num_transitions == 0) != 0);
     if (__pyx_t_6) {
 
-      /* "petsi/_autofire.py":207
+      /* "petsi/_autofire.py":251
  * 
  *             if num_transitions == 0:
  *                 heappop(self._active_priority_levels)             # <<<<<<<<<<<<<<
  *                 self._active_priorities.remove(priority_level.priority)
  *                 continue
  */
-      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_heappop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 207, __pyx_L1_error)
+      __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_heappop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 251, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __pyx_t_3 = NULL;
       if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_2))) {
@@ -5540,12 +5543,12 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       }
       __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_Call2Args(__pyx_t_2, __pyx_t_3, __pyx_v_self->_active_priority_levels) : __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_self->_active_priority_levels);
       __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 207, __pyx_L1_error)
+      if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 251, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "petsi/_autofire.py":208
+      /* "petsi/_autofire.py":252
  *             if num_transitions == 0:
  *                 heappop(self._active_priority_levels)
  *                 self._active_priorities.remove(priority_level.priority)             # <<<<<<<<<<<<<<
@@ -5554,14 +5557,14 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
  */
       if (unlikely(__pyx_v_self->_active_priorities == Py_None)) {
         PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "remove");
-        __PYX_ERR(0, 208, __pyx_L1_error)
+        __PYX_ERR(0, 252, __pyx_L1_error)
       }
-      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority_level->priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 208, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_priority_level->priority); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 252, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = __Pyx_PySet_Remove(__pyx_v_self->_active_priorities, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 208, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PySet_Remove(__pyx_v_self->_active_priorities, __pyx_t_1); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 252, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "petsi/_autofire.py":209
+      /* "petsi/_autofire.py":253
  *                 heappop(self._active_priority_levels)
  *                 self._active_priorities.remove(priority_level.priority)
  *                 continue             # <<<<<<<<<<<<<<
@@ -5570,7 +5573,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
  */
       goto __pyx_L3_continue;
 
-      /* "petsi/_autofire.py":206
+      /* "petsi/_autofire.py":250
  *             num_transitions = len(priority_level.transitions)
  * 
  *             if num_transitions == 0:             # <<<<<<<<<<<<<<
@@ -5579,19 +5582,19 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
  */
     }
 
-    /* "petsi/_autofire.py":211
+    /* "petsi/_autofire.py":255
  *                 continue
  * 
  *             weights = list()             # <<<<<<<<<<<<<<
  *             for transition in priority_level.transitions:
  *                 weights.append(transition.weight)
  */
-    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 211, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_v_weights = ((PyObject*)__pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":212
+    /* "petsi/_autofire.py":256
  * 
  *             weights = list()
  *             for transition in priority_level.transitions:             # <<<<<<<<<<<<<<
@@ -5599,7 +5602,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
  * 
  */
     __pyx_t_5 = 0;
-    __pyx_t_2 = __Pyx_set_iterator(__pyx_v_priority_level->transitions, 1, (&__pyx_t_8), (&__pyx_t_9)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 212, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_set_iterator(__pyx_v_priority_level->transitions, 1, (&__pyx_t_8), (&__pyx_t_9)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_XDECREF(__pyx_t_1);
     __pyx_t_1 = __pyx_t_2;
@@ -5607,36 +5610,36 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     while (1) {
       __pyx_t_10 = __Pyx_set_iter_next(__pyx_t_1, __pyx_t_8, &__pyx_t_5, &__pyx_t_2, __pyx_t_9);
       if (unlikely(__pyx_t_10 == 0)) break;
-      if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 212, __pyx_L1_error)
+      if (unlikely(__pyx_t_10 == -1)) __PYX_ERR(0, 256, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 212, __pyx_L1_error)
+      if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 256, __pyx_L1_error)
       __Pyx_XDECREF_SET(__pyx_v_transition, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2));
       __pyx_t_2 = 0;
 
-      /* "petsi/_autofire.py":213
+      /* "petsi/_autofire.py":257
  *             weights = list()
  *             for transition in priority_level.transitions:
  *                 weights.append(transition.weight)             # <<<<<<<<<<<<<<
  * 
  *             transition = random_choices(list(priority_level.transitions), weights)[0]
  */
-      __pyx_t_2 = PyFloat_FromDouble(__pyx_v_transition->weight); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 213, __pyx_L1_error)
+      __pyx_t_2 = PyFloat_FromDouble(__pyx_v_transition->weight); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_weights, __pyx_t_2); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 213, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyList_Append(__pyx_v_weights, __pyx_t_2); if (unlikely(__pyx_t_7 == ((int)-1))) __PYX_ERR(0, 257, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":215
+    /* "petsi/_autofire.py":259
  *                 weights.append(transition.weight)
  * 
  *             transition = random_choices(list(priority_level.transitions), weights)[0]             # <<<<<<<<<<<<<<
  *             new_time = self.current_time
  * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_random_choices); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_random_choices); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_List(__pyx_v_priority_level->transitions); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 215, __pyx_L1_error)
+    __pyx_t_3 = PySequence_List(__pyx_v_priority_level->transitions); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_4 = NULL;
     __pyx_t_9 = 0;
@@ -5653,7 +5656,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_3, __pyx_v_weights};
-      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -5662,14 +5665,14 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_2)) {
       PyObject *__pyx_temp[3] = {__pyx_t_4, __pyx_t_3, __pyx_v_weights};
-      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_2, __pyx_temp+1-__pyx_t_9, 2+__pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     } else
     #endif
     {
-      __pyx_t_11 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(2+__pyx_t_9); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 259, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       if (__pyx_t_4) {
         __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_4); __pyx_t_4 = NULL;
@@ -5680,19 +5683,19 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       __Pyx_GIVEREF(__pyx_v_weights);
       PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_9, __pyx_v_weights);
       __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 215, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_11, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 259, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 215, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_1, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 215, __pyx_L1_error)
+    if (!(likely(((__pyx_t_2) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 259, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_transition, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_2));
     __pyx_t_2 = 0;
 
-    /* "petsi/_autofire.py":216
+    /* "petsi/_autofire.py":260
  * 
  *             transition = random_choices(list(priority_level.transitions), weights)[0]
  *             new_time = self.current_time             # <<<<<<<<<<<<<<
@@ -5702,7 +5705,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     __pyx_t_12 = __pyx_v_self->current_time;
     __pyx_v_new_time = __pyx_t_12;
 
-    /* "petsi/_autofire.py":224
+    /* "petsi/_autofire.py":268
  *             # The else clause of the loop will not be executed, as the
  *             # loop condition still holds!
  *             break             # <<<<<<<<<<<<<<
@@ -5713,7 +5716,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
     __pyx_L3_continue:;
   }
 
-  /* "petsi/_autofire.py":229
+  /* "petsi/_autofire.py":273
  *             # There is no enabled immediate transition, so we try a timed one
  *             # Will raise an IndexError if there is no enabled timed transition
  *             new_time, _, transition = self._timed_transitions[0]             # <<<<<<<<<<<<<<
@@ -5723,9 +5726,9 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
   /*else*/ {
     if (unlikely(__pyx_v_self->_timed_transitions == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 229, __pyx_L1_error)
+      __PYX_ERR(0, 273, __pyx_L1_error)
     }
-    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_self->_timed_transitions, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 229, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_self->_timed_transitions, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 273, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     if ((likely(PyTuple_CheckExact(__pyx_t_2))) || (PyList_CheckExact(__pyx_t_2))) {
       PyObject* sequence = __pyx_t_2;
@@ -5733,7 +5736,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 229, __pyx_L1_error)
+        __PYX_ERR(0, 273, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -5749,17 +5752,17 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       __Pyx_INCREF(__pyx_t_11);
       __Pyx_INCREF(__pyx_t_3);
       #else
-      __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 273, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_11 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_11 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 273, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
-      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_3 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 273, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       #endif
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_4 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 229, __pyx_L1_error)
+      __pyx_t_4 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 273, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __pyx_t_13 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -5769,7 +5772,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       __Pyx_GOTREF(__pyx_t_11);
       index = 2; __pyx_t_3 = __pyx_t_13(__pyx_t_4); if (unlikely(!__pyx_t_3)) goto __pyx_L8_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_3);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_4), 3) < 0) __PYX_ERR(0, 229, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_4), 3) < 0) __PYX_ERR(0, 273, __pyx_L1_error)
       __pyx_t_13 = NULL;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       goto __pyx_L9_unpacking_done;
@@ -5777,12 +5780,12 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_13 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 229, __pyx_L1_error)
+      __PYX_ERR(0, 273, __pyx_L1_error)
       __pyx_L9_unpacking_done:;
     }
-    __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_12 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 229, __pyx_L1_error)
+    __pyx_t_12 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_12 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 273, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 229, __pyx_L1_error)
+    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 273, __pyx_L1_error)
     __pyx_v_new_time = __pyx_t_12;
     __pyx_v__ = __pyx_t_11;
     __pyx_t_11 = 0;
@@ -5791,7 +5794,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
   }
   __pyx_L4_break:;
 
-  /* "petsi/_autofire.py":231
+  /* "petsi/_autofire.py":275
  *             new_time, _, transition = self._timed_transitions[0]
  * 
  *         return new_time, transition             # <<<<<<<<<<<<<<
@@ -5799,9 +5802,9 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
  *     def fire_next(self):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_new_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_2 = PyFloat_FromDouble(__pyx_v_new_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 231, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 275, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_2);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_2);
@@ -5813,7 +5816,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "petsi/_autofire.py":195
+  /* "petsi/_autofire.py":239
  *         return self._timed_transitions[0][-1]
  * 
  *     def _select_next_transition(self):             # <<<<<<<<<<<<<<
@@ -5864,7 +5867,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_12_select_next_transit
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("_select_next_transition", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_11FireControl__select_next_transition(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_11FireControl__select_next_transition(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5881,7 +5884,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_12_select_next_transit
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":233
+/* "petsi/_autofire.py":277
  *         return new_time, transition
  * 
  *     def fire_next(self):             # <<<<<<<<<<<<<<
@@ -5919,14 +5922,14 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("fire_next", 0);
 
-  /* "petsi/_autofire.py":234
+  /* "petsi/_autofire.py":278
  * 
  *     def fire_next(self):
  *         new_time, transition = self._select_next_transition()             # <<<<<<<<<<<<<<
  *         # print(new_time, transition.name)
  *         self.current_time = new_time
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_select_next_transition(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 234, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_select_next_transition(__pyx_v_self, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 278, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (likely(__pyx_t_1 != Py_None)) {
     PyObject* sequence = __pyx_t_1;
@@ -5934,7 +5937,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
     if (unlikely(size != 2)) {
       if (size > 2) __Pyx_RaiseTooManyValuesError(2);
       else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      __PYX_ERR(0, 234, __pyx_L1_error)
+      __PYX_ERR(0, 278, __pyx_L1_error)
     }
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
     __pyx_t_2 = PyTuple_GET_ITEM(sequence, 0); 
@@ -5942,38 +5945,38 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
     __Pyx_INCREF(__pyx_t_2);
     __Pyx_INCREF(__pyx_t_3);
     #else
-    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_2 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 278, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 234, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 278, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   } else {
-    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 234, __pyx_L1_error)
+    __Pyx_RaiseNoneNotIterableError(); __PYX_ERR(0, 278, __pyx_L1_error)
   }
   __pyx_v_new_time = __pyx_t_2;
   __pyx_t_2 = 0;
   __pyx_v_transition = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "petsi/_autofire.py":236
+  /* "petsi/_autofire.py":280
  *         new_time, transition = self._select_next_transition()
  *         # print(new_time, transition.name)
  *         self.current_time = new_time             # <<<<<<<<<<<<<<
  *         transition.fire()
  * 
  */
-  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_new_time); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 236, __pyx_L1_error)
+  __pyx_t_4 = __pyx_PyFloat_AsDouble(__pyx_v_new_time); if (unlikely((__pyx_t_4 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 280, __pyx_L1_error)
   __pyx_v_self->current_time = __pyx_t_4;
 
-  /* "petsi/_autofire.py":237
+  /* "petsi/_autofire.py":281
  *         # print(new_time, transition.name)
  *         self.current_time = new_time
  *         transition.fire()             # <<<<<<<<<<<<<<
  * 
  *         # Timed transitions that remained enabled after firing them
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_fire); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 237, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_fire); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_3))) {
@@ -5987,60 +5990,60 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
   }
   __pyx_t_1 = (__pyx_t_2) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 237, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 281, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":241
+  /* "petsi/_autofire.py":285
  *         # Timed transitions that remained enabled after firing them
  *         # need to be re-scheduled.
  *         if transition.is_timed and transition.is_enabled:             # <<<<<<<<<<<<<<
  *             self._remove_timed_transition_from_schedule(transition)
  *             self._schedule_timed_transition(transition)
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_is_timed); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (__pyx_t_6) {
   } else {
     __pyx_t_5 = __pyx_t_6;
     goto __pyx_L4_bool_binop_done;
   }
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_transition, __pyx_n_s_is_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 241, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 285, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_5 = __pyx_t_6;
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_5) {
 
-    /* "petsi/_autofire.py":242
+    /* "petsi/_autofire.py":286
  *         # need to be re-scheduled.
  *         if transition.is_timed and transition.is_enabled:
  *             self._remove_timed_transition_from_schedule(transition)             # <<<<<<<<<<<<<<
  *             self._schedule_timed_transition(transition)
  * 
  */
-    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 242, __pyx_L1_error)
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_remove_timed_transition_from_schedule(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 242, __pyx_L1_error)
+    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 286, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_remove_timed_transition_from_schedule(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 286, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":243
+    /* "petsi/_autofire.py":287
  *         if transition.is_timed and transition.is_enabled:
  *             self._remove_timed_transition_from_schedule(transition)
  *             self._schedule_timed_transition(transition)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 243, __pyx_L1_error)
-    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_schedule_timed_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 243, __pyx_L1_error)
+    if (!(likely(((__pyx_v_transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 287, __pyx_L1_error)
+    __pyx_t_1 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->__pyx_vtab)->_schedule_timed_transition(__pyx_v_self, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_v_transition)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 287, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":241
+    /* "petsi/_autofire.py":285
  *         # Timed transitions that remained enabled after firing them
  *         # need to be re-scheduled.
  *         if transition.is_timed and transition.is_enabled:             # <<<<<<<<<<<<<<
@@ -6049,7 +6052,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_14fire_next(struct __p
  */
   }
 
-  /* "petsi/_autofire.py":233
+  /* "petsi/_autofire.py":277
  *         return new_time, transition
  * 
  *     def fire_next(self):             # <<<<<<<<<<<<<<
@@ -6562,10 +6565,10 @@ static PyObject *__pyx_pf_5petsi_9_autofire_11FireControl_18__setstate_cython__(
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":248
+/* "petsi/_autofire.py":292
  * class AutoFirePluginTransitionObserver:
- * 
- *     def __init__(self, _plugin: "Plugin", _transition: "Structure.Transition",             # <<<<<<<<<<<<<<
+ *     """ Observes a single ``Transition`` and forwards the enablement events to the shared ``FireControl`` instance."""
+ *     def __init__(self, _plugin: "Plugin", _transition: "_structure.Transition",             # <<<<<<<<<<<<<<
  *                  _fire_control: "FireControl"):
  *         self._plugin = _plugin
  */
@@ -6607,17 +6610,17 @@ static int __pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_1__init
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_transition)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 248, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 292, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_fire_control_2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 248, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 292, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 248, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 292, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -6632,13 +6635,13 @@ static int __pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_1__init
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 248, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 292, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("petsi._autofire.AutoFirePluginTransitionObserver.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__fire_control), __pyx_ptype_5petsi_9_autofire_FireControl, 1, "_fire_control", 0))) __PYX_ERR(0, 249, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v__fire_control), __pyx_ptype_5petsi_9_autofire_FireControl, 1, "_fire_control", 0))) __PYX_ERR(0, 293, __pyx_L1_error)
   __pyx_r = __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init__(((struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *)__pyx_v_self), __pyx_v__plugin, __pyx_v__transition, __pyx_v__fire_control);
 
   /* function exit code */
@@ -6659,8 +6662,8 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "petsi/_autofire.py":250
- *     def __init__(self, _plugin: "Plugin", _transition: "Structure.Transition",
+  /* "petsi/_autofire.py":294
+ *     def __init__(self, _plugin: "Plugin", _transition: "_structure.Transition",
  *                  _fire_control: "FireControl"):
  *         self._plugin = _plugin             # <<<<<<<<<<<<<<
  *         self._transition = _transition
@@ -6672,14 +6675,14 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
   __Pyx_DECREF(__pyx_v_self->_plugin);
   __pyx_v_self->_plugin = __pyx_v__plugin;
 
-  /* "petsi/_autofire.py":251
+  /* "petsi/_autofire.py":295
  *                  _fire_control: "FireControl"):
  *         self._plugin = _plugin
  *         self._transition = _transition             # <<<<<<<<<<<<<<
  *         self._fire_control = _fire_control
  *         self._deadline = 0.0
  */
-  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 251, __pyx_L1_error)
+  if (!(likely(((__pyx_v__transition) == Py_None) || likely(__Pyx_TypeTest(__pyx_v__transition, __pyx_ptype_5petsi_10_structure_Transition))))) __PYX_ERR(0, 295, __pyx_L1_error)
   __pyx_t_1 = __pyx_v__transition;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -6688,7 +6691,7 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
   __pyx_v_self->_transition = ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":252
+  /* "petsi/_autofire.py":296
  *         self._plugin = _plugin
  *         self._transition = _transition
  *         self._fire_control = _fire_control             # <<<<<<<<<<<<<<
@@ -6701,7 +6704,7 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
   __Pyx_DECREF(((PyObject *)__pyx_v_self->_fire_control));
   __pyx_v_self->_fire_control = __pyx_v__fire_control;
 
-  /* "petsi/_autofire.py":253
+  /* "petsi/_autofire.py":297
  *         self._transition = _transition
  *         self._fire_control = _fire_control
  *         self._deadline = 0.0             # <<<<<<<<<<<<<<
@@ -6710,10 +6713,10 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
  */
   __pyx_v_self->_deadline = 0.0;
 
-  /* "petsi/_autofire.py":248
+  /* "petsi/_autofire.py":292
  * class AutoFirePluginTransitionObserver:
- * 
- *     def __init__(self, _plugin: "Plugin", _transition: "Structure.Transition",             # <<<<<<<<<<<<<<
+ *     """ Observes a single ``Transition`` and forwards the enablement events to the shared ``FireControl`` instance."""
+ *     def __init__(self, _plugin: "Plugin", _transition: "_structure.Transition",             # <<<<<<<<<<<<<<
  *                  _fire_control: "FireControl"):
  *         self._plugin = _plugin
  */
@@ -6730,12 +6733,12 @@ static int __pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver___init_
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":255
+/* "petsi/_autofire.py":299
  *         self._deadline = 0.0
  * 
  *     def got_enabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming enabled to the shared ``FireControl`` instance."""
  *         self._fire_control.enable_transition(self._transition)
- * 
  */
 
 static PyObject *__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
@@ -6759,7 +6762,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_enabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled)) {
         __Pyx_XDECREF(__pyx_r);
@@ -6776,7 +6779,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 255, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 299, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -6797,26 +6800,26 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
     #endif
   }
 
-  /* "petsi/_autofire.py":256
- * 
+  /* "petsi/_autofire.py":301
  *     def got_enabled(self, ):
+ *         """ Forward the event of the observed transition becoming enabled to the shared ``FireControl`` instance."""
  *         self._fire_control.enable_transition(self._transition)             # <<<<<<<<<<<<<<
  * 
  *     def got_disabled(self, ):
  */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->_transition);
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->enable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 256, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->enable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 301, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":255
+  /* "petsi/_autofire.py":299
  *         self._deadline = 0.0
  * 
  *     def got_enabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming enabled to the shared ``FireControl`` instance."""
  *         self._fire_control.enable_transition(self._transition)
- * 
  */
 
   /* function exit code */
@@ -6837,7 +6840,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
 
 /* Python wrapper */
 static PyObject *__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled = {"got_enabled", (PyCFunction)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled, METH_NOARGS, 0};
+static char __pyx_doc_5petsi_9_autofire_32AutoFirePluginTransitionObserver_2got_enabled[] = " Forward the event of the observed transition becoming enabled to the shared ``FireControl`` instance.";
+static PyMethodDef __pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled = {"got_enabled", (PyCFunction)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled, METH_NOARGS, __pyx_doc_5petsi_9_autofire_32AutoFirePluginTransitionObserver_2got_enabled};
 static PyObject *__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -6858,7 +6862,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_2
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("got_enabled", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_enabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_enabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6875,12 +6879,12 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_2
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":258
+/* "petsi/_autofire.py":303
  *         self._fire_control.enable_transition(self._transition)
  * 
  *     def got_disabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming disabled to the shared ``FireControl`` instance."""
  *         self._fire_control.disable_transition(self._transition)
- * 
  */
 
 static PyObject *__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
@@ -6904,7 +6908,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_got_disabled); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled)) {
         __Pyx_XDECREF(__pyx_r);
@@ -6921,7 +6925,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 258, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 303, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -6942,26 +6946,26 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
     #endif
   }
 
-  /* "petsi/_autofire.py":259
- * 
+  /* "petsi/_autofire.py":305
  *     def got_disabled(self, ):
+ *         """ Forward the event of the observed transition becoming disabled to the shared ``FireControl`` instance."""
  *         self._fire_control.disable_transition(self._transition)             # <<<<<<<<<<<<<<
  * 
  *     def reset(self): pass
  */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->_transition);
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->disable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 259, __pyx_L1_error)
+  __pyx_t_2 = ((struct __pyx_vtabstruct_5petsi_9_autofire_FireControl *)__pyx_v_self->_fire_control->__pyx_vtab)->disable_transition(__pyx_v_self->_fire_control, ((struct __pyx_obj_5petsi_10_structure_Transition *)__pyx_t_1), 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 305, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":258
+  /* "petsi/_autofire.py":303
  *         self._fire_control.enable_transition(self._transition)
  * 
  *     def got_disabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming disabled to the shared ``FireControl`` instance."""
  *         self._fire_control.disable_transition(self._transition)
- * 
  */
 
   /* function exit code */
@@ -6982,7 +6986,8 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_go
 
 /* Python wrapper */
 static PyObject *__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled = {"got_disabled", (PyCFunction)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled, METH_NOARGS, 0};
+static char __pyx_doc_5petsi_9_autofire_32AutoFirePluginTransitionObserver_4got_disabled[] = " Forward the event of the observed transition becoming disabled to the shared ``FireControl`` instance.";
+static PyMethodDef __pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled = {"got_disabled", (PyCFunction)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled, METH_NOARGS, __pyx_doc_5petsi_9_autofire_32AutoFirePluginTransitionObserver_4got_disabled};
 static PyObject *__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -7003,7 +7008,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_4
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("got_disabled", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_disabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_disabled(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7020,7 +7025,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_4
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":261
+/* "petsi/_autofire.py":307
  *         self._fire_control.disable_transition(self._transition)
  * 
  *     def reset(self): pass             # <<<<<<<<<<<<<<
@@ -7049,7 +7054,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_re
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_reset); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 307, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_7reset)) {
         __Pyx_XDECREF(__pyx_r);
@@ -7066,7 +7071,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_re
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 261, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 307, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -7126,7 +7131,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_6
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("reset", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_reset(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_reset(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7143,7 +7148,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_6
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":263
+/* "petsi/_autofire.py":309
  *     def reset(self): pass
  * 
  *     def after_firing(self): pass             # <<<<<<<<<<<<<<
@@ -7172,7 +7177,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_af
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_after_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_after_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_9after_firing)) {
         __Pyx_XDECREF(__pyx_r);
@@ -7189,7 +7194,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_af
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 263, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 309, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -7249,7 +7254,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_8
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("after_firing", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_after_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_after_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7266,7 +7271,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_8
   return __pyx_r;
 }
 
-/* "petsi/_autofire.py":265
+/* "petsi/_autofire.py":311
  *     def after_firing(self): pass
  * 
  *     def before_firing(self): pass             # <<<<<<<<<<<<<<
@@ -7294,7 +7299,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_be
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_before_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_before_firing); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_5petsi_9_autofire_32AutoFirePluginTransitionObserver_11before_firing)) {
         __Pyx_XDECREF(__pyx_r);
@@ -7311,7 +7316,7 @@ static PyObject *__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_be
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 265, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 311, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -7371,7 +7376,7 @@ static PyObject *__pyx_pf_5petsi_9_autofire_32AutoFirePluginTransitionObserver_1
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("before_firing", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_before_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_before_firing(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -9654,7 +9659,7 @@ static PyTypeObject __pyx_type_5petsi_9_autofire_Clock = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  0, /*tp_doc*/
+  " A wrapper class for accessing the time of the Petri net.\n\n    The Petri net time (simulation time) is maintained inside the :class:`FireControl` class.\n    ``Clock`` exists to expose the simulation time without exposing the rest of :class:`FireControl`.\n    ", /*tp_doc*/
   __pyx_tp_traverse_5petsi_9_autofire_Clock, /*tp_traverse*/
   __pyx_tp_clear_5petsi_9_autofire_Clock, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -9797,7 +9802,7 @@ static int __pyx_setprop_5petsi_9_autofire_11FireControl__is_build_in_progress(P
 }
 
 static PyMethodDef __pyx_methods_5petsi_9_autofire_FireControl[] = {
-  {"get_clock", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_1get_clock, METH_NOARGS, 0},
+  {"get_clock", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_1get_clock, METH_NOARGS, __pyx_doc_5petsi_9_autofire_11FireControl_get_clock},
   {"reset", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_5reset, METH_NOARGS, 0},
   {"start", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_7start, METH_NOARGS, 0},
   {"fire_next", (PyCFunction)__pyx_pw_5petsi_9_autofire_11FireControl_15fire_next, METH_NOARGS, 0},
@@ -9843,7 +9848,7 @@ static PyTypeObject __pyx_type_5petsi_9_autofire_FireControl = {
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  0, /*tp_doc*/
+  " Tracks all enabled transitions of the Petri net and selects and fires them according to the firing rules.", /*tp_doc*/
   __pyx_tp_traverse_5petsi_9_autofire_FireControl, /*tp_traverse*/
   __pyx_tp_clear_5petsi_9_autofire_FireControl, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -9980,7 +9985,7 @@ static PyTypeObject __pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserve
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  0, /*tp_doc*/
+  " Observes a single ``Transition`` and forwards the enablement events to the shared ``FireControl`` instance.", /*tp_doc*/
   __pyx_tp_traverse_5petsi_9_autofire_AutoFirePluginTransitionObserver, /*tp_traverse*/
   __pyx_tp_clear_5petsi_9_autofire_AutoFirePluginTransitionObserver, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -10036,7 +10041,7 @@ static PyModuleDef_Slot __pyx_moduledef_slots[] = {
 static struct PyModuleDef __pyx_moduledef = {
     PyModuleDef_HEAD_INIT,
     "_autofire",
-    0, /* m_doc */
+    __pyx_k_A_Cython_module_for_selecting_a, /* m_doc */
   #if CYTHON_PEP489_MULTI_PHASE_INIT
     0, /* m_size */
   #else
@@ -10102,8 +10107,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_PriorityLevel___reduce_cython, __pyx_k_PriorityLevel___reduce_cython, sizeof(__pyx_k_PriorityLevel___reduce_cython), 0, 0, 1, 1},
   {&__pyx_n_s_PriorityLevel___setstate_cython, __pyx_k_PriorityLevel___setstate_cython, sizeof(__pyx_k_PriorityLevel___setstate_cython), 0, 0, 1, 1},
   {&__pyx_n_s_Set, __pyx_k_Set, sizeof(__pyx_k_Set), 0, 0, 1, 1},
-  {&__pyx_n_s_Structure, __pyx_k_Structure, sizeof(__pyx_k_Structure), 0, 0, 1, 1},
-  {&__pyx_kp_u_Structure_Transition, __pyx_k_Structure_Transition, sizeof(__pyx_k_Structure_Transition), 0, 1, 0, 0},
   {&__pyx_n_s_TYPE_CHECKING, __pyx_k_TYPE_CHECKING, sizeof(__pyx_k_TYPE_CHECKING), 0, 0, 1, 1},
   {&__pyx_n_s_Tuple, __pyx_k_Tuple, sizeof(__pyx_k_Tuple), 0, 0, 1, 1},
   {&__pyx_kp_u_Wow, __pyx_k_Wow, sizeof(__pyx_k_Wow), 0, 1, 0, 0},
@@ -10180,6 +10183,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_start, __pyx_k_start, sizeof(__pyx_k_start), 0, 0, 1, 1},
   {&__pyx_n_s_state, __pyx_k_state, sizeof(__pyx_k_state), 0, 0, 1, 1},
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
+  {&__pyx_n_s_structure, __pyx_k_structure, sizeof(__pyx_k_structure), 0, 0, 1, 1},
+  {&__pyx_kp_u_structure_Transition, __pyx_k_structure_Transition, sizeof(__pyx_k_structure_Transition), 0, 1, 0, 0},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_transition, __pyx_k_transition, sizeof(__pyx_k_transition), 0, 0, 1, 1},
   {&__pyx_n_s_transition_2, __pyx_k_transition_2, sizeof(__pyx_k_transition_2), 0, 0, 1, 1},
@@ -10196,17 +10201,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "petsi/_autofire.py":122
+  /* "petsi/_autofire.py":166
  * 
  *         class PriorityLevelDict(defaultdict):
  *             def __missing__(self, priority):             # <<<<<<<<<<<<<<
  *                 priority_level = self[priority] = _PriorityLevel(priority)
  *                 return priority_level
  */
-  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_priority, __pyx_n_s_priority_level); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_priority, __pyx_n_s_priority_level); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_missing, 122, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 122, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_missing, 166, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 166, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -10229,17 +10234,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__6);
   __pyx_codeobj__7 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__6, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__7)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":80
+  /* "petsi/_autofire.py":121
  *         self._fire_control = fire_control
  * 
  *     def read(self):             # <<<<<<<<<<<<<<
+ *         """ Get the current simulation time."""
  *         return self._fire_control.current_time
- * 
  */
-  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_tuple__8 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__8)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__8);
   __Pyx_GIVEREF(__pyx_tuple__8);
-  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_read, 80, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_codeobj__9 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__8, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_read, 121, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__9)) __PYX_ERR(0, 121, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -10262,89 +10267,89 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__12);
   __pyx_codeobj__13 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__12, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__13)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":110
- *     _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
+  /* "petsi/_autofire.py":153
+ *     _timed_transitions: List[Tuple[float, int, "_structure.Transition"]]
  * 
  *     def get_clock(self) -> Clock:             # <<<<<<<<<<<<<<
+ *         """ Obtain a Clock instance for reading the simulation time of this ``FireControl`` instance."""
  *         return Clock(self)
- * 
  */
-  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_tuple__14 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__14)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__14);
   __Pyx_GIVEREF(__pyx_tuple__14);
-  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_get_clock, 110, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_codeobj__15 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__14, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_get_clock, 153, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__15)) __PYX_ERR(0, 153, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":129
+  /* "petsi/_autofire.py":173
  *         self._timed_transitions = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         # This will cause start() to re-enable the initially enabled transitions
  *         # based on _transition_enabled_at_start_up
  */
-  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_tuple__16 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__16)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__16);
   __Pyx_GIVEREF(__pyx_tuple__16);
-  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_reset, 129, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_codeobj__17 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__16, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_reset, 173, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__17)) __PYX_ERR(0, 173, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":139
+  /* "petsi/_autofire.py":183
  *         self._timed_transitions.clear()
  * 
  *     def start(self):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._is_build_in_progress = False
  */
-  __pyx_tuple__18 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_transition_2, __pyx_n_s_is_enabled); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_transition_2, __pyx_n_s_is_enabled); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
-  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_start, 139, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_codeobj__19 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_start, 183, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 183, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":148
+  /* "petsi/_autofire.py":192
  *                     "Nothing to do, by default all transitions are treated as disabled."
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def enable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = True
  */
-  __pyx_tuple__20 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_transition_2); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_tuple__20 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_transition_2); if (unlikely(!__pyx_tuple__20)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__20);
   __Pyx_GIVEREF(__pyx_tuple__20);
-  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_enable_transition, 148, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_codeobj__21 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__20, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_enable_transition, 192, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__21)) __PYX_ERR(0, 192, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":154
+  /* "petsi/_autofire.py":198
  *             self._enable_transition(transition)
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def disable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = False
  */
-  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_transition_2); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_tuple__22 = PyTuple_Pack(2, __pyx_n_s_self, __pyx_n_s_transition_2); if (unlikely(!__pyx_tuple__22)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__22);
   __Pyx_GIVEREF(__pyx_tuple__22);
-  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_disable_transition, 154, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_codeobj__23 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__22, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_disable_transition, 198, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__23)) __PYX_ERR(0, 198, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":195
+  /* "petsi/_autofire.py":239
  *         return self._timed_transitions[0][-1]
  * 
  *     def _select_next_transition(self):             # <<<<<<<<<<<<<<
  *         """ Select and fire the next transition
  * 
  */
-  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_tuple__24 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_select_next_transition, 195, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_select_next_transition, 239, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 239, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":233
+  /* "petsi/_autofire.py":277
  *         return new_time, transition
  * 
  *     def fire_next(self):             # <<<<<<<<<<<<<<
  *         new_time, transition = self._select_next_transition()
  *         # print(new_time, transition.name)
  */
-  __pyx_tuple__26 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_new_time, __pyx_n_s_transition_2); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_tuple__26 = PyTuple_Pack(3, __pyx_n_s_self, __pyx_n_s_new_time, __pyx_n_s_transition_2); if (unlikely(!__pyx_tuple__26)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__26);
   __Pyx_GIVEREF(__pyx_tuple__26);
-  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_fire_next, 233, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_codeobj__27 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__26, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_fire_next, 277, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__27)) __PYX_ERR(0, 277, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -10367,64 +10372,64 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__30);
   __pyx_codeobj__31 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__30, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_setstate_cython, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__31)) __PYX_ERR(1, 16, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":255
+  /* "petsi/_autofire.py":299
  *         self._deadline = 0.0
  * 
  *     def got_enabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming enabled to the shared ``FireControl`` instance."""
  *         self._fire_control.enable_transition(self._transition)
- * 
  */
-  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_tuple__32 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__32)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__32);
   __Pyx_GIVEREF(__pyx_tuple__32);
-  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_got_enabled, 255, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_codeobj__33 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__32, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_got_enabled, 299, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__33)) __PYX_ERR(0, 299, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":258
+  /* "petsi/_autofire.py":303
  *         self._fire_control.enable_transition(self._transition)
  * 
  *     def got_disabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming disabled to the shared ``FireControl`` instance."""
  *         self._fire_control.disable_transition(self._transition)
- * 
  */
-  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_tuple__34 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
-  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_got_disabled, 258, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_codeobj__35 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__34, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_got_disabled, 303, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__35)) __PYX_ERR(0, 303, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":261
+  /* "petsi/_autofire.py":307
  *         self._fire_control.disable_transition(self._transition)
  * 
  *     def reset(self): pass             # <<<<<<<<<<<<<<
  * 
  *     def after_firing(self): pass
  */
-  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
-  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_reset, 261, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_codeobj__37 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__36, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_reset, 307, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__37)) __PYX_ERR(0, 307, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":263
+  /* "petsi/_autofire.py":309
  *     def reset(self): pass
  * 
  *     def after_firing(self): pass             # <<<<<<<<<<<<<<
  * 
  *     def before_firing(self): pass
  */
-  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
-  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_after_firing, 263, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_codeobj__39 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__38, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_after_firing, 309, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__39)) __PYX_ERR(0, 309, __pyx_L1_error)
 
-  /* "petsi/_autofire.py":265
+  /* "petsi/_autofire.py":311
  *     def after_firing(self): pass
  * 
  *     def before_firing(self): pass             # <<<<<<<<<<<<<<
  * 
  */
-  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_n_s_self); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
-  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_before_firing, 265, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_codeobj__41 = (PyObject*)__Pyx_PyCode_New(1, 0, 1, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__40, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_petsi__autofire_py, __pyx_n_s_before_firing, 311, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__41)) __PYX_ERR(0, 311, __pyx_L1_error)
 
   /* "(tree fragment)":1
  * def __reduce_cython__(self):             # <<<<<<<<<<<<<<
@@ -10528,29 +10533,29 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtabptr_5petsi_9_autofire__PriorityLevel = &__pyx_vtable_5petsi_9_autofire__PriorityLevel;
   __pyx_vtable_5petsi_9_autofire__PriorityLevel.add = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_14_PriorityLevel_add;
   __pyx_vtable_5petsi_9_autofire__PriorityLevel.remove = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire__PriorityLevel *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_14_PriorityLevel_remove;
-  if (PyType_Ready(&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_9_autofire__PriorityLevel.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_9_autofire__PriorityLevel.tp_dictoffset && __pyx_type_5petsi_9_autofire__PriorityLevel.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_9_autofire__PriorityLevel.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire__PriorityLevel.tp_dict, __pyx_vtabptr_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PriorityLevel, (PyObject *)&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire__PriorityLevel.tp_dict, __pyx_vtabptr_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_PriorityLevel, (PyObject *)&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire__PriorityLevel) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
   __pyx_ptype_5petsi_9_autofire__PriorityLevel = &__pyx_type_5petsi_9_autofire__PriorityLevel;
   __pyx_vtabptr_5petsi_9_autofire_Clock = &__pyx_vtable_5petsi_9_autofire_Clock;
   __pyx_vtable_5petsi_9_autofire_Clock.read = (double (*)(struct __pyx_obj_5petsi_9_autofire_Clock *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_5Clock_read;
-  if (PyType_Ready(&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_9_autofire_Clock.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_9_autofire_Clock.tp_dictoffset && __pyx_type_5petsi_9_autofire_Clock.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_9_autofire_Clock.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire_Clock.tp_dict, __pyx_vtabptr_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Clock, (PyObject *)&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 74, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire_Clock.tp_dict, __pyx_vtabptr_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Clock, (PyObject *)&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_Clock) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
   __pyx_ptype_5petsi_9_autofire_Clock = &__pyx_type_5petsi_9_autofire_Clock;
   __pyx_vtabptr_5petsi_9_autofire_FireControl = &__pyx_vtable_5petsi_9_autofire_FireControl;
   __pyx_vtable_5petsi_9_autofire_FireControl.enable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl_enable_transition;
@@ -10561,16 +10566,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_5petsi_9_autofire_FireControl._disable_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, struct __pyx_obj_5petsi_10_structure_Transition *))__pyx_f_5petsi_9_autofire_11FireControl__disable_transition;
   __pyx_vtable_5petsi_9_autofire_FireControl._next_timed_transition = (struct __pyx_obj_5petsi_10_structure_Transition *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *))__pyx_f_5petsi_9_autofire_11FireControl__next_timed_transition;
   __pyx_vtable_5petsi_9_autofire_FireControl._select_next_transition = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_FireControl *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_11FireControl__select_next_transition;
-  if (PyType_Ready(&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_9_autofire_FireControl.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_9_autofire_FireControl.tp_dictoffset && __pyx_type_5petsi_9_autofire_FireControl.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_9_autofire_FireControl.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire_FireControl.tp_dict, __pyx_vtabptr_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FireControl, (PyObject *)&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 84, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire_FireControl.tp_dict, __pyx_vtabptr_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_FireControl, (PyObject *)&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_FireControl) < 0) __PYX_ERR(0, 126, __pyx_L1_error)
   __pyx_ptype_5petsi_9_autofire_FireControl = &__pyx_type_5petsi_9_autofire_FireControl;
   __pyx_vtabptr_5petsi_9_autofire_AutoFirePluginTransitionObserver = &__pyx_vtable_5petsi_9_autofire_AutoFirePluginTransitionObserver;
   __pyx_vtable_5petsi_9_autofire_AutoFirePluginTransitionObserver.got_enabled = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_got_enabled;
@@ -10578,16 +10583,16 @@ static int __Pyx_modinit_type_init_code(void) {
   __pyx_vtable_5petsi_9_autofire_AutoFirePluginTransitionObserver.reset = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_reset;
   __pyx_vtable_5petsi_9_autofire_AutoFirePluginTransitionObserver.after_firing = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_after_firing;
   __pyx_vtable_5petsi_9_autofire_AutoFirePluginTransitionObserver.before_firing = (PyObject *(*)(struct __pyx_obj_5petsi_9_autofire_AutoFirePluginTransitionObserver *, int __pyx_skip_dispatch))__pyx_f_5petsi_9_autofire_32AutoFirePluginTransitionObserver_before_firing;
-  if (PyType_Ready(&__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 290, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver.tp_dictoffset && __pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver.tp_dict, __pyx_vtabptr_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AutoFirePluginTransitionObserver, (PyObject *)&__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 246, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver.tp_dict, __pyx_vtabptr_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 290, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_AutoFirePluginTransitionObserver, (PyObject *)&__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 290, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver) < 0) __PYX_ERR(0, 290, __pyx_L1_error)
   __pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver = &__pyx_type_5petsi_9_autofire_AutoFirePluginTransitionObserver;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -10821,7 +10826,7 @@ if (!__Pyx_RefNanny) {
   Py_INCREF(__pyx_m);
   #else
   #if PY_MAJOR_VERSION < 3
-  __pyx_m = Py_InitModule4("_autofire", __pyx_methods, 0, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
+  __pyx_m = Py_InitModule4("_autofire", __pyx_methods, __pyx_k_A_Cython_module_for_selecting_a, 0, PYTHON_API_VERSION); Py_XINCREF(__pyx_m);
   #else
   __pyx_m = PyModule_Create(&__pyx_moduledef);
   #endif
@@ -10867,35 +10872,35 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "petsi/_autofire.py":4
- * # cython: profile=False
+  /* "petsi/_autofire.py":40
+ * """
  * 
  * from collections import defaultdict             # <<<<<<<<<<<<<<
  * from heapq import heappush, heappop
  * from itertools import count
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_defaultdict);
   __Pyx_GIVEREF(__pyx_n_s_defaultdict);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_defaultdict);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_collections, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_collections, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_defaultdict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_defaultdict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_defaultdict, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_defaultdict, __pyx_t_1) < 0) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":5
+  /* "petsi/_autofire.py":41
  * 
  * from collections import defaultdict
  * from heapq import heappush, heappop             # <<<<<<<<<<<<<<
  * from itertools import count
  * from random import choices as random_choices
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_heappush);
   __Pyx_GIVEREF(__pyx_n_s_heappush);
@@ -10903,69 +10908,69 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_heappop);
   __Pyx_GIVEREF(__pyx_n_s_heappop);
   PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_heappop);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_heapq, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_heapq, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_heappush); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_heappush); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_heappush, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_heappush, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_heappop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_heappop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_heappop, __pyx_t_2) < 0) __PYX_ERR(0, 5, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_heappop, __pyx_t_2) < 0) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":6
+  /* "petsi/_autofire.py":42
  * from collections import defaultdict
  * from heapq import heappush, heappop
  * from itertools import count             # <<<<<<<<<<<<<<
  * from random import choices as random_choices
  * from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_count);
   __Pyx_GIVEREF(__pyx_n_s_count);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_count);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_itertools, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_itertools, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_count); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_count, __pyx_t_1) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_count, __pyx_t_1) < 0) __PYX_ERR(0, 42, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":7
+  /* "petsi/_autofire.py":43
  * from heapq import heappush, heappop
  * from itertools import count
  * from random import choices as random_choices             # <<<<<<<<<<<<<<
  * from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator
  * 
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_n_s_choices);
   __Pyx_GIVEREF(__pyx_n_s_choices);
   PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_choices);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_random, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Import(__pyx_n_s_random, __pyx_t_2, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_choices); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_choices); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_random_choices, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_random_choices, __pyx_t_2) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "petsi/_autofire.py":8
+  /* "petsi/_autofire.py":44
  * from itertools import count
  * from random import choices as random_choices
  * from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator             # <<<<<<<<<<<<<<
  * 
  * import cython
  */
-  __pyx_t_1 = PyList_New(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(6); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_TYPE_CHECKING);
   __Pyx_GIVEREF(__pyx_n_s_TYPE_CHECKING);
@@ -10985,95 +10990,95 @@ if (!__Pyx_RefNanny) {
   __Pyx_INCREF(__pyx_n_s_Iterator);
   __Pyx_GIVEREF(__pyx_n_s_Iterator);
   PyList_SET_ITEM(__pyx_t_1, 5, __pyx_n_s_Iterator);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_TYPE_CHECKING, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_TYPE_CHECKING, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_List); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_List); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_List, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_List, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Set); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Set); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Set, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Set, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Dict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Dict); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Dict, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Dict, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Tuple); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Tuple); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Tuple, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Tuple, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Iterator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Iterator); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Iterator, __pyx_t_1) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Iterator, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "petsi/_autofire.py":12
+  /* "petsi/_autofire.py":48
  * import cython
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
- *     from . import Structure
+ *     from . import _structure
  *     from .Plugins import Plugin
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "petsi/_autofire.py":13
+    /* "petsi/_autofire.py":49
  * 
  * if TYPE_CHECKING:
- *     from . import Structure             # <<<<<<<<<<<<<<
+ *     from . import _structure             # <<<<<<<<<<<<<<
  *     from .Plugins import Plugin
  * 
  */
-    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __Pyx_INCREF(__pyx_n_s_Structure);
-    __Pyx_GIVEREF(__pyx_n_s_Structure);
-    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Structure);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s__3, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __Pyx_INCREF(__pyx_n_s_structure);
+    __Pyx_GIVEREF(__pyx_n_s_structure);
+    PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_structure);
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s__3, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Structure); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_structure); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Structure, __pyx_t_2) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_structure, __pyx_t_2) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-    /* "petsi/_autofire.py":14
+    /* "petsi/_autofire.py":50
  * if TYPE_CHECKING:
- *     from . import Structure
+ *     from . import _structure
  *     from .Plugins import Plugin             # <<<<<<<<<<<<<<
  * 
  * 
  */
-    __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_INCREF(__pyx_n_s_Plugin);
     __Pyx_GIVEREF(__pyx_n_s_Plugin);
     PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Plugin);
-    __pyx_t_2 = __Pyx_Import(__pyx_n_s_Plugins, __pyx_t_1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Import(__pyx_n_s_Plugins, __pyx_t_1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Plugin); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Plugin); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Plugin, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
+    if (PyDict_SetItem(__pyx_d, __pyx_n_s_Plugin, __pyx_t_1) < 0) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "petsi/_autofire.py":12
+    /* "petsi/_autofire.py":48
  * import cython
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
- *     from . import Structure
+ *     from . import _structure
  *     from .Plugins import Plugin
  */
   }
@@ -11101,16 +11106,16 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire__PriorityLevel);
 
-  /* "petsi/_autofire.py":80
+  /* "petsi/_autofire.py":121
  *         self._fire_control = fire_control
  * 
  *     def read(self):             # <<<<<<<<<<<<<<
+ *         """ Get the current simulation time."""
  *         return self._fire_control.current_time
- * 
  */
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_5Clock_3read, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Clock_read, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 80, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_5Clock_3read, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_Clock_read, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__9)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_Clock->tp_dict, __pyx_n_s_read, __pyx_t_2) < 0) __PYX_ERR(0, 80, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_Clock->tp_dict, __pyx_n_s_read, __pyx_t_2) < 0) __PYX_ERR(0, 121, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_Clock);
 
@@ -11137,109 +11142,109 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_Clock);
 
-  /* "petsi/_autofire.py":110
- *     _timed_transitions: List[Tuple[float, int, "Structure.Transition"]]
+  /* "petsi/_autofire.py":153
+ *     _timed_transitions: List[Tuple[float, int, "_structure.Transition"]]
  * 
  *     def get_clock(self) -> Clock:             # <<<<<<<<<<<<<<
+ *         """ Obtain a Clock instance for reading the simulation time of this ``FireControl`` instance."""
  *         return Clock(self)
- * 
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 110, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_Clock) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_1get_clock, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_get_clock, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_return, __pyx_n_u_Clock) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_1get_clock, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_get_clock, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_get_clock, __pyx_t_1) < 0) __PYX_ERR(0, 110, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_get_clock, __pyx_t_1) < 0) __PYX_ERR(0, 153, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":129
+  /* "petsi/_autofire.py":173
  *         self._timed_transitions = list()
  * 
  *     def reset(self):             # <<<<<<<<<<<<<<
  *         # This will cause start() to re-enable the initially enabled transitions
  *         # based on _transition_enabled_at_start_up
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_5reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_reset, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 129, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_5reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_reset, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 129, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 173, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":139
+  /* "petsi/_autofire.py":183
  *         self._timed_transitions.clear()
  * 
  *     def start(self):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._is_build_in_progress = False
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_7start, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_start, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_7start, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_start, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 183, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_start, __pyx_t_1) < 0) __PYX_ERR(0, 139, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_start, __pyx_t_1) < 0) __PYX_ERR(0, 183, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":148
+  /* "petsi/_autofire.py":192
  *                     "Nothing to do, by default all transitions are treated as disabled."
  * 
- *     def enable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def enable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = True
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition_2, __pyx_kp_u_Structure_Transition) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_9enable_transition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_enable_transition, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_transition_2, __pyx_kp_u_structure_Transition) < 0) __PYX_ERR(0, 192, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_9enable_transition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_enable_transition, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_2, __pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_enable_transition, __pyx_t_2) < 0) __PYX_ERR(0, 148, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_enable_transition, __pyx_t_2) < 0) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":154
+  /* "petsi/_autofire.py":198
  *             self._enable_transition(transition)
  * 
- *     def disable_transition(self, transition: "Structure.Transition"):             # <<<<<<<<<<<<<<
+ *     def disable_transition(self, transition: "_structure.Transition"):             # <<<<<<<<<<<<<<
  *         if self._is_build_in_progress:
  *             self._transition_enabled_at_start_up[transition] = False
  */
-  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition_2, __pyx_kp_u_Structure_Transition) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_11disable_transition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_disable_transition, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_2, __pyx_n_s_transition_2, __pyx_kp_u_structure_Transition) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_11disable_transition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_disable_transition, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__23)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_CyFunction_SetAnnotationsDict(__pyx_t_1, __pyx_t_2);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_disable_transition, __pyx_t_1) < 0) __PYX_ERR(0, 154, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_disable_transition, __pyx_t_1) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":195
+  /* "petsi/_autofire.py":239
  *         return self._timed_transitions[0][-1]
  * 
  *     def _select_next_transition(self):             # <<<<<<<<<<<<<<
  *         """ Select and fire the next transition
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_13_select_next_transition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl__select_next_transit, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_13_select_next_transition, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl__select_next_transit, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_select_next_transition, __pyx_t_1) < 0) __PYX_ERR(0, 195, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_select_next_transition, __pyx_t_1) < 0) __PYX_ERR(0, 239, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":233
+  /* "petsi/_autofire.py":277
  *         return new_time, transition
  * 
  *     def fire_next(self):             # <<<<<<<<<<<<<<
  *         new_time, transition = self._select_next_transition()
  *         # print(new_time, transition.name)
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_15fire_next, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_fire_next, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 233, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_11FireControl_15fire_next, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_FireControl_fire_next, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__27)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_fire_next, __pyx_t_1) < 0) __PYX_ERR(0, 233, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_FireControl->tp_dict, __pyx_n_s_fire_next, __pyx_t_1) < 0) __PYX_ERR(0, 277, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
@@ -11266,67 +11271,67 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_FireControl);
 
-  /* "petsi/_autofire.py":255
+  /* "petsi/_autofire.py":299
  *         self._deadline = 0.0
  * 
  *     def got_enabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming enabled to the shared ``FireControl`` instance."""
  *         self._fire_control.enable_transition(self._transition)
- * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_2, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__33)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 255, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_3got_enabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_2, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__33)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_got_enabled, __pyx_t_1) < 0) __PYX_ERR(0, 255, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_got_enabled, __pyx_t_1) < 0) __PYX_ERR(0, 299, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver);
 
-  /* "petsi/_autofire.py":258
+  /* "petsi/_autofire.py":303
  *         self._fire_control.enable_transition(self._transition)
  * 
  *     def got_disabled(self, ):             # <<<<<<<<<<<<<<
+ *         """ Forward the event of the observed transition becoming disabled to the shared ``FireControl`` instance."""
  *         self._fire_control.disable_transition(self._transition)
- * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_3, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 258, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_5got_disabled, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_3, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__35)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_got_disabled, __pyx_t_1) < 0) __PYX_ERR(0, 258, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_got_disabled, __pyx_t_1) < 0) __PYX_ERR(0, 303, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver);
 
-  /* "petsi/_autofire.py":261
+  /* "petsi/_autofire.py":307
  *         self._fire_control.disable_transition(self._transition)
  * 
  *     def reset(self): pass             # <<<<<<<<<<<<<<
  * 
  *     def after_firing(self): pass
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_7reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_4, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__37)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 261, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_7reset, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_4, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__37)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 261, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_reset, __pyx_t_1) < 0) __PYX_ERR(0, 307, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver);
 
-  /* "petsi/_autofire.py":263
+  /* "petsi/_autofire.py":309
  *     def reset(self): pass
  * 
  *     def after_firing(self): pass             # <<<<<<<<<<<<<<
  * 
  *     def before_firing(self): pass
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_9after_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_5, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 263, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_9after_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_5, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__39)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_after_firing, __pyx_t_1) < 0) __PYX_ERR(0, 263, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_after_firing, __pyx_t_1) < 0) __PYX_ERR(0, 309, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver);
 
-  /* "petsi/_autofire.py":265
+  /* "petsi/_autofire.py":311
  *     def after_firing(self): pass
  * 
  *     def before_firing(self): pass             # <<<<<<<<<<<<<<
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_11before_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_6, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 265, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_5petsi_9_autofire_32AutoFirePluginTransitionObserver_11before_firing, __Pyx_CYFUNCTION_CCLASS, __pyx_n_s_AutoFirePluginTransitionObserver_6, NULL, __pyx_n_s_petsi__autofire, __pyx_d, ((PyObject *)__pyx_codeobj__41)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_before_firing, __pyx_t_1) < 0) __PYX_ERR(0, 265, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver->tp_dict, __pyx_n_s_before_firing, __pyx_t_1) < 0) __PYX_ERR(0, 311, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_5petsi_9_autofire_AutoFirePluginTransitionObserver);
 

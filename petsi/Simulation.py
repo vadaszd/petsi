@@ -1,22 +1,4 @@
-""" This module contains a plugin that fires enabled transitions according to the below ordering rules.
-
-    0. We track a global current time, initialized to a user-provided value.
-    
-    1. No transition can fire if another transition with a higher priority is enabled.
-    
-    2. If more than one transition is enabled on the highest priority level (immediate transitions), then:
-    
-        a) If the priority level is positive, then a transition is chosen randomly, according to the weights
-            of the enabled transitions
-            
-        b) On priority level 0 (timed transitions) the one with the shortest deadline is chosen. 
-            The deadline is computed when the transition gets enabled. It is the current time plus 
-            a sample taken from the duration distribution associated with the transition.
-            
-    3. Firing a timed transition sets the current time to the deadline of the fired transition.
-    
-    4. The underlying Petri net guarantees that a timed transition, once enabled, will not get disabled
-        without firing the transition.
+""" A high level API for creating a performance simulator.
 """
 
 import os
@@ -40,7 +22,13 @@ if TYPE_CHECKING:
 
 
 class Simulator:
-    """ A high level API for creating a performance simulator.
+    """ The entry point for creating a performance simulator.
+
+    The elements of the Petri net must be created in reverse order of reference, i.e.
+
+        #. Token types
+        #. Places and transitions
+        #. Arcs
     """
     _net: Net
     _auto_fire: AutoFirePlugin

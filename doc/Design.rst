@@ -7,15 +7,19 @@ Overview
 Internals
 ------------
 .. autosummary::
+    :template: detailed_module.rst
     :recursive:
     :toctree: _generated
 
-    petsi._structure
-    petsi.autofire
-    petsi._autofire
-    petsi.meters
-    petsi._meters
+    petsi.Simulation
+    petsi.Plugins
+    petsi.Visitor
     petsi.NetViz
+    petsi.autofire
+    petsi.meters
+    petsi._structure
+    petsi._autofire
+    petsi._meters
 
 
 

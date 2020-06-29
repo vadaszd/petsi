@@ -6,7 +6,7 @@ from cpython cimport iterator
 
 cdef class _PriorityLevel:
     cdef int priority
-    cdef set transitions    #: Set["Structure.Transition"]
+    cdef set transitions    #: Set["_structure.Transition"]
 
     cdef add(self, Transition transition)
 
@@ -23,11 +23,11 @@ cdef class FireControl:
     cdef public bint _is_build_in_progress
 
     cdef object _deadline_disambiguator      # : Iterator[int]  # = cython.declare(cython.iterator)
-    cdef dict _transition_enabled_at_start_up  #: Dict["Structure.Transition", bool] = cython.declare(dict)
+    cdef dict _transition_enabled_at_start_up  #: Dict["_structure.Transition", bool] = cython.declare(dict)
     cdef list _active_priority_levels          #: List[_PriorityLevel] = cython.declare(list)
     cdef set _active_priorities                #: Set[int] = cython.declare(set)
     cdef object _priority_levels          # : Dict[int, _PriorityLevel] = cython.declare(defaultdict)
-    cdef list _timed_transitions               # : List[Tuple[float, int, "Structure.Transition"]] = cython.declare(list)
+    cdef list _timed_transitions               # : List[Tuple[float, int, "_structure.Transition"]] = cython.declare(list)
 
     cpdef enable_transition(self, Transition transition)
     cpdef disable_transition(self, Transition transition)
