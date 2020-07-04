@@ -11,7 +11,13 @@ package_name = "petsi"
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-cythonized_modules = ["_structure", "_autofire", "_meters", ]
+cythonized_modules = ["_structure",
+                      "plugins/_meters",
+                      "plugins/sojourntime/_sojourntime",
+                      "plugins/tokencounter/_tokencounter",
+                      "plugins/transitioninterval/_transitioninterval",
+                      "plugins/autofire/_autofire",
+                      ]
 
 
 def modules_with_suffix(modules, suffix):
@@ -93,3 +99,6 @@ setup(
 
     **extension_args
 )
+
+# Automatic build of docs:
+# https://www.sphinx-doc.org/en/master/usage/advanced/setuptools.html

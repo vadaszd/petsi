@@ -56,7 +56,8 @@ html_theme = 'alabaster'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-intersphinx_mapping = {'graphviz': ('https://graphviz.readthedocs.io/en/stable/', None)
+intersphinx_mapping = {'python': ('https://docs.python.org/3', None),
+                       'graphviz': ('https://graphviz.readthedocs.io/en/stable/', None)
                        }
 
 autosummary_generate = True

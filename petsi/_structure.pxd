@@ -1,8 +1,7 @@
 import cython
 
-
+# Forward declaration
 cdef class Place
-
 
 
 cdef class Transition:
@@ -32,7 +31,7 @@ cdef class TokenType:
 
 
 cdef class Token:
-    cdef readonly unsigned long long token_id
+    # cdef readonly unsigned long long token_id
     cdef object _typ            # : TokenType
     cdef set _token_observers   # : "Set[Plugins.AbstractTokenObserver]" = cython.declare(set)
     cdef dict tags              #: "Dict[str, Any]"

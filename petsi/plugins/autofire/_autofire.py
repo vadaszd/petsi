@@ -46,8 +46,8 @@ from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator
 import cython
 
 if TYPE_CHECKING:
-    from . import _structure
-    from .Plugins import Plugin
+    from petsi import _structure
+    from plugins.Plugins import APlugin
 
 
 @cython.cclass
@@ -289,7 +289,7 @@ class FireControl:
 
 class AutoFirePluginTransitionObserver:
     """ Observes a single ``Transition`` and forwards the enablement events to the shared ``FireControl`` instance."""
-    def __init__(self, _plugin: "Plugin", _transition: "_structure.Transition",
+    def __init__(self, _plugin: "APlugin", _transition: "_structure.Transition",
                  _fire_control: "FireControl"):
         self._plugin = _plugin
         self._transition = _transition

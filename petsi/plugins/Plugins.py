@@ -1,4 +1,4 @@
-""" The interface for Petsi plugins.
+""" The interface for PetSi plugins.
 
     On a high level, a plugin is a :class:`class <AbstractPlugin>` with factory methods for creating
         - :class:`place observers <AbstractPlaceObserver>`
@@ -18,17 +18,17 @@ from typing import TYPE_CHECKING, Dict, Set, Optional, TypeVar, Generic
 
 if TYPE_CHECKING:
     # noinspection PyUnresolvedReferences
-    from . import _structure
+    from ..._structure import Place, Transition, Token
 
 
 APlaceObserver = TypeVar("APlaceObserver", bound="AbstractPlaceObserver")
 ATransitionObserver = TypeVar("ATransitionObserver", bound="AbstractTransitionObserver")
 ATokenObserver = TypeVar("ATokenObserver", bound="AbstractTokenObserver")
-Plugin = TypeVar("Plugin", bound="AbstractPlugin")
+APlugin = TypeVar("APlugin", bound="AbstractPlugin")
 
 
 @dataclass(eq=False)
-class AbstractPlaceObserver(ABC, Generic[Plugin]):
+class AbstractPlaceObserver(ABC, Generic[APlugin]):
     """ The interface for all place observers.
 
     Place observers can be used to accumulate observation state related to a place.
@@ -39,8 +39,8 @@ class AbstractPlaceObserver(ABC, Generic[Plugin]):
     :param _place: The place observed by this observer.
     :type _place: :class:`_structure.Place`
     """
-    _plugin: Plugin
-    _place: "_structure.Place"
+    _plugin: APlugin
+    _place: "Place"
 
     @abstractmethod
     def reset(self):
@@ -65,7 +65,7 @@ class AbstractPlaceObserver(ABC, Generic[Plugin]):
 
 
 @dataclass(eq=False)
-class AbstractTransitionObserver(ABC, Generic[Plugin]):
+class AbstractTransitionObserver(ABC, Generic[APlugin]):
     """ The interface for all transition observers.
 
     Transition observers accumulate observation state related to a transition.
@@ -76,8 +76,8 @@ class AbstractTransitionObserver(ABC, Generic[Plugin]):
     :param _transition: The transition observed by this observer.
     :type _transition: :class:`_structure.Transition`
     """
-    _plugin: Plugin
-    _transition: "_structure.Transition"
+    _plugin: APlugin
+    _transition: "Transition"
 
     @abstractmethod
     def reset(self):
@@ -113,7 +113,7 @@ class AbstractTransitionObserver(ABC, Generic[Plugin]):
 
 
 @dataclass(eq=False)
-class AbstractTokenObserver(ABC, Generic[Plugin]):
+class AbstractTokenObserver(ABC, Generic[APlugin]):
     """ The interface for all token observers.
 
     Token observers accumulate observation state related to a token.
@@ -124,8 +124,8 @@ class AbstractTokenObserver(ABC, Generic[Plugin]):
     :param _token: The token observed by this observer.
     :type _token: :class:`_structure.Token`
     """
-    _plugin: Plugin
-    _token: "_structure.Token"
+    _plugin: APlugin
+    _token: "Token"
 
     @abstractmethod
     def reset(self):
@@ -149,14 +149,14 @@ class AbstractTokenObserver(ABC, Generic[Plugin]):
         """
 
     @abstractmethod
-    def report_arrival_at(self, p: "_structure.Place"):
+    def report_arrival_at(self, p: "Place"):
         """ Report the arrival of the token at the given place.
 
         Petsi will invoke this method after the token and its observers are constructed.
         """
 
     @abstractmethod
-    def report_departure_from(self, p: "_structure.Place"): pass
+    def report_departure_from(self, p: "Place"): pass
 
 
 @dataclass(eq=False)
@@ -180,7 +180,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
     # `AbstractPlaceObserver`, `AbstractTransitionObserver` and `AbstractTokenObserver`.
     # In these factory methods you can adopt the constructors of the derived classes
     # to the uniform interface the rest of the plugin code assumes.
-    def place_observer_factory(self, p: "_structure.Place") -> Optional[APlaceObserver]:
+    def place_observer_factory(self, p: "Place") -> Optional[APlaceObserver]:
         """ Create a place observer implementation.
 
         Override this method to create a place observer implementation.
@@ -188,11 +188,11 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         Petsi will invoke this method for the places of the net that were selected for observation.
         The method should return a place observer or ``None`` if the plugin is not interested in observing places.
 
-        :param p: The :class:`petsi._structure.Place` to observe.
+        :param p: The :class:`~petsi._structure.Place` to observe.
         :return: A place observer or ``None``
         """
 
-    def token_observer_factory(self, t: "_structure.Token") -> Optional[ATokenObserver]:
+    def token_observer_factory(self, t: "Token") -> Optional[ATokenObserver]:
         """ Create a token observer implementation.
 
         Override this method to create a token observer implementation.
@@ -200,11 +200,11 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         Petsi will invoke this method for the tokens of the net that were selected for observation.
         The method should return a token observer or ``None`` if the plugin is not interested in observing tokens.
 
-        :param t: The :class:`petsi._structure.Token` to observe.
+        :param t: The :class:`~petsi._structure.Token` to observe.
         :return: A token observer or ``None``
         """
 
-    def transition_observer_factory(self, t: "_structure.Transition") -> Optional[ATransitionObserver]:
+    def transition_observer_factory(self, t: "Transition") -> Optional[ATransitionObserver]:
         """ Create a transition observer implementation.
 
         Override this method to create a transition observer implementation.
@@ -213,7 +213,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         The method should return a transition observer or ``None`` if the plugin is not interested in observing
         transitions.
 
-        :param t: The :class:`petsi._structure.Token` to observe.
+        :param t: The :class:`~petsi._structure.Token` to observe.
         :return: A token observer or ``None``
         """
 
@@ -233,7 +233,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         for transition_observer in self._transition_observers.values():
             transition_observer.reset()
 
-    def observe_place(self, p: "_structure.Place") -> Optional[AbstractPlaceObserver]:
+    def observe_place(self, p: "Place") -> Optional[AbstractPlaceObserver]:
         o = self.place_observer_factory(p)
 
         if o is not None:
@@ -241,7 +241,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
 
         return o
 
-    def observe_token(self, t: "_structure.Token") -> Optional[AbstractTokenObserver]:
+    def observe_token(self, t: "Token") -> Optional[AbstractTokenObserver]:
         o = self.token_observer_factory(t)
 
         if o is not None:
@@ -249,7 +249,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
 
         return o
 
-    def observe_transition(self, t: "_structure.Transition") -> Optional[AbstractTransitionObserver]:
+    def observe_transition(self, t: "Transition") -> Optional[AbstractTransitionObserver]:
         o = self.transition_observer_factory(t)
 
         if o is not None:
@@ -258,7 +258,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
         return o
 
 
-class NoopPlaceObserver(AbstractPlaceObserver, Generic[Plugin]):
+class NoopPlaceObserver(AbstractPlaceObserver, Generic[APlugin]):
     """ A place observer implementation that does nothing."""
 
     def reset(self):
@@ -271,7 +271,7 @@ class NoopPlaceObserver(AbstractPlaceObserver, Generic[Plugin]):
         """ Does nothing."""
 
 
-class NoopTransitionObserver(AbstractTransitionObserver, Generic[Plugin]):
+class NoopTransitionObserver(AbstractTransitionObserver, Generic[APlugin]):
     """ A transition observer implementation that does nothing."""
 
     def reset(self):
@@ -290,7 +290,7 @@ class NoopTransitionObserver(AbstractTransitionObserver, Generic[Plugin]):
         """ Does nothing."""
 
 
-class NoopTokenObserver(AbstractTokenObserver, Generic[Plugin]):
+class NoopTokenObserver(AbstractTokenObserver, Generic[APlugin]):
     """ A token observer implementation that does nothing."""
 
     def reset(self):
@@ -302,10 +302,10 @@ class NoopTokenObserver(AbstractTokenObserver, Generic[Plugin]):
     def report_destruction(self):
         """ Does nothing."""
 
-    def report_arrival_at(self, p: "_structure.Place"):
+    def report_arrival_at(self, p: "Place"):
         """ Does nothing."""
 
-    def report_departure_from(self, p: "_structure.Place"):
+    def report_departure_from(self, p: "Place"):
         """ Does nothing."""
 
 

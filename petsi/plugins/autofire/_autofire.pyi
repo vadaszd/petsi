@@ -1,12 +1,9 @@
 #cython: language_level=3
-from dataclasses import dataclass
-from functools import cached_property
-from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator, Callable, Optional
-
-from Plugins import NoopPlaceObserver, NoopTokenObserver
+from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator, Callable
 
 if TYPE_CHECKING:
-    from . import _structure, Plugins
+    from . import _structure
+    from plugins import Plugins
 
 
 class _PriorityLevel:

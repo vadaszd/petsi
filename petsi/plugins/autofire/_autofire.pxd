@@ -1,5 +1,5 @@
 import cython
-from ._structure cimport Transition, Token, Place
+from ..._structure cimport Transition, Token, Place
 from cpython cimport iterator
 
 # from cpython cimport defaultdict

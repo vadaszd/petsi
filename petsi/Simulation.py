@@ -10,12 +10,15 @@ from glob import glob
 from typing import TYPE_CHECKING, Optional, Dict, Callable, TypeVar, Any, cast, \
     Tuple, FrozenSet, Iterable, List
 
-from .meters import _MeterPlugin, TokenCounterPlugin, SojournTimePlugin, TransitionIntervalPlugin
+from .plugins.meters import MeterPlugin
+from .plugins.transitioninterval import TransitionIntervalPlugin
+from .plugins.sojourntime import SojournTimePlugin
+from .plugins.tokencounter import TokenCounterPlugin
 
 from .NetViz import Visualizer
 from ._structure import Net
-from .autofire import AutoFirePlugin
-from ._autofire import Clock
+from .plugins.autofire import AutoFirePlugin
+from .plugins.autofire import Clock
 
 if TYPE_CHECKING:
     from graphviz import Digraph
@@ -32,7 +35,7 @@ class Simulator:
     """
     _net: Net
     _auto_fire: AutoFirePlugin
-    _meters: Dict[str, _MeterPlugin]
+    _meters: Dict[str, MeterPlugin]
     _need_more_observations: List[Callable[[], bool]]
 
     # Type[_MeterPlugin] Callable[[str, ], _MeterPlugin]
@@ -41,7 +44,7 @@ class Simulator:
                                         Optional[FrozenSet[int]],
                                         Optional[FrozenSet[int]],
                                         Clock],
-                                       _MeterPlugin]] = \
+                                       MeterPlugin]] = \
         dict(token_visits=SojournTimePlugin,
              place_population=TokenCounterPlugin,
              transition_firing=TransitionIntervalPlugin,
@@ -105,7 +108,7 @@ class Simulator:
             plugin_type = self._meter_plugins[stream]
 
             # Create the plugin
-            plugin: _MeterPlugin = plugin_type(stream, n, _places, _token_types, _transitions, _clock)
+            plugin: MeterPlugin = plugin_type(stream, n, _places, _token_types, _transitions, _clock)
             self._net.register_plugin(plugin)
             self._meters[stream] = plugin
             self._need_more_observations.append(plugin.get_need_more_observations())

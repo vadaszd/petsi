@@ -4,13 +4,15 @@ Overview
 --------
 
 .. automodule:: {{ fullname }}
+   :imported-members:
 
    {% block attributes %}
    {% if attributes %}
    .. rubric:: Module Attributes
 
    .. autosummary::
-   {% for item in attributes %}
+      :template: module_reference.rst
+   {% for item in attributes -%}
       {{ item }}
    {%- endfor %}
    {% endif %}
@@ -21,9 +23,11 @@ Overview
    .. rubric:: {{ _('Functions') }}
 
    .. autosummary::
-   {% for item in functions %}
+      :template: module_reference.rst
+      {% for item in functions %}
       {{ item }}
-   {%- endfor %}
+      {%- endfor %}
+
    {% endif %}
    {% endblock %}
 
@@ -32,9 +36,11 @@ Overview
    .. rubric:: {{ _('Classes') }}
 
    .. autosummary::
-   {% for item in classes %}
+      :template: module_reference.rst
+      {% for item in classes %}
       {{ item }}
-   {%- endfor %}
+      {%- endfor %}
+
    {% endif %}
    {% endblock %}
 
@@ -43,20 +49,25 @@ Overview
    .. rubric:: {{ _('Exceptions') }}
 
    .. autosummary::
-   {% for item in exceptions %}
+      :template: module_reference.rst
+      {% for item in exceptions %}
       {{ item }}
-   {%- endfor %}
+      {%- endfor %}
+
    {% endif %}
    {% endblock %}
 
-{% block modules %} {% if modules %} .. rubric:: Modules
+{% block modules %}
+{% if modules %}
+.. rubric:: Public modules
 
 .. autosummary::
+   :template: module_reference.rst
    :toctree:
    :recursive:
-{% for item in modules %}
-{{ item }}
-{%- endfor %} {% endif %} {% endblock %}
+   {% for item in modules %}
+   {{ item }}
+   {%- endfor %} {% endif %} {% endblock %}
 
 {% if functions or classes %}
 

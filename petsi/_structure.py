@@ -16,13 +16,13 @@ import cython
 
 
 # mypy: mypy_path=..
-from . import Plugins
 
 if TYPE_CHECKING:
     from .Visitor import APetsiVisitor, PetsiVisitor
+    from .plugins.Plugins import AbstractPlugin, \
+        AbstractTokenObserver, AbstractTransitionObserver, AbstractPlaceObserver
 
-    from typing import Any, TYPE_CHECKING, Set, Dict, \
-        Deque, Callable, ValuesView, Iterator
+    from typing import Any, Set, Dict, Deque, Callable, ValuesView, Iterator
 
 
 class Net:
@@ -31,7 +31,7 @@ class Net:
     _types: "Dict[str, TokenType]"
     _places: "Dict[str, Place]"
     _transitions: "Dict[str, Transition]"
-    _observers: "Dict[str, Plugins.AbstractPlugin]"
+    _observers: "Dict[str, AbstractPlugin]"
     _queuing_policies: "Dict[str, Callable[[str, int, TokenType], Place]]"
 
     def __init__(self, name: str):
@@ -69,10 +69,10 @@ class Net:
         return visitor
 
     @property
-    def observers(self) -> "ValuesView[Plugins.AbstractPlugin]":
+    def observers(self) -> "ValuesView[AbstractPlugin]":
         return self._observers.values()
 
-    def register_plugin(self, plugin: "Plugins.AbstractPlugin"):
+    def register_plugin(self, plugin: "AbstractPlugin"):
         """ Register the given plugin.
 
         The name of the plugin must not collide with the name of any plugins registered earlier.
@@ -335,7 +335,7 @@ class TokenType:
 class Token:
     """ A typed token in a Petri net. """
     _typ: TokenType
-    _token_observers: "Set[Plugins.AbstractTokenObserver]"
+    _token_observers: "Set[AbstractTokenObserver]"
     tags: "Dict[str, Any]"
 
     def __init__(self, typ: TokenType):
@@ -345,7 +345,7 @@ class Token:
         for of in self.typ.net.observers:
             self.attach_observer(of)
 
-    def attach_observer(self, plugin: Plugins.AbstractPlugin):
+    def attach_observer(self, plugin: AbstractPlugin):
         """ Request a new observer from ``plugin`` and add it to the set of observers to notify about token events."""
         observer = plugin.observe_token(self)
 
@@ -391,7 +391,7 @@ class Transition:
 
     _disabled_arc_count: int
     _arcs: "Dict[str, Arc]"
-    _transition_observers: "Set[Plugins.AbstractTransitionObserver]"
+    _transition_observers: "Set[AbstractTransitionObserver]"
 
     def __init__(self, name: str, ordinal: int, priority: int, weight: float, distribution: "Callable[[], float]"):
         self._name = name
@@ -419,7 +419,7 @@ class Transition:
     def get_duration(self):
         return self._distribution()
 
-    def attach_observer(self, plugin: "Plugins.AbstractPlugin"):
+    def attach_observer(self, plugin: "AbstractPlugin"):
         observer = plugin.observe_transition(self)
 
         if observer is not None:
@@ -671,7 +671,7 @@ class Place:
     ordinal: int
     _typ:  TokenType
     _tokens: "Deque[Token]"
-    _place_observers: "Set[Plugins.AbstractPlaceObserver]"
+    _place_observers: "Set[AbstractPlaceObserver]"
     _presence_observers: "Set[PresenceObserver]"
 
     _Status = Enum("_Status", "UNDEFINED STABLE TRANSIENT ERROR")
@@ -758,7 +758,7 @@ class Place:
         while not self.is_empty:
             self.pop()
 
-    def attach_observer(self, plugin: Plugins.AbstractPlugin):
+    def attach_observer(self, plugin: "AbstractPlugin"):
         observer = plugin.observe_place(self)
 
         if observer is not None:

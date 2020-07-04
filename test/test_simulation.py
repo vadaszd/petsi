@@ -2,10 +2,11 @@ import inspect
 from unittest import TestCase, main, skipUnless
 from unittest.mock import Mock
 
-from petsi.autofire import AutoFirePlugin
+from petsi.plugins.autofire import AutoFirePlugin
 from petsi._structure import Net
-from petsi._autofire import FireControl
-from petsi.meters import TokenCounterPlugin, SojournTimePlugin
+from petsi.plugins.autofire import FireControl
+from petsi.plugins.sojourntime import SojournTimePlugin
+from petsi.plugins.tokencounter import TokenCounterPlugin
 
 
 class FireControlTest(TestCase):
