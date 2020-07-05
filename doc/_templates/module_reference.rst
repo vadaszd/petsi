@@ -59,7 +59,6 @@ Overview
 
 {% block modules %}
 {% if modules %}
-.. rubric:: Public modules
 
 .. autosummary::
    :template: module_reference.rst

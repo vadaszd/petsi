@@ -843,7 +843,7 @@ struct __pyx_obj_5petsi_7plugins_8autofire_9_autofire_Clock;
 struct __pyx_obj_5petsi_7plugins_8autofire_9_autofire_FireControl;
 struct __pyx_obj_5petsi_7plugins_8autofire_9_autofire_AutoFirePluginTransitionObserver;
 
-/* "_structure.pxd":8
+/* "_structure.pxd":7
  * 
  * 
  * cdef class Transition:             # <<<<<<<<<<<<<<
@@ -864,7 +864,7 @@ struct __pyx_obj_5petsi_10_structure_Transition {
 };
 
 
-/* "_structure.pxd":28
+/* "_structure.pxd":27
  * 
  * 
  * cdef class TokenType:             # <<<<<<<<<<<<<<
@@ -879,17 +879,16 @@ struct __pyx_obj_5petsi_10_structure_TokenType {
 };
 
 
-/* "_structure.pxd":34
+/* "_structure.pxd":33
  * 
  * 
  * cdef class Token:             # <<<<<<<<<<<<<<
- *     cdef readonly unsigned long long token_id
+ *     # cdef readonly unsigned long long token_id
  *     cdef object _typ            # : TokenType
  */
 struct __pyx_obj_5petsi_10_structure_Token {
   PyObject_HEAD
   struct __pyx_vtabstruct_5petsi_10_structure_Token *__pyx_vtab;
-  unsigned PY_LONG_LONG token_id;
   PyObject *_typ;
   PyObject *_token_observers;
   PyObject *tags;
@@ -898,7 +897,7 @@ struct __pyx_obj_5petsi_10_structure_Token {
 
 /* "_structure.pxd":4
  * 
- * 
+ * # Forward declaration
  * cdef class Place             # <<<<<<<<<<<<<<
  * 
  * 
@@ -986,7 +985,7 @@ struct __pyx_obj_5petsi_7plugins_8autofire_9_autofire_AutoFirePluginTransitionOb
 
 /* "_structure.pxd":4
  * 
- * 
+ * # Forward declaration
  * cdef class Place             # <<<<<<<<<<<<<<
  * 
  * 
@@ -1002,7 +1001,7 @@ struct __pyx_vtabstruct_5petsi_10_structure_Place {
 static struct __pyx_vtabstruct_5petsi_10_structure_Place *__pyx_vtabptr_5petsi_10_structure_Place;
 
 
-/* "_structure.pxd":8
+/* "_structure.pxd":7
  * 
  * 
  * cdef class Transition:             # <<<<<<<<<<<<<<
@@ -1018,11 +1017,11 @@ struct __pyx_vtabstruct_5petsi_10_structure_Transition {
 static struct __pyx_vtabstruct_5petsi_10_structure_Transition *__pyx_vtabptr_5petsi_10_structure_Transition;
 
 
-/* "_structure.pxd":34
+/* "_structure.pxd":33
  * 
  * 
  * cdef class Token:             # <<<<<<<<<<<<<<
- *     cdef readonly unsigned long long token_id
+ *     # cdef readonly unsigned long long token_id
  *     cdef object _typ            # : TokenType
  */
 
@@ -10615,13 +10614,13 @@ static int __Pyx_modinit_type_import_code(void) {
    if (!__pyx_ptype_5petsi_10_structure_Place) __PYX_ERR(3, 4, __pyx_L1_error)
   __pyx_vtabptr_5petsi_10_structure_Place = (struct __pyx_vtabstruct_5petsi_10_structure_Place*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Place->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Place)) __PYX_ERR(3, 4, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_Transition = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Transition", sizeof(struct __pyx_obj_5petsi_10_structure_Transition), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_10_structure_Transition) __PYX_ERR(3, 8, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_10_structure_Transition = (struct __pyx_vtabstruct_5petsi_10_structure_Transition*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Transition->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Transition)) __PYX_ERR(3, 8, __pyx_L1_error)
+   if (!__pyx_ptype_5petsi_10_structure_Transition) __PYX_ERR(3, 7, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Transition = (struct __pyx_vtabstruct_5petsi_10_structure_Transition*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Transition->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Transition)) __PYX_ERR(3, 7, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_TokenType = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "TokenType", sizeof(struct __pyx_obj_5petsi_10_structure_TokenType), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_10_structure_TokenType) __PYX_ERR(3, 28, __pyx_L1_error)
+   if (!__pyx_ptype_5petsi_10_structure_TokenType) __PYX_ERR(3, 27, __pyx_L1_error)
   __pyx_ptype_5petsi_10_structure_Token = __Pyx_ImportType(__pyx_t_1, "petsi._structure", "Token", sizeof(struct __pyx_obj_5petsi_10_structure_Token), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5petsi_10_structure_Token) __PYX_ERR(3, 34, __pyx_L1_error)
-  __pyx_vtabptr_5petsi_10_structure_Token = (struct __pyx_vtabstruct_5petsi_10_structure_Token*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Token->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Token)) __PYX_ERR(3, 34, __pyx_L1_error)
+   if (!__pyx_ptype_5petsi_10_structure_Token) __PYX_ERR(3, 33, __pyx_L1_error)
+  __pyx_vtabptr_5petsi_10_structure_Token = (struct __pyx_vtabstruct_5petsi_10_structure_Token*)__Pyx_GetVtable(__pyx_ptype_5petsi_10_structure_Token->tp_dict); if (unlikely(!__pyx_vtabptr_5petsi_10_structure_Token)) __PYX_ERR(3, 33, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = PyImport_ImportModule(__Pyx_BUILTIN_MODULE_NAME); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);

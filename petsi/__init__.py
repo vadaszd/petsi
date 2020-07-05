@@ -1,15 +1,17 @@
 """ The main package for Petsi - a Petri net simulator for performance modelling.
 
-.. rubric:: Package interface
+.. rubric:: Synopsis
 
-.. autosummary
-    :template: package_interface_class.rst
-    :recursive:
-    :toctree:
+.. code-block:: python
+
+    from petsi import Simulator
+    simulator = Simulator(...)
 
 .. autodata:: Simulator
 
-.. rubric:: Private modules
+    For the interface documentation, refer to :class:`.Simulation.Simulator`.
+
+.. rubric:: Internal submodules
 
 .. autosummary::
     :template: module_reference.rst

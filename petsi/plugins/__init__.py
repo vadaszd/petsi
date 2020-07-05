@@ -1,26 +1,42 @@
 """ A sub-package defining the interface for PetSi plugins and implementing a number of built-in plugins.
 
-.. rubric:: Package interface
+**Synopsis:**
 
-.. autosummary
-    :template: package_interface_class.rst
-    :recursive:
-    :toctree:
+.. code-block:: python
+
+    from .plugins import AutoFirePlugin
+    plugin = AutoFirePlugin(...)
+
+    from .plugins import SojournTimePlugin
+    plugin = SojournTimePlugin(...)
+
+    from .plugins import TokenCounterPlugin
+    plugin = TokenCounterPlugin(...)
+
+    from .plugins import TransitionIntervalPlugin
+    plugin = TransitionIntervalPlugin(...)
 
 .. autodata:: AutoFirePlugin
     :noindex:
 
+    For the interface documentation, refer to :class:`.autofire.AutoFirePlugin`.
+
 .. autodata:: SojournTimePlugin
     :noindex:
+
+    For the interface documentation, refer to :class:`~.sojourntime.SojournTimePlugin`.
 
 .. autodata:: TokenCounterPlugin
     :noindex:
 
+    For the interface documentation, refer to :class:`~.tokencounter.TokenCounterPlugin`.
+
 .. autodata:: TransitionIntervalPlugin
     :noindex:
 
+    For the interface documentation, refer to :class:`~.transitioninterval.TransitionIntervalPlugin`.
 
-.. rubric:: Private modules
+.. rubric:: Internal submodules
 
 .. autosummary::
     :template: module_reference.rst

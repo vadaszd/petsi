@@ -28,7 +28,7 @@ class Visualizer(PetsiVisitor):
     def visit(self, visitable: Union[Net, Transition, Place, Arc]):
         """ A generic ``visit`` method.
 
-        The implementation uses the :class:`functools.singledispatchmethod` for dispatching
+        The implementation uses the :class:`~functools.singledispatchmethod` for dispatching
         control based on the type of the visited object.
 
         `Transitions <petsi._structure.Transition>`_ are represented by a box-shaped `graphviz` node.

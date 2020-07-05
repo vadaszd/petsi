@@ -1,10 +1,10 @@
 """ A plugin that collects by-place token-count stats.
 
-.. rubric:: Package interface
+.. rubric:: Public package interface
 
 - Class :class:`TokenCounterPlugin` (see below)
 
-.. rubric:: Private modules
+.. rubric:: Internal submodules
 
 .. autosummary::
     :template: module_reference.rst

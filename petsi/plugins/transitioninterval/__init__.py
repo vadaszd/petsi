@@ -1,10 +1,12 @@
-""" A plugin that collects stats on the time intervals between firings of transitions.
+""" A plugin package that collects stats on the time intervals between firings of transitions.
 
-.. rubric:: Package interface
+Package interface
+..................................................
 
 - Class :class:`TransitionIntervalPlugin` (see below)
 
-.. rubric:: Private modules
+Internal modules
+..................................................
 
 .. autosummary::
     :template: module_reference.rst

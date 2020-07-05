@@ -1,12 +1,23 @@
 """ A plugin that fires enabled transitions automatically.
 
-.. rubric:: Package interface
+.. rubric:: Synopsis
 
-- Class :class:`AutoFirePlugin` (see below)
+.. code-block:: python
+
+    from .autofire import AutoFirePlugin
+
+    if TYPE_CHECKING:
+        from .autofire import Clock
+
+   plugin = AutoFirePlugin(...)
+
+- Refer to :class:`AutoFirePlugin` below.
 - .. autodata:: Clock
     :noindex:
 
-.. rubric:: Private modules
+    ``Clock`` is exported here only for type-checking purposes. It should not be instantiated.
+
+.. rubric:: Internal submodules
 
 .. autosummary::
     :template: module_reference.rst
@@ -44,7 +55,7 @@ class AutoFirePlugin(
     :mod:`~._autofire` Cython extension module.
 
     The transitions are selected for firing based on the rules for
-    Extended Stochastic Petri Nets. For the details, see the documentation of :mod:`~petsi._autofire`.
+    Extended Stochastic Petri Nets. For the details, see the documentation of :mod:`~._autofire`.
     """
 
     _fire_control: FireControl = field(default_factory=FireControl, init=False)
