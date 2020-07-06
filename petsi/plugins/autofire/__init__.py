@@ -35,11 +35,11 @@ from typing import Callable, Optional, TYPE_CHECKING
 from ...util import export
 
 from ..._structure import foreach
-from ..Plugins import AbstractPlugin
+from ..interface import AbstractPlugin
 from ._autofire import FireControl, AutoFirePluginTransitionObserver, Clock
 
 if TYPE_CHECKING:
-    from ..Plugins import NoopPlaceObserver, NoopTokenObserver
+    from ..interface import NoopPlaceObserver, NoopTokenObserver
     from ..._structure import Transition
 
 export(Clock)

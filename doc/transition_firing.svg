@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="780px" preserveAspectRatio="none" style="width:940px;height:780px;" version="1.1" viewBox="0 0 940 780" width="940.2px" zoomAndPan="magnify"><defs><filter height="300%" id="f276rw89op86k" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="1.2"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="2.4" dy="2.4" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><text fill="#000000" font-family="sans-serif" font-size="10.8" lengthAdjust="spacingAndGlyphs" textLength="83.4" x="425.85" y="16.0248">Transition firing</text><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="681.815" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="97.5" y="65.0406"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="8.4" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="177.9" y="122.3124"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="8.4" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="177.9" y="685.5806"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="519.887" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="248.4" y="148.203"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="37.9781" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="540.9" y="207.3623"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="64.9812" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="614.7" y="545.5245"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="8.4" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="799.5" y="288.1217"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="18" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="799.5" y="563.0151"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="643.3244" style="stroke: #000000; stroke-width: 1.2;" width="847.5" x="7.8" y="99.3312"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="503.087" style="stroke: #000000; stroke-width: 1.2;" width="638.1" x="211.2" y="157.203"/><rect fill="#FFFFFF" height="108.2561" style="stroke: none; stroke-width: 0.6;" width="638.1" x="211.2" y="358.5029"/><rect fill="#FFFFFF" height="161.1467" style="stroke: none; stroke-width: 0.6;" width="638.1" x="211.2" y="466.759"/><rect fill="#FFFFFF" height="32.3843" style="stroke: none; stroke-width: 0.6;" width="638.1" x="211.2" y="627.9057"/><rect fill="#FFFFFF" height="26.3843" style="stroke: none; stroke-width: 0.6;" width="847.5" x="7.8" y="716.2712"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="29.4" x2="29.4" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="100.2" x2="100.2" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="180.6" x2="180.6" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="251.4" x2="251.4" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="312.3" x2="312.3" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="379.5" x2="379.5" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="462.3" x2="462.3" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="543.9" x2="543.9" y1="46.35" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="617.7" x2="617.7" y1="187.0827" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="802.5" x2="802.5" y1="232.9514" y2="753.4556"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 5.0,5.0;" x1="889.5" x2="889.5" y1="46.35" y2="753.4556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="29.4" x="13.8" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="21" x="18" y="37.1689">Alice</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="29.4" x="13.8" y="752.8556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="21" x="18" y="764.8526">Alice</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="48.6" x="75" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="40.2" x="79.2" y="37.1689">transition</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="48.6" x="75" y="752.8556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="40.2" x="79.2" y="764.8526">transition</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="93" x="134.4" y="22.7719"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="93" x="132" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="84.6" x="136.2" y="37.1689">transition observers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="93" x="134.4" y="752.8556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="93" x="132" y="755.2556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="84.6" x="136.2" y="767.2526">transition observers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="26.4" x="238.2" y="22.7719"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="26.4" x="235.8" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="18" x="240" y="37.1689">arcs</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="26.4" x="238.2" y="752.8556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="26.4" x="235.8" y="755.2556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="18" x="240" y="767.2526">arcs</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="61.8" x="280.5" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="53.4" x="284.7" y="37.1689">output place</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="61.8" x="280.5" y="752.8556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="53.4" x="284.7" y="764.8526">output place</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="55.8" x="350.7" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="47.4" x="354.9" y="37.1689">input place</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="55.8" x="350.7" y="752.8556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="47.4" x="354.9" y="764.8526">input place</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="90.6" x="417.3" y="22.7719"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="90.6" x="414.9" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="82.2" x="419.1" y="37.1689">PresenceObservers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="90.6" x="417.3" y="752.8556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="90.6" x="414.9" y="755.2556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="82.2" x="419.1" y="767.2526">PresenceObservers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="50.4" x="518.7" y="22.7719"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="50.4" x="516.3" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="42" x="520.5" y="37.1689">observers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="50.4" x="518.7" y="752.8556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="50.4" x="516.3" y="755.2556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="42" x="520.5" y="767.2526">observers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="34.8" x="599.1" y="752.8556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="26.4" x="603.3" y="764.8526">Token</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.8" x="764.1" y="752.8556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.8" x="761.7" y="755.2556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="68.4" x="765.9" y="767.2526">token observers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.2" x="851.7" y="22.7719"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.2" x="849.3" y="25.1719"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="67.8" x="853.5" y="37.1689">place observers</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.2" x="851.7" y="752.8556"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.2" x="849.3" y="755.2556"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="67.8" x="853.5" y="767.2526">place observers</text><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="681.815" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="97.5" y="65.0406"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="8.4" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="177.9" y="122.3124"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="8.4" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="177.9" y="685.5806"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="519.887" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="248.4" y="148.203"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="37.9781" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="540.9" y="207.3623"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="64.9812" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="614.7" y="545.5245"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="8.4" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="799.5" y="288.1217"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="18" style="stroke: #A80036; stroke-width: 0.6;" width="6" x="799.5" y="563.0151"/><polygon fill="#A80036" points="90.3,62.6406,96.3,65.0406,90.3,67.4406,92.7,65.0406" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="29.7" x2="93.9" y1="65.0406" y2="65.0406"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="19.2" x="33.9" y="61.9988">fire()</text><line style="stroke: #A80036; stroke-width: 0.6;" x1="103.5" x2="128.7" y1="82.5312" y2="82.5312"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="128.7" x2="128.7" y1="82.5312" y2="90.3312"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="104.1" x2="128.7" y1="90.3312" y2="90.3312"/><polygon fill="#A80036" points="110.1,87.9312,104.1,90.3312,110.1,92.7312,107.7,90.3312" style="stroke: #A80036; stroke-width: 0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="43.8" x="107.7" y="79.4894">isEnabled()</text><path d="M7.8,99.3312 L46.2,99.3312 L46.2,103.5312 L40.2,109.5312 L7.8,109.5312 L7.8,99.3312 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 0.6;"/><rect fill="none" height="643.3244" style="stroke: #000000; stroke-width: 1.2;" width="847.5" x="7.8" y="99.3312"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="11.4" x="16.8" y="107.18">alt</text><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="21" x="55.2" y="106.6662">[true]</text><polygon fill="#A80036" points="170.7,119.9124,176.7,122.3124,170.7,124.7124,173.1,122.3124" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="103.5" x2="174.3" y1="122.3124" y2="122.3124"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="52.8" x="107.7" y="119.2706">beforeFiring()</text><polygon fill="#A80036" points="110.1,128.3124,104.1,130.7124,110.1,133.1124,107.7,130.7124" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="106.5" x2="180.3" y1="130.7124" y2="130.7124"/><polygon fill="#A80036" points="241.2,145.803,247.2,148.203,241.2,150.603,243.6,148.203" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="103.5" x2="244.8" y1="148.203" y2="148.203"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="22.8" x="107.7" y="145.1612">flow()</text><path d="M211.2,157.203 L249.6,157.203 L249.6,161.403 L243.6,167.403 L211.2,167.403 L211.2,157.203 " fill="#EEEEEE" style="stroke: #000000; stroke-width: 0.6;"/><rect fill="none" height="503.087" style="stroke: #000000; stroke-width: 1.2;" width="638.1" x="211.2" y="157.203"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="11.4" x="220.2" y="165.0518">alt</text><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="63.6" x="258.6" y="164.538">[constructor arc]</text><polygon fill="#A80036" points="591.9,177.7842,597.9,180.1842,591.9,182.5842,594.3,180.1842" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="254.4" x2="595.5" y1="180.1842" y2="180.1842"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="73.2" x="258.6" y="177.1424">token = new(type)</text><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="34.8" x="599.1" y="167.4936"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="26.4" x="603.3" y="179.4907">Token</text><polygon fill="#A80036" points="553.5,204.9623,547.5,207.3623,553.5,209.7623,551.1,207.3623" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="549.9" x2="617.1" y1="207.3623" y2="207.3623"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="59.4" x="557.1" y="204.3206">observe(token)</text><polygon fill="#A80036" points="754.5,213.3623,760.5,215.7623,754.5,218.1623,756.9,215.7623" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="546.9" x2="758.1" y1="215.7623" y2="215.7623"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.8" x="764.1" y="212.1623"/><rect fill="#FEFECE" filter="url(#f276rw89op86k)" height="18.1781" style="stroke: #A80036; stroke-width: 0.8999999999999999;" width="76.8" x="761.7" y="214.5623"/><text fill="#000000" font-family="sans-serif" font-size="8.4" lengthAdjust="spacingAndGlyphs" textLength="68.4" x="765.9" y="226.5594">token observers</text><polygon fill="#A80036" points="610.5,242.9405,616.5,245.3405,610.5,247.7405,612.9,245.3405" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="543.9" x2="614.1" y1="245.3405" y2="245.3405"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="617.7" x2="642.9" y1="262.8311" y2="262.8311"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="642.9" x2="642.9" y1="262.8311" y2="270.6311"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="618.3" x2="642.9" y1="270.6311" y2="270.6311"/><polygon fill="#A80036" points="624.3,268.2311,618.3,270.6311,624.3,273.0311,621.9,270.6311" style="stroke: #A80036; stroke-width: 0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="66" x="621.9" y="259.7893">attachObserver()</text><polygon fill="#A80036" points="792.3,285.7217,798.3,288.1217,792.3,290.5217,794.7,288.1217" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="617.7" x2="795.9" y1="288.1217" y2="288.1217"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="78.6" x="621.9" y="285.0799">reportConstruction()</text><polygon fill="#A80036" points="624.3,294.1217,618.3,296.5217,624.3,298.9217,621.9,296.5217" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="620.7" x2="801.9" y1="296.5217" y2="296.5217"/><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="24.1812" style="stroke: #000000; stroke-width: 1.2;" width="608.7" x="234" y="316.3217"/><polygon fill="#EEEEEE" points="234,316.3217,273.6,316.3217,273.6,320.5217,267.6,326.5217,234,326.5217,234,316.3217" style="stroke: #000000; stroke-width: 1.2;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="12.6" x="241.8" y="324.7705">ref</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="104.4" x="487.35" y="336.1705">push token to output place</text><line style="stroke: #000000; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="211.2" x2="849.3" y1="359.1029" y2="359.1029"/><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="49.2" x="214.2" y="365.2378">[transfer arc]</text><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="24.1812" style="stroke: #000000; stroke-width: 1.2;" width="608.7" x="234" y="382.3966"/><polygon fill="#EEEEEE" points="234,382.3966,273.6,382.3966,273.6,386.5966,267.6,392.5966,234,392.5966,234,382.3966" style="stroke: #000000; stroke-width: 1.2;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="12.6" x="241.8" y="390.8454">ref</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="105.6" x="486.75" y="402.2454">pop token from input place</text><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="24.1812" style="stroke: #000000; stroke-width: 1.2;" width="608.7" x="234" y="424.5778"/><polygon fill="#EEEEEE" points="234,424.5778,273.6,424.5778,273.6,428.7778,267.6,434.7778,234,434.7778,234,424.5778" style="stroke: #000000; stroke-width: 1.2;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="12.6" x="241.8" y="433.0266">ref</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="104.4" x="487.35" y="444.4266">push token to output place</text><line style="stroke: #000000; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="211.2" x2="849.3" y1="467.359" y2="467.359"/><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="58.8" x="214.2" y="473.494">[destructor arc]</text><rect fill="#FFFFFF" filter="url(#f276rw89op86k)" height="24.1812" style="stroke: #000000; stroke-width: 1.2;" width="608.7" x="234" y="490.6527"/><polygon fill="#EEEEEE" points="234,490.6527,273.6,490.6527,273.6,494.8527,267.6,500.8527,234,500.8527,234,490.6527" style="stroke: #000000; stroke-width: 1.2;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="12.6" x="241.8" y="499.1015">ref</text><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="105.6" x="486.75" y="510.5015">pop token from input place</text><polygon fill="#A80036" points="607.5,543.1245,613.5,545.5245,607.5,547.9245,609.9,545.5245" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="254.4" x2="611.1" y1="545.5245" y2="545.5245"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="30.6" x="258.6" y="542.4827">delete()</text><polygon fill="#A80036" points="792.3,560.6151,798.3,563.0151,792.3,565.4151,794.7,563.0151" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="620.7" x2="795.9" y1="563.0151" y2="563.0151"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="74.4" x="624.9" y="559.9734">reportDestruction()</text><line style="stroke: #A80036; stroke-width: 1.2;" x1="797.1" x2="807.9" y1="575.6151" y2="586.4151"/><line style="stroke: #A80036; stroke-width: 1.2;" x1="797.1" x2="807.9" y1="586.4151" y2="575.6151"/><polygon fill="#A80036" points="627.3,587.0151,621.3,589.4151,627.3,591.8151,624.9,589.4151" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="623.7" x2="801.9" y1="589.4151" y2="589.4151"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="620.7" x2="645.9" y1="606.9057" y2="606.9057"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="645.9" x2="645.9" y1="606.9057" y2="614.7057"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="621.3" x2="645.9" y1="614.7057" y2="614.7057"/><polygon fill="#A80036" points="627.3,612.3057,621.3,614.7057,627.3,617.1057,624.9,614.7057" style="stroke: #A80036; stroke-width: 0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="170.4" x="624.9" y="603.864">removeObserver(AbstractTokenObserver o)</text><line style="stroke: #A80036; stroke-width: 1.2;" x1="612.3" x2="623.1" y1="609.3057" y2="620.1057"/><line style="stroke: #A80036; stroke-width: 1.2;" x1="612.3" x2="623.1" y1="620.1057" y2="609.3057"/><polygon fill="#A80036" points="261,620.7057,255,623.1057,261,625.5057,258.6,623.1057" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="257.4" x2="617.1" y1="623.1057" y2="623.1057"/><line style="stroke: #000000; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="211.2" x2="849.3" y1="628.5057" y2="628.5057"/><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="34.2" x="214.2" y="634.6407">[test arc]</text><path d="M217.2,639.7994 L217.2,654.7994 L282.6,654.7994 L282.6,645.7994 L276.6,639.7994 L217.2,639.7994 " fill="#FBFB77" filter="url(#f276rw89op86k)" style="stroke: #A80036; stroke-width: 0.6;"/><path d="M276.6,639.7994 L276.6,645.7994 L282.6,645.7994 L276.6,639.7994 " fill="#FBFB77" style="stroke: #A80036; stroke-width: 0.6;"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="52.8" x="220.8" y="650.0483">Nothing to do</text><polygon fill="#A80036" points="110.1,665.69,104.1,668.09,110.1,670.49,107.7,668.09" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="106.5" x2="250.8" y1="668.09" y2="668.09"/><polygon fill="#A80036" points="170.7,683.1806,176.7,685.5806,170.7,687.9806,173.1,685.5806" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6;" x1="103.5" x2="174.3" y1="685.5806" y2="685.5806"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="46.2" x="107.7" y="682.5389">afterFiring()</text><polygon fill="#A80036" points="110.1,691.5806,104.1,693.9806,110.1,696.3806,107.7,693.9806" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="106.5" x2="180.3" y1="693.9806" y2="693.9806"/><polygon fill="#A80036" points="36.3,709.0712,30.3,711.4712,36.3,713.8712,33.9,711.4712" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="32.7" x2="96.9" y1="711.4712" y2="711.4712"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="53.4" x="39.9" y="708.4295">normal return</text><line style="stroke: #000000; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="7.8" x2="855.3" y1="716.8712" y2="716.8712"/><text fill="#000000" font-family="sans-serif" font-size="6.6" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="24" x="10.8" y="723.0062">[false]</text><polygon fill="#A80036" points="36.3,735.4556,30.3,737.8556,36.3,740.2556,33.9,737.8556" style="stroke: #A80036; stroke-width: 0.6;"/><line style="stroke: #A80036; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="32.7" x2="96.9" y1="737.8556" y2="737.8556"/><text fill="#000000" font-family="sans-serif" font-size="7.8" lengthAdjust="spacingAndGlyphs" textLength="38.4" x="39.9" y="734.8138">exception</text><line style="stroke: #000000; stroke-width: 0.6; stroke-dasharray: 2.0,2.0;" x1="1.8" x2="933.3" y1="746.8556" y2="746.8556"/><!--MD5=[d0270b47696211c47f82727c23497f1c]
+@startuml
+
+title Transition firing
+
+participant Alice order 10
+participant transition order 20
+collections "transition observers" order 25
+collections arcs order 30
+participant "output place" order 33
+participant "input place" order 35
+collections observers order 40
+collections PresenceObservers order 38
+participant Token order 45
+collections "token observers" order 50
+collections "place observers" order 60
+
+Alice -> transition: fire()
+activate transition
+
+transition -> transition : isEnabled()
+
+alt true
+
+transition -> "transition observers": beforeFiring()
+activate "transition observers"
+return
+
+transition -> arcs: flow()
+activate arcs
+
+alt constructor arc
+arcs -> Token**++: token = new(type)
+
+Token -> observers++: observe(token)
+observers -> "token observers"**
+return
+
+Token -> Token: attachObserver()
+
+Token -> "token observers"++: reportConstruction()
+return
+
+|||
+ref over arcs, "output place", Token, "token observers"
+push token to output place
+end ref
+|||
+
+else transfer arc
+|||
+ref over arcs, "output place", Token, "token observers"
+pop token from input place
+end ref
+|||
+ref over arcs, "output place", Token, "token observers"
+push token to output place
+end ref
+|||
+
+else destructor arc
+|||
+ref over arcs, "output place", Token, "token observers"
+pop token from input place
+end ref
+|||
+arcs -> Token: delete()
+activate Token
+Token -> "token observers"++: reportDestruction()
+destroy "token observers"
+return
+Token -> Token: removeObserver(AbstractTokenObserver o)
+
+destroy Token
+return
+else test arc
+note over arcs: Nothing to do
+end
+
+return
+
+transition -> "transition observers": afterFiring()
+activate "transition observers"
+return
+
+transition - -> Alice: normal return
+
+else false
+
+transition - -> Alice: exception
+
+end
+
+deactivate
+
+newpage Push token to output place
+
+arcs -> "output place"++: push(token)
+
+"output place" -> Token++: moveTo(place)
+
+Token -> "token observers"++: reportArrivalAt(place)
+return
+
+return
+
+"output place" -> "place observers"++: reportArrivalOf(token)
+return
+
+alt Place was previously empty
+"output place" -> PresenceObservers++ : reportSomeToken()
+
+PresenceObservers -> transition++: decrementDisabledArcCount()
+alt after decrementing disabledArcCount == 0
+transition -> "transition observers"++: gotEnabled()
+return
+end
+return
+return
+end
+
+return
+
+newpage Pop token from input place
+
+arcs -> "input place"++: token = pop()
+
+"input place" -> Token++: removeFrom(place)
+
+Token -> "token observers"++: reportDepartureFrom(place)
+return
+
+return
+
+"input place" -> "place observers"++: reportDepartureOf(token)
+return
+
+alt Place has become empty
+"input place" -> PresenceObservers++ : reportNoToken()
+
+PresenceObservers -> transition++: incrementDisabledArcCount()
+alt before incrementing disabledArcCount == 0
+transition -> "transition observers"++: gotDisabled()
+return
+end
+return
+return
+end
+
+return
+@enduml
+
+PlantUML version 1.2020.09(Sun May 10 12:51:06 CEST 2020)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.7+10-b765.53
+Operating System: Linux
+Default Encoding: UTF-8
+Language: hu
+Country: HU
+--></g></svg>

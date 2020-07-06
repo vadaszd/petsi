@@ -1,7 +1,7 @@
 @startuml
 hide empty members
 
-namespace Structure {
+namespace _structure {
 
 class Net {
     name
@@ -83,20 +83,20 @@ interface PresenceObserver {
     reportSomeToken()
 }
 
-Net *-- "*" Type: types
+Net *-- "*" TokenType: types
 Net *--> "*" Place: places
 Net *--> "*" Transition: transitions
-Net *--> "*" Plugins.AbstractPlugin: observers
-Type <-- "*" Arc
-Type <-- "*" Place
+Net *--> "*" plugins.interface.AbstractPlugin: observers
+TokenType <-- "*" Arc
+TokenType <-- "*" Place
 Place -l- "*" Token
-Token *-- "*" Plugins.AbstractTokenObserver
+Token *-- "*" plugins.interface.AbstractTokenObserver
 Token *-- "*" Tag : tags
-Place *-- "*" Plugins.AbstractPlaceObserver
+Place *-- "*" plugins.interface.AbstractPlaceObserver
 TokenPlacer .u.|> Arc
 PresenceObserver .u.|> Arc
 Transition *-- "*" Arc
-Transition *-- "*" Plugins.AbstractTransitionObserver
+Transition *-- "*" plugins.interface.AbstractTransitionObserver
 PresenceObserver "*" -- Place : input
 TestArc .d.|> PresenceObserver
 ConstructorArc .d.|> TokenPlacer
@@ -113,7 +113,7 @@ Updater *--> UpdateOp
 
 }
 
-namespace Simulation {
+namespace plugins.autofire {
 class AutoFirePlugin{
     currentTime
 }
@@ -124,21 +124,21 @@ class TokenObserver {
     creationTime
     arrivalTime
 }
-Simulation.AutoFirePlugin *-- "*" TransitionObserver
-Simulation.AutoFirePlugin *-- "*" TokenObserver
-Simulation.AutoFirePlugin *-- "*" PlaceObserver
-Simulation.AutoFirePlugin ..|> Plugins.AbstractPlugin
-TransitionObserver ..|> Plugins.AbstractTransitionObserver
-TokenObserver ..|> Plugins.AbstractTokenObserver
-PlaceObserver ..|> Plugins.AbstractPlaceObserver
+plugins.autofire.AutoFirePlugin *-- "*" TransitionObserver
+plugins.autofire.AutoFirePlugin *-- "*" TokenObserver
+plugins.autofire.AutoFirePlugin *-- "*" PlaceObserver
+plugins.autofire.AutoFirePlugin ..|> plugins.interface.AbstractPlugin
+TransitionObserver ..|> plugins.interface.AbstractTransitionObserver
+TokenObserver ..|> plugins.interface.AbstractTokenObserver
+PlaceObserver ..|> plugins.interface.AbstractPlaceObserver
 }
 
-namespace Plugins {
+namespace plugins.interface {
 interface AbstractPlugin {
     name
-    AbstractPlaceObserver observe(Structure.Place p)
-    AbstractTokenObserver observe(Simulation.Token t)
-    AbstractTransitionObserver observe(Structure.Transition t)
+    AbstractPlaceObserver observe(_structure.Place p)
+    AbstractTokenObserver observe(_structure.Token t)
+    AbstractTransitionObserver observe(_structure.Transition t)
 }
 interface AbstractPlaceObserver{
     reportArrivalOf(token)
@@ -147,8 +147,8 @@ interface AbstractPlaceObserver{
 interface AbstractTokenObserver{
     reportConstruction()
     reportDestruction()
-    reportArrivalAt(Structure.Place p)
-    reportDepartureFrom(Structure.Place p)
+    reportArrivalAt(_structure.Place p)
+    reportDepartureFrom(_structure.Place p)
 }
 interface AbstractTransitionObserver{
     beforeFiring()

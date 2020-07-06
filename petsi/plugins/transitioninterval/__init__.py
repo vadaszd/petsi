@@ -24,7 +24,7 @@ from ...util import export
 from ._transitioninterval import FiringCollector, TransitionIntervalPluginTransitionObserver
 
 if TYPE_CHECKING:
-    from ..Plugins import NoopTokenObserver, NoopTransitionObserver
+    from ..interface import NoopTokenObserver, NoopTransitionObserver
     from ..._structure import Transition
 
 

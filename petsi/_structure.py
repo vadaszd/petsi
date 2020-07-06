@@ -18,8 +18,8 @@ import cython
 # mypy: mypy_path=..
 
 if TYPE_CHECKING:
-    from .Visitor import APetsiVisitor, PetsiVisitor
-    from .plugins.Plugins import AbstractPlugin, \
+    from .visitor import APetsiVisitor, PetsiVisitor
+    from .plugins.interface import AbstractPlugin, \
         AbstractTokenObserver, AbstractTransitionObserver, AbstractPlaceObserver
 
     from typing import Any, Set, Dict, Deque, Callable, ValuesView, Iterator

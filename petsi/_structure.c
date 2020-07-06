@@ -2028,7 +2028,6 @@ static const char __pyx_k_weight[] = "weight";
 static const char __pyx_k_Place_2[] = "Place";
 static const char __pyx_k_TestArc[] = "TestArc";
 static const char __pyx_k_TypeVar[] = "TypeVar";
-static const char __pyx_k_Visitor[] = "Visitor";
 static const char __pyx_k_a_timed[] = "a timed";
 static const char __pyx_k_add_arc[] = "add_arc";
 static const char __pyx_k_flatten[] = "flatten";
@@ -2139,7 +2138,6 @@ static const char __pyx_k_Transition_fire[] = "Transition.fire";
 static const char __pyx_k_UpdateOp___init[] = "UpdateOp.__init__";
 static const char __pyx_k_add_constructor[] = "add_constructor";
 static const char __pyx_k_attach_observer[] = "attach_observer";
-static const char __pyx_k_plugins_Plugins[] = "plugins.Plugins";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_register_plugin[] = "register_plugin";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
@@ -2159,6 +2157,7 @@ static const char __pyx_k_Condition_is_true[] = "Condition.is_true";
 static const char __pyx_k_Net_add_inhibitor[] = "Net.add_inhibitor";
 static const char __pyx_k_Transition_accept[] = "Transition.accept";
 static const char __pyx_k_output_place_name[] = "output_place_name";
+static const char __pyx_k_plugins_interface[] = "plugins.interface";
 static const char __pyx_k_report_arrival_at[] = "report_arrival_at";
 static const char __pyx_k_report_arrival_of[] = "report_arrival_of";
 static const char __pyx_k_transition_with_a[] = " transition with a ";
@@ -2411,7 +2410,6 @@ static PyObject *__pyx_n_s_UpdateOp_apply;
 static PyObject *__pyx_n_s_ValueError;
 static PyObject *__pyx_n_s_ValuesView;
 static PyObject *__pyx_kp_u_ValuesView_AbstractPlugin;
-static PyObject *__pyx_n_s_Visitor;
 static PyObject *__pyx_kp_u__2;
 static PyObject *__pyx_kp_u__3;
 static PyObject *__pyx_kp_u__4;
@@ -2514,7 +2512,7 @@ static PyObject *__pyx_n_s_place;
 static PyObject *__pyx_n_s_place_name;
 static PyObject *__pyx_n_s_places;
 static PyObject *__pyx_n_s_plugin;
-static PyObject *__pyx_n_s_plugins_Plugins;
+static PyObject *__pyx_n_s_plugins_interface;
 static PyObject *__pyx_n_s_popleft;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_priority;
@@ -27623,7 +27621,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
   {&__pyx_n_s_ValuesView, __pyx_k_ValuesView, sizeof(__pyx_k_ValuesView), 0, 0, 1, 1},
   {&__pyx_kp_u_ValuesView_AbstractPlugin, __pyx_k_ValuesView_AbstractPlugin, sizeof(__pyx_k_ValuesView_AbstractPlugin), 0, 1, 0, 0},
-  {&__pyx_n_s_Visitor, __pyx_k_Visitor, sizeof(__pyx_k_Visitor), 0, 0, 1, 1},
   {&__pyx_kp_u__2, __pyx_k__2, sizeof(__pyx_k__2), 0, 1, 0, 0},
   {&__pyx_kp_u__3, __pyx_k__3, sizeof(__pyx_k__3), 0, 1, 0, 0},
   {&__pyx_kp_u__4, __pyx_k__4, sizeof(__pyx_k__4), 0, 1, 0, 0},
@@ -27726,7 +27723,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_place_name, __pyx_k_place_name, sizeof(__pyx_k_place_name), 0, 0, 1, 1},
   {&__pyx_n_s_places, __pyx_k_places, sizeof(__pyx_k_places), 0, 0, 1, 1},
   {&__pyx_n_s_plugin, __pyx_k_plugin, sizeof(__pyx_k_plugin), 0, 0, 1, 1},
-  {&__pyx_n_s_plugins_Plugins, __pyx_k_plugins_Plugins, sizeof(__pyx_k_plugins_Plugins), 0, 0, 1, 1},
+  {&__pyx_n_s_plugins_interface, __pyx_k_plugins_interface, sizeof(__pyx_k_plugins_interface), 0, 0, 1, 1},
   {&__pyx_n_s_popleft, __pyx_k_popleft, sizeof(__pyx_k_popleft), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_priority, __pyx_k_priority, sizeof(__pyx_k_priority), 0, 0, 1, 1},
@@ -29236,8 +29233,8 @@ if (!__Pyx_RefNanny) {
  * # mypy: mypy_path=..
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
- *     from .Visitor import APetsiVisitor, PetsiVisitor
- *     from .plugins.Plugins import AbstractPlugin, \
+ *     from .visitor import APetsiVisitor, PetsiVisitor
+ *     from .plugins.interface import AbstractPlugin, \
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -29248,8 +29245,8 @@ if (!__Pyx_RefNanny) {
     /* "petsi/_structure.py":21
  * 
  * if TYPE_CHECKING:
- *     from .Visitor import APetsiVisitor, PetsiVisitor             # <<<<<<<<<<<<<<
- *     from .plugins.Plugins import AbstractPlugin, \
+ *     from .visitor import APetsiVisitor, PetsiVisitor             # <<<<<<<<<<<<<<
+ *     from .plugins.interface import AbstractPlugin, \
  *         AbstractTokenObserver, AbstractTransitionObserver, AbstractPlaceObserver
  */
     __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
@@ -29260,7 +29257,7 @@ if (!__Pyx_RefNanny) {
     __Pyx_INCREF(__pyx_n_s_PetsiVisitor);
     __Pyx_GIVEREF(__pyx_n_s_PetsiVisitor);
     PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_PetsiVisitor);
-    __pyx_t_2 = __Pyx_Import(__pyx_n_s_Visitor, __pyx_t_1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Import(__pyx_n_s_visitor, __pyx_t_1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 21, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_APetsiVisitor); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
@@ -29275,8 +29272,8 @@ if (!__Pyx_RefNanny) {
 
     /* "petsi/_structure.py":22
  * if TYPE_CHECKING:
- *     from .Visitor import APetsiVisitor, PetsiVisitor
- *     from .plugins.Plugins import AbstractPlugin, \             # <<<<<<<<<<<<<<
+ *     from .visitor import APetsiVisitor, PetsiVisitor
+ *     from .plugins.interface import AbstractPlugin, \             # <<<<<<<<<<<<<<
  *         AbstractTokenObserver, AbstractTransitionObserver, AbstractPlaceObserver
  * 
  */
@@ -29294,7 +29291,7 @@ if (!__Pyx_RefNanny) {
     __Pyx_INCREF(__pyx_n_s_AbstractPlaceObserver);
     __Pyx_GIVEREF(__pyx_n_s_AbstractPlaceObserver);
     PyList_SET_ITEM(__pyx_t_2, 3, __pyx_n_s_AbstractPlaceObserver);
-    __pyx_t_1 = __Pyx_Import(__pyx_n_s_plugins_Plugins, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_Import(__pyx_n_s_plugins_interface, __pyx_t_2, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_AbstractPlugin); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
@@ -29382,8 +29379,8 @@ if (!__Pyx_RefNanny) {
  * # mypy: mypy_path=..
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
- *     from .Visitor import APetsiVisitor, PetsiVisitor
- *     from .plugins.Plugins import AbstractPlugin, \
+ *     from .visitor import APetsiVisitor, PetsiVisitor
+ *     from .plugins.interface import AbstractPlugin, \
  */
   }
 

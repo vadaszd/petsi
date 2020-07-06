@@ -24,7 +24,7 @@ from ..meters import MeterPlugin
 from ._sojourntime import SojournTimeCollector, SojournTimePluginTokenObserver
 
 if TYPE_CHECKING:
-    from ..Plugins import NoopPlaceObserver, NoopTransitionObserver
+    from ..interface import NoopPlaceObserver, NoopTransitionObserver
     from ..._structure import Token
 
 

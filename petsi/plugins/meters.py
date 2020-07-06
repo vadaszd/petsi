@@ -8,7 +8,7 @@ from typing import Generic, TypeVar, TYPE_CHECKING
 from ..util import export
 
 from ._meters import GenericCollector
-from .Plugins import APlaceObserver, ATransitionObserver, ATokenObserver, AbstractPlugin
+from .interface import APlaceObserver, ATransitionObserver, ATokenObserver, AbstractPlugin
 
 if TYPE_CHECKING:
     from .autofire import Clock

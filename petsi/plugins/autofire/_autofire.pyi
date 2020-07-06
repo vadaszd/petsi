@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING, List, Set, Dict, Tuple, Iterator, Callable
 
 if TYPE_CHECKING:
     from . import _structure
-    from plugins import Plugins
+    from plugins import interface
 
 
 class _PriorityLevel:
@@ -106,13 +106,13 @@ class FireControl:
         """
 
 
-class AutoFirePluginTransitionObserver(Plugins.NoopTransitionObserver["AutoFirePlugin"]):
+class AutoFirePluginTransitionObserver(interface.NoopTransitionObserver["AutoFirePlugin"]):
 
     _fire_control: "FireControl"
     _deadline: float
 
-    def __init__(self, _plugin: "Plugins.Plugin", _transition: "_structure.Transition",
-                     _fire_control: "FireControl"): pass
+    def __init__(self, _plugin: "interface.Plugin", _transition: "_structure.Transition",
+                 _fire_control: "FireControl"): pass
 
 
 

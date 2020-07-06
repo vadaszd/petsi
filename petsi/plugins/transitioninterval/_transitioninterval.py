@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     # Same trick for Transition
     from ..._structure import Transition as TTransition
 
-    from ..Plugins import APlugin
+    from ..interface import APlugin
 
 
 class FiringCollector(GenericCollector):

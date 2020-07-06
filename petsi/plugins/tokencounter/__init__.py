@@ -22,7 +22,7 @@ from ..meters import MeterPlugin
 from ._tokencounter import TokenCounterCollector, TokenCounterPluginPlaceObserver
 
 if TYPE_CHECKING:
-    from ..Plugins import NoopTokenObserver, NoopTransitionObserver
+    from ..interface import NoopTokenObserver, NoopTransitionObserver
     from ..._structure import Place
 
 

@@ -1,5 +1,11 @@
 {{ fullname | escape | underline}}
 
+{% set module_path = fullname.split('.')[:-1] %}
+
+{% if module_path %}
+This module is part of package :mod:`{{ module_path | join('.') }}`.
+{% endif %}
+
 Overview
 --------
 

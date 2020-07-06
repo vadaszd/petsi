@@ -15,7 +15,7 @@ from .plugins.transitioninterval import TransitionIntervalPlugin
 from .plugins.sojourntime import SojournTimePlugin
 from .plugins.tokencounter import TokenCounterPlugin
 
-from .NetViz import Visualizer
+from .netviz import Visualizer
 from ._structure import Net
 from .plugins.autofire import AutoFirePlugin
 from .plugins.autofire import Clock

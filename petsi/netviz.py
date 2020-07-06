@@ -5,17 +5,26 @@
 
     The generated `graphviz` representation of a simple example Petri net.
 
+.. rubric:: Synopsis
+
+.. code-block:: python
+
+    from .netviz import Visualizer
+    visualizer = Visualizer(...)
+
 """
 
 from dataclasses import dataclass, field
 from functools import singledispatchmethod, reduce
 from typing import Union, Tuple, Optional
 from graphviz import Digraph
+from petsi import export
 
-from .Visitor import PetsiVisitor
+from .visitor import PetsiVisitor
 from ._structure import Net, Transition, Place, Arc, TestArc, InhibitorArc
 
 
+@export
 @dataclass
 class Visualizer(PetsiVisitor):
     """ A Petri net visitor converting the net to a :class:`~graphviz.Digraph` object.

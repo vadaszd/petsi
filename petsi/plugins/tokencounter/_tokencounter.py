@@ -9,7 +9,7 @@ if TYPE_CHECKING:
     # Same trick for Place
     from ..._structure import Place as TPlace
 
-    from ..Plugins import APlugin
+    from ..interface import APlugin
 
 
 class TokenCounterCollector(GenericCollector):

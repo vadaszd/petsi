@@ -2,7 +2,7 @@
 
 Visitors can be used to transform the Petri nets into alternate representations or manipulate them in other ways.
 
-An example implementation of the visitor interface is :class:`petsi.NetViz.Visualizer`.
+An example implementation of the visitor interface is :class:`petsi.netviz.Visualizer`.
 """
 
 from abc import ABC, abstractmethod

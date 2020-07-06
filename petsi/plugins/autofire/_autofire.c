@@ -1842,13 +1842,13 @@ static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
 static const char __pyx_k_fire_control_2[] = "_fire_control";
 static const char __pyx_k_priority_level[] = "priority_level";
 static const char __pyx_k_random_choices[] = "random_choices";
-static const char __pyx_k_plugins_Plugins[] = "plugins.Plugins";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
 static const char __pyx_k_FireControl_reset[] = "FireControl.reset";
 static const char __pyx_k_FireControl_start[] = "FireControl.start";
 static const char __pyx_k_PriorityLevelDict[] = "PriorityLevelDict";
 static const char __pyx_k_enable_transition[] = "enable_transition";
+static const char __pyx_k_plugins_interface[] = "plugins.interface";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_disable_transition[] = "disable_transition";
 static const char __pyx_k_pyx_unpickle_Clock[] = "__pyx_unpickle_Clock";
@@ -1970,7 +1970,7 @@ static PyObject *__pyx_n_s_petsi_plugins_autofire__autofire;
 static PyObject *__pyx_kp_s_petsi_plugins_autofire__autofire_2;
 static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_plugin;
-static PyObject *__pyx_n_s_plugins_Plugins;
+static PyObject *__pyx_n_s_plugins_interface;
 static PyObject *__pyx_n_s_prepare;
 static PyObject *__pyx_n_s_priority;
 static PyObject *__pyx_n_s_priority_level;
@@ -10152,7 +10152,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_petsi_plugins_autofire__autofire_2, __pyx_k_petsi_plugins_autofire__autofire_2, sizeof(__pyx_k_petsi_plugins_autofire__autofire_2), 0, 0, 1, 0},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_plugin, __pyx_k_plugin, sizeof(__pyx_k_plugin), 0, 0, 1, 1},
-  {&__pyx_n_s_plugins_Plugins, __pyx_k_plugins_Plugins, sizeof(__pyx_k_plugins_Plugins), 0, 0, 1, 1},
+  {&__pyx_n_s_plugins_interface, __pyx_k_plugins_interface, sizeof(__pyx_k_plugins_interface), 0, 0, 1, 1},
   {&__pyx_n_s_prepare, __pyx_k_prepare, sizeof(__pyx_k_prepare), 0, 0, 1, 1},
   {&__pyx_n_s_priority, __pyx_k_priority, sizeof(__pyx_k_priority), 0, 0, 1, 1},
   {&__pyx_n_s_priority_level, __pyx_k_priority_level, sizeof(__pyx_k_priority_level), 0, 0, 1, 1},
@@ -11023,7 +11023,7 @@ if (!__Pyx_RefNanny) {
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
  *     from petsi import _structure
- *     from plugins.Plugins import APlugin
+ *     from plugins.interface import APlugin
  */
   __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_TYPE_CHECKING); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -11035,7 +11035,7 @@ if (!__Pyx_RefNanny) {
  * 
  * if TYPE_CHECKING:
  *     from petsi import _structure             # <<<<<<<<<<<<<<
- *     from plugins.Plugins import APlugin
+ *     from plugins.interface import APlugin
  * 
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 49, __pyx_L1_error)
@@ -11055,7 +11055,7 @@ if (!__Pyx_RefNanny) {
     /* "petsi/plugins/autofire/_autofire.py":50
  * if TYPE_CHECKING:
  *     from petsi import _structure
- *     from plugins.Plugins import APlugin             # <<<<<<<<<<<<<<
+ *     from plugins.interface import APlugin             # <<<<<<<<<<<<<<
  * 
  * 
  */
@@ -11064,7 +11064,7 @@ if (!__Pyx_RefNanny) {
     __Pyx_INCREF(__pyx_n_s_APlugin);
     __Pyx_GIVEREF(__pyx_n_s_APlugin);
     PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_APlugin);
-    __pyx_t_2 = __Pyx_Import(__pyx_n_s_plugins_Plugins, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_Import(__pyx_n_s_plugins_interface, __pyx_t_1, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_APlugin); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
@@ -11078,7 +11078,7 @@ if (!__Pyx_RefNanny) {
  * 
  * if TYPE_CHECKING:             # <<<<<<<<<<<<<<
  *     from petsi import _structure
- *     from plugins.Plugins import APlugin
+ *     from plugins.interface import APlugin
  */
   }
 

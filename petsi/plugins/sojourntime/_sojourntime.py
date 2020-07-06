@@ -11,7 +11,7 @@ if TYPE_CHECKING:
     # Same trick for Token and Place
     from ..._structure import Token as TToken, Place as TPlace
 
-    from ..Plugins import APlugin
+    from ..interface import APlugin
 
 
 class SojournTimeCollector(GenericCollector):

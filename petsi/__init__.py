@@ -1,4 +1,4 @@
-""" The main package for Petsi - a Petri net simulator for performance modelling.
+""" The main package for `PetSi` - a practically usable Petri net simulator for performance modelling.
 
 .. rubric:: Synopsis
 
@@ -9,7 +9,7 @@
 
 .. autodata:: Simulator
 
-    For the interface documentation, refer to :class:`.Simulation.Simulator`.
+    For the interface documentation, refer to :class:`.simulation.Simulator`.
 
 .. rubric:: Internal submodules
 
@@ -22,6 +22,6 @@
 """
 from .util import export
 
-from .Simulation import Simulator
+from .simulation import Simulator
 
 export(Simulator)

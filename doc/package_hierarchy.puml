@@ -1,0 +1,48 @@
+@startuml
+
+package "petsi" <<Node>> #ccffcc {
+    package "_structure" <<Folder>> #ffebe6 {
+    }
+    package "netviz" <<Folder>> #e6f3ff {
+    }
+    package "simulation" <<Folder>> #e6f3ff {
+    }
+    package "util" <<Folder>> #e6f3ff {
+    }
+    _structure -[hidden]- netviz
+    netviz -[hidden]- simulation
+    simulation -[hidden]- util
+
+    package "plugins" <<Node>> #ffe6cc {
+        package "interface" <<Folder>> #e6f3ff {
+        }
+        package "meters" <<Folder>> #e6f3ff {
+        }
+        package "_meters" <<Folder>> #ffebe6 {
+        }
+        interface -[hidden]- meters
+        meters -[hidden]- _meters
+
+        package "autofire" <<Node>> #e4c49b {
+            package "_autofire" <<Folder>> #ffebe6 {
+            }
+        }
+        package "sojourntime" <<Node>> #e6e6ff {
+            package "_sojourntime" <<Folder>> #ffebe6 {
+            }
+        }
+        package "tokencounter" <<Node>> #e6e6ff {
+            package "_tokencounter" <<Folder>> #ffebe6 {
+            }
+        }
+        package "transitioninterval" <<Node>> #e6e6ff {
+            package "_transitioninterval" <<Folder>> #ffebe6 {
+            }
+        }
+        autofire -[hidden]- sojourntime
+        sojourntime -[hidden]- tokencounter
+        tokencounter -[hidden]- transitioninterval
+    }
+}
+
+@enduml

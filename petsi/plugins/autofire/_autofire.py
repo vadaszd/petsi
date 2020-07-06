@@ -47,7 +47,7 @@ import cython
 
 if TYPE_CHECKING:
     from petsi import _structure
-    from plugins.Plugins import APlugin
+    from plugins.interface import APlugin
 
 
 @cython.cclass

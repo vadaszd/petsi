@@ -9,7 +9,7 @@
     If your plugin needs to implement some of the methods only, you can reuse the ``Noop...``
     implementation classes.
 
-    How Petsi interacts with the plugins is described on the :doc:`Design` page.
+    How `PetSi` interacts with the plugins is described on the :ref:`design-internal-structures-interactions` page.
 """
 from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
@@ -53,14 +53,14 @@ class AbstractPlaceObserver(ABC, Generic[APlugin]):
     def report_arrival_of(self, token):
         """ Report the arrival of a token at the observed place.
 
-        Petsi will invoke this method whenever a token arrives at the observed state.
+        `PetSi` will invoke this method whenever a token arrives at the observed state.
         """
 
     @abstractmethod
     def report_departure_of(self, token):
         """ Report the departure of a token from the observed place.
 
-        Petsi will invoke this method whenever a token departs from the observed state.
+        `PetSi` will invoke this method whenever a token departs from the observed state.
         """
 
 
@@ -90,7 +90,7 @@ class AbstractTransitionObserver(ABC, Generic[APlugin]):
     def before_firing(self, ):
         """ A callback to notify about the start of the firing process.
 
-        Petsi will invoke this method before each firing.
+        `PetSi` will invoke this method before each firing.
         """
 
     @abstractmethod
@@ -138,21 +138,21 @@ class AbstractTokenObserver(ABC, Generic[APlugin]):
     def report_construction(self, ):
         """ Report the construction of the token.
 
-        Petsi will invoke this method after the token and its observers are constructed.
+        `PetSi` will invoke this method after the token and its observers are constructed.
         """
 
     @abstractmethod
     def report_destruction(self, ):
         """ Report the destruction of the token.
 
-        Petsi will invoke this method before the token is destroyed.
+        `PetSi` will invoke this method before the token is destroyed.
         """
 
     @abstractmethod
     def report_arrival_at(self, p: "Place"):
         """ Report the arrival of the token at the given place.
 
-        Petsi will invoke this method after the token and its observers are constructed.
+        `PetSi` will invoke this method after the token and its observers are constructed.
         """
 
     @abstractmethod
@@ -161,7 +161,7 @@ class AbstractTokenObserver(ABC, Generic[APlugin]):
 
 @dataclass(eq=False)
 class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObserver]):
-    """ The interface for all Petsi plugins.
+    """ The interface for all `PetSi` plugins.
 
     This class defines the interface for creating place, transition and token observers and
     manages the marking related state of the observers.
@@ -185,7 +185,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
 
         Override this method to create a place observer implementation.
 
-        Petsi will invoke this method for the places of the net that were selected for observation.
+        `PetSi` will invoke this method for the places of the net that were selected for observation.
         The method should return a place observer or ``None`` if the plugin is not interested in observing places.
 
         :param p: The :class:`~petsi._structure.Place` to observe.
@@ -197,7 +197,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
 
         Override this method to create a token observer implementation.
 
-        Petsi will invoke this method for the tokens of the net that were selected for observation.
+        `PetSi` will invoke this method for the tokens of the net that were selected for observation.
         The method should return a token observer or ``None`` if the plugin is not interested in observing tokens.
 
         :param t: The :class:`~petsi._structure.Token` to observe.
@@ -209,7 +209,7 @@ class AbstractPlugin(ABC, Generic[APlaceObserver, ATransitionObserver, ATokenObs
 
         Override this method to create a transition observer implementation.
 
-        Petsi will invoke this method for the transition of the net that were selected for observation.
+        `PetSi` will invoke this method for the transition of the net that were selected for observation.
         The method should return a transition observer or ``None`` if the plugin is not interested in observing
         transitions.
 
