@@ -10,10 +10,14 @@ that define the APIs. Some other links lead to examples on how to use these inte
 - For typical everyday use, the :doc:`simulation API <_generated/petsi.simulation>` is of interest.
   This API allows you to create Petri nets and run performance simulations.
 
+.. _extension-mechanisms:
+
 - `PetSi` has a modular, extensible internal architecture that allows for extending its built-in functionality.
 
   - The :doc:`plugin API <_generated/petsi.plugins.interface>` is for extending `PetSi` with additional functionality
-    based on the `observer pattern <https://en.wikipedia.org/wiki/Observer_pattern>`_. Internally, `PetSi` itself is
+    based on the `observer pattern <https://en.wikipedia.org/wiki/Observer_pattern>`_. The pluign you write
+    will get notifications about tokens being constructed and destructed, arriving and leaving places,
+    transitions becoming enabled or disabled. Internally, `PetSi` itself is
     a user of this interface to implement some of its built-in functionality, like automatically selecting and
     :doc:`firing transitions <_generated/petsi.plugins.autofire>`
     and :doc:`collecting metrics <_generated/petsi.plugins.meters>` about the places, transitions or tokens of the net.
@@ -72,3 +76,4 @@ Here is where you can start navigating the package hierarchy:
 
     petsi
 
+Alternatively you can refer to the :ref:`modindex`.

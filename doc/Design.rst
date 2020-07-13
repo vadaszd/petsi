@@ -1,47 +1,9 @@
 Design
 ================
 
-Why `PetSi`?
------------------
-Petri nets were an interesting research topic in the first decade of the 2000s.
-(By today the academic interest has shifted to `process mining <https://en.wikipedia.org/wiki/Process_mining>`_.)
+For a functional overview, see :doc:`Semantics`.
 
-During the decade a number of implementations have been developed. The goal of these implementations were
-exploration and education, which resulted in a *huge diversity even at the conceptual level*,
-at the expense of the practical usability of these tools in an industry setting.
-
-For an overview the interested reader can refer to the
-`Petri net tool database <https://www.informatik.uni-hamburg.de/TGI/PetriNets/tools/>`_
-of the University of Hamburg or one of the numerous review papers like
-`A Survey of Petri Net Tools <https://www.researchgate.net/publication/282209737_A_Survey_of_Petri_Net_Tools>`_.
-
-Unfortunately most of these tools
-
-- are *outdated* by today to the extent that one cannot easily run them
-- *do not fit into a modern analytical software environment* like a Jupyter notebook
-- are *no longer maintained*
-- are *not free for industrial use*
-
-These factors have become blockers for Petri nets becoming an industry practice and limited their popularity to the
-academic realm.
-
-`PetSi` is trying to address these problems and demonstrate the practical usability of Petri nets for the
-performance modelling of distributed computer systems.
-That is, `PetSi` focuses on one particular area of Petri net applications and does not pretend to be a
-general purpose tool. It follows the `Unix philosophy <https://en.wikipedia.org/wiki/Unix_philosophy>`_:
-
-.. highlights::
-
-   *Do one thing and do it well.*
-
-However, the real motivation for `PetSi` is not to find a use case for Petri nets, but to find a solution
-to the problem of **understanding the performance characteristics of distributed computer systems**.
-Being able to evaluate different system architectures without actually having to first implement them
-is a major benefit in todays's fast paced environments.
-Distributed systems include not only cloud applications but also traditional ones,
-as the internals of modern computers increasingly resemble computer networks.
-
-Design goals
+Goals
 --------------
 .. rubric:: Support for interactive, explorative analysis
 

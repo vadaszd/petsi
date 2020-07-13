@@ -10,7 +10,9 @@ Petsi: A Petri net simulator for performance analysis
    :maxdepth: 2
    :caption: Contents:
 
+   WhyPetsi
    Tutorials
+   Semantics
    HowTo
    Design
    Reference
