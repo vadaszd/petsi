@@ -76,7 +76,8 @@ class Simulator:
 
         :param required_observations:
             Keyword arguments specifying the types of the streams to observe.
-                Currently the following types are supported:
+            Currently the following types are supported:
+
                 - ``token_visits``
                 - ``place_population``
                 - ``transition_firing``
@@ -123,6 +124,7 @@ class Simulator:
 
         :param required_observations:
             Keyword arguments specifying the number of observations in each stream. The allowed keys are:
+
                 - ``token_visits``
                 - ``place_population``
                 - ``transition_firing``

@@ -13,6 +13,20 @@ if TYPE_CHECKING:
 
 
 class FiringCollector(GenericCollector):
+    """ Collect data about the firings of transitions when the firing is completed.
+
+    For an overview see :ref:`collecting-simulation-data`.
+
+    .. rubric:: Structure of the observations collected
+    .. csv-table::
+        :header:  Field name, Data type, Description
+        :widths: auto
+
+        ``transition`` ,``unsigned int (16 bits)`` , The index of the transition fired
+        ``firing_time`` , ``double`` , When transition was fired
+        ``interval`` , ``double`` , The time elapsed since the previous firing of the transition
+
+    """
     _type_codes = dict(transition='I',   # unsigned int (16 bits)
                        firing_time='d',  # double
                        interval='d',     # double

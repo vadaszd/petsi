@@ -429,7 +429,8 @@ class Transition:
                 observer.got_enabled()
             else:
                 # if not self.is_timed:
-                    observer.got_disabled()
+                #     observer.got_disabled()
+                observer.got_disabled()
 
     def add_arc(self, arc: "Arc"):
         if arc.name in self._arcs:
@@ -443,6 +444,15 @@ class Transition:
 
     @cython.locals(arc="Arc")
     def fire(self):
+        """ Action the flows defined by the arcs of the transition.
+
+        The execution of the flows is preceded by calls to
+        :meth:`~petsi.plugins.interface.AbstractTransitionObserver.before_firing` and succeeded by calls to
+        :meth:`~petsi.plugins.interface.AbstractTransitionObserver.after_firing` such that
+        the callbacks see a consistent picture of the net.
+
+        :raises AssertionError: The transition is not enabled.
+        """
         assert self.is_enabled, f"Transition '{self._name}' is disabled, it cannot be fired"
         for transition_observer in self._transition_observers:
             transition_observer.before_firing()
@@ -530,10 +540,13 @@ class Arc:
 # noinspection PyAbstractClass
 @cython.cclass
 class PresenceObserver(Arc):
-    """ An Arc-mixin providing the feature of enabling/disabling a transition.
+    """ An Arc-mixin providing the feature of `enablement status`.
 
-        The arc is notified of the presence of a token at the input place.
-        This information is forwarded to the transition so it can manage its enablement status.
+        The arc maintains a local enablment status and is notified of the presence or absence of
+        at least one token at its input place. If needed, the arc will adjust its status and
+        forward status change notifications to the transition
+        so that the transition can manage its own enablement status
+        aggregating the pieces of status information from received from its arcs.
     """
 
     # Transitions track the number of disabled arcs. To match this,

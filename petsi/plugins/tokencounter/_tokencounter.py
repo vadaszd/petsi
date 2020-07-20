@@ -13,6 +13,21 @@ if TYPE_CHECKING:
 
 
 class TokenCounterCollector(GenericCollector):
+    """ Collect data about periods of stable token population at a place when the number of tokens changes.
+
+    For an overview see :ref:`collecting-simulation-data`.
+
+    .. rubric:: Structure of the observations collected
+    .. csv-table::
+        :header:  Field name, Data type, Description
+        :widths: auto
+
+        ``start_time`` , ``double`` , The time the stable period started
+        ``place`` , ``unsigned int (16 bits)``, The index of the place with the stable period
+        ``count`` , ``unsigned long long (64 bits)`` , The number of the tokens at the place during the stable period
+        ``duration`` , ``double`` , The duration of the stable period.
+
+    """
     _type_codes = dict(start_time='d',   # double
                        place='I',        # unsigned int (16 bits)
                        count='Q',        # unsigned long long (64 bits)

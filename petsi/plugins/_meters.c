@@ -1962,7 +1962,7 @@ static int __pyx_pf_5petsi_7plugins_7_meters_16GenericCollector___init__(struct 
 
 /* Python wrapper */
 static PyObject *__pyx_pw_5petsi_7plugins_7_meters_16GenericCollector_3reset(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static char __pyx_doc_5petsi_7plugins_7_meters_16GenericCollector_2reset[] = " Place newly created, empty arrays into :attr:`_arrays`\n\n        In derived classes this mthod can be extended to initialize custom instance attributes to point at\n        the arrays, so that :meth:`collect` can bypass the lookup operation on :attr:`_arrays`\n        ";
+static char __pyx_doc_5petsi_7plugins_7_meters_16GenericCollector_2reset[] = " Place newly created, empty arrays into :attr:`_arrays`\n\n        In derived classes this method can be extended to initialize custom instance attributes to point at\n        the arrays, so that :meth:`collect` can bypass the lookup operation on :attr:`_arrays`\n        ";
 static PyMethodDef __pyx_mdef_5petsi_7plugins_7_meters_16GenericCollector_3reset = {"reset", (PyCFunction)__pyx_pw_5petsi_7plugins_7_meters_16GenericCollector_3reset, METH_NOARGS, __pyx_doc_5petsi_7plugins_7_meters_16GenericCollector_2reset};
 static PyObject *__pyx_pw_5petsi_7plugins_7_meters_16GenericCollector_3reset(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;

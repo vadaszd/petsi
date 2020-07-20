@@ -3,6 +3,7 @@ Package reference
 
 Functional overview
 -------------------------
+The package reference assumes that you are already familiar with the :doc:`Semantics`.
 
 Functionally, the `PetSi` API consists of multiple parts. Follow the links below to the documentations of the modules
 that define the APIs. Some other links lead to examples on how to use these interfaces:

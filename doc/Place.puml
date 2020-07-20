@@ -1,0 +1,25 @@
+@startuml
+scale 700 width
+hide empty description
+
+state UNDEFINED_TIMED #c6c6c6: (Choice pseudostate)
+
+state ERROR #ffb3b3
+state UNDEFINED #b3b3ff
+state STABLE #b3ffb3
+state TRANSIENT #b3ffb3
+
+[*] --> UNDEFINED
+UNDEFINED --> UNDEFINED_TIMED: [to a timed transition]
+UNDEFINED_TIMED --> STABLE : [token consumer arc]
+UNDEFINED_TIMED --> ERROR: [non-consumer arc]
+UNDEFINED --> UNDEFINED: [non-consumer arc to an immediate transition]
+UNDEFINED --> TRANSIENT: [token consumer arc to an immediate transition]
+
+STABLE --> ERROR: [any arc to a timed transition OR \n token consumer arc to an immediate transition]
+STABLE --> STABLE: [non-consumer arc to an immediate transition]
+
+TRANSIENT --> ERROR : [arc to a timed transition]
+TRANSIENT --> TRANSIENT: [arc to an immediate transition]
+
+@enduml

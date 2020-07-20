@@ -31,6 +31,7 @@ release = '0.1.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    # 'sphinx.ext.autosectionlabel', <-- this extension does not work because there are multiple `Overview` sections
     'recommonmark', 'sphinx.ext.autodoc', 'sphinx.ext.autosummary',
     'sphinx.ext.githubpages', 'sphinx.ext.intersphinx', 'sphinx.ext.viewcode',
 ]

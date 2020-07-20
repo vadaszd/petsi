@@ -59,7 +59,7 @@ class GenericCollector:
     def reset(self):
         """ Place newly created, empty arrays into :attr:`_arrays`
 
-        In derived classes this mthod can be extended to initialize custom instance attributes to point at
+        In derived classes this method can be extended to initialize custom instance attributes to point at
         the arrays, so that :meth:`collect` can bypass the lookup operation on :attr:`_arrays`
         """
         self._arrays.clear()

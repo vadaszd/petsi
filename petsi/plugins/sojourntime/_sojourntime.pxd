@@ -9,14 +9,14 @@ cdef class SojournTimeCollector(GenericCollector):
     cdef array _token_id
     cdef array _token_type
     cdef array _start_time
-    cdef array _num_transitions
+    cdef array _visit_number
     cdef array _place
     cdef array _duration
 
     cdef collect(self, unsigned long long token_id,
                        unsigned int token_type,
                        double start_time,
-                       unsigned long long transitions,
+                       unsigned long long visit_number,
                        unsigned int place, double duration)
 
 
@@ -24,7 +24,7 @@ cdef class SojournTimePluginTokenObserver:
     cdef object _plugin   # Plugins.Plugin
     cdef Token _token
     cdef unsigned long long _token_id
-    cdef unsigned long long _transition_count
+    cdef unsigned long long _visit_number
     cdef frozenset _places
 
     cdef Clock _clock
